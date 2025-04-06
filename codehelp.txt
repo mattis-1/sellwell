@@ -1,0 +1,56 @@
+#
+bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
+
+mb-3 inline-block bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-[16px] font-[600] rounded-[99px] px-4 py-1
+
+Text Size Changing -->
+
+text-xs: 0.75rem (12px)
+text-sm: 0.875rem (14px)
+text-base: 1rem (16px)
+text-lg: 1.125rem (18px)
+text-xl: 1.25rem (20px)
+text-2xl: 1.5rem (24px)
+text-3xl: 1.875rem (30px)
+text-4xl: 2.25rem (36px)
+text-5xl: 3rem (48px)
+text-6xl: 3.75rem (60px)
+text-7xl: 4.5rem (72px)
+text-8xl: 6rem (96px)
+text-9xl: 8rem (128px)
+
+leading-none --> line-height: 1;
+leading-<number> --> line-height: calc(var(--spacing) * <number>)
+leading-(<custom-property>) --> line-height: var(<custom-property>);
+leading-[<value>]
+
+Border Radius -->
+
+rounded-none: No border radius.
+rounded-sm: Small border radius.
+rounded: The default border radius.
+rounded-md: Medium border radius.
+rounded-lg: Large border radius.
+rounded-xl: Extra large border radius.
+rounded-2xl: Even larger border radius.
+rounded-3xl: Very large border radius.
+rounded-full: Fully rounded (circular).
+Rounded Borders:
+rounded-tl-lg: Top-left corner.
+rounded-tr-lg: Top-right corner.
+rounded-br-lg: Bottom-right corner.
+rounded-bl-lg: Bottom-left corner.
+
+Borders
+
+border-[#ECECEC] color
+border  (1px)
+border-2 (2px)
+border-3 (3px)
+...
+
+max-w-4xl (896px)
+max-w-5xl (1024px)
+max-w-6xl (1152px)
+max-w-7xl (1280px)
+Or custom: max-w-[1400px]
