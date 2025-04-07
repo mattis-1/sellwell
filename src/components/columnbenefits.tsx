@@ -25,21 +25,21 @@ const Somebenefits: React.FC = () => {
     },
     {
       id: 3,
-      header: "Entwicklung im perfekten Arbeitsumfeld",
+      header: "Entwicklung im perfekten Umfeld",
       description: "Richtig Geld verdienen & währendessen vergessen, dass man bei der Arbeit ist - genau das ist bei Sellwell möglich. Mit ambitionierten, symphatischen Kollegen Aufsteigen leichter als je zuvor.",
       iconUrl: "/gs.svg", // Replace with your actual icon path
     },
   ];
 
   return (
-    <section className="bg-white py-16">
+    <section className="bg-white pt-16">
       <div className="container mx-auto px-4">
         {/* Headline with SVG Underline */}
         <div className="text-center mb-16">
           <h2 className="inter700 text-[47.5px] md:text-[47.5px] tracking-[-2px] mb-[-18px]">Bei uns <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
 ">im Vertrieb</span> ...</h2>
           {/* SVG underline placeholder - replace this with your cool underline SVG */}
-          <div className="relative w-127 h-6 mb-15 mx-auto">
+          <div className="relative w-127 h-1 mb-5 mx-auto">
             {/* This is where you'll paste your SVG underline */}
             <Image 
                     src="/Underline2.svg"
@@ -52,7 +52,7 @@ const Somebenefits: React.FC = () => {
         </div>
 
         {/* Three Column Layout */}
-        <div className="grid grid-cols-1 mt-25 md:grid-cols-3 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 mt-25 md:grid-cols-3 gap-4 md:gap-4">
           {benefits.map((benefit) => (
             <div 
               key={benefit.id} 
@@ -74,7 +74,8 @@ const Somebenefits: React.FC = () => {
               </div>
               
               {/* Header */}
-              <h3 className="text-2xl inter700 text-[27.5px] mb-4">{benefit.header}</h3>
+              <h3 className="text-2xl inter700 text-[27.5px] px-2 mb-4 bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
+">{benefit.header}</h3>
               
               {/* Description */}
               <p className="text-gray-900">{benefit.description}</p>

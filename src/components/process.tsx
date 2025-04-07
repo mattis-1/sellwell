@@ -11,7 +11,37 @@ interface RowContent {
   iconUrl?: string;
 }
 
-const Process: React.FC = () => {
+interface ProcessProps {
+  // Spacing customization
+  rowSpacing?: string;        // Space between rows
+  contentSpacing?: string;    // Space between text and image
+  iconTextSpacing?: string;   // Space between icon and text
+  textPadding?: string;       // Padding for text content
+  
+  // Size customization
+  imageHeight?: string;       // Height for images on mobile and desktop
+  imageHeightMd?: string;     // Height for images on medium screens and up
+  iconSize?: string;          // Size of the icon/number container
+  
+  // Custom styles
+  customRowClass?: string;    // Additional classes for rows
+  customImageClass?: string;  // Additional classes for images
+  customTextClass?: string;   // Additional classes for text content
+}
+
+const Process: React.FC<ProcessProps> = ({
+  // Default values for all customizable properties
+  rowSpacing = "mb-24",                // Increased from mb-16
+  contentSpacing = "pr-12",            // Increased from pr-8
+  iconTextSpacing = "mr-8",            // Increased from mr-6
+  textPadding = "pr-8",                // Increased from pr-6
+  imageHeight = "h-56",                // Decreased from h-64
+  imageHeightMd = "md:h-72",           // Decreased from md:h-80
+  iconSize = "w-20 h-20",              // Kept the same
+  customRowClass = "",
+  customImageClass = "",
+  customTextClass = "",
+}) => {
   // State to track which rows are visible
   const [visibleRows, setVisibleRows] = useState<Record<string, boolean>>({});
   
@@ -80,41 +110,43 @@ const Process: React.FC = () => {
   }, []);
 
   return (
-    <section className="container mx-auto px-4 py-16">
-          <div className="max-w-4xl mx-auto text-center mb-4">
-      <div className="mt-[-20px] flex justify-center mb-1">
-        <div className="inline-flex items-center g-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-[14px] px-4 py-2 border-[1.7px] border-[#C8C7C6] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
-             <Image 
-               src="/Green Star.svg" 
-               alt="Green Star" 
-               width={22}
-               height={22}
-               className="mr-2"
-             />
-          <p className="text-center font-medium text-primary mb-[2.25px]">
-            Unser Bewerbungsprozess
-          </p>
+    <section className="container mx-auto px-4 pt-30 py-20">
+      <div className="max-w-4xl mx-auto text-center mb-1">
+        <div className="mt-[-20px] flex justify-center mb-3">
+          <div className="inline-flex items-center g-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-[14px] px-4 py-2 border-[1.7px] border-[#C8C7C6] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
+            <Image 
+              src="/Green Star.svg" 
+              alt="Green Star" 
+              width={22}
+              height={22}
+              className="mr-2"
+            />
+            <p className="text-center font-medium text-primary mb-[2.25px]">
+              Unser Bewerbungsprozess
+            </p>
+          </div>
         </div>
-        </div>
-        </div>
-      <div className="inter700 text-[65px] tracking-[-2px] text-center pb-2">So leicht ist es</div>
+      </div>
+      
+      <div className="inter700 text-[65px] tracking-[-2px] text-center pb-4">So leicht ist es</div>
       <div className="inter700 text-[25px] bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
- tracking-[-0.2px] text-center pb-20">In unter 2 Minuten, ohne Anschrift<br />oder Lebenslauf</div>
+ tracking-[-0.2px] text-center pb-16">In unter 2 Minuten, ohne Anschrift<br />oder Lebenslauf</div>
+      
       {rows.map((row) => (
         <div 
           key={row.id} 
           data-id={row.id.toString()}
-          className={`process-row flex flex-col md:flex-row items-center mb-16 transition-opacity duration-1000 ease-in-out ${
+          className={`process-row flex flex-col md:flex-row items-center ${rowSpacing} transition-opacity duration-1000 ease-in-out ${
             visibleRows[row.id.toString()] ? 'opacity-100' : 'opacity-0'
-          }`}
+          } ${customRowClass}`}
         >
           {/* Left side: Larger column with icon, headline and text */}
-          <div className="md:w-3/5 pr-8">
-            <div className="flex items-start">
+          <div className={`md:w-3/5 ${contentSpacing}`}>
+            <div className="flex items-start pl-10">
               {/* Icon Container - Larger and now can use custom images */}
-              <div className="w-20 h-20 flex-shrink-0 mt-[-14px] mr-6">
+              <div className={`flex-shrink-0 mt-[-14px] ${iconTextSpacing} ${iconSize}`}>
                 {row.iconUrl ? (
-                  <div className="relative w-20 h-20">
+                  <div className={`relative ${iconSize}`}>
                     <Image 
                       src={row.iconUrl} 
                       alt={`Icon for ${row.headline}`} 
@@ -124,22 +156,22 @@ const Process: React.FC = () => {
                     />
                   </div>
                 ) : (
-                  <div className="w-20 h-20 flex items-center justify-center bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-2xl font-bold rounded-full">
+                  <div className={`flex items-center justify-center bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-2xl font-bold rounded-full ${iconSize}`}>
                     {row.id}
                   </div>
                 )}
               </div>
 
-              <div>
-                <h3 className="text-[38px] tracking-[-1px] inter700 font-bold mb-4">{row.headline}</h3>
-                <p className="text-[#000] font-[400] text-[20px] pr-6">{row.text}</p>
+              <div className={customTextClass}>
+                <h3 className="text-[38px] tracking-[-1px] inter700 font-bold mb-3">{row.headline}</h3>
+                <p className={`text-[#000] font-[400] text-[18px] ${textPadding}`}>{row.text}</p>
               </div>
             </div>
           </div>
 
           {/* Right side: Image - now pushed more to the right */}
-          <div className="md:w-2/5 mt-6 md:mt-0">
-            <div className="relative w-full h-64 md:h-80">
+          <div className="md:w-2/5 mt-8 md:mt-0 pr-15">
+            <div className={`relative w-full ${imageHeight} ${imageHeightMd} ${customImageClass}`}>
               <Image 
                 src={row.imageUrl} 
                 alt={`Image for ${row.headline}`} 
@@ -150,14 +182,32 @@ const Process: React.FC = () => {
           </div>
         </div>
       ))}
-      <a href="/bewerben">
-      <div className="text-center">
-      <Button className=" py-2 text-[27.5px] mt-10 mb-2 rounded-[99px]" variant="default">
-      Jetzt schnell bewerben
-                </Button>
+            <div className="max-w-4xl mx-auto text-center mt-40 mb-1">
+        <div className="mt-[-20px] flex justify-center mb-3">
+          <div className="inline-flex items-center g-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-[14px] px-4 py-2 border-[1.7px] border-[#C8C7C6] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
+            <Image 
+              src="/Green Star.svg" 
+              alt="Green Star" 
+              width={22}
+              height={22}
+              className="mr-2"
+            />
+            <p className="text-center font-medium text-primary mb-[2.25px]">
+              Richtig Karriere machen
+            </p>
+          </div>
+        </div>
       </div>
-      <div className="inter700 text-[19px] text-center bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
-">Ohne Lebenslauf & Anschreiben</div>
+      <div className="inter700 tracking-[-1px] text-center text-[45px]">Starte in deine neue<br />Zukunft <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
+">mit Sellwell</span></div>
+      <a href="/bewerben">
+        <div className="text-center">
+          <Button className="py-2 text-[25px] mt-6 mb-3 rounded-[99px]" variant="default">
+JETZT SCHNELL BEWERBEN          </Button>
+        </div>
+        <div className="inter700 text-[19px] text-center bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">
+          Ohne Lebenslauf & Anschreiben
+        </div>
       </a>
     </section>
   );

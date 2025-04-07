@@ -10,10 +10,14 @@ const Footer = () => {
           {/* Left section with "Noch Fragen?" */}
           <div className="md:col-span-4 md:col-start-1 md:ml-6">
             <h4 className="font-medium text-xl mb-4">Noch Fragen?</h4>
-            <button className="inline-flex items-center px-4 py-2 text-black font-semibold rounded-full hover:opacity-90 transition shadow-[0_2px_3px_rgba(0,0,0,0.5)]" 
-              style={{ background: 'radial-gradient(circle, #745A36 0%, #B59F7E 100%)' }}>
-              Kontakt aufnehmen →
+            <Link href="/kontakt">
+            <button 
+              className="inline-flex items-center px-5 py-2.5 text-[#000] font-[700] text-base rounded-[10px] hover:opacity-90 transition shadow-[0_2px_3px_rgba(0,0,0,0.5)]" 
+              style={{ background: 'radial-gradient(circle, #E7E8E8 100%, #ABACAE 0%)' }}
+            >
+              KONTAKT AUFNEHMEN →
             </button>
+          </Link>
           </div>
           
           {/* Right side menu columns - adjusted positioning */}

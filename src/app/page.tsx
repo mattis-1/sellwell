@@ -11,18 +11,13 @@ import SplitSection from "@/components/splitsection-carrer";
 //import { GlowingEffect } from "@/components/ui/glowing-effect";
 import Stellen from "@/components/stellenangebote";
 import { Tabs } from "@/components/ui/tabs"
-import AnimatedQuoteSection from "@/components/zitat"
 import FeatureGrid from "@/components/ctasection"
-import Imgslider from "@/components/slidingimages";
-import Testimonials from "@/components/ui/testimonials"
 import YouTubeGrid from "@/components/youtube"
 import Slider from "@/components/slider"
 import Process from "@/components/process"
 import Somebenefits from "@/components/columnbenefits"
-import { ContainerTextFlip } from "@/components/ui/textflip";
-import { motion } from "motion/react";
 import { cn } from "@/utils/cn";
-import { TypewriterEffect } from "@/components/ui/typewriter";
+
 
 
 const videoIds = [
@@ -89,43 +84,61 @@ export default function Home() {
       
       <main className="flex-1 w-full">
         
-        <section className="relative pl-4 pr-4 py-20 pt-18 pb-1 overflow-hidden bg-gradient-to-b from-background to-muted w-full">
-
-          <div className="container mx-auto px-6 sm:px-12 md:px-24 lg:px-32 relative z-10">
-           
-            <div className="mt-[-20px] flex justify-center mb-5">
-  <div className="inline-flex items-center g-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-[14px] px-4 py-2 border-[1.7px] border-[#C8C7C6] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.09)]">
-       <Image 
-         src="/Green Star.svg" 
-         alt="Green Star" 
-         width={22}
-         height={22}
-         className="mr-2"
-       />
-    <p className="text-center font-medium text-primary mb-[2.25px]">
-      Nummer 1 Vertrieb im D2D in Bayern
-    </p>
-  </div>
-</div>
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-[65px] inter700 tracking-[-1px] md:text-5xl lg:text-6xl leading-18 font-bold mb-6">
+      <section className="relative bg-[#fff] pl-4 pr-4 py-20 pt-18 pb-1 overflow-hidden bg-gradient-to-b from-background to-muted w-full">
+      <div className="container mx-auto px-6 sm:px-12 md:px-24 lg:px-16 relative z-10">
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+          {/* Left Column - Text Content */}
+          <div className="lg:w-1/2">
+            <div className="mt-[-20px] flex lg:justify-start justify-center mb-5">
+              <div className="inline-flex items-center g-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-[14px] px-4 py-2 border-[1.7px] border-[#C8C7C6] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
+                <Image 
+                  src="/Green Star.svg" 
+                  alt="Green Star" 
+                  width={22}
+                  height={22}
+                  className="mr-2"
+                />
+                <p className="text-center font-medium text-primary mb-[2.25px]">
+                  Nummer 1 Vertrieb im D2D in Bayern
+                </p>
+              </div>
+            </div>
+            
+            <div className="lg:text-left text-center">
+              <h1 className="text-[50px] inter700 tracking-[-1px] md:text-[50px] lg:text-[50px] leading-16 font-bold mb-6">
                 Mit Sellwell als Partner{" "}
-                <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent"><br />neue Türen öffnen.</span>
+                <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">neue Türen öffnen.</span>
               </h1>
-              <p className="font-[600] text-xl max-w-160 mx-auto mb-8 text-[#171717]">
-              Ob du als Vertriebstalent richtig Karriere machen willst, oder nach strategischen Vertriebslösungen für deine Unternehmung suchst - Sellwell ist dein perfekter Partner. 
+              <p className="font-[600] text-xl mx-auto mb-8 text-[#171717]">
+                Ob du als Vertriebstalent richtig Karriere machen willst, oder nach strategischen Vertriebslösungen für deine Unternehmung suchst - Sellwell ist dein perfekter Partner. 
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <div className="flex flex-col sm:flex-row gap-4 lg:justify-start justify-center mb-12">
                 <Button className="text-[20px] py-2 rounded-[99px]" variant="default">
                   Für Vertriebstalente
                 </Button>
-                <Button className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent text-[20px] rounded-[99px] " variant="outline">
-                  Für Unternehmer
+                <Button className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent text-[20px] rounded-[99px]" variant="outline">
+                  Für Unternehmen
                 </Button>
               </div>
             </div>
           </div>
-          </section>
+          
+          {/* Right Column - Image */}
+          <div className="lg:w-1/2 w-full h-full mt-[-30px]">
+            <div className="relative w-full aspect-[4/3] h-auto overflow-hidden shadow-lg">
+              <Image 
+                src="/sellwellteam.png" 
+                alt="Sellwell Team" 
+                fill
+                className="object-cover rounded-[30px]"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+          
           <section>
           {/* Infinite scrolling logos */}
           <div className="w-full flex justify-center mt-12">
@@ -559,105 +572,69 @@ WILLKOMMEN BEI SELLWELL  </span>
 
 
 <section className="pb-5 pt-25 bg-background w-full">
-  <div className="container mx-auto">
+      <div className="container mx-auto">
         {/* Mission Statement */}
         <div className="max-w-4xl mx-auto text-center mb-7">
-<div className="mt-[-20px] flex justify-center mb-1">
-  <div className="inline-flex items-center g-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-[14px] px-4 py-2 border-[1.7px] border-[#C8C7C6] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
-       <Image 
-         src="/Green Star.svg" 
-         alt="Green Star" 
-         width={22}
-         height={22}
-         className="mr-2"
-       />
-    <p className="text-center font-medium text-primary mb-[2.25px]">
-      Sellwell für Unternehmen
-    </p>
-  </div>
-</div>
-</div>
-    <h2 className="text-center headr mb-[30px]">Unsere Leistungen</h2>
-    
-    <div className="mb-16">
-      <Tabs
-        containerClassName="justify-center mb-14"
-        activeTabClassName="bg-primary/10 border border-primary/20"
-        tabClassName="font-medium text-sm md:text-base mx-1"
-        contentClassName=""
-        tabs={[
-          {
-            title: "Vertriebsberatung",
-            value: "b2b",
-            content: (
-              <div className="bg-gradient-to-br from-[#0B3E27] to-[#0B5934] p-8 rounded-[60px] shadow-lg justify-center">
-                <div className="text-center text-white mt-12 mb-3">Icon hier</div>
-                <h3 className="text-[42px] font-bold mb-6 text-[#fff] text-center">Vertriebsberatung<br />und Optimierung</h3>
-                
-                  <div>
-                    <p className="text-[#fff] mb-12 leading-relaxed text-[17px] text-center max-w-150 mx-auto">
-                    Wir analysieren Ihre bestehenden Vertriebsprozesse und entwickeln maßgeschneiderte Strategien für den Door-to-Door Bereich. Mit datenbasierter Optimierung und praxiserprobten Methoden steigern wir Ihre Conversion Rates und maximieren den ROI Ihrer Vertriebsaktivitäten.
-                    </p>
-                  </div>
-
-                <div className="mt-8 flex justify-center mb-15">
-                  <button className="px-6 py-3 text-white font-semibold rounded-full transition-all bg-gradient-to-r from-[#0B3E27] to-[#047A43] shadow-[0_4px_12px_-2px_rgba(4,122,67,0.5)] hover:shadow-[0_6px_16px_-2px_rgba(4,122,67,0.7)]">
-                    Mehr über B2B-Vertrieb erfahren
-                  </button>
-                </div>
-              </div>
-            ),
-          },
-          {
-            title: "Neukundengewinnung",
-            value: "b2c",
-            content: (
-              <div className="bg-gradient-to-br from-[#0B3E27] to-[#0B5934] p-8 rounded-[60px] shadow-lg justify-center">
-                <div className="text-center text-white mt-12 mb-3">Icon hier</div>
-                <h3 className="text-[42px] font-bold mb-6 text-[#fff] text-center">Neukundengewinnung<br /> und Lead Generation</h3>
-                
-                  <div>
-                    <p className="text-[#fff] mb-12 leading-relaxed text-[17px] text-center max-w-150 mx-auto">
-                    Wir bringen Ihr Produkt direkt zu den relevanten Kunden und übernehmen den gesamten Akquiseprozess im Door-to-Door Bereich. Mit gezielter Ansprache und bewährten Verkaufstechniken überzeugen wir potenzielle Kunden und generieren qualifizierte Abschlüsse für Ihr Unternehmen.
-                    </p>
-                  </div>
-
-                <div className="mt-8 flex justify-center mb-15">
-                  <button className="px-6 py-3 text-white font-semibold rounded-full transition-all bg-gradient-to-r from-[#0B3E27] to-[#047A43] shadow-[0_4px_12px_-2px_rgba(4,122,67,0.5)] hover:shadow-[0_6px_16px_-2px_rgba(4,122,67,0.7)]">
-                    Mehr über B2B-Vertrieb erfahren
-                  </button>
-                </div>
-              </div>
-            ),
-          },
-          {
-            title: "Vertriebsprozesse",
-            value: "online",
-            content: (
-              <div className="bg-gradient-to-br from-[#0B3E27] to-[#0B5934] p-8 rounded-[60px] shadow-lg justify-center">
-                <div className="text-center text-white mt-12 mb-3">Icon hier</div>
-                <h3 className="text-[42px] font-bold mb-6 text-[#fff] text-center">Vertriebsprozesse<br />und Strategien</h3>
-                
-                  <div>
-                    <p className="text-[#fff] mb-12 leading-relaxed text-[17px] text-center max-w-150 mx-auto">
-                    Wir entwickeln passgenaue Vertriebsprozesse und maßgeschneiderte Strategien für Ihre Produkte im Energiesektor. Von der ersten Kundenansprache bis zum erfolgreichen Abschluss implementieren wir durchdachte Verkaufsabläufe und setzen sie mit unserem erfahrenen Team direkt im Door-to-Door Bereich um.
-                    </p>
-                  </div>
-
-                <div className="mt-8 flex justify-center mb-15">
-                  <button className="px-6 py-3 text-white font-semibold rounded-full transition-all bg-gradient-to-r from-[#0B3E27] to-[#047A43] shadow-[0_4px_12px_-2px_rgba(4,122,67,0.5)] hover:shadow-[0_6px_16px_-2px_rgba(4,122,67,0.7)]">
-                    Mehr über B2B-Vertrieb erfahren
-                  </button>
-                </div>
-              </div>
-            ),
-          },
-          
-        ]}
-      />
-    </div>
-  </div>
-</section>
+          <div className="mt-[-20px] flex justify-center mb-1">
+            <div className="inline-flex items-center g-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-[14px] px-4 py-2 border-[1.7px] border-[#C8C7C6] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
+              <Image 
+                src="/Green Star.svg" 
+                alt="Green Star" 
+                width={22}
+                height={22}
+                className="mr-2"
+              />
+              <p className="text-center font-medium text-primary mb-[2.25px]">
+                Sellwell für Unternehmen
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <h2 className="text-center headr mb-[30px]">Unsere Leistungen</h2>
+        
+        <div className="mb-16">
+          <Tabs
+            containerClassName="justify-center"
+            activeTabClassName="bg-primary/10 border border-primary/20"
+            tabClassName="font-medium text-sm md:text-base"
+            contentClassName=""
+            tabs={[
+              {
+                title: "Vertriebsberatung",
+                value: "b2b",
+                image: "/Leistung1.png", // Replace with your actual image path
+                imageAlt: "Vertriebsberatung und Optimierung",
+                heading: "Vertriebsberatung und Optimierung",
+                text: "Wir analysieren Ihre bestehenden Vertriebsprozesse und entwickeln maßgeschneiderte Strategien für den Door-to-Door Bereich. Mit datenbasierter Optimierung und praxiserprobten Methoden steigern wir Ihre Conversion Rates und maximieren den ROI Ihrer Vertriebsaktivitäten.",
+                buttonText: "JETZT KONTAKT AUFNEHMEN",
+                buttonLink: "/kontakt"
+              },
+              {
+                title: "Neukundengewinnung",
+                value: "b2c",
+                image: "/Leistung2.png", // Replace with your actual image path
+                imageAlt: "Neukundengewinnung und Lead Generation",
+                heading: "Neukunden & Lead Generation",
+                text: "Wir bringen Ihr Produkt direkt zu den relevanten Kunden und übernehmen den gesamten Akquiseprozess im Door-to-Door Bereich. Mit gezielter Ansprache und bewährten Verkaufstechniken überzeugen wir potenzielle Kunden und generieren qualifizierte Abschlüsse für Ihr Unternehmen.",
+                buttonText: "JETZT KONTAKT AUFNEHMEN",
+                buttonLink: "/kontakt"
+              },
+              {
+                title: "Vertriebsprozesse",
+                value: "online",
+                image: "/Leistung3.png", // Replace with your actual image path
+                imageAlt: "Vertriebsprozesse und Strategien",
+                heading: "Vertriebsprozesse und strategische Planung",
+                text: "Wir entwickeln passgenaue Vertriebsprozesse und maßgeschneiderte Strategien für Ihre Produkte im Energiesektor. Von der ersten Kundenansprache bis zum erfolgreichen Abschluss implementieren wir durchdachte Verkaufsabläufe und setzen sie mit unserem erfahrenen Team direkt im Door-to-Door Bereich um.",
+                buttonText: "JETZT KONTAKT AUFNEHMEN",
+                buttonLink: "/kontakt"
+              },
+            ]}
+          />
+        </div>
+      </div>
+    </section>
 
 {/*Für Unternehmen Benefits*/}
 <section className="pt-14 pb-16 bg-background w-full">
@@ -795,23 +772,23 @@ WILLKOMMEN BEI SELLWELL  </span>
   </div>
 </div>
 </div>
-    <h2 className="headr text-center mb-6">Erfolge des Teams</h2>
-    <AnimatedTestimonials 
+    <h2 className="headr text-center mb-[-10px]">Erfolge des Teams</h2>
+    <AnimatedTestimonials
       testimonials={[
         {
-          quote: "Seit unserer Zusammenarbeit mit Sell Well Consulting haben wir nicht nur mehr Kunden, sondern auch deutlich bessere Kundenbindung erreicht.",
+          quote: "Nur einige Monate nach seinem Start bei Sellwell schaffte Chris es, sich auf eine Gehaltshöhe zu befördern, von der andere nur träumen können.",
           name: "Chris Marquardt",
           designation: "VERTRIEBSBERATER",
           src: "/Chris-1x1.png"
         },
         {
-          quote: "Sell Well Consulting hat unseren Vertrieb komplett transformiert. Innerhalb von 3 Monaten konnten wir unsere Abschlussrate um 35% steigern.",
+          quote: "Durch Talent, Zielstrebigkeit und einen unermesslichen Drive hat sich Marco in nur 6 Monaten zum Teamleiter und einem 5-stelligem Gehalt hochgearbeitet.",
           name: "Marco Sandrisser",
           designation: "TEAMLEITER",
           src: "/Marco-1x1.png"
         },
         {
-          quote: "Die strategische Beratung war genau das, was wir brauchten. Professionell, zielgerichtet und mit messbaren Ergebnissen. Absolut empfehlenswert!",
+          quote: "Schon seit Tag 1 mit dabei und konstant dabei, Höchstleistungen zu erzielen. Mittlerweile ist Stefan Ausbilder und einer der Top-Performer in unserem Team.",
           name: "Stefan Sonderholzer",
           designation: "AUSBILDER & VERTRIEBSBERATER",
           src: "/Stefan-1x1.png"
@@ -819,6 +796,21 @@ WILLKOMMEN BEI SELLWELL  </span>
       ]}
       autoplay={true}
     />
+ <div className="flex flex-row items-center justify-center space-x-4 pt-4 pb-8">
+      <Button 
+        className="text-[22px] py-2 rounded-[99px]" 
+        variant="default"
+      >
+        JETZT BEWERBEN
+      </Button>
+      
+      <Button 
+        className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent text-[22px] rounded-[99px]" 
+        variant="outline"
+      >
+       MEHR ERFAHREN
+      </Button>
+    </div>
   </div>
 </section>
 
@@ -828,7 +820,7 @@ WILLKOMMEN BEI SELLWELL  </span>
   <section className="pt-20">
   <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem' }}>
     {/* Mission Statement */}
-    <div className="max-w-4xl mx-auto text-center mb-7">
+    <div className="max-w-4xl mx-auto text-center mb-1">
 <div className="mt-[-20px] flex justify-center mb-1">
   <div className="inline-flex items-center g-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-[14px] px-4 py-2 border-[1.7px] border-[#C8C7C6] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
        <Image 
@@ -853,7 +845,7 @@ WILLKOMMEN BEI SELLWELL  </span>
     </section>
 
 
-<section className="py-5 lg:py-5 relative overflow-clip">
+<section className="pt-5 lg:py-5 relative overflow-clip mb-[-75px]">
       {/* Background gradient overlay */}
       <div className="bg-gradient-to-t absolute from-[#fff] to-[#fff] inset-0 w-full h-full pointer-events-none"></div>
       <div className="container relative">
@@ -896,11 +888,7 @@ WILLKOMMEN BEI SELLWELL  </span>
 
 {/*Instagram Einbindung*/}
 <section>
-  <div>Sellwell auf Instagram</div>
 </section>
-
-{/*Bilder Schleife*/}
-<Imgslider />
 
 {/*4 CTA Kasten*/}
 <FeatureGrid />

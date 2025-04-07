@@ -61,17 +61,17 @@ const MissionSection = () => {
             
             {/* Centered Image Overlay */}
             <div className="absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 flex justify-center items-center">
-              <div className="relative" style={{ borderRadius: '40px', padding: '10px' }}>
+              <div className="relative mt-10" style={{ borderRadius: '40px', padding: '30px' }}>
                 <Image 
-                  src="/Unsere Mission.png" 
+                  src="/Unsere Mission 2.png" 
                   alt="Unsere Mission" 
                   width={750} 
-                  height={450} 
+                  height={500} 
                   className="w-auto h-auto"
                   style={{ 
                     borderRadius: '32px', 
                     maxWidth: '750px',
-                    maxHeight: '450px',
+                    maxHeight: '500px',
                     objectFit: 'contain',
                   }} 
                 />

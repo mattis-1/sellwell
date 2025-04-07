@@ -52,7 +52,7 @@ const Stellen = () => {
     <section className="pt-0 pb-10 mb-10 w-full bg-background">
       <div className="container mx-auto px-6">
         {/* Centered Headline */}
-        <h2 className="headr text-center mb-16">
+        <h2 className="headr text-center mt-15 mb-16">
           Aktuelle <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">Stellenangebote</span>
         </h2>
         
