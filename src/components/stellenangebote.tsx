@@ -1,5 +1,4 @@
 import React from 'react';
-import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 const Stellen = () => {
   // Common card style for the container

@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Award, Users, Clock, BarChart } from 'lucide-react';
 
 const Statistics = () => {
   const [counters, setCounters] = useState({
@@ -20,6 +19,32 @@ const Statistics = () => {
   const hasAnimated = useRef(false);
 
   useEffect(() => {
+    // Define animateCounters inside the effect to avoid dependency issues
+    const animateCounters = () => {
+      const duration = 2000; // Animation duration in ms
+      const steps = 60;
+      const interval = duration / steps;
+
+      let currentStep = 0;
+      
+      const timer = setInterval(() => {
+        currentStep++;
+        const progress = currentStep / steps;
+        
+        if (currentStep >= steps) {
+          clearInterval(timer);
+          setCounters(targetValues);
+        } else {
+          setCounters({
+            projects: Math.floor(progress * targetValues.projects),
+            clients: Math.floor(progress * targetValues.clients),
+            years: Math.floor(progress * targetValues.years),
+            revenue: Math.floor(progress * targetValues.revenue)
+          });
+        }
+      }, interval);
+    };
+
     const observer = new IntersectionObserver((entries) => {
       const [entry] = entries;
       if (entry.isIntersecting && !hasAnimated.current) {
@@ -28,41 +53,20 @@ const Statistics = () => {
       }
     }, { threshold: 0.1 });
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    // Store current ref value in a variable
+    const currentSectionRef = sectionRef.current;
+
+    if (currentSectionRef) {
+      observer.observe(currentSectionRef);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      // Use the stored ref value in cleanup
+      if (currentSectionRef) {
+        observer.unobserve(currentSectionRef);
       }
     };
-  }, []);
-
-  const animateCounters = () => {
-    const duration = 2000; // Animation duration in ms
-    const steps = 60;
-    const interval = duration / steps;
-
-    let currentStep = 0;
-    
-    const timer = setInterval(() => {
-      currentStep++;
-      const progress = currentStep / steps;
-      
-      if (currentStep >= steps) {
-        clearInterval(timer);
-        setCounters(targetValues);
-      } else {
-        setCounters({
-          projects: Math.floor(progress * targetValues.projects),
-          clients: Math.floor(progress * targetValues.clients),
-          years: Math.floor(progress * targetValues.years),
-          revenue: Math.floor(progress * targetValues.revenue)
-        });
-      }
-    }, interval);
-  };
+  }, []); // No need to include animateCounters as it's now inside the effect
 
   return (
     <section 
@@ -93,12 +97,11 @@ const Statistics = () => {
             <p className="text-center opacity-80">Jahre Erfahrung</p>
           </div>
 
-{/* Stat 4 */}
-<div className="flex flex-col items-center">
+          {/* Stat 4 */}
+          <div className="flex flex-col items-center">
             <div className="text-5xl font-bold mb-2">{counters.revenue}</div>
             <p className="text-center opacity-80">Jahre Erfahrung</p>
           </div>
-          
         </div>
       </div>
     </section>

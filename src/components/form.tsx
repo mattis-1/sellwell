@@ -142,12 +142,12 @@ export default function SellwellForm() {
   };
 
   // Handle "next" navigation
-  const handleNext = (nextStep: string): void => {
+  {/*const handleNext = (nextStep: string): void => {
     setCurrentStep(nextStep);
-  };
+  };*/}
   
   // Handle "back" navigation
-  const handleBack = (): void => {
+  {/*const handleBack = (): void => {
     // Define the navigation flow for going back
     switch(currentStep) {
       case 'salesExperience':
@@ -186,7 +186,7 @@ export default function SellwellForm() {
       default:
         setCurrentStep('initial');
     }
-  };
+  };*/}
 
   return (
     <div className="max-w-2xl mx-auto p-6">

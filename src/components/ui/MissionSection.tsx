@@ -4,23 +4,13 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import AnimatedText from '@/components/ui/missiontext';
 
-// Sample testimonial data
-const testimonials = [
-  { id: 1, text: "Hervorragende Beratung, unser Vertrieb hat sich um 30% gesteigert", company: "Tech GmbH" },
-  { id: 2, text: "Seit unserer Zusammenarbeit sind unsere Zahlen besser denn je", company: "Marketing AG" },
-  { id: 3, text: "Professionelles Team mit genialen Ideen", company: "Handel & Co" },
-  { id: 4, text: "Effektive Strategien für langfristigen Erfolg", company: "Solutions KG" },
-  { id: 5, text: "Kompetente Beratung und messbare Ergebnisse", company: "Software GmbH" },
-  { id: 6, text: "Hat unsere Erwartungen übertroffen", company: "Produktion AG" },
-  { id: 7, text: "Fantastische Zusammenarbeit über Jahre hinweg", company: "Logistik GmbH" },
-  { id: 8, text: "Schnelle und nachhaltige Ergebnisse", company: "Einzelhandel KG" },
-];
+
 
 // Duplicate testimonials for infinite scrolling
-const testimonialsForSlider = [...testimonials, ...testimonials, ...testimonials];
+//const testimonialsForSlider = [...testimonials, ...testimonials, ...testimonials];
 
 const MissionSection = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [,setIsLoaded] = useState(false);
 
   useEffect(() => {
     setIsLoaded(true);

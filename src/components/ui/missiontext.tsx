@@ -27,13 +27,17 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({ text, className = '' }) => 
       }
     );
     
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
+    // Store the current ref value in a variable
+    const currentRefElement = containerRef.current;
+    
+    if (currentRefElement) {
+      observer.observe(currentRefElement);
     }
     
     return () => {
-      if (containerRef.current) {
-        observer.unobserve(containerRef.current);
+      // Use the stored ref value in cleanup
+      if (currentRefElement) {
+        observer.unobserve(currentRefElement);
       }
     };
   }, []);
