@@ -8,7 +8,6 @@ import VerticalGallerySection from "@/components/waterfall";
 import Statistics from "@/components/Statistics";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import SplitSection from "@/components/splitsection-carrer";
-//import { GlowingEffect } from "@/components/ui/glowing-effect";
 import Stellen from "@/components/stellenangebote";
 import { Tabs } from "@/components/ui/tabs"
 import FeatureGrid from "@/components/ctasection"
@@ -16,9 +15,6 @@ import YouTubeGrid from "@/components/youtube"
 import Slider from "@/components/slider"
 import Process from "@/components/process"
 import Somebenefits from "@/components/columnbenefits"
-//import { cn } from "@/utils/cn";
-
-
 
 const videoIds = [
   "tUgM4kCF7rU", // New IDs
@@ -76,21 +72,70 @@ export default function Home() {
     },
   ];
 
-
   return (
     <div className="flex min-h-screen flex-col w-full">
       {/* Header spans full width */}
       <Header />
       
       <main className="flex-1 w-full">
-        
-      <section className="relative bg-[#fff] pl-4 pr-4 py-20 pt-18 pb-1 overflow-hidden bg-gradient-to-b from-background to-muted w-full">
-      <div className="container mx-auto px-6 sm:px-12 md:px-24 lg:px-16 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-          {/* Left Column - Text Content */}
-          <div className="lg:w-1/2">
-            <div className="mt-[-20px] flex lg:justify-start justify-center mb-5">
-              <div className="inline-flex items-center g-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-[14px] px-4 py-2 border-[1.7px] border-[#C8C7C6] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
+        {/* Hero Section with contained background */}
+        <div className="relative overflow-hidden">
+          {/* Background layers start */}
+          <div className="absolute inset-0 bg-[#F4F2F1] dark:from-[#0A0A0A] dark:to-[#0A0A0A] z-0"></div>
+          
+          {/* Left abstract elements - fully contained */}
+          <div className="absolute top-[-10%] left-[-40%] w-[95%] h-[120%] z-[1] opacity-90">
+            <div className="relative w-full h-full">
+              <div className="absolute w-[80%] h-[80%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.4)_0%,rgba(217,249,157,0.15)_70%)] top-[10%] left-[10%] blur-[50px]"></div>
+              <div className="absolute w-[60%] h-[60%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.45)_0%,rgba(217,249,157,0.2)_70%)] top-[20%] left-[20%] blur-[40px]"></div>
+              <div className="absolute w-[40%] h-[40%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.5)_0%,rgba(217,249,157,0.25)_70%)] top-[30%] left-[30%] blur-[30px]"></div>
+              <div className="absolute w-[25%] h-[25%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.55)_0%,rgba(217,249,157,0.3)_70%)] top-[38%] left-[38%] blur-[20px]"></div>
+            </div>
+            <div className="relative w-full h-full -rotate-25">
+              <div className="absolute w-[70%] h-[70%] rounded-full bg-[radial-gradient(circle,rgba(217,249,157,0.4)_0%,rgba(134,239,172,0.15)_70%)] top-[15%] left-[15%] blur-[45px]"></div>
+              <div className="absolute w-[50%] h-[50%] rounded-full bg-[radial-gradient(circle,rgba(217,249,157,0.45)_0%,rgba(134,239,172,0.2)_70%)] top-[25%] left-[25%] blur-[35px]"></div>
+              <div className="absolute w-[30%] h-[30%] rounded-full bg-[radial-gradient(circle,rgba(217,249,157,0.5)_0%,rgba(134,239,172,0.25)_70%)] top-[35%] left-[35%] blur-[25px]"></div>
+            </div>
+          </div>
+          
+          {/* Right abstract elements - fully contained */}
+          <div className="absolute top-[-10%] right-[-40%] w-[95%] h-[120%] z-[1] opacity-90 rotate-180">
+            <div className="relative w-full h-full">
+              <div className="absolute w-[80%] h-[80%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.4)_0%,rgba(217,249,157,0.15)_70%)] top-[10%] left-[10%] blur-[50px]"></div>
+              <div className="absolute w-[60%] h-[60%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.45)_0%,rgba(217,249,157,0.2)_70%)] top-[20%] left-[20%] blur-[40px]"></div>
+              <div className="absolute w-[40%] h-[40%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.5)_0%,rgba(217,249,157,0.25)_70%)] top-[30%] left-[30%] blur-[30px]"></div>
+              <div className="absolute w-[25%] h-[25%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.55)_0%,rgba(217,249,157,0.3)_70%)] top-[38%] left-[38%] blur-[20px]"></div>
+            </div>
+            <div className="relative w-full h-full -rotate-25">
+              <div className="absolute w-[70%] h-[70%] rounded-full bg-[radial-gradient(circle,rgba(217,249,157,0.4)_0%,rgba(134,239,172,0.15)_70%)] top-[15%] left-[15%] blur-[45px]"></div>
+              <div className="absolute w-[50%] h-[50%] rounded-full bg-[radial-gradient(circle,rgba(217,249,157,0.45)_0%,rgba(134,239,172,0.2)_70%)] top-[25%] left-[25%] blur-[35px]"></div>
+              <div className="absolute w-[30%] h-[30%] rounded-full bg-[radial-gradient(circle,rgba(217,249,157,0.5)_0%,rgba(134,239,172,0.25)_70%)] top-[35%] left-[35%] blur-[25px]"></div>
+            </div>
+          </div>
+          
+          {/* Noise texture overlay - now with higher opacity and comes before vertical lines */}
+          <div className="absolute inset-0 opacity-[0.12] bg-[url('https://framerusercontent.com/images/6mcf62RlDfRfU61Yg5vb2pefpi4.png')] bg-repeat bg-[size:128px] z-[2]"></div>
+          
+          {/* Vertical blocks grid - lines with dual shadow effect */}
+          <div className="absolute inset-0 flex justify-between z-[1]">
+            {[...Array(24)].map((_, i) => {
+              return (
+                <div key={i} className="h-full w-[4%]" style={{
+                  borderRight: '0.25px solid rgba(244, 242, 241,0.1)',
+                  boxShadow: '-26px 0 40px rgba(244, 242, 241,0.24), 10px 0 25px rgba(0, 0, 0, 0.001)'
+                }}></div>
+              );
+            })}
+          </div>
+          
+          {/* Smooth transition gradient at bottom */}
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[#F4F2F1] dark:to-[#0A0A0A] z-[4]"></div>
+          {/* Background layers end */}
+
+          {/* Hero content with higher z-index */}
+          <div className="relative z-10 px-8 pb-16 sm:px-20 pt-20 sm:pb-16 container mx-auto">
+            <div className="flex flex-col items-center">
+              <div className="inline-flex items-center  rounded-[14px] px-4 py-2 border-[1px] border-[#AAA] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)] mb-5">
                 <Image 
                   src="/Green Star.svg" 
                   alt="Green Star" 
@@ -102,43 +147,28 @@ export default function Home() {
                   Nummer 1 Vertrieb im D2D in Bayern
                 </p>
               </div>
-            </div>
-            
-            <div className="lg:text-left text-center">
-              <h1 className="text-[50px] inter700 tracking-[-1px] md:text-[50px] lg:text-[50px] leading-16 font-bold mb-6">
-                Mit Sellwell als Partner{" "}
-                <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">neue Türen öffnen.</span>
-              </h1>
-              <p className="font-[600] text-xl mx-auto mb-8 text-[#171717]">
-                Ob du als Vertriebstalent richtig Karriere machen willst, oder nach strategischen Vertriebslösungen für deine Unternehmung suchst - Sellwell ist dein perfekter Partner. 
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 lg:justify-start justify-center mb-12">
-                <Button className="text-[20px] py-2 rounded-[99px]" variant="default">
-                  Für Vertriebstalente
-                </Button>
-                <Button className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent text-[20px] rounded-[99px]" variant="outline">
-                  Für Unternehmen
-                </Button>
+              
+              <div className="text-center max-w-4xl mx-auto">
+                <h1 className="text-[50px] md:text-[55px] lg:text-[65px] inter800 tracking-[-2px] leading-[1.3] font-bold mb-5">
+                  Mit Sellwell als Partner{" "}
+                  <span className="bg-gradient-to-r from-[#14532d] to-[#16a34a] bg-clip-text text-transparent"><br />neue Türen öffnen.</span>
+                </h1>
+                <p className="font-[500] text-[20px] mx-auto mb-8 text-[#171717] max-w-180">
+                  Ob du als Vertriebstalent richtig Karriere machen willst, oder nach optimalen Vertriebslösungen für deine Unternehmung suchst - Sellwell ist der perfekter Partner für dich. 
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                  <Button className="text-[20px] py-2 rounded-[99px]" variant="default">
+                    Für Vertriebstalente
+                  </Button>
+                  <Button className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent text-[20px] rounded-[99px]" variant="outline">
+                    Für Unternehmen
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
-          
-          {/* Right Column - Image */}
-          <div className="lg:w-1/2 w-full h-full mt-[-30px]">
-            <div className="relative w-full aspect-[4/3] h-auto overflow-hidden shadow-lg">
-              <Image 
-                src="/sellwellteam.png" 
-                alt="Sellwell Team" 
-                fill
-                className="object-cover rounded-[30px]"
-              />
-            </div>
-          </div>
         </div>
-      </div>
-    </section>
 
-          
           <section>
           {/* Infinite scrolling logos */}
           <div className="w-full flex justify-center mt-12">
