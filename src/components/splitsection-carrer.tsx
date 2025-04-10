@@ -32,7 +32,7 @@ const SplitSection = () => {
         </div>
         
         {/* Right side: Image */}
-        <div className="w-full md:w-1/2 h-[250px] sm:h-[300px] md:min-h-full relative">
+        <div className="w-full md:w-1/2 h-[550px] sm:h-[500px] md:min-h-full relative">
           {/* Image as background */}
           <div className="absolute inset-0 bg-gray-300 mx-4 sm:mx-5 my-4 sm:my-5 md:mr-5 md:ml-0 rounded-[20px] sm:rounded-[36px]">
             <Image 

@@ -73,121 +73,120 @@ export default function Home() {
 
   return (
     <div className="flex min-h-screen flex-col w-full bg-[#FFFFFF]">
-      {/* Header spans full width */}
-      <Header />
+  {/* Header spans full width */}
+  <Header />
+  
+  <main className="flex-1 w-full">
+    {/* Hero Section with contained background */}
+    <div className="relative overflow-hidden">
+      {/* Background layers start */}
+      <div className="absolute inset-0 bg-[#FFFFFF] dark:from-[#0A0A0A] dark:to-[#0A0A0A] z-0"></div>
       
-      <main className="flex-1 w-full">
-        {/* Hero Section with contained background */}
-        <div className="relative overflow-hidden">
-          {/* Background layers start */}
-          <div className="absolute inset-0 bg-[#FFFFFF] dark:from-[#0A0A0A] dark:to-[#0A0A0A] z-0"></div>
-          
-          {/* Left abstract elements - fully contained */}
-          <div className="absolute top-[-10%] left-[-40%] w-[95%] h-[120%] z-[1] opacity-90">
-            <div className="relative w-full h-full">
-              <div className="absolute w-[80%] h-[80%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.4)_0%,rgba(217,249,157,0.15)_70%)] top-[10%] left-[10%] blur-[50px]"></div>
-              <div className="absolute w-[60%] h-[60%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.45)_0%,rgba(217,249,157,0.2)_70%)] top-[20%] left-[20%] blur-[40px]"></div>
-              <div className="absolute w-[40%] h-[40%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.5)_0%,rgba(217,249,157,0.25)_70%)] top-[30%] left-[30%] blur-[30px]"></div>
-              <div className="absolute w-[25%] h-[25%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.55)_0%,rgba(217,249,157,0.3)_70%)] top-[38%] left-[38%] blur-[20px]"></div>
-            </div>
-            <div className="relative w-full h-full -rotate-25">
-              <div className="absolute w-[70%] h-[70%] rounded-full bg-[radial-gradient(circle,rgba(217,249,157,0.4)_0%,rgba(134,239,172,0.15)_70%)] top-[15%] left-[15%] blur-[45px]"></div>
-              <div className="absolute w-[50%] h-[50%] rounded-full bg-[radial-gradient(circle,rgba(217,249,157,0.45)_0%,rgba(134,239,172,0.2)_70%)] top-[25%] left-[25%] blur-[35px]"></div>
-              <div className="absolute w-[30%] h-[30%] rounded-full bg-[radial-gradient(circle,rgba(217,249,157,0.5)_0%,rgba(134,239,172,0.25)_70%)] top-[35%] left-[35%] blur-[25px]"></div>
-            </div>
-          </div>
-          
-          {/* Right abstract elements - fully contained */}
-          <div className="absolute top-[-10%] right-[-40%] w-[95%] h-[120%] z-[1] opacity-90 rotate-180">
-            <div className="relative w-full h-full">
-              <div className="absolute w-[80%] h-[80%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.4)_0%,rgba(217,249,157,0.15)_70%)] top-[10%] left-[10%] blur-[50px]"></div>
-              <div className="absolute w-[60%] h-[60%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.45)_0%,rgba(217,249,157,0.2)_70%)] top-[20%] left-[20%] blur-[40px]"></div>
-              <div className="absolute w-[40%] h-[40%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.5)_0%,rgba(217,249,157,0.25)_70%)] top-[30%] left-[30%] blur-[30px]"></div>
-              <div className="absolute w-[25%] h-[25%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.55)_0%,rgba(217,249,157,0.3)_70%)] top-[38%] left-[38%] blur-[20px]"></div>
-            </div>
-            <div className="relative w-full h-full -rotate-25">
-              <div className="absolute w-[70%] h-[70%] rounded-full bg-[radial-gradient(circle,rgba(217,249,157,0.4)_0%,rgba(134,239,172,0.15)_70%)] top-[15%] left-[15%] blur-[45px]"></div>
-              <div className="absolute w-[50%] h-[50%] rounded-full bg-[radial-gradient(circle,rgba(217,249,157,0.45)_0%,rgba(134,239,172,0.2)_70%)] top-[25%] left-[25%] blur-[35px]"></div>
-              <div className="absolute w-[30%] h-[30%] rounded-full bg-[radial-gradient(circle,rgba(217,249,157,0.5)_0%,rgba(134,239,172,0.25)_70%)] top-[35%] left-[35%] blur-[25px]"></div>
-            </div>
-          </div>
-          
-          {/* Noise texture overlay - now with higher opacity and comes before vertical lines */}
-          <div className="absolute inset-0 opacity-[0.12] bg-[url('https://framerusercontent.com/images/6mcf62RlDfRfU61Yg5vb2pefpi4.png')] bg-repeat bg-[size:128px] z-[2]"></div>
-          
-          {/* Vertical blocks grid - lines with dual shadow effect */}
-          <div className="absolute inset-0 flex justify-between z-[1]">
-            {[...Array(24)].map((_, i) => {
-              return (
-                <div key={i} className="h-full w-[4%]" style={{
-                  borderRight: '0.25px solid rgba(244, 242, 241,0.1)',
-                  boxShadow: '-26px 0 40px rgba(244, 242, 241,0.24), 10px 0 25px rgba(0, 0, 0, 0.001)'
-                }}></div>
-              );
-            })}
-          </div>
-          
-          {/* Smooth transition gradient at bottom */}
-          <div className="absolute bottom-0 left-0 right-0 h-30 bg-gradient-to-b from-transparent to-[#F4F2F1] dark:to-[#0A0A0A] z-[4]"></div>
-          {/* Background layers end */}
-
-          {/* Hero content with higher z-index */}
-          <div className="relative z-10 px-8 pb-16 sm:px-20 pt-20 sm:pb-16 container mx-auto">
-            <div className="flex flex-col items-center">
-              <div className="inline-flex items-center  rounded-[14px] px-4 py-2 border-[1px] border-[#AAA] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)] mb-5">
-                <Image 
-                  src="/Green Star.svg" 
-                  alt="Green Star" 
-                  width={22}
-                  height={22}
-                  className="mr-2"
-                />
-                <p className="text-center font-medium text-[#000] mb-[2.25px]">
-                  Nummer 1 Vertrieb im D2D in Bayern
-                </p>
-              </div>
-              
-              <div className="text-center max-w-4xl mx-auto">
-                <h1 className="text-[50px] text-[#000] md:text-[55px] lg:text-[65px] inter800 tracking-[-2px] leading-[1.3] font-bold mb-5">
-                  Mit Sellwell als Partner{" "}
-                  <span className="bg-gradient-to-r from-[#14532d] to-[#16a34a] bg-clip-text text-transparent"><br />neue Türen öffnen.</span>
-                </h1>
-                <p className="font-[500] text-[20px] mx-auto mb-8 text-[#171717] max-w-180">
-                  Ob du als Vertriebstalent richtig Karriere machen willst, oder nach optimalen Vertriebslösungen für deine Unternehmung suchst - Sellwell ist der perfekter Partner für dich. 
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center mb-20">
-                  <Button className="text-[20px] py-2 rounded-[99px]" variant="default">
-                    Für Vertriebstalente
-                  </Button>
-                  <Button className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent text-[20px] rounded-[99px]" variant="outline">
-                    Für Unternehmen
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
+      {/* Left abstract elements - adjusted positioning for mobile */}
+      <div className="absolute top-[-20%] sm:top-[-10%] left-[-60%] sm:left-[-40%] w-[100%] sm:w-[95%] h-[100%] sm:h-[120%] z-[1] opacity-80 sm:opacity-90">
+        <div className="relative w-full h-full">
+          <div className="absolute w-[80%] h-[80%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.4)_0%,rgba(217,249,157,0.15)_70%)] top-[10%] left-[10%] blur-[50px]"></div>
+          <div className="absolute w-[60%] h-[60%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.45)_0%,rgba(217,249,157,0.2)_70%)] top-[20%] left-[20%] blur-[40px]"></div>
+          <div className="absolute w-[40%] h-[40%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.5)_0%,rgba(217,249,157,0.25)_70%)] top-[30%] left-[30%] blur-[30px]"></div>
+          <div className="absolute w-[25%] h-[25%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.55)_0%,rgba(217,249,157,0.3)_70%)] top-[38%] left-[38%] blur-[20px]"></div>
         </div>
+        <div className="relative w-full h-full -rotate-25">
+          <div className="absolute w-[70%] h-[70%] rounded-full bg-[radial-gradient(circle,rgba(217,249,157,0.4)_0%,rgba(134,239,172,0.15)_70%)] top-[15%] left-[15%] blur-[45px]"></div>
+          <div className="absolute w-[50%] h-[50%] rounded-full bg-[radial-gradient(circle,rgba(217,249,157,0.45)_0%,rgba(134,239,172,0.2)_70%)] top-[25%] left-[25%] blur-[35px]"></div>
+          <div className="absolute w-[30%] h-[30%] rounded-full bg-[radial-gradient(circle,rgba(217,249,157,0.5)_0%,rgba(134,239,172,0.25)_70%)] top-[35%] left-[35%] blur-[25px]"></div>
+        </div>
+      </div>
+      
+      {/* Right abstract elements - adjusted positioning for mobile */}
+      <div className="absolute top-[-20%] sm:top-[-10%] right-[-60%] sm:right-[-40%] w-[100%] sm:w-[95%] h-[100%] sm:h-[120%] z-[1] opacity-80 sm:opacity-90 rotate-180">
+        <div className="relative w-full h-full">
+          <div className="absolute w-[80%] h-[80%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.4)_0%,rgba(217,249,157,0.15)_70%)] top-[10%] left-[10%] blur-[50px]"></div>
+          <div className="absolute w-[60%] h-[60%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.45)_0%,rgba(217,249,157,0.2)_70%)] top-[20%] left-[20%] blur-[40px]"></div>
+          <div className="absolute w-[40%] h-[40%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.5)_0%,rgba(217,249,157,0.25)_70%)] top-[30%] left-[30%] blur-[30px]"></div>
+          <div className="absolute w-[25%] h-[25%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.55)_0%,rgba(217,249,157,0.3)_70%)] top-[38%] left-[38%] blur-[20px]"></div>
+        </div>
+        <div className="relative w-full h-full -rotate-25">
+          <div className="absolute w-[70%] h-[70%] rounded-full bg-[radial-gradient(circle,rgba(217,249,157,0.4)_0%,rgba(134,239,172,0.15)_70%)] top-[15%] left-[15%] blur-[45px]"></div>
+          <div className="absolute w-[50%] h-[50%] rounded-full bg-[radial-gradient(circle,rgba(217,249,157,0.45)_0%,rgba(134,239,172,0.2)_70%)] top-[25%] left-[25%] blur-[35px]"></div>
+          <div className="absolute w-[30%] h-[30%] rounded-full bg-[radial-gradient(circle,rgba(217,249,157,0.5)_0%,rgba(134,239,172,0.25)_70%)] top-[35%] left-[35%] blur-[25px]"></div>
+        </div>
+      </div>
+      
+      {/* Noise texture overlay */}
+      <div className="absolute inset-0 opacity-[0.08] sm:opacity-[0.12] bg-[url('https://framerusercontent.com/images/6mcf62RlDfRfU61Yg5vb2pefpi4.png')] bg-repeat bg-[size:128px] z-[2]"></div>
+      
+      {/* Vertical blocks grid - reduced number for mobile */}
+      <div className="absolute inset-0 flex justify-between z-[1]">
+        {[...Array(12)].map((_, i) => {
+          return (
+            <div key={i} className="h-full w-[8%] sm:w-[4%]" style={{
+              borderRight: '0.25px solid rgba(244, 242, 241,0.1)',
+              boxShadow: '-26px 0 40px rgba(244, 242, 241,0.24), 10px 0 25px rgba(0, 0, 0, 0.001)'
+            }}></div>
+          );
+        })}
+      </div>
+      
+      {/* Smooth transition gradient at bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-20 sm:h-30 bg-gradient-to-b from-transparent to-[#F4F2F1] dark:to-[#0A0A0A] z-[4]"></div>
+      {/* Background layers end */}
 
-        <section>
-        <div className="relative overflow-hidden bg-[#FFF] mt-[-70px]">
-            {/* Hero content with higher z-index */}
-          <div className="relative z-10 px-8 pt-10 pb-10 sm:px-90 sm:pb-10 container mx-auto">
-          <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[#FFFFFF] z-1"></div>
-
-            <div className="flex flex-col items-center ">
-            <div className=" relative h-180 max-h-[650px] rounded-[49px] overflow-hidden shadow-[0_0_100px_3_rgba(5,46,22,1)] backdrop-blur-sm border border-white/10 z-100">
+      {/* Hero content with higher z-index - adjusted padding for mobile */}
+      <div className="relative z-10 px-4 sm:px-8 md:px-20 pt-12 sm:pt-20 pb-10 sm:pb-16 container mx-auto">
+        <div className="flex flex-col items-center">
+          <div className="inline-flex items-center rounded-[10px] sm:rounded-[14px] px-3 sm:px-4 py-1.5 sm:py-2 border-[1px] border-[#AAA] shadow-[1px_1px_10px_0px_rgba(0,0,0,0.15)] sm:shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)] mb-4 sm:mb-5">
             <Image 
-                  src="/sellwellteam.png" 
-                  alt="Sellwell Team" 
-                  width={1000}
-                  height={1000}
-                  className=""
-                />
-                </div>
+              src="/Green Star.svg" 
+              alt="Green Star" 
+              width={18}
+              height={18}
+              className="mr-1.5 sm:mr-2"
+            />
+            <p className="text-center text-sm sm:text-base font-medium text-[#000] mb-[2px]">
+              Nummer 1 Vertrieb im D2D in Bayern
+            </p>
+          </div>
+          
+          <div className="text-center max-w-4xl mx-auto">
+            <h1 className="text-3xl sm:text-[15px] md:text-[50px] lg:text-[65px] inter800 tracking-[-1px] sm:tracking-[-1.5px] md:tracking-[-2px] leading-[1.2] sm:leading-[1.3] font-bold mb-3 sm:mb-5">
+              Mit Sellwell als Partner{" "}
+              <span className="bg-gradient-to-r from-[#14532d] to-[#16a34a] bg-clip-text text-transparent"><br />neue Türen öffnen.</span>
+            </h1>
+            <p className="font-[500] text-base sm:text-lg md:text-[20px] mx-auto mb-6 sm:mb-8 text-[#171717] max-w-180">
+              Ob du als Vertriebstalent richtig Karriere machen willst, oder nach optimalen Vertriebslösungen für deine Unternehmung suchst - Sellwell ist der perfekter Partner für dich. 
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-10 sm:mb-20">
+              <Button className="text-base sm:text-lg md:text-[20px] py-2 rounded-[99px]" variant="default">
+                Für Vertriebstalente
+              </Button>
+              <Button className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent text-base sm:text-lg md:text-[20px] rounded-[99px] mt-2 sm:mt-0" variant="outline">
+                Für Unternehmen
+              </Button>
             </div>
           </div>
         </div>
-        </section>
+      </div>
+    </div>
+
+    <section>
+      <div className="relative overflow-hidden bg-[#FFF] mt-[-40px] sm:mt-[-70px]">
+        {/* Hero content with higher z-index */}
+        <div className="relative z-10 px-4 sm:px-8 md:px-20 lg:px-90 pt-6 sm:pt-10 pb-6 sm:pb-10 container mx-auto">
+          <div className="absolute top-0 left-0 right-0 h-16 sm:h-24 bg-gradient-to-b from-transparent to-[#FFFFFF] z-1"></div>
+
+          <div className="flex flex-col items-center">
+            <div className="relative w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[650px] rounded-[20px] sm:rounded-[30px] md:rounded-[49px] overflow-hidden shadow-[0_0_50px_2px_rgba(5,46,22,0.8)] sm:shadow-[0_0_100px_3px_rgba(5,46,22,1)] backdrop-blur-sm border border-white/10 z-100">
+              <Image 
+                src="/sellwellteam.png" 
+                alt="Sellwell Team" 
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
         <section className="bg-[#F4F2F1]">
       {/* Infinite scrolling logos */}
@@ -677,7 +676,7 @@ export default function Home() {
     
     <div className="mb-8 sm:mb-12 md:mb-16">
       <Tabs
-        containerClassName="justify-center"
+        containerClassName="justify-center sm:justify-center"
         activeTabClassName="bg-transparent border border-[#000]"
         tabClassName="font-medium text-sm md:text-base"
         contentClassName=""
