@@ -855,11 +855,12 @@ export default function Home() {
       </div>
     </div>
     
-    <h1 className="inter800 tracking-[-0.75px] sm:tracking-[-1.2px] md:tracking-[-1.6px] text-2xl sm:text-4xl md:text-5xl lg:text-[55px] text-[#000000] mt-2 sm:mt-4 text-center mb-6 sm:mb-10 md:mb-16">
+    <h1 className="inter800 tracking-[-0.75px] sm:tracking-[-1.2px] md:tracking-[-1.6px] text-2xl sm:text-4xl md:text-5xl lg:text-[55px] text-[#000000] mt-2 sm:mt-4 text-center mb-8 sm:mb-10 md:mb-16">
       Einblicke aus <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">dem Team</span>
     </h1>
     
-    <YouTubeGrid videoIds={videoIds} borderRadius="16px sm:22px" gap="20px sm:30px md:40px" />
+    {/* YouTubeGrid with updated props - no longer needed as we're handling these with Tailwind classes */}
+    <YouTubeGrid videoIds={videoIds} />
   </div>
 </section>
 
