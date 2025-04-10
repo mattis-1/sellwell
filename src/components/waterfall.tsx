@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 
 const VerticalGallerySection = () => {
 
@@ -85,7 +86,7 @@ const VerticalGallerySection = () => {
                 <div key={`left-${img.id}`} className="image-item">
                   <div className="aspect-square rounded-lg overflow-hidden">
                     {/* Using regular img tag for simplicity */}
-                    <img 
+                    <Image 
                       src={img.imageUrl} 
                       alt={img.alt}
                       className="w-full h-full object-cover"
