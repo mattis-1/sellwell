@@ -8,20 +8,30 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 interface BeautifulModalProps {
   isOpen: boolean;
   onClose: () => void;
+  mode: 'Firma' | 'Bewerber'; // New prop to specify the mode
 }
 
-export default function BeautifulModal({ isOpen, onClose }: BeautifulModalProps) {
-  // Form state
+export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: BeautifulModalProps) {
+  // Common form state
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const [company, setCompany] = useState('');
-  const [employeeCount, setEmployeeCount] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   
-  // Current step state
+  // Firma-specific state
+  const [company, setCompany] = useState('');
+  const [message, setMessage] = useState('');
+  
+  // Bewerber-specific state
+  const [salesExperience, setSalesExperience] = useState('');
+  const [jobImportance, setJobImportance] = useState('');
+  const [peopleContact, setPeopleContact] = useState('');
+  const [driversLicense, setDriversLicense] = useState('');
+  const [fitReason, setFitReason] = useState('');
+  
+  // Current step state - different total steps based on mode
   const [currentStep, setCurrentStep] = useState(1);
-  const totalSteps = 5;
+  const totalSteps = mode === 'Firma' ? 4 : 7; // 4 steps for Firma, 7 for Bewerber
   
   // Animation state
   const [isAnimating, setIsAnimating] = useState(true);
@@ -33,11 +43,32 @@ export default function BeautifulModal({ isOpen, onClose }: BeautifulModalProps)
         setIsAnimating(false);
         // Reset form on close
         setCurrentStep(1);
+        resetForm();
       }, 500);
     } else {
       setIsAnimating(true);
     }
   }, [isOpen]);
+
+  // Reset all form fields
+  const resetForm = () => {
+    // Common fields
+    setFirstName('');
+    setLastName('');
+    setEmail('');
+    setPhone('');
+    
+    // Firma-specific fields
+    setCompany('');
+    setMessage('');
+    
+    // Bewerber-specific fields
+    setSalesExperience('');
+    setJobImportance('');
+    setPeopleContact('');
+    setDriversLicense('');
+    setFitReason('');
+  };
 
   // Go to next step
   const handleNext = () => {
@@ -45,15 +76,30 @@ export default function BeautifulModal({ isOpen, onClose }: BeautifulModalProps)
       setCurrentStep(currentStep + 1);
     } else {
       // Submit form
-      console.log('Form submitted', {
-        firstName,
-        lastName,
-        company,
-        employeeCount,
-        email,
-        phone
-      });
+      if (mode === 'Firma') {
+        console.log('Firma Form submitted', {
+          firstName,
+          lastName,
+          company,
+          message,
+          email,
+          phone
+        });
+      } else {
+        console.log('Bewerber Form submitted', {
+          firstName,
+          lastName,
+          salesExperience,
+          jobImportance,
+          peopleContact,
+          driversLicense,
+          fitReason,
+          email,
+          phone
+        });
+      }
       // Optional: close modal or show success message
+      onClose();
     }
   };
 
@@ -66,19 +112,39 @@ export default function BeautifulModal({ isOpen, onClose }: BeautifulModalProps)
 
   // Determine if next button should be enabled for current step
   const isNextEnabled = () => {
-    switch (currentStep) {
-      case 1:
-        return firstName.trim() !== '' && lastName.trim() !== '';
-      case 2:
-        return company.trim() !== '';
-      case 3:
-        return employeeCount !== '';
-      case 4:
-        return email.trim() !== '' && email.includes('@');
-      case 5:
-        return phone.trim() !== '';
-      default:
-        return false;
+    if (mode === 'Firma') {
+      switch (currentStep) {
+        case 1:
+          return firstName.trim() !== '' && lastName.trim() !== '';
+        case 2:
+          return company.trim() !== '';
+        case 3:
+          return message.trim() !== '';
+        case 4:
+          return email.trim() !== '' && email.includes('@') && phone.trim() !== '';
+        default:
+          return false;
+      }
+    } else {
+      // Bewerber mode
+      switch (currentStep) {
+        case 1:
+          return firstName.trim() !== '' && lastName.trim() !== '';
+        case 2:
+          return salesExperience !== '';
+        case 3:
+          return jobImportance !== '';
+        case 4:
+          return peopleContact !== '';
+        case 5:
+          return driversLicense !== '';
+        case 6:
+          return fitReason.trim() !== '';
+        case 7:
+          return email.trim() !== '' && email.includes('@') && phone.trim() !== '';
+        default:
+          return false;
+      }
     }
   };
 
@@ -110,127 +176,340 @@ export default function BeautifulModal({ isOpen, onClose }: BeautifulModalProps)
     );
   };
 
-  // Render current step content
+  // Render current step content based on mode
   const renderStepContent = () => {
-    switch (currentStep) {
-      case 1:
-        return (
-          <>
-            <h2 className="text-xl font-medium text-white mb-4">Wie heißt du?</h2>
-            <div className="flex gap-4 w-full">
-              <div className="relative flex-1">
+    if (mode === 'Firma') {
+      // Firma-specific steps
+      switch (currentStep) {
+        case 1:
+          return (
+            <>
+              <h2 className="text-xl font-medium text-white mb-4">Wie heißt du?</h2>
+              <div className="flex gap-4 w-full">
+                <div className="relative flex-1">
+                  <input
+                    type="text"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    placeholder="Vorname"
+                    className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 text-white placeholder-gray-500 focus:border-[#A954F4] focus:outline-none focus:ring-1 focus:ring-[#A954F4]"
+                  />
+                </div>
+                <div className="relative flex-1">
+                  <input
+                    type="text"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    placeholder="Nachname"
+                    className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 text-white placeholder-gray-500 focus:border-[#A954F4] focus:outline-none focus:ring-1 focus:ring-[#A954F4]"
+                  />
+                </div>
+              </div>
+            </>
+          );
+        case 2:
+          return (
+            <>
+              <h2 className="text-xl font-medium text-white mb-4">Für welches Unternehmen arbeitest du?</h2>
+              <div className="relative">
                 <input
                   type="text"
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
-                  placeholder="Vorname"
+                  value={company}
+                  onChange={(e) => setCompany(e.target.value)}
+                  placeholder="Firma"
+                  className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 text-white placeholder-gray-500 focus:border-[#A954F4] focus:outline-none focus:ring-1 focus:ring-[#A954F4]"
+                />
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 transform text-gray-500">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16m14 0H5m14 0h2m-2 0h-5m-9 0H3m2 0h5m0-16h2m-2 4h2m-2 4h2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
+                  </svg>
+                </span>
+              </div>
+            </>
+          );
+        case 3:
+          return (
+            <>
+              <h2 className="text-xl font-medium text-white mb-4">Deine Nachricht</h2>
+              <div className="relative">
+                <textarea
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder="Deine Nachricht"
+                  rows={4}
                   className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 text-white placeholder-gray-500 focus:border-[#A954F4] focus:outline-none focus:ring-1 focus:ring-[#A954F4]"
                 />
               </div>
-              <div className="relative flex-1">
+            </>
+          );
+        case 4:
+          return (
+            <>
+              <h2 className="text-xl font-medium text-white mb-4">Wie können wir dich erreichen?</h2>
+              <div className="relative mb-4">
                 <input
-                  type="text"
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                  placeholder="Nachname"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Deine E-Mail Adresse"
+                  className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 pl-10 text-white placeholder-gray-500 focus:border-[#A954F4] focus:outline-none focus:ring-1 focus:ring-[#A954F4]"
+                />
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 transform text-gray-500">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m3 7.5 8.168 5.445a1.5 1.5 0 0 0 1.664 0L21 7.5M4.25 19.25h15.5a1.5 1.5 0 0 0 1.5-1.5V6.25a1.5 1.5 0 0 0-1.5-1.5H4.25a1.5 1.5 0 0 0-1.5 1.5v11.5a1.5 1.5 0 0 0 1.5 1.5Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
+                  </svg>
+                </span>
+              </div>
+              <div className="relative">
+                <input
+                  type="tel"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="Telefonnummer"
+                  className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 pl-10 text-white placeholder-gray-500 focus:border-[#A954F4] focus:outline-none focus:ring-1 focus:ring-[#A954F4]"
+                />
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 transform text-gray-500">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
+                  </svg>
+                </span>
+              </div>
+            </>
+          );
+        default:
+          return null;
+      }
+    } else {
+      // Bewerber-specific steps
+      switch (currentStep) {
+        case 1:
+          return (
+            <>
+              <h2 className="text-xl font-medium text-white mb-4">Wie heißt du?</h2>
+              <div className="flex gap-4 w-full">
+                <div className="relative flex-1">
+                  <input
+                    type="text"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    placeholder="Vorname"
+                    className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 text-white placeholder-gray-500 focus:border-[#A954F4] focus:outline-none focus:ring-1 focus:ring-[#A954F4]"
+                  />
+                </div>
+                <div className="relative flex-1">
+                  <input
+                    type="text"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    placeholder="Nachname"
+                    className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 text-white placeholder-gray-500 focus:border-[#A954F4] focus:outline-none focus:ring-1 focus:ring-[#A954F4]"
+                  />
+                </div>
+              </div>
+            </>
+          );
+        case 2:
+          return (
+            <>
+              <h2 className="text-xl font-medium text-white mb-4">Hast du Erfahrung im Vertrieb?</h2>
+              <div className="grid grid-cols-1 gap-3">
+                <button
+                  onClick={() => setSalesExperience('Ja, habe ich')}
+                  className={`flex items-center justify-center gap-2 rounded-lg border py-3 px-4 text-sm font-medium transition-all duration-200 ${
+                    salesExperience === 'Ja, habe ich'
+                      ? 'border-[#A954F4] bg-[#A954F4]/10 text-white'
+                      : 'border-gray-800 bg-gray-900 text-gray-300 hover:bg-gray-800'
+                  }`}
+                >
+                  Ja, habe ich
+                </button>
+                <button
+                  onClick={() => setSalesExperience('Nein, ich bin Quereinsteiger')}
+                  className={`flex items-center justify-center gap-2 rounded-lg border py-3 px-4 text-sm font-medium transition-all duration-200 ${
+                    salesExperience === 'Nein, ich bin Quereinsteiger'
+                      ? 'border-[#A954F4] bg-[#A954F4]/10 text-white'
+                      : 'border-gray-800 bg-gray-900 text-gray-300 hover:bg-gray-800'
+                  }`}
+                >
+                  Nein, ich bin Quereinsteiger
+                </button>
+              </div>
+            </>
+          );
+        case 3:
+          return (
+            <>
+              <h2 className="text-xl font-medium text-white mb-4">Was ist dir bei deinem neuen Job besonders wichtig?</h2>
+              <div className="grid grid-cols-1 gap-3">
+                <button
+                  onClick={() => setJobImportance('motiviertes umfeld')}
+                  className={`flex items-center justify-center gap-2 rounded-lg border py-3 px-4 text-sm font-medium transition-all duration-200 ${
+                    jobImportance === 'motiviertes umfeld'
+                      ? 'border-[#A954F4] bg-[#A954F4]/10 text-white'
+                      : 'border-gray-800 bg-gray-900 text-gray-300 hover:bg-gray-800'
+                  }`}
+                >
+                  Motiviertes Umfeld
+                </button>
+                <button
+                  onClick={() => setJobImportance('hoher verdienst')}
+                  className={`flex items-center justify-center gap-2 rounded-lg border py-3 px-4 text-sm font-medium transition-all duration-200 ${
+                    jobImportance === 'hoher verdienst'
+                      ? 'border-[#A954F4] bg-[#A954F4]/10 text-white'
+                      : 'border-gray-800 bg-gray-900 text-gray-300 hover:bg-gray-800'
+                  }`}
+                >
+                  Hoher Verdienst
+                </button>
+                <button
+                  onClick={() => setJobImportance('richtige ausbildung')}
+                  className={`flex items-center justify-center gap-2 rounded-lg border py-3 px-4 text-sm font-medium transition-all duration-200 ${
+                    jobImportance === 'richtige ausbildung'
+                      ? 'border-[#A954F4] bg-[#A954F4]/10 text-white'
+                      : 'border-gray-800 bg-gray-900 text-gray-300 hover:bg-gray-800'
+                  }`}
+                >
+                  Richtige Ausbildung
+                </button>
+                <button
+                  onClick={() => setJobImportance('spaß an der arbeit')}
+                  className={`flex items-center justify-center gap-2 rounded-lg border py-3 px-4 text-sm font-medium transition-all duration-200 ${
+                    jobImportance === 'spaß an der arbeit'
+                      ? 'border-[#A954F4] bg-[#A954F4]/10 text-white'
+                      : 'border-gray-800 bg-gray-900 text-gray-300 hover:bg-gray-800'
+                  }`}
+                >
+                  Spaß an der Arbeit
+                </button>
+              </div>
+            </>
+          );
+        case 4:
+          return (
+            <>
+              <h2 className="text-xl font-medium text-white mb-4">Bist du gerne unterwegs und hast gerne Kontakt zu anderen Menschen?</h2>
+              <div className="grid grid-cols-1 gap-3">
+                <button
+                  onClick={() => setPeopleContact('Ja bin ich gerne')}
+                  className={`flex items-center justify-center gap-2 rounded-lg border py-3 px-4 text-sm font-medium transition-all duration-200 ${
+                    peopleContact === 'Ja bin ich gerne'
+                      ? 'border-[#A954F4] bg-[#A954F4]/10 text-white'
+                      : 'border-gray-800 bg-gray-900 text-gray-300 hover:bg-gray-800'
+                  }`}
+                >
+                  Ja, bin ich gerne
+                </button>
+                <button
+                  onClick={() => setPeopleContact('Nein, das ist nichts für mich')}
+                  className={`flex items-center justify-center gap-2 rounded-lg border py-3 px-4 text-sm font-medium transition-all duration-200 ${
+                    peopleContact === 'Nein, das ist nichts für mich'
+                      ? 'border-[#A954F4] bg-[#A954F4]/10 text-white'
+                      : 'border-gray-800 bg-gray-900 text-gray-300 hover:bg-gray-800'
+                  }`}
+                >
+                  Nein, das ist nichts für mich
+                </button>
+              </div>
+            </>
+          );
+        case 5:
+          return (
+            <>
+              <h2 className="text-xl font-medium text-white mb-4">Hast du einen Führerschein?</h2>
+              <div className="grid grid-cols-1 gap-3">
+                <button
+                  onClick={() => setDriversLicense('Ja')}
+                  className={`flex items-center justify-center gap-2 rounded-lg border py-3 px-4 text-sm font-medium transition-all duration-200 ${
+                    driversLicense === 'Ja'
+                      ? 'border-[#A954F4] bg-[#A954F4]/10 text-white'
+                      : 'border-gray-800 bg-gray-900 text-gray-300 hover:bg-gray-800'
+                  }`}
+                >
+                  Ja
+                </button>
+                <button
+                  onClick={() => setDriversLicense('Nein')}
+                  className={`flex items-center justify-center gap-2 rounded-lg border py-3 px-4 text-sm font-medium transition-all duration-200 ${
+                    driversLicense === 'Nein'
+                      ? 'border-[#A954F4] bg-[#A954F4]/10 text-white'
+                      : 'border-gray-800 bg-gray-900 text-gray-300 hover:bg-gray-800'
+                  }`}
+                >
+                  Nein
+                </button>
+              </div>
+            </>
+          );
+        case 6:
+          return (
+            <>
+              <h2 className="text-xl font-medium text-white mb-4">Ich passe gut zu Sellwell, weil ...</h2>
+              <div className="relative">
+                <textarea
+                  value={fitReason}
+                  onChange={(e) => setFitReason(e.target.value)}
+                  placeholder="Erzähl uns mehr über dich"
+                  rows={4}
                   className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 text-white placeholder-gray-500 focus:border-[#A954F4] focus:outline-none focus:ring-1 focus:ring-[#A954F4]"
                 />
               </div>
-            </div>
-          </>
-        );
-      case 2:
-        return (
-          <>
-            <h2 className="text-xl font-medium text-white mb-4">Für welches Unternehmen arbeitest du?</h2>
-            <div className="relative">
-              <input
-                type="text"
-                value={company}
-                onChange={(e) => setCompany(e.target.value)}
-                placeholder="Firma"
-                className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 text-white placeholder-gray-500 focus:border-[#A954F4] focus:outline-none focus:ring-1 focus:ring-[#A954F4]"
-              />
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 transform text-gray-500">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16m14 0H5m14 0h2m-2 0h-5m-9 0H3m2 0h5m0-16h2m-2 4h2m-2 4h2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
-                </svg>
-              </span>
-            </div>
-          </>
-        );
-      case 3:
-        return (
-          <>
-            <h2 className="text-xl font-medium text-white mb-4">Wie viele Mitarbeiter hat dein Unternehmen?</h2>
-            <div className="relative">
-              <select
-                value={employeeCount}
-                onChange={(e) => setEmployeeCount(e.target.value)}
-                className="w-full appearance-none rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 text-white placeholder-gray-500 focus:border-[#A954F4] focus:outline-none focus:ring-1 focus:ring-[#A954F4]"
-              >
-                <option value="" disabled>Anzahl der Mitarbeiter wählen</option>
-                <option value="1-5">1-5</option>
-                <option value="1-10">1-10</option>
-                <option value="10-50">10-50</option>
-                <option value="50-100">50-100</option>
-                <option value="100-500">100-500</option>
-                <option value="500-1000">500-1000</option>
-                <option value="1000+">1000+</option>
-              </select>
-              <span className="absolute right-3 top-1/2 -translate-y-1/2 transform text-gray-500 pointer-events-none">
-                <ChevronDown size={18} />
-              </span>
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 transform text-gray-500">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm13-4c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3zm-2 9c0-2.21-1.79-4-4-4h-1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
-                </svg>
-              </span>
-            </div>
-          </>
-        );
-      case 4:
-        return (
-          <>
-            <h2 className="text-xl font-medium text-white mb-4">Wie können wir dich erreichen?</h2>
-            <div className="relative">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Deine E-Mail Adresse"
-                className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 pl-10 text-white placeholder-gray-500 focus:border-[#A954F4] focus:outline-none focus:ring-1 focus:ring-[#A954F4]"
-              />
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 transform text-gray-500">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="m3 7.5 8.168 5.445a1.5 1.5 0 0 0 1.664 0L21 7.5M4.25 19.25h15.5a1.5 1.5 0 0 0 1.5-1.5V6.25a1.5 1.5 0 0 0-1.5-1.5H4.25a1.5 1.5 0 0 0-1.5 1.5v11.5a1.5 1.5 0 0 0 1.5 1.5Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
-                </svg>
-              </span>
-            </div>
-          </>
-        );
-      case 5:
-        return (
-          <>
-            <h2 className="text-xl font-medium text-white mb-4">Wie können wir dich telefonisch erreichen?</h2>
-            <div className="relative">
-              <input
-                type="tel"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                placeholder="Telefonnummer"
-                className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 pl-10 text-white placeholder-gray-500 focus:border-[#A954F4] focus:outline-none focus:ring-1 focus:ring-[#A954F4]"
-              />
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 transform text-gray-500">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
-                </svg>
-              </span>
-            </div>
-          </>
-        );
-      default:
-        return null;
+            </>
+          );
+        case 7:
+          return (
+            <>
+              <h2 className="text-xl font-medium text-white mb-4">Wie können wir dich erreichen?</h2>
+              <div className="relative mb-4">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Deine E-Mail Adresse"
+                  className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 pl-10 text-white placeholder-gray-500 focus:border-[#A954F4] focus:outline-none focus:ring-1 focus:ring-[#A954F4]"
+                />
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 transform text-gray-500">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m3 7.5 8.168 5.445a1.5 1.5 0 0 0 1.664 0L21 7.5M4.25 19.25h15.5a1.5 1.5 0 0 0 1.5-1.5V6.25a1.5 1.5 0 0 0-1.5-1.5H4.25a1.5 1.5 0 0 0-1.5 1.5v11.5a1.5 1.5 0 0 0 1.5 1.5Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
+                  </svg>
+                </span>
+              </div>
+              <div className="relative">
+                <input
+                  type="tel"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="Telefonnummer"
+                  className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 pl-10 text-white placeholder-gray-500 focus:border-[#A954F4] focus:outline-none focus:ring-1 focus:ring-[#A954F4]"
+                />
+                <span className="absolute left-3 top-1/2 -translate-y-1/2 transform text-gray-500">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
+                  </svg>
+                </span>
+              </div>
+            </>
+          );
+        default:
+          return null;
+      }
+    }
+  };
+
+  // Update the title shown in the modal based on mode
+  const getModalTitle = () => {
+    if (mode === 'Firma') {
+      return "B&M Marketscale";
+    } else {
+      return "Bewerbung bei Sellwell";
+    }
+  };
+
+  // Update the subtitle shown below the title based on mode
+  const getModalSubtitle = () => {
+    if (mode === 'Firma') {
+      return "JETZT SICHERN";
+    } else {
+      return "JETZT BEWERBEN";
     }
   };
 
@@ -281,10 +560,10 @@ export default function BeautifulModal({ isOpen, onClose }: BeautifulModalProps)
                     </svg>
                   </div>
                 </div>
-                <h1 className="mb-2 text-2xl font-bold text-white md:text-3xl">B&M Marketscale</h1>
+                <h1 className="mb-2 text-2xl font-bold text-white md:text-3xl">{getModalTitle()}</h1>
                 <div className="relative flex items-center py-2">
                   <div className="flex-grow border-t border-gray-800"></div>
-                  <span className="mx-4 flex-shrink mb-3 text-xs text-gray-500">JETZT SICHERN</span>
+                  <span className="mx-4 flex-shrink mb-3 text-xs text-gray-500">{getModalSubtitle()}</span>
                   <div className="flex-grow border-t border-gray-800"></div>
                 </div>
               </motion.div>
@@ -329,7 +608,7 @@ export default function BeautifulModal({ isOpen, onClose }: BeautifulModalProps)
                   </button>
                 </div>
                 
-                {currentStep === 1 && (
+                {currentStep === 1 && mode === 'Firma' && (
                   <>
                     <div className="relative flex items-center py-2">
                       <div className="flex-grow border-t border-gray-800"></div>
@@ -401,30 +680,60 @@ export default function BeautifulModal({ isOpen, onClose }: BeautifulModalProps)
                         
                         {/* Card content */}
                         <div className="absolute inset-0 flex flex-col items-center">
-                          {/* B&M Logo (placeholder - replace with your actual inverted B&M logo) */}
+                          {/* Logo (placeholder) */}
                           <div className="mt-10 flex h-16 w-16 items-center justify-center rounded-full bg-white/10 backdrop-blur-md">
-                            {/* Replace this with your B&M logo SVG */}
-                            <div className="text-white text-lg font-bold">B&M</div>
+                            {/* Replace this with the appropriate logo */}
+                            <div className="text-white text-lg font-bold">
+                              {mode === 'Firma' ? 'B&M' : 'SW'}
+                            </div>
                           </div>
                           
                           <div className="mt-4 space-y-1 text-center">
-                            <h3 className="text-[25px] mb-[-15px] font-bold text-white">Kostenloses<br />Strategiegespräch</h3>
+                            <h3 className="text-[25px] mb-[-15px] font-bold text-white">
+                              {mode === 'Firma' ? 'Kostenloses\nStrategiegespräch' : 'Verkäufer\ngesucht!'}
+                            </h3>
                           </div>
                           
                           {/* Benefits list */}
                           <div className="mt-8 space-y-4 px-6 w-full">
-                            
-                            {/* Benefit item 4 */}
                             <div className="flex items-center gap-3 mb-[14px]">
-                            <div className="mb-0 h-6 w-6 rounded-full bg-gradient-to-r from-[#A954F4] to-[#EA489A] p-[2px]">
-                              <div className="flex h-full w-full items-center justify-center rounded-full bg-gray-900">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                  <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
+                              <div className="mb-0 h-6 w-6 rounded-full bg-gradient-to-r from-[#A954F4] to-[#EA489A] p-[2px]">
+                                <div className="flex h-full w-full items-center justify-center rounded-full bg-gray-900">
+                                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                  </svg>
+                                </div>
                               </div>
+                              <span className="text-[16px] text-white">
+                                {mode === 'Firma' ? 'Hier kommt Kalender zum einbuchen hin' : 'Hohes Gehalt + Provision'}
+                              </span>
                             </div>
-                              <span className="text-[16px] text-white">Hier kommt Kalender zum einbuchen hin</span>
-                            </div>
+                            
+                            {mode === 'Bewerber' && (
+                              <>
+                                <div className="flex items-center gap-3 mb-[14px]">
+                                  <div className="mb-0 h-6 w-6 rounded-full bg-gradient-to-r from-[#A954F4] to-[#EA489A] p-[2px]">
+                                    <div className="flex h-full w-full items-center justify-center rounded-full bg-gray-900">
+                                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                  <span className="text-[16px] text-white">Professionelle Ausbildung</span>
+                                </div>
+                                
+                                <div className="flex items-center gap-3 mb-[14px]">
+                                  <div className="mb-0 h-6 w-6 rounded-full bg-gradient-to-r from-[#A954F4] to-[#EA489A] p-[2px]">
+                                    <div className="flex h-full w-full items-center justify-center rounded-full bg-gray-900">
+                                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                      </svg>
+                                    </div>
+                                  </div>
+                                  <span className="text-[16px] text-white">Motiviertes Team</span>
+                                </div>
+                              </>
+                            )}
                           </div>
                         </div>
                       </div>

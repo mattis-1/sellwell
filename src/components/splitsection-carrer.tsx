@@ -2,8 +2,29 @@ import React from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button'
 import Proof from "@/components/socialproof"
+import { useState } from 'react';
+import BeautifulModal from "@/components/BeautifulModal";
 
 const SplitSection = () => {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  // State for modal mode (Firma or Bewerber)
+  const [modalMode, setModalMode] = useState<'Firma' | 'Bewerber'>('Firma');
+  
+  // Functions to handle opening modal with specific mode
+  const openFirmaModal = () => {
+    setModalMode('Firma');
+    setIsModalOpen(true);
+  };
+  
+  const openBewerberModal = () => {
+    setModalMode('Bewerber');
+    setIsModalOpen(true);
+  };
+  
+  const closeModal = () => setIsModalOpen(false);
+
   return (
     <section className="relative w-full overflow-hidden bg-[#ffffff]">
       <Proof />
@@ -22,9 +43,16 @@ const SplitSection = () => {
             <p className="text-foreground/80 mb-6 sm:mb-8 text-base sm:text-lg md:text-[19px] w-full md:w-120">
               Du bist motiviert und suchst nach einer Möglichkeit, in einem ambitionierten Umfeld große Dinge zu erreichen und dich finanziell sowie persönlich weiterzuentwickeln? Dann gibt es für dich keinen besseren Ort als Sellwell. Bei uns erwarten dich konstante Weiterbildung und sympathische, erfolgsgetriebene Kollegen, die dich vorantreiben und motivieren, besser zu werden.
             </p>
-            <Button variant="default" className="self-start text-base sm:text-lg md:text-[22px] rounded-[99px] py-2 px-5">
+            {/*Fix this*/}
+            <Button onClick={openBewerberModal} variant="default" className="self-start text-base sm:text-lg md:text-[22px] rounded-[99px] py-2 px-5">
               JETZT BEWERBEN
             </Button>
+            {/* The modal component with dynamic mode */}
+            <BeautifulModal 
+              isOpen={isModalOpen} 
+              onClose={closeModal}
+              mode={modalMode} 
+            />
             <div className="inter600 text-start ml-2 sm:ml-[10px] mt-2 text-sm sm:text-base">
               Schnell & Ohne Lebenslauf
             </div>
@@ -45,6 +73,7 @@ const SplitSection = () => {
           </div>
         </div>
       </div>
+      
     </section>
   );
 };

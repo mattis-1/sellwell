@@ -75,7 +75,22 @@ export default function Home() {
   ];
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  
+  // State for modal mode (Firma or Bewerber)
+  const [modalMode, setModalMode] = useState<'Firma' | 'Bewerber'>('Firma');
+  
+  // Functions to handle opening modal with specific mode
+  const openFirmaModal = () => {
+    setModalMode('Firma');
+    setIsModalOpen(true);
+  };
+  
+  const openBewerberModal = () => {
+    setModalMode('Bewerber');
+    setIsModalOpen(true);
+  };
+  
+  const closeModal = () => setIsModalOpen(false);
   return (
     <div className="flex min-h-screen flex-col w-full bg-[#FFFFFF]">
 
@@ -322,7 +337,7 @@ export default function Home() {
         <span className="mb-3 inline-block bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-[14px] sm:text-[16px] font-[600] rounded-[99px] px-4 py-1">
           WILLKOMMEN BEI SELLWELL
         </span>
-        <h2 className="headr text-[#000000] inter800 text-[10px] sm:text-4xl mb-3">Der Partner<br /><span className="bg-gradient-to-r from-[#14532d] to-[#16a34a] bg-clip-text text-transparent">im D2D in Bayern</span></h2>
+        <h2 className="headr text-[#000000] inter800 text-[15px] sm:text-4xl mb-3">Der Partner<br /><span className="bg-gradient-to-r from-[#14532d] to-[#16a34a] bg-clip-text text-transparent">im D2D in Bayern</span></h2>
         <p className="text-lg sm:text-xl text-[#000000] mb-6 pr-0 sm:pr-8 md:pr-12 lg:pr-20">
           Als schnellstwachsender Door-to-Door Vertrieb Bayerns übernehmen wir für führende Unternehmen in der Energiebranche den Außendienst. Mit hocheffektiven Vertriebslösungen und einem ambitionierten Team setzen wir regelmäßig neue Maßstäbe im Markt der erneuerbaren Energie.
         </p>
@@ -441,7 +456,7 @@ export default function Home() {
           </li>
         </ul>
                 
-        <button className="inline-flex bg-gradient-to-r from-[#D8D8D9] to-[#AFB0B2] items-center px-5 py-2.5 text-[#0B3E27] font-[700] text-[16px] sm:text-[19px] rounded-full transition shadow-[0_2px_3px_rgba(0,0,0,0.5)] self-start">
+        <button onClick={openBewerberModal} className="inline-flex bg-gradient-to-r from-[#D8D8D9] to-[#AFB0B2] items-center px-5 py-2.5 text-[#0B3E27] font-[700] text-[16px] sm:text-[19px] rounded-full transition shadow-[0_2px_3px_rgba(0,0,0,0.5)] self-start">
           MEHR ERFAHREN
         </button>
       </div>
@@ -488,17 +503,20 @@ export default function Home() {
           Wir vermarkten Ihr Produkt effizient, verlässlich und mit messbaren ErgebnissenEffizient. Konstante Weiterbildung unseres Teams und bewährte Vertriebsprozesse, die kontinuierlich optimiert werden, machen uns zum optimalen Partner für Ihr Unternehmen.
         </p>
         <Button 
-        variant="default" 
-        className="self-start text-lg sm:text-[22px] rounded-[99px]"
-        onClick={() => setIsModalOpen(true)}
-      >
-        Jetzt Projekt anfragen
-      </Button>
+            variant="default" 
+            className="self-start text-lg sm:text-[22px] rounded-[99px]"
+            onClick={openFirmaModal}
+          >
+            Jetzt Projekt anfragen
+          </Button>
       
-      <BeautifulModal 
+       {/* The modal component with dynamic mode */}
+       <BeautifulModal 
         isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
+        onClose={closeModal}
+        mode={modalMode} 
       />
+    
     
       </div>
     </div>
