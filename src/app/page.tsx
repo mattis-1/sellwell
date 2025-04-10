@@ -726,7 +726,7 @@ export default function Home() {
   <div className="bg-[#ffffff] rounded-[70px] py-7">
 <div className=" pt-14 pb-16 bg-background mx-3  bg-[#ffffff] rounded-[70px] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)] ">
   {/* Width-controlled container - adjust the max-w-[1200px] or w-[90%] value to control width */}
-  <div className="mx-auto w-[100%] max-w-[1200px]">
+  <div className="mx-auto w-[100%] max-w-[1200px] bg-[#fff]">
     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
       {/* Left column - Image with reduced height */}
       <div className="relative h-full ml-5 mr-[-5px] w-auto rounded-[35px] overflow-hidden">
