@@ -337,7 +337,7 @@ export default function Home() {
         <span className="mb-3 inline-block bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-[14px] sm:text-[16px] font-[600] rounded-[99px] px-4 py-1">
           WILLKOMMEN BEI SELLWELL
         </span>
-        <h2 className="text-[#000000] inter800 text-3xl sm:text-[15px] md:text-[50px] lg:text-[65px] mb-3">Der Partner<br /><span className="bg-gradient-to-r from-[#14532d] to-[#16a34a] bg-clip-text text-transparent">im D2D in Bayern</span></h2>
+        <h2 className="text-[#000000] inter800 text-3xl sm:text-[35px] md:text-[45px] lg:text-[50px] mb-3">Der Partner<br /><span className="bg-gradient-to-r from-[#14532d] to-[#16a34a] bg-clip-text text-transparent">im D2D in Bayern</span></h2>
         <p className="text-lg sm:text-xl text-[#000000] mb-6 pr-0 sm:pr-8 md:pr-12 lg:pr-20">
           Als schnellstwachsender Door-to-Door Vertrieb Bayerns übernehmen wir für führende Unternehmen in der Energiebranche den Außendienst. Mit hocheffektiven Vertriebslösungen und einem ambitionierten Team setzen wir regelmäßig neue Maßstäbe im Markt der erneuerbaren Energie.
         </p>
@@ -364,7 +364,7 @@ export default function Home() {
         <span className="mb-3 inline-block bg-gradient-to-r from-[#ffffff] to-[#a9aaac] text-[#0B3E27] text-[14px] sm:text-[16px] font-[700] rounded-[99px] px-4 py-1">
           KARRIEREERFOLG MIT SELLWELL
         </span>
-        <h2 className="headrr inter800 mb-4 text-2xl sm:text-3xl md:text-4xl bg-gradient-to-r from-[#ffffff] to-[#A9AAAC] bg-clip-text text-transparent">
+        <h2 className="inter800 mb-4 text-3xl tracking-[-1.2px] sm:text-[35px] md:text-[40px] lg:text-[42px] bg-gradient-to-r from-[#ffffff] to-[#A9AAAC] bg-clip-text text-transparent">
           Entfalte dein volles<br />Potenzial im Direktvertrieb
         </h2>
                 
@@ -498,7 +498,7 @@ export default function Home() {
       {/* Right column - Content */}
       <div className="flex flex-col start-items items-start z-[125] mt-6 md:mt-0">
         <span className="mb-3 inline-block bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-[14px] sm:text-[16px] font-[600] rounded-[99px] px-4 py-1">PROJEKTERFOLG MIT SELLWELL</span>
-        <h2 className="headr mb-2 text-[#000000] inter800 text-3xl sm:text-4xl">Produkt erfolgreich<br /><span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">mit Sellwell vermarkten</span></h2>
+        <h2 className=" mb-2 text-[#000000] inter800 tracking-[-1.3px] text-3xl sm:text-[35px] md:text-[40px] lg:text-[45px]">Produkt erfolgreich<br /><span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">mit Sellwell vermarkten</span></h2>
         <p className="text-[#000000] mb-6 text-lg sm:text-xl">
           Wir vermarkten Ihr Produkt effizient, verlässlich und mit messbaren ErgebnissenEffizient. Konstante Weiterbildung unseres Teams und bewährte Vertriebsprozesse, die kontinuierlich optimiert werden, machen uns zum optimalen Partner für Ihr Unternehmen.
         </p>
@@ -528,7 +528,7 @@ export default function Home() {
   <div className="container mx-auto px-6 sm:px-12 md:px-24 lg:px-32">
     <div className="mb-10">
   <div className="text-center tracking-[-2px] bg-gradient-to-r from-[#EDEDEE] to-[#A7A8AA] bg-clip-text text-transparent
- inter800 text-[45px] text-[#fff] mr-[6px]">Was wir bieten</div>
+ inter800 text-3xl sm:text-[35px] md:text-[45px] lg:text-[42px] text-[#fff] mr-[6px]">Was wir bieten</div>
  <Image 
                     src="/uuunderlined.svg"
                     alt="Textunderline"
