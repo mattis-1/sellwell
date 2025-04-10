@@ -9,8 +9,7 @@ interface YouTubeGridProps {
 
 const YouTubeGrid: React.FC<YouTubeGridProps> = ({
   videoIds,
-  borderRadius = '0px',
-  gap = '1rem', // Default gap
+
 }) => {
   return (
     <div
