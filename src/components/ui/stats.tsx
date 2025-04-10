@@ -158,7 +158,7 @@ const AnimatedStats = () => {
   };
 
   return (
-    <section ref={sectionRef} className="relative pt-16 sm:pt-25 py-10 sm:py-15">
+    <section ref={sectionRef} className="relative pt-12 sm:pt-16 md:pt-25 py-8 sm:py-10 md:py-15">
       {/* SVG Line at the top - limited to 90% width and centered, hidden on mobile */}
       <div className="hidden sm:block max-w-[90%] mx-auto relative">
         <div style={{ filter: 'drop-shadow(0px -4px 10px rgba(0, 0, 0, 0.40))' }}>
@@ -173,34 +173,77 @@ const AnimatedStats = () => {
         </div>
       </div>
 
-      {/* The grid container for the 4 stat columns */}
-      {/* The negative margin makes the icons overlap the SVG line */}
-      <div className="max-w-[95%] sm:max-w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-6 pt-5 sm:pt-20px sm:mt-[-40px] relative z-10">
+      {/* The grid container for the 4 stat columns - 2x2 on mobile */}
+      <div className="max-w-[95%] sm:max-w-[90%] mx-auto grid grid-cols-2 md:grid-cols-4 gap-5 sm:gap-6 pt-4 sm:pt-5 sm:mt-[-40px] relative z-10">
         {statsData.map((item, index) => (
           <div key={index} className="flex flex-col items-center">
             {/* Icon Container with Gradient Background */}
-            <div className="relative w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 mb-4 sm:mb-6 p-1">
+            <div className="relative w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 mb-2 sm:mb-4 md:mb-6 p-1">
               {/* Gradient Background */}
               <div className="absolute inset-0 bg-gradient-to-br from-[#0C462B] to-[#057741] rounded-full"></div>
               
               {/* Icon with padding */}
-              <div className="absolute inset-0 flex items-center justify-center p-4 sm:p-5">
+              <div className="absolute inset-0 flex items-center justify-center p-3 sm:p-4 md:p-5">
                 {item.icon}
               </div>
             </div>
             
             {/* Animated Stat number */}
-            <p className="text-3xl sm:text-4xl text-[#000000] font-semibold mb-2 sm:mb-3 inter800">
+            <p className="text-2xl sm:text-3xl md:text-4xl text-[#000000] font-semibold mb-1 sm:mb-2 md:mb-3 inter800">
               {displayStat(item, counters[item.id])}
             </p>
             
             {/* Description text */}
-            <p className="text-gray-800 text-center text-sm sm:text-base" style={{ fontFamily: "'Inter Display', sans-serif", fontWeight: 600, lineHeight: "150%" }}>
+            <p className="text-gray-800 text-center text-xs sm:text-sm md:text-base" style={{ fontFamily: "'Inter Display', sans-serif", fontWeight: 600, lineHeight: "130%" }}>
               {item.description}
             </p>
           </div>
         ))}
       </div>
+
+      {/* For the image slider component that needs horizontal scrolling instead of vertical on mobile */}
+      <div className="mt-8 sm:mt-12 overflow-hidden">
+        {/* Two rows of horizontally scrolling images on mobile */}
+        <div className="flex flex-col gap-4">
+          {/* First row */}
+          <div className="overflow-x-auto hide-scrollbar">
+            <div className="flex space-x-4 pb-2 pr-4 min-w-max">
+              {/* Example images - replace with your actual content */}
+              {[1, 2, 3, 4, 5].map((item) => (
+                <div key={`row1-${item}`} className="w-64 h-40 bg-gray-200 rounded-lg flex-shrink-0 relative overflow-hidden">
+                  <div className="absolute inset-0 flex items-center justify-center text-gray-400">
+                    Slide Image {item}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Second row */}
+          <div className="overflow-x-auto hide-scrollbar">
+            <div className="flex space-x-4 pb-2 pr-4 min-w-max">
+              {/* Example images - replace with your actual content */}
+              {[6, 7, 8, 9, 10].map((item) => (
+                <div key={`row2-${item}`} className="w-64 h-40 bg-gray-200 rounded-lg flex-shrink-0 relative overflow-hidden">
+                  <div className="absolute inset-0 flex items-center justify-center text-gray-400">
+                    Slide Image {item}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style jsx>{`
+        .hide-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .hide-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
     </section>
   );
 };
