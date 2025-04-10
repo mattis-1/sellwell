@@ -28,13 +28,13 @@ const SplitSection = () => {
         {/* Rechte Seite: Bild */}
         <div className="w-full md:w-1/2 min-h-[300px] md:min-h-full relative">
           {/* Bild als Hintergrund */}
-          <div className="absolute inset-0 bg-gray-300">
+          <div className="absolute inset-0 bg-gray-300 my-5 mr-5 rounded-[36px]">
         
             <Image 
               src="/WarumBei.png"
               alt="Beschreibung des Bildes"
               fill
-              className="object-cover"
+              className="object-cover rounded-[36px]"
               priority
             />
            

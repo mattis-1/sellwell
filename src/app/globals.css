@@ -249,7 +249,7 @@ body > div {
   left: 0;
   height: 100%;
   width: 80px;
-  background: linear-gradient(to right, rgba(244, 242, 241, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(to right, #0B3F27 0%, rgba(255, 255, 255, 0) 100%);
   z-index: 2;
   pointer-events: none;
 }
@@ -260,7 +260,29 @@ body > div {
   right: 0;
   height: 100%;
   width: 80px;
-  background: linear-gradient(to left, rgba(244, 242, 241, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(to left, #0B3F27 0%, rgba(255, 255, 255, 0) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.fade-left2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 80px;
+  background: linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.fade-right2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 80px;
+  background: linear-gradient(to left, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
   z-index: 2;
   pointer-events: none;
 }

@@ -14,7 +14,7 @@ import YouTubeGrid from "@/components/youtube"
 import Slider from "@/components/slider"
 import Process from "@/components/process"
 import Somebenefits from "@/components/columnbenefits"
-import Stats from "@/components/ui/stats"
+import AnimatedStats from "@/components/ui/stats"
 
 const videoIds = [
   "tUgM4kCF7rU", // New IDs
@@ -260,8 +260,8 @@ export default function Home() {
                 </div>
               </div>
               {/* Gradient overlays for fading effect */}
-              <div className="fade-left"></div>
-              <div className="fade-right"></div>
+              <div className="fade-left2"></div>
+              <div className="fade-right2"></div>
             </div>
           </div>
           <div className="absolute inset-0 bg-grid-white/10 bg-[size:20px_20px] opacity-10"></div>
@@ -465,17 +465,6 @@ export default function Home() {
           {/* Noise texture overlay - now with higher opacity and comes before vertical lines */}
           <div className="absolute inset-0 opacity-[0.12] bg-[url('https://framerusercontent.com/images/6mcf62RlDfRfU61Yg5vb2pefpi4.png')] bg-repeat bg-[size:128px] z-[2]"></div>
           
-          {/* Vertical blocks grid - lines with dual shadow effect */}
-          <div className="absolute inset-0 flex justify-between z-[1]">
-            {[...Array(24)].map((_, i) => {
-              return (
-                <div key={i} className="h-full w-[4%]" style={{
-                  borderRight: '0.25px solid rgba(244, 242, 241,0.1)',
-                  boxShadow: '-26px 0 40px rgba(244, 242, 241,0.24), 10px 0 25px rgba(0, 0, 0, 0.001)'
-                }}></div>
-              );
-            })}
-          </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
               {/* Left column - Image with reduced height */}
@@ -588,15 +577,19 @@ export default function Home() {
       {/* Header spans full width */}
       <MissionSection />
 
-      <Stats />
-      {/* Button Container - jetzt außerhalb des Grids */}
-
+<div className="bg-[#ECE9E8]">
+<div className="rounded-t-[70px] bg-white">
+      <AnimatedStats />
+</div>
+</div>
 
       {/*Karriere-Split Screen*/}
       <SplitSection />
 
 {/* Three Column Section */}
-<section className="bg-[#0B3F27] py-20 mb-7">
+<section className="bg-[#EBE9E8] pb-10">
+<div className="bg-[#ffffff] pb-10 rounded-b-[70px] shadow-[0px_6px_10px_0px_rgba(0,0,0,0.15)]">
+<div className="bg-[#0B3F27] py-14 mx-5 rounded-[70px]">
   <div className="container mx-auto px-6 sm:px-12 md:px-24 lg:px-32">
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
       
@@ -660,11 +653,12 @@ export default function Home() {
       
     </div>
   </div>
+</div>
+</div>
 </section>
 
-
-<section className="pb-5 pt-25 bg-background w-full">
-      <div className="container mx-auto">
+<section className="pb-5 pt-15 bg-[#EBE9E8] w-full">
+      <div className="container mx-auto ">
         {/* Mission Statement */}
         <div className="max-w-4xl mx-auto text-center mb-7">
           <div className="mt-[-20px] flex justify-center mb-1">
@@ -729,12 +723,14 @@ export default function Home() {
     </section>
 
 {/*Für Unternehmen Benefits*/}
-<section className="pt-14 pb-16 bg-background w-full">
+<section className="bg-[#EBE9E8] pb-0">
+  <div className="bg-[#fff] rounded-[70px] py-7">
+<div className=" pt-14 pb-16 bg-background mx-3  rounded-[70px] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)] ">
   {/* Width-controlled container - adjust the max-w-[1200px] or w-[90%] value to control width */}
   <div className="mx-auto w-[100%] max-w-[1200px]">
     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
       {/* Left column - Image with reduced height */}
-      <div className="relative h-80 md:h-[320px] lg:h-[360px] xl:h-[400px] max-h-[450px] rounded-3xl overflow-hidden">
+      <div className="relative h-full ml-5 mr-[-5px] w-auto rounded-[35px] overflow-hidden">
         <div className="absolute inset-0 bg-gray-300 flex items-center justify-center">
           <Image 
             src="/Perfekter Partner.png" 
@@ -770,7 +766,7 @@ export default function Home() {
             </svg>
   </div>
   <p className="text-[18px] w-160 max-w-220 font-[600] text-[#000]/80">
-    Flexibler, skalierbarer Außendienst - ohne eigene Ressourcenbindung
+    Skalierbarer Außendienst - ohne eigene Ressourcenbindung
   </p>
 </div>
 
@@ -843,12 +839,16 @@ export default function Home() {
       </div>
     </div>
   </div>
+</div>
+</div>
 </section>
 
-      <section className="py-16 bg-background w-full">
+      <section className=" pb-12 pt-0 bg-[#EBE9E8] w-full">
+        <div className="bg-[#fff]  rounded-[70px] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
+
   <div className="container mx-auto">
     {/* Mission Statement */}
-    <div className="max-w-4xl mx-auto text-center mb-7">
+    <div className="max-w-4xl pt-14 mx-auto text-center mb-7">
 <div className="mt-[-20px] flex justify-center mb-1">
   <div className="inline-flex items-center g-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-[14px] px-4 py-2 border-[1.7px] border-[#C8C7C6] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
        <Image 
@@ -864,7 +864,7 @@ export default function Home() {
   </div>
 </div>
 </div>
-    <h2 className="headr inter800 text-center mb-[-10px]">Erfolge des Teams</h2>
+    <h2 className="headr inter800 text-center mb-12">Erfolge des Teams</h2>
     <AnimatedTestimonials
       testimonials={[
         {
@@ -888,7 +888,7 @@ export default function Home() {
       ]}
       autoplay={true}
     />
- <div className="flex flex-row items-center justify-center space-x-4 pt-4 pb-8">
+ <div className="flex flex-row items-center justify-center space-x-4 pt-16 pb-16">
       <Button 
         className="text-[22px] py-2 rounded-[99px]" 
         variant="default"
@@ -903,6 +903,7 @@ export default function Home() {
        MEHR ERFAHREN
       </Button>
     </div>
+  </div>
   </div>
 </section>
 

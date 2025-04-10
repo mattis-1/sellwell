@@ -4,8 +4,9 @@ const Stellen = () => {
   // Common card style for the container
   const cardStyle: React.CSSProperties = {
     backgroundColor: 'white',
-    border: '1px solid black',
+    boxShadow: '0px 0px 12px rgba(0, 0, 0, 0.25)',
     position: 'relative',
+    borderRadius: '45px',
   };
 
   // Background image style with opacity
@@ -18,7 +19,7 @@ const Stellen = () => {
     backgroundImage: `url('/dottedbg.png')`,
     backgroundSize: 'cover',
     opacity: 0.25,
-    borderRadius: '1.5rem',
+    borderRadius: '45px',
     pointerEvents: 'none',
   };
 
@@ -30,28 +31,16 @@ const Stellen = () => {
     bottom: 0,
     left: 0,
     background: 'radial-gradient(circle, transparent 0%, white 70%)',
-    borderRadius: '1.5rem',
+    borderRadius: '45px',
     pointerEvents: 'none',
-  };
-
-  // Inner border style - increased spacing from outer border
-  const innerBorderStyle: React.CSSProperties = {
-    position: 'absolute',
-    top: '25px',
-    right: '25px',
-    bottom: '25px',
-    left: '25px',
-    border: '1px solid black',
-    borderRadius: '1.2rem',
-    pointerEvents: 'none',
-    zIndex: 5,
   };
 
   return (
-    <section className="pt-0 pb-10 mb-10 w-full bg-background">
+    <section className="bg-[#fff]">
+    <div className="pt-0 pb-10 mb-10 w-full bg-[#EBE9E8] rounded-b-[70px] shadow-[0px_10px_9px_-4px_rgba(0,0,0,0.15)]">
       <div className="container mx-auto px-6">
         {/* Centered Headline */}
-        <h2 className="headr text-center mt-15 mb-16 inter800">
+        <h2 className="headr text-center pt-16 mb-16 inter800">
           Aktuelle <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">Stellenangebote</span>
         </h2>
         
@@ -61,7 +50,7 @@ const Stellen = () => {
           {/* Job Card 1 */}
           <div className="relative group transition-all h-full">
             <div 
-              className="rounded-3xl p-12 h-full flex flex-col" 
+              className="rounded-3xl p-9 h-full flex flex-col" 
               style={cardStyle}
             >
               {/* Background image with opacity */}
@@ -69,9 +58,6 @@ const Stellen = () => {
               
               {/* Gradient overlay */}
               <div style={gradientOverlayStyle}></div>
-              
-              {/* Inner border */}
-              <div style={innerBorderStyle}></div>
               
               <h3 className="inter700 text-xl tracking-[-0.35] mb-4 text-primary text-black relative z-10">
                 <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
@@ -107,7 +93,7 @@ text-[26px]">Vertriebsberater</span><br />(m/w/d)
           {/* Job Card 2 */}
           <div className="relative group transition-all h-full">
             <div 
-              className="rounded-3xl p-12 h-full flex flex-col" 
+              className="rounded-3xl p-9 h-full flex flex-col" 
               style={cardStyle}
             >
               {/* Background image with opacity */}
@@ -115,9 +101,6 @@ text-[26px]">Vertriebsberater</span><br />(m/w/d)
               
               {/* Gradient overlay */}
               <div style={gradientOverlayStyle}></div>
-              
-              {/* Inner border */}
-              <div style={innerBorderStyle}></div>
               
               <h3 className="inter700 text-xl tracking-[-0.35] mb-4 text-primary text-black relative z-10">
               <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
@@ -153,7 +136,7 @@ text-[26px]">Senior Sales Manager</span> (m/w/d)
           {/* Job Card 3 */}
           <div className="relative group transition-all h-full ">
             <div 
-              className="rounded-3xl p-12 h-full flex flex-col" 
+              className="rounded-3xl p-9 h-full flex flex-col" 
               style={cardStyle}
             >
               {/* Background image with opacity */}
@@ -162,8 +145,6 @@ text-[26px]">Senior Sales Manager</span> (m/w/d)
               {/* Gradient overlay */}
               <div style={gradientOverlayStyle}></div>
               
-              {/* Inner border */}
-              <div style={innerBorderStyle}></div>
               <div className="px-2">
               <h3 className="inter700 text-xl tracking-[-0.35] mb-4 text-primary text-black relative z-10">
               <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
@@ -200,7 +181,7 @@ text-[26px]">Development Manager</span> (m/w/d)
         </div>
         
         {/* View All Jobs Button (Optional) */}
-        <div className="mt-18 text-center">
+        <div className="mt-15 pb-5 text-center">
           <button 
             className="inter700 inline-flex items-center px-6 py-3 text-white font-semibold rounded-full text-[20px] hover:opacity-90 transition"
             style={{ background: 'linear-gradient(to right, #0B4028 0%, #037942 100%)' }}
@@ -209,6 +190,7 @@ text-[26px]">Development Manager</span> (m/w/d)
           </button>
         </div>
       </div>
+    </div>
     </section>
   );
 };

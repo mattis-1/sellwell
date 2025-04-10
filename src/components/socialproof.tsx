@@ -1,6 +1,6 @@
 const Proof = () => {
 return (
-<section className="bg-[#F4F2F1]">
+<section className="bg-[#fff] mx-5 mb-8 rounded-[30px]">
 {/* Infinite scrolling logos */}
 <div className="w-full flex justify-center mt-0 ">
   <div className="logos-slider-container w-[70%] relative">
@@ -70,8 +70,8 @@ return (
       </div>
     </div>
     {/* Gradient overlays for fading effect */}
-    <div className="fade-left"></div>
-    <div className="fade-right"></div>
+    <div className="fade-left2"></div>
+    <div className="fade-right2"></div>
   </div>
 </div>
 <div className="absolute inset-0 bg-grid-white/10 bg-[size:20px_20px] opacity-10"></div>

@@ -163,7 +163,7 @@ const AnimatedStats = () => {
   };
 
   return (
-    <section ref={sectionRef} className="relative py-20 ">
+    <section ref={sectionRef} className="relative pt-25 py-15">
       {/* SVG Line at the top - limited to 90% width and centered */}
       <div className="max-w-[90%] mx-auto relative">
         <div style={{ filter: 'drop-shadow(0px -4px 10px rgba(0, 0, 0, 0.40))' }}>
