@@ -9,67 +9,67 @@ return (
     <div className="logos-slider">
                 {/* First set of logos */}
                 <div className="inline-block">
-                  <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                    <Image src='/eon logo.svg' alt="Eon Logo" width={128} height={64} />
-                  </div>
-                </div>
-                <div className="inline-block">
-                  <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                    <Image src="/eon logo.svg" alt="Eon Logo" width={128} height={64} />
-                  </div>
-                </div>
-                <div className="inline-block">
-                  <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                    <Image src='eon logo.svg' alt="Eon Logo" width={128} height={64} />
-                  </div>
-                </div>
-                <div className="inline-block">
-                  <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                    <Image src='eon logo.svg' alt="Eon Logo" width={128} height={64} />
-                  </div>
-                </div>
-                <div className="inline-block">
-                  <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                    <Image src='eon logo.svg' alt="Eon Logo" width={128} height={64} />
-                  </div>
-                </div>
-                <div className="inline-block">
-                  <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                    <Image src='eon logo.svg' alt="Eon Logo" width={128} height={64} />
-                  </div>
-                </div>
-                
-                {/* Duplicate for seamless loop */}
-                <div className="inline-block">
-                  <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                    <Image src='eon logo.svg' alt="Eon Logo" width={128} height={64} />
-                  </div>
-                </div>
-                <div className="inline-block">
-                  <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                    <Image src='eon logo.svg' alt="Eon Logo" width={128} height={64} />
-                  </div>
-                </div>
-                <div className="inline-block">
-                  <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                    <Image src='eon logo.svg' alt="Eon Logo" width={128} height={64} />
-                  </div>
-                </div>
-                <div className="inline-block">
-                  <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                    <Image src='eon logo.svg' alt="Eon Logo" width={128} height={64} />
-                  </div>
-                </div>
-                <div className="inline-block">
-                  <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                    <Image src='/eon logo.svg' alt="Eon Logo" width={128} height={64} />
-                  </div>
-                </div>
-                <div className="inline-block">
-                  <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                    <Image src="/eon logo.svg" alt="Eon Logo" width={128} height={64} />
-                  </div>
-                </div>
+                              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                                <Image src='/case1.svg' alt="Eon Logo" width={128} height={64} />
+                              </div>
+                            </div>
+                            <div className="inline-block">
+                              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                                <Image src="/case2.svg" alt="Eon Logo" width={128} height={64} />
+                              </div>
+                            </div>
+                            <div className="inline-block">
+                              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                                <Image src='/case3.svg' alt="Eon Logo" width={128} height={64} />
+                              </div>
+                            </div>
+                            <div className="inline-block">
+                              <div className="h-16 w-33 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                                <Image src='/case4.svg' alt="Eon Logo" width={128} height={64} />
+                              </div>
+                            </div>
+                            <div className="inline-block">
+                              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                                <Image src='case1.svg' alt="Eon Logo" width={128} height={64} />
+                              </div>
+                            </div>
+                            <div className="inline-block">
+                              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                                <Image src='/case2.svg' alt="Eon Logo" width={128} height={64} />
+                              </div>
+                            </div>
+                            
+                            {/* Duplicate for seamless loop */}
+                            <div className="inline-block">
+                              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                                <Image src='/case3.svg' alt="Eon Logo" width={128} height={64} />
+                              </div>
+                            </div>
+                            <div className="inline-block">
+                              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                                <Image src="/case4.svg" alt="Eon Logo" width={128} height={64} />
+                              </div>
+                            </div>
+                            <div className="inline-block">
+                              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                                <Image src='/case1.svg' alt="Eon Logo" width={128} height={64} />
+                              </div>
+                            </div>
+                            <div className="inline-block">
+                              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                                <Image src='/case2.svg' alt="Eon Logo" width={128} height={64} />
+                              </div>
+                            </div>
+                            <div className="inline-block">
+                              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                                <Image src='case3.svg' alt="Eon Logo" width={128} height={64} />
+                              </div>
+                            </div>
+                            <div className="inline-block">
+                              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                                <Image src='/case4.svg' alt="Eon Logo" width={128} height={64} />
+                              </div>
+                            </div>
               </div>
               {/* Gradient overlays for fading effect */}
               <div className="fade-left3"></div>

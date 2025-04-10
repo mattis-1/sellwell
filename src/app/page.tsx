@@ -216,68 +216,68 @@ export default function Home() {
           <div className="logos-slider">
             {/* First set of logos */}
             <div className="inline-block">
-              <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                <Image src='/eon logo.svg' alt="Eon Logo" width={128} height={64} />
+              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                <Image src='/case1.svg' alt="Eon Logo" width={128} height={64} />
               </div>
             </div>
             <div className="inline-block">
-              <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                <Image src="/eon logo.svg" alt="Eon Logo" width={128} height={64} />
+              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                <Image src="/case2.svg" alt="Eon Logo" width={128} height={64} />
               </div>
             </div>
             <div className="inline-block">
-              <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                <Image src='eon logo.svg' alt="Eon Logo" width={128} height={64} />
+              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                <Image src='/case3.svg' alt="Eon Logo" width={128} height={64} />
               </div>
             </div>
             <div className="inline-block">
-              <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                <Image src='eon logo.svg' alt="Eon Logo" width={128} height={64} />
+              <div className="h-16 w-33 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                <Image src='/case4.svg' alt="Eon Logo" width={128} height={64} />
               </div>
             </div>
             <div className="inline-block">
-              <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                <Image src='eon logo.svg' alt="Eon Logo" width={128} height={64} />
+              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                <Image src='case1.svg' alt="Eon Logo" width={128} height={64} />
               </div>
             </div>
             <div className="inline-block">
-              <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                <Image src='eon logo.svg' alt="Eon Logo" width={128} height={64} />
+              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                <Image src='/case2.svg' alt="Eon Logo" width={128} height={64} />
               </div>
             </div>
             
             {/* Duplicate for seamless loop */}
             <div className="inline-block">
-              <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                <Image src='eon logo.svg' alt="Eon Logo" width={128} height={64} />
+              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                <Image src='/case3.svg' alt="Eon Logo" width={128} height={64} />
               </div>
             </div>
             <div className="inline-block">
-              <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                <Image src='eon logo.svg' alt="Eon Logo" width={128} height={64} />
+              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                <Image src="/case4.svg" alt="Eon Logo" width={128} height={64} />
               </div>
             </div>
             <div className="inline-block">
-              <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                <Image src='eon logo.svg' alt="Eon Logo" width={128} height={64} />
+              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                <Image src='/case1.svg' alt="Eon Logo" width={128} height={64} />
               </div>
             </div>
             <div className="inline-block">
-              <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                <Image src='eon logo.svg' alt="Eon Logo" width={128} height={64} />
+              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                <Image src='/case2.svg' alt="Eon Logo" width={128} height={64} />
               </div>
             </div>
             <div className="inline-block">
-              <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                <Image src='eon logo.svg' alt="Eon Logo" width={128} height={64} />
+              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                <Image src='case3.svg' alt="Eon Logo" width={128} height={64} />
               </div>
             </div>
             <div className="inline-block">
-              <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                <Image src='eon logo.svg' alt="Eon Logo" width={128} height={64} />
+              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                <Image src='/case4.svg' alt="Eon Logo" width={128} height={64} />
               </div>
             </div>
-          </div>
+            </div>
           {/* Gradient overlays for fading effect */}
           <div className="fade-left2"></div>
           <div className="fade-right2"></div>
@@ -337,7 +337,7 @@ export default function Home() {
         <span className="mb-3 inline-block bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-[14px] sm:text-[16px] font-[600] rounded-[99px] px-4 py-1">
           WILLKOMMEN BEI SELLWELL
         </span>
-        <h2 className="headr text-[#000000] inter800 text-[15px] sm:text-4xl mb-3">Der Partner<br /><span className="bg-gradient-to-r from-[#14532d] to-[#16a34a] bg-clip-text text-transparent">im D2D in Bayern</span></h2>
+        <h2 className="headr text-[#000000] inter800 text-[15px] sm:text-2xl mb-3">Der Partner<br /><span className="bg-gradient-to-r from-[#14532d] to-[#16a34a] bg-clip-text text-transparent">im D2D in Bayern</span></h2>
         <p className="text-lg sm:text-xl text-[#000000] mb-6 pr-0 sm:pr-8 md:pr-12 lg:pr-20">
           Als schnellstwachsender Door-to-Door Vertrieb Bayerns übernehmen wir für führende Unternehmen in der Energiebranche den Außendienst. Mit hocheffektiven Vertriebslösungen und einem ambitionierten Team setzen wir regelmäßig neue Maßstäbe im Markt der erneuerbaren Energie.
         </p>
