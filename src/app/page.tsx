@@ -870,38 +870,44 @@ export default function Home() {
     </section>
 
 
-<section className="pt-5 lg:py-5 relative overflow-clip mb-[-75px]">
-      {/* Background gradient overlay */}
-      <div className="bg-gradient-to-t absolute from-[#fff] to-[#fff] inset-0 w-full h-full pointer-events-none"></div>
-      <div className="container relative">
-            {/* Mission Statement */}
-    <div className="max-w-4xl mt-30 mx-auto text-center mb-0">
-<div className="mt-[-20px] flex justify-center mb-1">
-  <div className="inline-flex items-center g-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-[14px] px-4 py-2 border-[1.7px] border-[#C8C7C6] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
-       <Image 
-         src="/Green Star.svg" 
-         alt="Green Star" 
-         width={22}
-         height={22}
-         className="mr-2"
-       />
-    <p className="text-center font-medium text-primary">
-      Das Sellwell Team
-    </p>
-  </div>
-  </div>
-  </div>
-        {/* Heading */}
-        <div className="richtext prose-h2:text-white mb-3 lg:mb-3">
-          <h2 className="text-center inter800 text-[55px] text-black tracking-[-1.5px] pt-7 mb-15 leading-[1.2]">Echter Vertrieb.<br /><span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
-">Echte Ergebnisse.</span></h2>
-        </div>
-        {/* Slider */}
-        <div className="min-h-[50rem] relative">
-          <Slider cards={cards} />
+    <section className="pt-5 lg:py-5 relative overflow-clip mb-[-40px] sm:mb-[-60px] md:mb-[-75px]">
+  {/* Background gradient overlay */}
+  <div className="bg-gradient-to-t absolute from-[#fff] to-[#fff] inset-0 w-full h-full pointer-events-none"></div>
+  <div className="container relative px-4 sm:px-6">
+    {/* Mission Statement */}
+    <div className="max-w-4xl mt-10 sm:mt-20 md:mt-30 mx-auto text-center mb-0">
+      <div className="mt-[-10px] sm:mt-[-20px] flex justify-center mb-1">
+        <div className="inline-flex items-center backdrop-blur-sm rounded-[10px] sm:rounded-[14px] px-3 sm:px-4 py-1.5 sm:py-2 border-[1.5px] sm:border-[1.7px] border-[#C8C7C6] shadow-[1px_1px_10px_0px_rgba(0,0,0,0.15)] sm:shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
+          <Image 
+            src="/Green Star.svg" 
+            alt="Green Star" 
+            width={18}
+            height={18}
+            className="mr-1.5 sm:mr-2"
+          />
+          <p className="text-center text-sm sm:text-base font-medium text-primary">
+            Das Sellwell Team
+          </p>
         </div>
       </div>
-    </section>
+    </div>
+    
+    {/* Heading */}
+    <div className="richtext prose-h2:text-white mb-2 sm:mb-3">
+      <h2 className="text-center inter800 text-3xl sm:text-4xl md:text-5xl lg:text-[55px] text-black tracking-[-0.75px] sm:tracking-[-1px] md:tracking-[-1.5px] pt-3 sm:pt-5 md:pt-7 mb-6 sm:mb-10 md:mb-15 leading-[1.2]">
+        Echter Vertrieb.<br />
+        <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">
+          Echte Ergebnisse.
+        </span>
+      </h2>
+    </div>
+    
+    {/* Slider */}
+    <div className="min-h-[36rem] sm:min-h-[42rem] md:min-h-[46rem] lg:min-h-[50rem] relative">
+      <Slider cards={cards} />
+    </div>
+  </div>
+</section>
 
 <section>
   <Somebenefits />
