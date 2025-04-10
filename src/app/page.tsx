@@ -653,70 +653,70 @@ export default function Home() {
 </div>
 </section>
 
-<section className="pb-5 pt-15 bg-[#EBE9E8] w-full">
-      <div className="container mx-auto ">
-        {/* Mission Statement */}
-        <div className="max-w-4xl mx-auto text-center mb-7">
-          <div className="mt-[-20px] flex justify-center mb-1">
-            <div className="inline-flex items-center g-white/90 backdrop-blur-sm rounded-[14px] px-4 py-2 border-[1.7px] border-[#C8C7C6] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
-              <Image 
-                src="/Green Star.svg" 
-                alt="Green Star" 
-                width={22}
-                height={22}
-                className="mr-2"
-              />
-              <p className="text-center font-medium text-[#000000] mb-[2.25px]">
-                Sellwell für Unternehmen
-              </p>
-            </div>
-          </div>
-        </div>
-        
-        <h2 className="text-center text-[#000000] inter800 headr mb-[30px]">Unsere Leistungen</h2>
-        
-        <div className="mb-16">
-          <Tabs
-            containerClassName="justify-center"
-            activeTabClassName="bg-transparent border border-[#000]"
-            tabClassName="font-medium text-sm md:text-base"
-            contentClassName=""
-            tabs={[
-              {
-                title: "Vertriebsberatung",
-                value: "b2b",
-                image: "/Leistung1.png", // Replace with your actual image path
-                imageAlt: "Vertriebsberatung und Optimierung",
-                heading: "Vertriebsberatung und Optimierung",
-                text: "Wir analysieren Ihre bestehenden Vertriebsprozesse und entwickeln maßgeschneiderte Strategien für den Door-to-Door Bereich. Mit datenbasierter Optimierung und praxiserprobten Methoden steigern wir Ihre Conversion Rates und maximieren den ROI Ihrer Vertriebsaktivitäten.",
-                buttonText: "JETZT KONTAKT AUFNEHMEN",
-                buttonLink: "/kontakt"
-              },
-              {
-                title: "Neukundengewinnung",
-                value: "b2c",
-                image: "/Leistung2.png", // Replace with your actual image path
-                imageAlt: "Neukundengewinnung und Lead Generation",
-                heading: "Neukunden & Lead Generation",
-                text: "Wir bringen Ihr Produkt direkt zu den relevanten Kunden und übernehmen den gesamten Akquiseprozess im Door-to-Door Bereich. Mit gezielter Ansprache und bewährten Verkaufstechniken überzeugen wir potenzielle Kunden und generieren qualifizierte Abschlüsse für Ihr Unternehmen.",
-                buttonText: "JETZT KONTAKT AUFNEHMEN",
-                buttonLink: "/kontakt"
-              },
-              {
-                title: "Vertriebsprozesse",
-                value: "online",
-                image: "/Leistung3.png", // Replace with your actual image path
-                imageAlt: "Vertriebsprozesse und Strategien",
-                heading: "Vertriebsprozesse und strategische Planung",
-                text: "Wir entwickeln passgenaue Vertriebsprozesse und maßgeschneiderte Strategien für Ihre Produkte im Energiesektor. Von der ersten Kundenansprache bis zum erfolgreichen Abschluss implementieren wir durchdachte Verkaufsabläufe und setzen sie mit unserem erfahrenen Team direkt im Door-to-Door Bereich um.",
-                buttonText: "JETZT KONTAKT AUFNEHMEN",
-                buttonLink: "/kontakt"
-              },
-            ]}
+<section className="py-8 sm:py-10 md:pb-12 md:pt-15 bg-[#EBE9E8] w-full">
+  <div className="container mx-auto px-4 sm:px-6">
+    {/* Mission Statement */}
+    <div className="max-w-4xl mx-auto text-center mb-4 sm:mb-7">
+      <div className="mt-[-10px] sm:mt-[-20px] flex justify-center mb-1">
+        <div className="inline-flex items-center backdrop-blur-sm rounded-[10px] sm:rounded-[14px] px-3 sm:px-4 py-1.5 sm:py-2 border-[1.5px] sm:border-[1.7px] border-[#C8C7C6] shadow-[1px_1px_10px_0px_rgba(0,0,0,0.15)] sm:shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
+          <Image 
+            src="/Green Star.svg" 
+            alt="Green Star" 
+            width={18}
+            height={18}
+            className="mr-1.5 sm:mr-2"
           />
+          <p className="text-center text-sm sm:text-base font-medium text-[#000000] mb-[2px]">
+            Sellwell für Unternehmen
+          </p>
         </div>
       </div>
-    </section>
+    </div>
+    
+    <h2 className="text-center text-[#000000] inter800 text-3xl sm:text-4xl md:text-5xl lg:headr mb-4 sm:mb-[30px]">Unsere Leistungen</h2>
+    
+    <div className="mb-8 sm:mb-12 md:mb-16">
+      <Tabs
+        containerClassName="justify-center"
+        activeTabClassName="bg-transparent border border-[#000]"
+        tabClassName="font-medium text-sm md:text-base"
+        contentClassName=""
+        tabs={[
+          {
+            title: "Vertriebsberatung",
+            value: "b2b",
+            image: "/Leistung1.png", // Replace with your actual image path
+            imageAlt: "Vertriebsberatung und Optimierung",
+            heading: "Vertriebsberatung und Optimierung",
+            text: "Wir analysieren Ihre bestehenden Vertriebsprozesse und entwickeln maßgeschneiderte Strategien für den Door-to-Door Bereich. Mit datenbasierter Optimierung und praxiserprobten Methoden steigern wir Ihre Conversion Rates und maximieren den ROI Ihrer Vertriebsaktivitäten.",
+            buttonText: "JETZT KONTAKT AUFNEHMEN",
+            buttonLink: "/kontakt"
+          },
+          {
+            title: "Neukundengewinnung",
+            value: "b2c",
+            image: "/Leistung2.png", // Replace with your actual image path
+            imageAlt: "Neukundengewinnung und Lead Generation",
+            heading: "Neukunden & Lead Generation",
+            text: "Wir bringen Ihr Produkt direkt zu den relevanten Kunden und übernehmen den gesamten Akquiseprozess im Door-to-Door Bereich. Mit gezielter Ansprache und bewährten Verkaufstechniken überzeugen wir potenzielle Kunden und generieren qualifizierte Abschlüsse für Ihr Unternehmen.",
+            buttonText: "JETZT KONTAKT AUFNEHMEN",
+            buttonLink: "/kontakt"
+          },
+          {
+            title: "Vertriebsprozesse",
+            value: "online",
+            image: "/Leistung3.png", // Replace with your actual image path
+            imageAlt: "Vertriebsprozesse und Strategien",
+            heading: "Vertriebsprozesse und strategische Planung",
+            text: "Wir entwickeln passgenaue Vertriebsprozesse und maßgeschneiderte Strategien für Ihre Produkte im Energiesektor. Von der ersten Kundenansprache bis zum erfolgreichen Abschluss implementieren wir durchdachte Verkaufsabläufe und setzen sie mit unserem erfahrenen Team direkt im Door-to-Door Bereich um.",
+            buttonText: "JETZT KONTAKT AUFNEHMEN",
+            buttonLink: "/kontakt"
+          },
+        ]}
+      />
+    </div>
+  </div>
+</section>
 
 {/*Für Unternehmen Benefits*/}
 <section className="bg-[#EBE9E8] pb-0">

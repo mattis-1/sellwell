@@ -4,61 +4,6 @@ import React from 'react';
 import Image from 'next/image'; // Import Next.js Image component
 
 const VerticalGallerySection = () => {
-  // Sample data for the 2x2 grid
-  const features = [
-    {
-      icon: (
-        <Image 
-          src="/16.svg" 
-          alt="Icon" 
-          width={50} 
-          height={50} 
-          className="w-15 h-15 ml-[-10px]"
-        />
-      ),
-      title: "Attraktive Vergütung",
-      description: "Mit attraktivem Provisionsmodell locker um die 5-stellig als Angestellter verdienen."
-    },
-    {
-      icon: (
-        <Image 
-          src="/17.svg" 
-          alt="Icon" 
-          width={50} 
-          height={50} 
-          className="w-15 h-15 ml-[-10px]"
-        />
-      ),
-      title: "Kontinuierliche Weiterbildung",
-      description: "Regelmäßiges Training, um dein volles Potenzial zu entfalten und schnelles Wachstum zu fördern."
-    },
-    {
-      icon: (
-        <Image 
-          src="/18.svg" 
-          alt="Icon" 
-          width={50} 
-          height={50} 
-          className="w-15 h-15 ml-[-10px]"
-        />
-      ),
-      title: "Individuelle Unterstützung",
-      description: "Persönliche Betreuung durch erfahrene Teamleiter, um deinen individuellen Erfolgsweg zu gestalten."
-    },
-    {
-      icon: (
-        <Image 
-          src="/19.svg" 
-          alt="Icon" 
-          width={50} 
-          height={50} 
-          className="w-15 h-15 ml-[-10px]"
-        />
-      ),
-      title: "Starke Teamkultur",
-      description: "Ein familiäres Umfeld mit ambitionierten Kollegen, das gemeinsame Erfolge in den Mittelpunkt stellt."
-    }
-  ];
 
   // Create image sets with URLs for each column
   const leftColumnImages = [
