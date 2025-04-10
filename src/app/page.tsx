@@ -14,6 +14,9 @@ import Slider from "@/components/slider"
 import Process from "@/components/process"
 import Somebenefits from "@/components/columnbenefits"
 import AnimatedStats from "@/components/ui/stats"
+import BeautifulModal from "@/components/BeautifulModal";
+import { useState } from 'react';
+
 
 const videoIds = [
   "tUgM4kCF7rU", // New IDs
@@ -71,8 +74,11 @@ export default function Home() {
     },
   ];
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="flex min-h-screen flex-col w-full bg-[#FFFFFF]">
+
   {/* Header spans full width */}
   <Header />
   
@@ -481,9 +487,19 @@ export default function Home() {
         <p className="text-[#000000] mb-6 text-lg sm:text-xl">
           Wir vermarkten Ihr Produkt effizient, verlässlich und mit messbaren ErgebnissenEffizient. Konstante Weiterbildung unseres Teams und bewährte Vertriebsprozesse, die kontinuierlich optimiert werden, machen uns zum optimalen Partner für Ihr Unternehmen.
         </p>
-        <Button variant="default" className="self-start text-lg sm:text-[22px] rounded-[99px]">
-          Jetzt Projekt anfragen
-        </Button>
+        <Button 
+        variant="default" 
+        className="self-start text-lg sm:text-[22px] rounded-[99px]"
+        onClick={() => setIsModalOpen(true)}
+      >
+        Jetzt Projekt anfragen
+      </Button>
+      
+      <BeautifulModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
+    
       </div>
     </div>
   </div>
