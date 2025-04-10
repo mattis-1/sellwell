@@ -138,11 +138,23 @@ const Process: React.FC<ProcessProps> = ({
             visibleRows[row.id.toString()] ? 'opacity-100' : 'opacity-0'
           } ${customRowClass} py-6 sm:py-8 md:py-12 px-4 sm:px-5 md:px-6 border border-gray-100 rounded-[20px] sm:rounded-[40px] md:rounded-[70px] shadow-[0px_2px_10px_0px_rgba(0,0,0,0.1)] sm:shadow-[0px_4px_20px_0px_rgba(0,0,0,0.2)]`}
         >
+          {/* Image for mobile - displayed at the top */}
+          <div className="md:hidden mb-6 w-full">
+            <div className={`relative w-full ${imageHeight} ${customImageClass}`}>
+              <Image 
+                src={row.imageUrl} 
+                alt={`Image for ${row.headline}`} 
+                fill
+                className="object-cover rounded-[15px] sm:rounded-[20px]"
+              />
+            </div>
+          </div>
+
           {/* Left side: Larger column with icon, headline and text */}
           <div className={`md:w-3/5 ${contentSpacing}`}>
-            <div className="flex items-start pl-2 sm:pl-6 md:pl-10">
-              {/* Icon Container - Larger and now can use custom images */}
-              <div className={`flex-shrink-0 mt-[-10px] sm:mt-[-14px] ${iconTextSpacing} ${iconSize}`}>
+            <div className="flex flex-col md:flex-row md:items-start md:pl-10">
+              {/* Icon Container - above headline on mobile, next to headline on desktop */}
+              <div className={`flex-shrink-0 mb-3 md:mb-0 md:mt-[-14px] mx-auto md:mx-0 ${iconTextSpacing} ${iconSize}`}>
                 {row.iconUrl ? (
                   <div className={`relative ${iconSize}`}>
                     <Image 
@@ -160,21 +172,21 @@ const Process: React.FC<ProcessProps> = ({
                 )}
               </div>
 
-              <div className={customTextClass}>
+              <div className={`${customTextClass} text-center md:text-left`}>
                 <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-[38px] tracking-[-0.5px] sm:tracking-[-1px] inter800 text-[#000000] font-bold mb-2 sm:mb-3">{row.headline}</h3>
                 <p className={`text-[#000] font-[400] text-sm sm:text-base md:text-[18px] ${textPadding}`}>{row.text}</p>
               </div>
             </div>
           </div>
 
-          {/* Right side: Image - now pushed more to the right */}
-          <div className="md:w-2/5 mt-6 sm:mt-8 md:mt-0 pr-0 sm:pr-3 md:pr-5 w-full">
-            <div className={`relative w-full ${imageHeight} ${imageHeightMd} ${customImageClass}`}>
+          {/* Right side: Image - hidden on mobile (since it's moved to the top) */}
+          <div className="hidden md:block md:w-2/5 md:mt-0 md:pr-5">
+            <div className={`relative w-full ${imageHeightMd} ${customImageClass}`}>
               <Image 
                 src={row.imageUrl} 
                 alt={`Image for ${row.headline}`} 
                 fill
-                className="object-cover rounded-[15px] sm:rounded-[20px] md:rounded-[30px]"
+                className="object-cover rounded-[30px]"
               />
             </div>
           </div>
