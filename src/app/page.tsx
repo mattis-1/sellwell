@@ -189,82 +189,82 @@ export default function Home() {
         </div>
         </section>
 
-          <section className="bg-[#F4F2F1]">
-          {/* Infinite scrolling logos */}
-          <div className="w-full flex justify-center mt-0 ">
-            <div className="logos-slider-container w-[70%] relative">
-              <div className="logos-slider">
-                {/* First set of logos */}
-                <div className="inline-block">
-                  <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                    <span className="text-primary font-bold">Logo 1</span>
-                  </div>
-                </div>
-                <div className="inline-block">
-                  <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                    <span className="text-primary font-bold">Logo 2</span>
-                  </div>
-                </div>
-                <div className="inline-block">
-                  <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                    <span className="text-primary font-bold">Logo 3</span>
-                  </div>
-                </div>
-                <div className="inline-block">
-                  <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                    <span className="text-primary font-bold">Logo 4</span>
-                  </div>
-                </div>
-                <div className="inline-block">
-                  <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                    <span className="text-primary font-bold">Logo 5</span>
-                  </div>
-                </div>
-                <div className="inline-block">
-                  <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                    <span className="text-primary font-bold">Logo 6</span>
-                  </div>
-                </div>
-                
-                {/* Duplicate for seamless loop */}
-                <div className="inline-block">
-                  <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                    <span className="text-primary font-bold">Logo 1</span>
-                  </div>
-                </div>
-                <div className="inline-block">
-                  <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                    <span className="text-primary font-bold">Logo 2</span>
-                  </div>
-                </div>
-                <div className="inline-block">
-                  <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                    <span className="text-primary font-bold">Logo 3</span>
-                  </div>
-                </div>
-                <div className="inline-block">
-                  <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                    <span className="text-primary font-bold">Logo 4</span>
-                  </div>
-                </div>
-                <div className="inline-block">
-                  <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                    <span className="text-primary font-bold">Logo 5</span>
-                  </div>
-                </div>
-                <div className="inline-block">
-                  <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
-                    <span className="text-primary font-bold">Logo 6</span>
-                  </div>
-                </div>
+        <section className="bg-[#F4F2F1]">
+      {/* Infinite scrolling logos */}
+      <div className="w-full flex justify-center mt-0">
+        <div className="logos-slider-container w-[70%] relative">
+          <div className="logos-slider">
+            {/* First set of logos */}
+            <div className="inline-block">
+              <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                <Image src='/eon logo.svg' alt="Eon Logo" width={128} height={64} />
               </div>
-              {/* Gradient overlays for fading effect */}
-              <div className="fade-left2"></div>
-              <div className="fade-right2"></div>
+            </div>
+            <div className="inline-block">
+              <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                <Image src="/eon logo.svg" alt="Eon Logo" width={128} height={64} />
+              </div>
+            </div>
+            <div className="inline-block">
+              <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                <Image src='eon logo.svg' alt="Eon Logo" width={128} height={64} />
+              </div>
+            </div>
+            <div className="inline-block">
+              <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                <Image src='eon logo.svg' alt="Eon Logo" width={128} height={64} />
+              </div>
+            </div>
+            <div className="inline-block">
+              <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                <Image src='eon logo.svg' alt="Eon Logo" width={128} height={64} />
+              </div>
+            </div>
+            <div className="inline-block">
+              <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                <Image src='eon logo.svg' alt="Eon Logo" width={128} height={64} />
+              </div>
+            </div>
+            
+            {/* Duplicate for seamless loop */}
+            <div className="inline-block">
+              <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                <Image src='eon logo.svg' alt="Eon Logo" width={128} height={64} />
+              </div>
+            </div>
+            <div className="inline-block">
+              <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                <Image src='eon logo.svg' alt="Eon Logo" width={128} height={64} />
+              </div>
+            </div>
+            <div className="inline-block">
+              <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                <Image src='eon logo.svg' alt="Eon Logo" width={128} height={64} />
+              </div>
+            </div>
+            <div className="inline-block">
+              <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                <Image src='eon logo.svg' alt="Eon Logo" width={128} height={64} />
+              </div>
+            </div>
+            <div className="inline-block">
+              <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                <Image src='eon logo.svg' alt="Eon Logo" width={128} height={64} />
+              </div>
+            </div>
+            <div className="inline-block">
+              <div className="h-16 w-32 bg-white/80 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+                <Image src='eon logo.svg' alt="Eon Logo" width={128} height={64} />
+              </div>
             </div>
           </div>
-          <div className="absolute inset-0 bg-grid-white/10 bg-[size:20px_20px] opacity-10"></div>
-        </section>
+          {/* Gradient overlays for fading effect */}
+          <div className="fade-left2"></div>
+          <div className="fade-right2"></div>
+        </div>
+      </div>
+      <div className="absolute inset-0 bg-grid-white/10 bg-[size:20px_20px] opacity-10"></div>
+    </section>
 
 
 
@@ -272,25 +272,25 @@ export default function Home() {
 
 
         
-        {/* Two-column section */}
-<section className="relative pl-8 pr-10 py-16 pb-15 bg-background w-full overflow-hidden">
+       {/* Welcome Section */}
+<section className="relative px-4 sm:pl-8 sm:pr-10 py-12 sm:py-16 pb-12 sm:pb-15 bg-background w-full overflow-hidden">
   {/* Background layers start */}
   <div className="absolute inset-0 bg-[#FFFFFF] dark:from-[#0A0A0A] dark:to-[#0A0A0A] z-0"></div>
           
-          {/* Left abstract elements - fully contained */}
-          <div className="absolute top-[-20%] left-[-15%] w-[80%] h-[110%] z-[1] opacity-80">
-            <div className="relative w-full h-full">
-              <div className="absolute w-[80%] h-[80%] rounded-[20px] bg-[radial-gradient(circle,rgba(134,239,172,0.4)_0%,rgba(217,249,157,0.15)_70%)] top-[10%] left-[10%] blur-[50px]"></div>
-              <div className="absolute w-[60%] h-[60%] rounded-[20px] bg-[radial-gradient(circle,rgba(134,239,172,0.45)_0%,rgba(217,249,157,0.2)_70%)] top-[20%] left-[20%] blur-[40px]"></div>
-              <div className="absolute w-[40%] h-[40%] rounded-[20px] bg-[radial-gradient(circle,rgba(134,239,172,0.5)_0%,rgba(217,249,157,0.25)_70%)] top-[30%] left-[30%] blur-[30px]"></div>
-              <div className="absolute w-[25%] h-[25%] rounded-[20px] bg-[radial-gradient(circle,rgba(134,239,172,0.55)_0%,rgba(217,249,157,0.3)_70%)] top-[38%] left-[38%] blur-[20px]"></div>
-            </div>
-            <div className="relative w-full h-full -rotate-25">
-              <div className="absolute w-[70%] h-[70%] rounded-[20px] bg-[radial-gradient(circle,rgba(217,249,157,0.4)_0%,rgba(134,239,172,0.15)_70%)] top-[15%] left-[15%] blur-[45px]"></div>
-              <div className="absolute w-[50%] h-[50%] rounded-[20px] bg-[radial-gradient(circle,rgba(217,249,157,0.45)_0%,rgba(134,239,172,0.2)_70%)] top-[25%] left-[25%] blur-[35px]"></div>
-              <div className="absolute w-[30%] h-[30%] rounded-[20px] bg-[radial-gradient(circle,rgba(217,249,157,0.5)_0%,rgba(134,239,172,0.25)_70%)] top-[35%] left-[35%] blur-[25px]"></div>
-            </div>
-          </div>
+  {/* Left abstract elements - fully contained */}
+  <div className="absolute top-[-20%] left-[-15%] w-[80%] h-[110%] z-[1] opacity-80">
+    <div className="relative w-full h-full">
+      <div className="absolute w-[80%] h-[80%] rounded-[20px] bg-[radial-gradient(circle,rgba(134,239,172,0.4)_0%,rgba(217,249,157,0.15)_70%)] top-[10%] left-[10%] blur-[50px]"></div>
+      <div className="absolute w-[60%] h-[60%] rounded-[20px] bg-[radial-gradient(circle,rgba(134,239,172,0.45)_0%,rgba(217,249,157,0.2)_70%)] top-[20%] left-[20%] blur-[40px]"></div>
+      <div className="absolute w-[40%] h-[40%] rounded-[20px] bg-[radial-gradient(circle,rgba(134,239,172,0.5)_0%,rgba(217,249,157,0.25)_70%)] top-[30%] left-[30%] blur-[30px]"></div>
+      <div className="absolute w-[25%] h-[25%] rounded-[20px] bg-[radial-gradient(circle,rgba(134,239,172,0.55)_0%,rgba(217,249,157,0.3)_70%)] top-[38%] left-[38%] blur-[20px]"></div>
+    </div>
+    <div className="relative w-full h-full -rotate-25">
+      <div className="absolute w-[70%] h-[70%] rounded-[20px] bg-[radial-gradient(circle,rgba(217,249,157,0.4)_0%,rgba(134,239,172,0.15)_70%)] top-[15%] left-[15%] blur-[45px]"></div>
+      <div className="absolute w-[50%] h-[50%] rounded-[20px] bg-[radial-gradient(circle,rgba(217,249,157,0.45)_0%,rgba(134,239,172,0.2)_70%)] top-[25%] left-[25%] blur-[35px]"></div>
+      <div className="absolute w-[30%] h-[30%] rounded-[20px] bg-[radial-gradient(circle,rgba(217,249,157,0.5)_0%,rgba(134,239,172,0.25)_70%)] top-[35%] left-[35%] blur-[25px]"></div>
+    </div>
+  </div>
           
   {/* Texture background */}
   <div className="absolute inset-0 opacity-[0.12] bg-[url('https://framerusercontent.com/images/6mcf62RlDfRfU61Yg5vb2pefpi4.png')] bg-repeat bg-[size:128px] z-0"></div>
@@ -298,11 +298,11 @@ export default function Home() {
   {/* Top gradient overlay */}
   <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#F4F2F1] to-transparent z-1"></div>
   
-  <div className="container mx-auto px-6 sm:px-12 md:px-24 lg:px-32 relative z-10">
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+  <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-24 xl:px-32 relative z-10">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
       {/* Left column - Image with reduced height */}
-      <div className="relative h-80 md:h-[320px] lg:h-[360px] xl:h-[500px] max-h-[450px] rounded-[25px] overflow-hidden shadow-[0_0_60px_0_rgba(5, 46, 22,0.55)] backdrop-blur-sm border border-white/10">
-        <div className="absolute inset-0 flex items-center justify-center ">
+      <div className="relative h-64 sm:h-80 md:h-[320px] lg:h-[360px] xl:h-[500px] max-h-[450px] rounded-[25px] overflow-hidden shadow-[0_0_60px_0_rgba(5,46,22,0.55)] backdrop-blur-sm border border-white/10">
+        <div className="absolute inset-0 flex items-center justify-center">
           <Image 
             src="/WILLKOMMEN.png" 
             alt="Vertriebsstrategie" 
@@ -313,16 +313,16 @@ export default function Home() {
       </div>
       
       {/* Right column - Content */}
-      <div className="flex flex-col items-start">
-        <span className="mb-3 inline-block bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-[16px] font-[600] rounded-[99px] px-4 py-1">
+      <div className="flex flex-col items-start mt-6 md:mt-0">
+        <span className="mb-3 inline-block bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-[14px] sm:text-[16px] font-[600] rounded-[99px] px-4 py-1">
           WILLKOMMEN BEI SELLWELL
         </span>
-        <h2 className="headr text-[#000000] inter800 mb-3">Der Partner<br /><span className="bg-gradient-to-r from-[#14532d] to-[#16a34a] bg-clip-text text-transparent">im D2D in Bayern</span></h2>
-        <p className="text-xl text-[#000000] mb-7 pr-20">
+        <h2 className="headr text-[#000000] inter800 text-3xl sm:text-4xl mb-3">Der Partner<br /><span className="bg-gradient-to-r from-[#14532d] to-[#16a34a] bg-clip-text text-transparent">im D2D in Bayern</span></h2>
+        <p className="text-lg sm:text-xl text-[#000000] mb-6 pr-0 sm:pr-8 md:pr-12 lg:pr-20">
           Als schnellstwachsender Door-to-Door Vertrieb Bayerns übernehmen wir für führende Unternehmen in der Energiebranche den Außendienst. Mit hocheffektiven Vertriebslösungen und einem ambitionierten Team setzen wir regelmäßig neue Maßstäbe im Markt der erneuerbaren Energie.
         </p>
 
-        <Button variant="default" className="self-start text-[22px] rounded-[99px]">
+        <Button variant="default" className="self-start text-lg sm:text-[22px] rounded-[99px]">
           Mehr erfahren
         </Button>
       </div>
@@ -330,168 +330,165 @@ export default function Home() {
   </div>
 </section>
 
-
+{/* Karriereerfolg Section */}
+<section className="relative w-full py-10 px-4 sm:pl-10 sm:pr-8 overflow-hidden">
+  <div className="absolute inset-0 bg-[#0B3F28] dark:from-[#0A0A0A] dark:to-[#0A0A0A] z-0"></div>
         
-        {/* Tilted green section with angled shapes */}
-        <section className="relative w-full py-10 pl-10 pr-8 overflow-hidden">
-
-        <div className="absolute inset-0 bg-[#0B3F28] dark:from-[#0A0A0A] dark:to-[#0A0A0A] z-0"></div>
-          
   {/* Texture background */}
   <div className="absolute inset-0 opacity-[0.06] bg-[url('https://framerusercontent.com/images/6mcf62RlDfRfU61Yg5vb2pefpi4.png')] bg-repeat bg-[size:128px] z-0"></div>
-
-          
-          <div className="container mx-auto px-6 sm:px-12 md:px-24 lg:px-32 relative z-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
-              {/* Left column - Content with checklist */}
-              <div className="flex flex-col text-white mt-10 items-start">
-                <span className="mb-3 inline-block bg-gradient-to-r from-[#ffffff] to-[#a9aaac] text-[#0B3E27] text-[16px] font-[700] rounded-[99px] px-4 py-1
-">KARRIEREERFOLG MIT SELLWELL</span>
-                <h2 className="headrr inter800 mb-3 bg-gradient-to-r from-[#ffffff] to-[#A9AAAC] bg-clip-text text-transparent
-">Entfalte dein volles<br />Potenzial im Direktvertrieb</h2>
+        
+  <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-24 xl:px-32 relative z-10">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
+      {/* Left column - Content with checklist */}
+      <div className="flex flex-col text-white mt-6 md:mt-10 items-start">
+        <span className="mb-3 inline-block bg-gradient-to-r from-[#ffffff] to-[#a9aaac] text-[#0B3E27] text-[14px] sm:text-[16px] font-[700] rounded-[99px] px-4 py-1">
+          KARRIEREERFOLG MIT SELLWELL
+        </span>
+        <h2 className="headrr inter800 mb-4 text-2xl sm:text-3xl md:text-4xl bg-gradient-to-r from-[#ffffff] to-[#A9AAAC] bg-clip-text text-transparent">
+          Entfalte dein volles<br />Potenzial im Direktvertrieb
+        </h2>
                 
-                <ul className="space-y-2 mb-8">
-                  <li className="flex items-start gap-3">
-                  <div
-    className="flex items-center justify-center rounded-[8px]"
-    style={{
-      width: "25px",
-      height: "25px",
-      background: "linear-gradient(to bottom, #4b4b4b, #141414)",
-      border: "2.5px  #0C462B",
-    }}
-  >
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="#ffffff">
-              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-            </svg>
-  </div>
-                    <span className="text-[18px]" >Konstante Weiterbildung und individualisierte Unterstützung</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                  <div
-    className="flex items-center justify-center rounded-[8px]"
-    style={{
-      width: "25px",
-      height: "25px",
-      background: "linear-gradient(to bottom, #4b4b4b, #141414)",
-      border: "2.5px  #0C462B",
-    }}
-  >
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="#ffffff">
-              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-            </svg>
-  </div>
-                    <span className="text-[18px]">Schneller Aufstieg & Top Gehalt - problemlos 5-stellig verdienen</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                  <div
-    className="flex items-center justify-center rounded-[8px]"
-    style={{
-      width: "25px",
-      height: "25px",
-      background: "linear-gradient(to bottom, #4b4b4b, #141414)",
-      border: "2.5px  #0C462B",
-    }}
-  >
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="#ffffff">
-              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-            </svg>
-  </div>
-                    <span className="text-[18px]">Arbeite mit einem ambitionierten, familiären Team</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                  <div
-    className="flex items-center justify-center rounded-[8px]"
-    style={{
-      width: "25px",
-      height: "25px",
-      background: "linear-gradient(to bottom, #4b4b4b, #141414)",
-      border: "2.5px  #0C462B",
-    }}
-  >
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="#ffffff">
-              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-            </svg>
-  </div>
-                    <span className="text-[18px]">Effiziente Prozesse & Strategien - direkt umsetzbar</span>
-                  </li>
-                  <li className="flex items-start gap-3 mb-[-9px]">
-  <div
-    className="flex items-center justify-center rounded-[8px]"
-    style={{
-      width: "25px",
-      height: "25px",
-      background: "linear-gradient(to bottom, #4b4b4b, #141414)",
-      border: "2.5px  #0C462B",
-    }}
-  >
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="#ffffff">
-              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-            </svg>
-  </div>
-                    <span className="text-[18px]">Renommierte Partner mit gutem Ruf und etablierten Marken</span>
-                  </li>
-                </ul>
-                
-                <button className="inline-flex bg-gradient-to-r from-[#D8D8D9] to-[#AFB0B2]
- items-center px-5 py-2.5 text-[#0B3E27] font-[700] text-[19px] text-base rounded-full  transition shadow-[0_2px_3px_rgba(0,0,0,0.5)] self-start" 
-                      >
-                  MEHR ERFAHREN
-                </button>
-              </div>
-              
-              {/* Right column - Image */}
-              <div className="mt-7 shadow-[0_0_60px_0_rgba(5, 46, 22,0.55)] relative h-80 md:h-[350px] lg:h-[400px] rounded-[25px] overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10 ">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  {/* Placeholder for actual image */}
-                  <Image 
-                    src="/Potenzial.png" 
-                    alt="Vertriebserfolg" 
-                    fill 
-                    className="object-cover"
-                  />
-                </div>
-              </div>
+        <ul className="space-y-3 mb-6 sm:mb-8 w-full">
+          <li className="flex items-start gap-3">
+            <div
+              className="flex-shrink-0 flex items-center justify-center rounded-[8px]"
+              style={{
+                width: "25px",
+                height: "25px",
+                minWidth: "25px",
+                background: "linear-gradient(to bottom, #4b4b4b, #141414)",
+                border: "2.5px #0C462B",
+              }}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="#ffffff">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
             </div>
-          </div>
-        </section>
+            <span className="text-[16px] sm:text-[18px]">Konstante Weiterbildung und individualisierte Unterstützung</span>
+          </li>
+          <li className="flex items-start gap-3">
+            <div
+              className="flex-shrink-0 flex items-center justify-center rounded-[8px]"
+              style={{
+                width: "25px",
+                height: "25px",
+                minWidth: "25px",
+                background: "linear-gradient(to bottom, #4b4b4b, #141414)",
+                border: "2.5px #0C462B",
+              }}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="#ffffff">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+            </div>
+            <span className="text-[16px] sm:text-[18px]">Schneller Aufstieg & Top Gehalt - problemlos 5-stellig verdienen</span>
+          </li>
+          <li className="flex items-start gap-3">
+            <div
+              className="flex-shrink-0 flex items-center justify-center rounded-[8px]"
+              style={{
+                width: "25px",
+                height: "25px",
+                minWidth: "25px",
+                background: "linear-gradient(to bottom, #4b4b4b, #141414)",
+                border: "2.5px #0C462B",
+              }}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="#ffffff">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+            </div>
+            <span className="text-[16px] sm:text-[18px]">Arbeite mit einem ambitionierten, familiären Team</span>
+          </li>
+          <li className="flex items-start gap-3">
+            <div
+              className="flex-shrink-0 flex items-center justify-center rounded-[8px]"
+              style={{
+                width: "25px",
+                height: "25px",
+                minWidth: "25px",
+                background: "linear-gradient(to bottom, #4b4b4b, #141414)",
+                border: "2.5px #0C462B",
+              }}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="#ffffff">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+            </div>
+            <span className="text-[16px] sm:text-[18px]">Effiziente Prozesse & Strategien - direkt umsetzbar</span>
+          </li>
+          <li className="flex items-start gap-3 mb-2 sm:mb-[-9px]">
+            <div
+              className="flex-shrink-0 flex items-center justify-center rounded-[8px]"
+              style={{
+                width: "25px",
+                height: "25px",
+                minWidth: "25px",
+                background: "linear-gradient(to bottom, #4b4b4b, #141414)",
+                border: "2.5px #0C462B",
+              }}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="#ffffff">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+            </div>
+            <span className="text-[16px] sm:text-[18px]">Renommierte Partner mit gutem Ruf und etablierten Marken</span>
+          </li>
+        </ul>
+                
+        <button className="inline-flex bg-gradient-to-r from-[#D8D8D9] to-[#AFB0B2] items-center px-5 py-2.5 text-[#0B3E27] font-[700] text-[16px] sm:text-[19px] rounded-full transition shadow-[0_2px_3px_rgba(0,0,0,0.5)] self-start">
+          MEHR ERFAHREN
+        </button>
+      </div>
+              
+      {/* Right column - Image */}
+      <div className="mt-8 md:mt-7 shadow-[0_0_60px_0_rgba(5,46,22,0.55)] relative h-64 sm:h-80 md:h-[350px] lg:h-[400px] rounded-[25px] overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <Image 
+            src="/Potenzial.png" 
+            alt="Vertriebserfolg" 
+            fill 
+            className="object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 {/* Projekt erfolgreich vermarkten mit Sellwell */}
-<section className="relative pl-4 pr-4 py-16 bg-[#FFFFFF] w-full">
+<section className="relative px-4 py-12 sm:py-16 bg-[#FFFFFF] w-full">
+  <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-24 xl:px-32">
+    {/* Noise texture overlay */}
+    <div className="absolute inset-0 opacity-[0.12] bg-[url('https://framerusercontent.com/images/6mcf62RlDfRfU61Yg5vb2pefpi4.png')] bg-repeat bg-[size:128px] z-[2]"></div>
 
-          <div className="container mx-auto px-6 sm:px-12 md:px-24 lg:px-32">
-          
-          {/* Noise texture overlay - now with higher opacity and comes before vertical lines */}
-          <div className="absolute inset-0 opacity-[0.12] bg-[url('https://framerusercontent.com/images/6mcf62RlDfRfU61Yg5vb2pefpi4.png')] bg-repeat bg-[size:128px] z-[2]"></div>
-          
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
-              {/* Left column - Image with reduced height */}
-              <div className="z-[100] relative h-80 md:h-[320px] lg:h-[360px] xl:h-[400px] max-h-[450px] rounded-[25px] overflow-hidden shadow-[0_0_60px_0_rgba(63,98,18,0.5)] backdrop-blur-sm border border-white/10">
-                <div className="absolute inset-0 bg-gray-300 flex items-center justify-center">
-                  <Image 
-                    src="/Projekterfolg.png" 
-                    alt="Vertriebsstrategie" 
-                    fill 
-                    className="object-cover"
-                  />
-                </div>
-              </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
+      {/* Left column - Image with reduced height */}
+      <div className="z-[100] relative h-64 sm:h-80 md:h-[320px] lg:h-[360px] xl:h-[400px] max-h-[450px] rounded-[25px] overflow-hidden shadow-[0_0_60px_0_rgba(63,98,18,0.5)] backdrop-blur-sm border border-white/10">
+        <div className="absolute inset-0 bg-gray-300 flex items-center justify-center">
+          <Image 
+            src="/Projekterfolg.png" 
+            alt="Vertriebsstrategie" 
+            fill 
+            className="object-cover"
+          />
+        </div>
+      </div>
               
-              {/* Right column - Content */}
-              <div className="flex flex-col start-items items-start z-[125]">
-                <span className="mb-3 inline-block bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-[16px] font-[600] rounded-[99px] px-4 py-1">PROJEKTERFOLG MIT SELLWELL</span>
-                <h2 className="headr mb-2 text-[#000000] inter800">Produkt erfolgreich<br /><span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">mit Sellwell vermarkten</span></h2>
-                <p className="text-[#000000] mb-6 text-xl">
-                Wir vermarkten Ihr Produkt effizient, verlässlich und mit messbaren ErgebnissenEffizient. Konstante Weiterbildung unseres Teams und bewährte Vertriebsprozesse, die kontinuierlich optimiert werden, machen uns zum optimalen Partner für Ihr Unternehmen.
-                </p>
-                <Button variant="default" className="self-start text-[22px] rounded-[99px]">
-                  Jetzt Projekt anfragen
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
+      {/* Right column - Content */}
+      <div className="flex flex-col start-items items-start z-[125] mt-6 md:mt-0">
+        <span className="mb-3 inline-block bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-[14px] sm:text-[16px] font-[600] rounded-[99px] px-4 py-1">PROJEKTERFOLG MIT SELLWELL</span>
+        <h2 className="headr mb-2 text-[#000000] inter800 text-3xl sm:text-4xl">Produkt erfolgreich<br /><span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">mit Sellwell vermarkten</span></h2>
+        <p className="text-[#000000] mb-6 text-lg sm:text-xl">
+          Wir vermarkten Ihr Produkt effizient, verlässlich und mit messbaren ErgebnissenEffizient. Konstante Weiterbildung unseres Teams und bewährte Vertriebsprozesse, die kontinuierlich optimiert werden, machen uns zum optimalen Partner für Ihr Unternehmen.
+        </p>
+        <Button variant="default" className="self-start text-lg sm:text-[22px] rounded-[99px]">
+          Jetzt Projekt anfragen
+        </Button>
+      </div>
+    </div>
+  </div>
+</section>
 
 {/* Three Column Section */}
 <section className="bg-[#0B3F27] py-18">
@@ -661,7 +658,7 @@ export default function Home() {
         {/* Mission Statement */}
         <div className="max-w-4xl mx-auto text-center mb-7">
           <div className="mt-[-20px] flex justify-center mb-1">
-            <div className="inline-flex items-center g-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-[14px] px-4 py-2 border-[1.7px] border-[#C8C7C6] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
+            <div className="inline-flex items-center g-white/90 backdrop-blur-sm rounded-[14px] px-4 py-2 border-[1.7px] border-[#C8C7C6] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
               <Image 
                 src="/Green Star.svg" 
                 alt="Green Star" 
@@ -868,7 +865,7 @@ export default function Home() {
         Einblicke aus <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
 ">dem Team</span>
       </h1>
-      <YouTubeGrid videoIds={videoIds} borderRadius="8px" gap="40px" />
+      <YouTubeGrid videoIds={videoIds} borderRadius="22px" gap="40px" />
     </div>
     </section>
 

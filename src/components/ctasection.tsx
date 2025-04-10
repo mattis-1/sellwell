@@ -44,13 +44,12 @@ const FeatureBox = ({
       <div className="relative z-20 flex flex-col h-full w-full">
         <span className="text-sm font-semibold mb-2 opacity-80">{title}</span>
         <h2 className="text-3xl leading-[1.4] font-bold mb-auto">{subtitle}</h2>
-        <button className="mt-6 px-6 py-2 rounded-lg font-medium text-gray-800 transition-all hover:shadow-md" 
-          style={{ 
-            background: 'linear-gradient(to right, #C0C0C0, #E8E8E8)', 
-          }}
-        >
-          {buttonText}
-        </button>
+        <button 
+                className="inline-flex items-center inter700 px-4 py-2 text-white font-semibold rounded-full hover:opacity-90 transition w-full justify-center relative z-10"
+                style={{ background: 'linear-gradient(to right, #0B4028 0%, #037942 100%)' }}
+              >
+                {buttonText}
+              </button>
       </div>
     </div>
   );

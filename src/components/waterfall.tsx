@@ -108,7 +108,7 @@ const VerticalGallerySection = () => {
   ];
 
   return (
-    <section className="relative py-20 pl-4 pr-4 bg-[#EBE9E8] w-full overflow-hidden">
+    <section className="relative py-20 pt-30 pl-4 pr-4 bg-[#EBE9E8] w-full overflow-hidden">
     {/* Texture overlay properly implemented */}    
     <div className="container mx-auto px-6 sm:px-12 md:px-24 lg:px-32 relative z-[2]">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-start">
@@ -123,25 +123,11 @@ const VerticalGallerySection = () => {
   
           <p className="text-black mb-8 text-[19px]">Die Kombination aus strukturierter Einarbeitung, stetiger Verbesserung, persönlicher Fortbildung und außergewöhnlich attraktiver Vergütung macht uns zum Arbeitgeber der Wahl für junge, ambitionierte Vertriebstalente.</p>
           
-          {/* 2x2 Grid with features */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
-            {features.map((feature, index) => (
-              <div key={index} className="flex flex-col">
-                <div className="rounded-full bg-white/10 p-2 text-white">
-                  {feature.icon}
-                </div>
-                <div className="flex items-center gap-3 mb-2">
-                  <h3 className="inter800 tracking-[-0.35px] text-[27px] pr-25 text-black">
-                    {feature.title}</h3>
-                </div>
-                <p className="text-[17px] text-black font-[600] pr-10">{feature.description}</p>
-              </div>
-            ))}
-          </div>
+          
         </div>
         
         {/* Right Column - Vertical Image Waterfall */}
-        <div className="relative h-[1350px] overflow-hidden rounded-lg">
+        <div className="relative h-[700px] overflow-hidden rounded-lg">
           {/* Stronger, shorter gradient masks for fading effect - adjusted to match the background color */}
           <div className="absolute top-0 left-0 w-full h-[80px] bg-gradient-to-b from-[#EBE9E8] to-transparent z-10"></div>
           <div className="absolute bottom-0 left-0 w-full h-[80px] bg-gradient-to-t from-[#EBE9E8] to-transparent z-10"></div>

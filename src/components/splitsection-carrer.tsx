@@ -7,7 +7,7 @@ const SplitSection = () => {
   return (
     <section className="relative w-full overflow-hidden bg-[#ffffff]">
       <Proof />
-      <div className="flex flex-col md:flex-row min-h-[500px]">
+      <div className="flex flex-col md:flex-row min-h-[500px] bg-[#ffffff]">
         {/* Linke Seite: Content */}
         <div className="w-full md:w-1/2 bg-background flex items-center">
           <div className="max-w-xl mx-auto px-6 py-16 md:py-12 md:px-12 lg:px-16">

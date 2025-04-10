@@ -128,17 +128,15 @@ const Process: React.FC<ProcessProps> = ({
         </div>
       </div>
       
-      <div className="inter800 text-[65px] tracking-[-2px] text-center pb-2 text-[#000000]">So leicht ist es</div>
-      <div className="inter800 text-[25px] bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
- tracking-[-0.2px] text-center pb-16">In unter 2 Minuten, ohne Anschrift<br />oder Lebenslauf</div>
+      <div className="inter800 text-[65px] tracking-[-2px] text-center pb-2 text-[#000000] mb-10">So leicht ist es</div>
       
       {rows.map((row) => (
         <div 
           key={row.id} 
           data-id={row.id.toString()}
-          className={`process-row flex flex-col md:flex-row items-center ${rowSpacing} transition-opacity duration-1000 ease-in-out ${
+          className={`process-row mb-[30px] flex flex-col md:flex-row items-center ${rowSpacing} transition-opacity duration-1000 ease-in-out ${
             visibleRows[row.id.toString()] ? 'opacity-100' : 'opacity-0'
-          } ${customRowClass}`}
+          } ${customRowClass} py-12 px-6 border border-gray-100 rounded-[70px] shadow-[0px_4px_20px_0px_rgba(0,0,0,0.2)]`}
         >
           {/* Left side: Larger column with icon, headline and text */}
           <div className={`md:w-3/5 ${contentSpacing}`}>
@@ -170,21 +168,22 @@ const Process: React.FC<ProcessProps> = ({
           </div>
 
           {/* Right side: Image - now pushed more to the right */}
-          <div className="md:w-2/5 mt-8 md:mt-0 pr-15">
+          <div className="md:w-2/5 mt-8 md:mt-0 pr-5">
             <div className={`relative w-full ${imageHeight} ${imageHeightMd} ${customImageClass}`}>
               <Image 
                 src={row.imageUrl} 
                 alt={`Image for ${row.headline}`} 
                 fill
-                className="object-cover rounded-lg"
+                className="object-cover rounded-[30px]"
               />
             </div>
           </div>
         </div>
       ))}
-            <div className="max-w-4xl mx-auto text-center mt-40 mb-1">
+      
+            <div className="max-w-4xl mx-auto text-center mt-30 mb-1">
         <div className="mt-[-20px] flex justify-center mb-3">
-          <div className="inline-flex items-center g-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-[14px] px-4 py-2 border-[1.7px] border-[#C8C7C6] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
+          <div className="inline-flex items-center bg-transparent backdrop-blur-sm rounded-[14px] px-4 py-2 border-[1.7px] border-[#C8C7C6]">
             <Image 
               src="/Green Star.svg" 
               alt="Green Star" 

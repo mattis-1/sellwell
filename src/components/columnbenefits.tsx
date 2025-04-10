@@ -36,11 +36,10 @@ const Somebenefits: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* Headline with SVG Underline */}
         <div className="text-center mb-16">
-          <h2 className="inter800 text-[#000000] text-[47.5px] md:text-[47.5px] tracking-[-2px] mb-[-18px]">Bei uns <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
+          <h2 className="inter800 text-[#000000] text-[57.5px] tracking-[-2px] ">Bei uns <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
 ">im Vertrieb</span> ...</h2>
-          {/* SVG underline placeholder - replace this with your cool underline SVG */}
+          {/* SVG underline placeholder - replace this with your cool underline SVG 
           <div className="relative w-127 h-1 mb-5 mx-auto">
-            {/* This is where you'll paste your SVG underline */}
             <Image 
                     src="/Underline2.svg"
                     alt="Textunderline"
@@ -48,11 +47,11 @@ const Somebenefits: React.FC = () => {
                     height={1050}
                     className="object-contain"
                   />
-          </div>
+          </div> */}
         </div>
 
         {/* Three Column Layout */}
-        <div className="grid grid-cols-1 mt-25 md:grid-cols-3 gap-4 md:gap-4">
+        <div className="grid grid-cols-1 mt-16 md:grid-cols-3 gap-4 md:gap-4">
           {benefits.map((benefit) => (
             <div 
               key={benefit.id} 
