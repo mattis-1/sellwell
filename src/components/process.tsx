@@ -128,7 +128,7 @@ const Process: React.FC<ProcessProps> = ({
         </div>
       </div>
       
-      <div className="inter800 text-[65px] tracking-[-2px] text-center pb-2">So leicht ist es</div>
+      <div className="inter800 text-[65px] tracking-[-2px] text-center pb-2 text-[#000000]">So leicht ist es</div>
       <div className="inter800 text-[25px] bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
  tracking-[-0.2px] text-center pb-16">In unter 2 Minuten, ohne Anschrift<br />oder Lebenslauf</div>
       
@@ -163,7 +163,7 @@ const Process: React.FC<ProcessProps> = ({
               </div>
 
               <div className={customTextClass}>
-                <h3 className="text-[38px] tracking-[-1px] inter800 font-bold mb-3">{row.headline}</h3>
+                <h3 className="text-[38px] tracking-[-1px] inter800 text-[#000000] font-bold mb-3">{row.headline}</h3>
                 <p className={`text-[#000] font-[400] text-[18px] ${textPadding}`}>{row.text}</p>
               </div>
             </div>
@@ -198,7 +198,7 @@ const Process: React.FC<ProcessProps> = ({
           </div>
         </div>
       </div>
-      <div className="inter800 tracking-[-1px] text-center text-[45px]">Starte in deine neue<br />Zukunft <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
+      <div className="inter800 text-[#000000] tracking-[-1px] text-center text-[45px]">Starte in deine neue<br />Zukunft <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
 ">mit Sellwell</span></div>
       <a href="/bewerben">
         <div className="text-center">

@@ -195,7 +195,7 @@ const AnimatedStats = () => {
             </div>
             
             {/* Animated Stat number */}
-            <p className="text-4xl font-semibold mb-3 inter800">
+            <p className="text-4xl text-[#000000] font-semibold mb-3 inter800">
               {displayStat(item, counters[item.id])}
             </p>
             

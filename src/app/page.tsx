@@ -5,7 +5,6 @@ import Footer from "@/components/footer";
 import MissionSection from "@/components/ui/MissionSection";
 import Image from 'next/image';
 import VerticalGallerySection from "@/components/waterfall";
-import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import SplitSection from "@/components/splitsection-carrer";
 import Stellen from "@/components/stellenangebote";
 import { Tabs } from "@/components/ui/tabs"
@@ -670,19 +669,19 @@ export default function Home() {
                 height={22}
                 className="mr-2"
               />
-              <p className="text-center font-medium text-primary mb-[2.25px]">
+              <p className="text-center font-medium text-[#000000] mb-[2.25px]">
                 Sellwell für Unternehmen
               </p>
             </div>
           </div>
         </div>
         
-        <h2 className="text-center inter800 headr mb-[30px]">Unsere Leistungen</h2>
+        <h2 className="text-center text-[#000000] inter800 headr mb-[30px]">Unsere Leistungen</h2>
         
         <div className="mb-16">
           <Tabs
             containerClassName="justify-center"
-            activeTabClassName="bg-primary/10 border border-primary/20"
+            activeTabClassName="bg-transparent border border-[#000]"
             tabClassName="font-medium text-sm md:text-base"
             contentClassName=""
             tabs={[
@@ -724,8 +723,8 @@ export default function Home() {
 
 {/*Für Unternehmen Benefits*/}
 <section className="bg-[#EBE9E8] pb-0">
-  <div className="bg-[#fff] rounded-[70px] py-7">
-<div className=" pt-14 pb-16 bg-background mx-3  rounded-[70px] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)] ">
+  <div className="bg-[#ffffff] rounded-[70px] py-7">
+<div className=" pt-14 pb-16 bg-background mx-3  bg-[#ffffff] rounded-[70px] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)] ">
   {/* Width-controlled container - adjust the max-w-[1200px] or w-[90%] value to control width */}
   <div className="mx-auto w-[100%] max-w-[1200px]">
     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
@@ -745,7 +744,7 @@ export default function Home() {
       <div className="flex flex-col ml-[-20px] items-start">
         <span className="mb-3 inline-block bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-[16px] font-[600] rounded-[99px] px-4 py-1
 ">DER PERFEKTE PARTNER</span>
-        <h2 className="headr inter800 mb-6">Projekterfolg -<br /><span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
+        <h2 className="headr inter800 text-[#000000] mb-6">Projekterfolg -<br /><span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
 ">verlässlich & stressfrei</span></h2>
         
         {/* Benefits with checkmarks */}
@@ -841,70 +840,6 @@ export default function Home() {
   </div>
 </div>
 </div>
-</section>
-
-      <section className=" pb-12 pt-0 bg-[#EBE9E8] w-full">
-        <div className="bg-[#fff]  rounded-[70px] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
-
-  <div className="container mx-auto">
-    {/* Mission Statement */}
-    <div className="max-w-4xl pt-14 mx-auto text-center mb-7">
-<div className="mt-[-20px] flex justify-center mb-1">
-  <div className="inline-flex items-center g-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-[14px] px-4 py-2 border-[1.7px] border-[#C8C7C6] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
-       <Image 
-         src="/Green Star.svg" 
-         alt="Green Star" 
-         width={22}
-         height={22}
-         className="mr-2"
-       />
-    <p className="text-center font-medium text-primary mb-[2.25px]">
-      Als Vertriebler bei Sellwell
-    </p>
-  </div>
-</div>
-</div>
-    <h2 className="headr inter800 text-center mb-12">Erfolge des Teams</h2>
-    <AnimatedTestimonials
-      testimonials={[
-        {
-          quote: "Nur einige Monate nach seinem Start bei Sellwell schaffte Chris es, sich auf eine Gehaltshöhe zu befördern, von der andere nur träumen können.",
-          name: "Chris Marquardt",
-          designation: "VERTRIEBSBERATER",
-          src: "/Chris-1x1.png"
-        },
-        {
-          quote: "Durch Talent, Zielstrebigkeit und einen unermesslichen Drive hat sich Marco in nur 6 Monaten zum Teamleiter und einem 5-stelligem Gehalt hochgearbeitet.",
-          name: "Marco Sandrisser",
-          designation: "TEAMLEITER",
-          src: "/Marco-1x1.png"
-        },
-        {
-          quote: "Schon seit Tag 1 mit dabei und konstant dabei, Höchstleistungen zu erzielen. Mittlerweile ist Stefan Ausbilder und einer der Top-Performer in unserem Team.",
-          name: "Stefan Sonderholzer",
-          designation: "AUSBILDER & VERTRIEBSBERATER",
-          src: "/Stefan-1x1.png"
-        }
-      ]}
-      autoplay={true}
-    />
- <div className="flex flex-row items-center justify-center space-x-4 pt-16 pb-16">
-      <Button 
-        className="text-[22px] py-2 rounded-[99px]" 
-        variant="default"
-      >
-        JETZT BEWERBEN
-      </Button>
-      
-      <Button 
-        className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent text-[22px] rounded-[99px]" 
-        variant="outline"
-      >
-       MEHR ERFAHREN
-      </Button>
-    </div>
-  </div>
-  </div>
 </section>
 
 {/*Offene Stellen */}

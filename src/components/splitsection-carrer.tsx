@@ -5,7 +5,7 @@ import Proof from "@/components/socialproof"
 
 const SplitSection = () => {
   return (
-    <section className="relative w-full overflow-hidden">
+    <section className="relative w-full overflow-hidden bg-[#ffffff]">
       <Proof />
       <div className="flex flex-col md:flex-row min-h-[500px]">
         {/* Linke Seite: Content */}

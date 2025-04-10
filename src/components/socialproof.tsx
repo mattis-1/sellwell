@@ -70,8 +70,8 @@ return (
       </div>
     </div>
     {/* Gradient overlays for fading effect */}
-    <div className="fade-left2"></div>
-    <div className="fade-right2"></div>
+    <div className="fade-left3"></div>
+    <div className="fade-right3"></div>
   </div>
 </div>
 <div className="absolute inset-0 bg-grid-white/10 bg-[size:20px_20px] opacity-10"></div>
