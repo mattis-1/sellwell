@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 const Proof = () => {
 return (
 <section className="bg-[#F4F2F1]">
