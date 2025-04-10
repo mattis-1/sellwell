@@ -15,19 +15,19 @@ const Somebenefits: React.FC = () => {
       id: 1,
       header: "Grenzlose Wachstumsmöglichkeiten",
       description: "Dein Gehalt hängt zu 100% von deiner Leistung ab. Bei guter Arbeit wirst du gut bezahlt und kannst in wenigen Monaten früher unvorstellbare Gehälter mit nach Hause nehmen.",
-      iconUrl: "/bagz.svg", // Replace with your actual icon path
+      iconUrl: "/bagz.svg",
     },
     {
       id: 2,
       header: "Auch als Quereinsteiger erfolgreich durchstarten",
       description: "Auch als Quereinsteiger kannst du bei uns dank individueller Unterstützung und einem positiven Arbeitsumfeld in Kürze aufsteigen und richtig Karriere machen.",
-      iconUrl: "/learntoearn.svg", // Replace with your actual icon path
+      iconUrl: "/learntoearn.svg",
     },
     {
       id: 3,
       header: "Entwicklung im perfekten Umfeld",
       description: "Richtig Geld verdienen & währendessen vergessen, dass man bei der Arbeit ist - genau das ist bei Sellwell möglich. Mit ambitionierten, symphatischen Kollegen Aufsteigen leichter als je zuvor.",
-      iconUrl: "/gs.svg", // Replace with your actual icon path
+      iconUrl: "/gs.svg",
     },
   ];
 
@@ -36,26 +36,28 @@ const Somebenefits: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* Headline with SVG Underline */}
         <div className="text-center mb-16">
-          <h2 className="inter800 text-[#000000] text-[57.5px] tracking-[-2px] ">Bei uns <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
-">im Vertrieb</span> ...</h2>
-          {/* SVG underline placeholder - replace this with your cool underline SVG 
+          <h2 className="inter800 text-[#000000] tracking-[-1.3px] text-3xl sm:text-[35px] md:text-[40px] lg:text-[50px]">
+            Bei uns <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">im Vertrieb</span> ...
+          </h2>
+          {/*
           <div className="relative w-127 h-1 mb-5 mx-auto">
             <Image 
-                    src="/Underline2.svg"
-                    alt="Textunderline"
-                    width={1050}
-                    height={1050}
-                    className="object-contain"
-                  />
-          </div> */}
+              src="/Underline2.svg"
+              alt="Textunderline"
+              width={1050}
+              height={1050}
+              className="object-contain"
+            />
+          </div>
+          */}
         </div>
 
         {/* Three Column Layout */}
-        <div className="grid grid-cols-1 mt-16 md:grid-cols-3 gap-4 md:gap-4">
+        <div className="grid grid-cols-1 mt-16 gap-4 md:grid-cols-3">
           {benefits.map((benefit) => (
             <div 
               key={benefit.id} 
-              className="flex flex-col items-center text-center p-6"
+              className="flex flex-col items-center text-center p-4 md:p-6"
               data-aos="fade-up"
               data-aos-delay={benefit.id * 100}
             >
@@ -73,11 +75,12 @@ const Somebenefits: React.FC = () => {
               </div>
               
               {/* Header */}
-              <h3 className="text-2xl inter700 text-[27.5px] px-2 mb-4 bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
-">{benefit.header}</h3>
+              <h3 className="text-xl md:text-[27.5px] inter700 px-2 mb-4 bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">
+                {benefit.header}
+              </h3>
               
               {/* Description */}
-              <p className="text-gray-900">{benefit.description}</p>
+              <p className="text-gray-900 text-base">{benefit.description}</p>
             </div>
           ))}
         </div>

@@ -40,7 +40,7 @@ const Stellen = () => {
     <div className="pt-0 pb-10 mb-10 w-full bg-[#EBE9E8] rounded-b-[70px] shadow-[0px_10px_9px_-4px_rgba(0,0,0,0.15)]">
       <div className="container mx-auto px-6">
         {/* Centered Headline */}
-        <h2 className="headr text-[#000] text-center pt-16 mb-16 inter800">
+        <h2 className="tracking-[-1.3px] text-3xl sm:text-[35px] md:text-[40px] lg:text-[50px] text-[#000] text-center pt-16 mb-16 inter800">
           Aktuelle <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">Stellenangebote</span>
         </h2>
         
@@ -61,7 +61,7 @@ const Stellen = () => {
               
               <h3 className="inter700 text-xl tracking-[-0.35] mb-4 text-primary text-black relative z-10">
                 <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
-text-[26px]">Vertriebsberater</span><br />(m/w/d)
+text-[26px]">Vertriebler im Außendienst</span><br />(m/w/d)
               </h3>
               <p className="mb-4 text-black flex-grow relative z-10">
                 Wir suchen engagierte Vertriebsberater mit Leidenschaft für Kundenberatung und Interesse an strategischem Verkauf.
@@ -104,7 +104,7 @@ text-[26px]">Vertriebsberater</span><br />(m/w/d)
               
               <h3 className="inter700 text-xl tracking-[-0.35] mb-4 text-primary text-black relative z-10">
               <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
-text-[26px]">Senior Sales Manager</span> (m/w/d)
+text-[26px]">Senior Sales<br />Manager</span> (m/w/d)
               </h3>
               <p className="mb-4 text-black flex-grow relative z-10">
                 Als Senior Sales Manager übernehmen Sie Verantwortung für Key Accounts und entwickeln strategische Vertriebskonzepte.
@@ -148,7 +148,7 @@ text-[26px]">Senior Sales Manager</span> (m/w/d)
               <div className="px-2">
               <h3 className="inter700 text-xl tracking-[-0.35] mb-4 text-primary text-black relative z-10">
               <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
-text-[26px]">Development Manager</span> (m/w/d)
+text-[26px]">Business Development Manager</span> (m/w/d)
               </h3>
               <p className="mb-4 text-black flex-grow relative z-10">
                 Identifizieren Sie neue Geschäftsmöglichkeiten und bauen Sie strategische Partnerschaften auf, um.

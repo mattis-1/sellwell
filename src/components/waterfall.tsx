@@ -60,7 +60,7 @@ const VerticalGallerySection = () => {
           {/* Left Column - Text and Features */}
           <div className="flex flex-col mt-0 sm:mt-1 pl-0 sm:pl-5 items-start text-white">
             <span className="mb-2 sm:mb-3 inline-block bg-gradient-to-r from-[#14532d] to-[#16a34a] text-white text-[14px] sm:text-[16px] font-[600] rounded-[99px] px-3 sm:px-4 py-1">ÜBER SELLWELL</span>
-            <h2 className="inter800 tracking-[-0.5px] sm:tracking-[-1px] text-2xl sm:text-3xl md:text-4xl lg:text-[45px] mt-1 leading-[1.2] sm:leading-[1.3] mb-3 sm:mb-5 text-black">
+            <h2 className="inter800 tracking-[-1.3px] text-3xl sm:text-[35px] md:text-[40px] lg:text-[50px] mt-1 leading-[1.2] sm:leading-[1.3] mb-3 sm:mb-5 text-black">
               Vertriebsexzellenz<br /><span className="bg-gradient-to-r from-[#14562E] to-[#169F49] bg-clip-text text-transparent">komplett neu definiert</span>
             </h2>
             <p className="text-black mb-4 sm:mb-6 md:mb-8 text-base sm:text-lg md:text-[19px]">

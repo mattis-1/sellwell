@@ -34,7 +34,7 @@ const MissionSection = () => {
               </p>
             </div>
           </div>
-          <h2 className="inter800 tracking-[-1px] sm:tracking-[-1.5px] text-3xl sm:text-4xl md:text-5xl lg:text-[60px] text-black mb-4 leading-[1.3] sm:leading-[1.5] z-[15]">
+          <h2 className="inter800 tracking-[-1.3px] text-3xl sm:text-[35px] md:text-[40px] lg:text-[50px] text-black mb-4 leading-[1.3] sm:leading-[1.5] z-[15]">
             Unsere Mission
           </h2>
           <div className="px-0 sm:px-6 md:px-10 lg:px-30">

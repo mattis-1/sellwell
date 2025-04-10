@@ -35,8 +35,8 @@ const SplitSection = () => {
             <span className="mb-2 sm:mb-3 inline-block bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-[14px] sm:text-[16px] font-[600] rounded-[99px] px-3 sm:px-4 py-1">
               KARRIEREMÖGLICHKEITEN
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:headr inter800 mb-3 sm:mb-5 leading-tight">
-              <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">
+            <h2 className="tracking-[-1.3px] text-3xl sm:text-[35px] md:text-[40px] lg:text-[50px] inter800 mb-3 sm:mb-5 leading-tight">
+              <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent ">
                 Warum
               </span> bei<br />Sellwell arbeiten?
             </h2>
