@@ -3,6 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import AnimatedText from '@/components/ui/missiontext';
+import ATS from "@/components/ui/verticaltext"
+
 
 
 
@@ -17,12 +19,15 @@ const MissionSection = () => {
   }, []);
 
   return (
-    <section className="relative w-full pt-20 pl-4 pr-4 bg-white overflow-hidden mb-[-100px]">
+    <section className="relative w-full pt-20 mt-[-2px] pl-4 pr-4 bg-[#EBE9E8] overflow-hidden mb">
+      {/* Smooth transition gradient at bottom */}
+      <div className="absolute top-0 left-0 right-0 h-60 bg-gradient-to-b from-[#EBE9E8] to-transparent dark:to-[#0A0A0A] z-[0]"></div>
+          {/* Background layers end */}
       <div className="container mx-auto px-6 sm:px-12 md:px-24 lg:px-32">
         {/* Mission Statement */} 
         <div className="max-w-4xl mx-auto text-center mb-20">
           <div className="mt-[-20px] flex justify-center mb-5">
-            <div className="inline-flex items-center bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-[14px] px-4 py-2 border-[1.7px] border-[#C8C7C6] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
+            <div className="inline-flex items-center dark:bg-gray-800/90 backdrop-blur-sm rounded-[14px] px-4 py-2 border-[1.7px] border-[#C8C7C6] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
               <Image 
                 src="/Green Star.svg" 
                 alt="Green Star" 
@@ -35,38 +40,20 @@ const MissionSection = () => {
               </p>
             </div>
           </div>
-          <h2 className="headrt mb-4 leading-[1.5]">
+          <h2 className="inter800 tracking-[-1.5px] text-[60px] text-black mb-4 leading-[1.5] z-[15]">
             Unsere Mission
           </h2>
           <AnimatedText
             text="Unsere Mission bei Sellwell ist es, erstklassige Vertriebslösungen zu liefern und ambitionierten Talenten ein Umfeld zu schaffen, in dem sie gefördert werden und ihr volles Potenzial entfalten können. Täglich arbeiten wir daran, unser Team zu stärken und unseren Partnern bessere Ergebnisse zu liefern."
-            className="text-lg text-foreground/80 px-30 font-[600]"
+            className="text-lg mb-[-80px] text-foreground/80 px-30 font-[600]"
           />
         </div>
         
         {/* Testimonials Slider Widget with Centered Image */}
-        <div className="relative mt-1 h-[600px]">
+        <div className="relative pt-5 pb-35 mt-1 h-[280px]">
           {/* Slider rows with testimonials */}
-          <div className="slider-widget mt-[-40px]">
-            
-            {/* Centered Image Overlay */}
-            <div className="absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 flex justify-center items-center">
-              <div className="relative mt-10" style={{ borderRadius: '40px', padding: '30px' }}>
-                <Image 
-                  src="/Unsere Mission 2.png" 
-                  alt="Unsere Mission" 
-                  width={750} 
-                  height={500} 
-                  className="w-auto h-auto"
-                  style={{ 
-                    borderRadius: '32px', 
-                    maxWidth: '750px',
-                    maxHeight: '500px',
-                    objectFit: 'contain',
-                  }} 
-                />
-              </div>
-            </div>
+          <div className="slider-widget">
+            <ATS />
           </div>
         </div>
       </div>
@@ -93,12 +80,12 @@ const MissionSection = () => {
         
         .slider-widget::before {
           left: 0;
-          background: linear-gradient(to right, white, transparent);
+          background: linear-gradient(to right, #EBE9E8, transparent);
         }
         
         .slider-widget::after {
           right: 0;
-          background: linear-gradient(to left, white, transparent);
+          background: linear-gradient(to left, #EBE9E8, transparent);
         }
         
         .slider-section {
@@ -122,7 +109,7 @@ const MissionSection = () => {
           height: auto;
           min-width: 250px;
           margin-right: 25px;
-          background-color: white;
+          background-color: #EBE9E8;
           border-radius: 12px;
           padding: 12px 18px;
           display: flex;

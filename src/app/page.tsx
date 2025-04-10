@@ -5,7 +5,6 @@ import Footer from "@/components/footer";
 import MissionSection from "@/components/ui/MissionSection";
 import Image from 'next/image';
 import VerticalGallerySection from "@/components/waterfall";
-import Statistics from "@/components/Statistics";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
 import SplitSection from "@/components/splitsection-carrer";
 import Stellen from "@/components/stellenangebote";
@@ -15,6 +14,7 @@ import YouTubeGrid from "@/components/youtube"
 import Slider from "@/components/slider"
 import Process from "@/components/process"
 import Somebenefits from "@/components/columnbenefits"
+import Stats from "@/components/ui/stats"
 
 const videoIds = [
   "tUgM4kCF7rU", // New IDs
@@ -73,7 +73,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex min-h-screen flex-col w-full">
+    <div className="flex min-h-screen flex-col w-full bg-[#FFFFFF]">
       {/* Header spans full width */}
       <Header />
       
@@ -81,7 +81,7 @@ export default function Home() {
         {/* Hero Section with contained background */}
         <div className="relative overflow-hidden">
           {/* Background layers start */}
-          <div className="absolute inset-0 bg-[#F4F2F1] dark:from-[#0A0A0A] dark:to-[#0A0A0A] z-0"></div>
+          <div className="absolute inset-0 bg-[#FFFFFF] dark:from-[#0A0A0A] dark:to-[#0A0A0A] z-0"></div>
           
           {/* Left abstract elements - fully contained */}
           <div className="absolute top-[-10%] left-[-40%] w-[95%] h-[120%] z-[1] opacity-90">
@@ -129,7 +129,7 @@ export default function Home() {
           </div>
           
           {/* Smooth transition gradient at bottom */}
-          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[#F4F2F1] dark:to-[#0A0A0A] z-[4]"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-30 bg-gradient-to-b from-transparent to-[#F4F2F1] dark:to-[#0A0A0A] z-[4]"></div>
           {/* Background layers end */}
 
           {/* Hero content with higher z-index */}
@@ -156,7 +156,7 @@ export default function Home() {
                 <p className="font-[500] text-[20px] mx-auto mb-8 text-[#171717] max-w-180">
                   Ob du als Vertriebstalent richtig Karriere machen willst, oder nach optimalen Vertriebslösungen für deine Unternehmung suchst - Sellwell ist der perfekter Partner für dich. 
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center mb-20">
                   <Button className="text-[20px] py-2 rounded-[99px]" variant="default">
                     Für Vertriebstalente
                   </Button>
@@ -169,9 +169,30 @@ export default function Home() {
           </div>
         </div>
 
-          <section>
+        <section>
+        <div className="relative overflow-hidden bg-[#FFF] mt-[-70px]">
+            {/* Hero content with higher z-index */}
+          <div className="relative z-10 px-8 pt-10 pb-10 sm:px-90 sm:pb-10 container mx-auto">
+          <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#E7E7E6] to-[#ffffff] z-1"></div>
+
+            <div className="flex flex-col items-center ">
+            <div className=" relative h-180 max-h-[650px] rounded-[49px] overflow-hidden shadow-[0_0_100px_3_rgba(5,46,22,1)] backdrop-blur-sm border border-white/10 z-100">
+            <Image 
+                  src="/sellwellteam.png" 
+                  alt="Sellwell Team" 
+                  width={1000}
+                  height={1000}
+                  className=""
+                />
+                </div>
+            </div>
+          </div>
+        </div>
+        </section>
+
+          <section className="bg-[#F4F2F1]">
           {/* Infinite scrolling logos */}
-          <div className="w-full flex justify-center mt-12">
+          <div className="w-full flex justify-center mt-0 ">
             <div className="logos-slider-container w-[70%] relative">
               <div className="logos-slider">
                 {/* First set of logos */}
@@ -253,47 +274,73 @@ export default function Home() {
 
         
         {/* Two-column section */}
-        <section className="pl-8 pr-10 py-16 bg-background w-full">
-          <div className="container mx-auto px-6 sm:px-12 md:px-24 lg:px-32">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
-              {/* Left column - Image with reduced height */}
-              <div className="relative h-80 md:h-[320px] lg:h-[360px] xl:h-[500px] max-h-[450px] rounded-lg overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Image 
-                    src="/WILLKOMMEN.png" 
-                    alt="Vertriebsstrategie" 
-                    fill 
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-              
-              {/* Right column - Content */}
-              <div className="flex flex-col items-start">
-  <span className="mb-3 inline-block bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-[16px] font-[600] rounded-[99px] px-4 py-1">
-WILLKOMMEN BEI SELLWELL  </span>
-                <h2 className="headr mb-3">Der Partner<br /><span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">im D2D in Bayern</span></h2>
-                <p className="text-xl text-foreground/800 mb-7 pr-20">
-                Als schnellstwachsender Door-to-Door Vertrieb Bayerns übernehmen wir für führende Unternehmen in der Energiebranche den Außendienst. Mit hocheffektiven Vertriebslösungen und einem ambitionierten Team setzen wir regelmäßig neue Maßstäbe im Markt der erneuerbaren Energie.
-                </p>
-
-                <Button variant="default" className="self-start text-[22px] rounded-[99px]">
-                  Mehr erfahren
-                </Button>
-              </div>
+<section className="relative pl-8 pr-10 py-16 pb-15 bg-background w-full overflow-hidden">
+  {/* Background layers start */}
+  <div className="absolute inset-0 bg-[#FFFFFF] dark:from-[#0A0A0A] dark:to-[#0A0A0A] z-0"></div>
+          
+          {/* Left abstract elements - fully contained */}
+          <div className="absolute top-[-20%] left-[-15%] w-[80%] h-[110%] z-[1] opacity-80">
+            <div className="relative w-full h-full">
+              <div className="absolute w-[80%] h-[80%] rounded-[20px] bg-[radial-gradient(circle,rgba(134,239,172,0.4)_0%,rgba(217,249,157,0.15)_70%)] top-[10%] left-[10%] blur-[50px]"></div>
+              <div className="absolute w-[60%] h-[60%] rounded-[20px] bg-[radial-gradient(circle,rgba(134,239,172,0.45)_0%,rgba(217,249,157,0.2)_70%)] top-[20%] left-[20%] blur-[40px]"></div>
+              <div className="absolute w-[40%] h-[40%] rounded-[20px] bg-[radial-gradient(circle,rgba(134,239,172,0.5)_0%,rgba(217,249,157,0.25)_70%)] top-[30%] left-[30%] blur-[30px]"></div>
+              <div className="absolute w-[25%] h-[25%] rounded-[20px] bg-[radial-gradient(circle,rgba(134,239,172,0.55)_0%,rgba(217,249,157,0.3)_70%)] top-[38%] left-[38%] blur-[20px]"></div>
+            </div>
+            <div className="relative w-full h-full -rotate-25">
+              <div className="absolute w-[70%] h-[70%] rounded-[20px] bg-[radial-gradient(circle,rgba(217,249,157,0.4)_0%,rgba(134,239,172,0.15)_70%)] top-[15%] left-[15%] blur-[45px]"></div>
+              <div className="absolute w-[50%] h-[50%] rounded-[20px] bg-[radial-gradient(circle,rgba(217,249,157,0.45)_0%,rgba(134,239,172,0.2)_70%)] top-[25%] left-[25%] blur-[35px]"></div>
+              <div className="absolute w-[30%] h-[30%] rounded-[20px] bg-[radial-gradient(circle,rgba(217,249,157,0.5)_0%,rgba(134,239,172,0.25)_70%)] top-[35%] left-[35%] blur-[25px]"></div>
             </div>
           </div>
-        </section>
+          
+  {/* Texture background */}
+  <div className="absolute inset-0 opacity-[0.12] bg-[url('https://framerusercontent.com/images/6mcf62RlDfRfU61Yg5vb2pefpi4.png')] bg-repeat bg-[size:128px] z-0"></div>
+  
+  {/* Top gradient overlay */}
+  <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#F4F2F1] to-transparent z-1"></div>
+  
+  <div className="container mx-auto px-6 sm:px-12 md:px-24 lg:px-32 relative z-10">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+      {/* Left column - Image with reduced height */}
+      <div className="relative h-80 md:h-[320px] lg:h-[360px] xl:h-[500px] max-h-[450px] rounded-[25px] overflow-hidden shadow-[0_0_60px_0_rgba(5, 46, 22,0.55)] backdrop-blur-sm border border-white/10">
+        <div className="absolute inset-0 flex items-center justify-center ">
+          <Image 
+            src="/WILLKOMMEN.png" 
+            alt="Vertriebsstrategie" 
+            fill 
+            className="object-cover"
+          />
+        </div>
+      </div>
+      
+      {/* Right column - Content */}
+      <div className="flex flex-col items-start">
+        <span className="mb-3 inline-block bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-[16px] font-[600] rounded-[99px] px-4 py-1">
+          WILLKOMMEN BEI SELLWELL
+        </span>
+        <h2 className="headr inter800 mb-3">Der Partner<br /><span className="bg-gradient-to-r from-[#14532d] to-[#16a34a] bg-clip-text text-transparent">im D2D in Bayern</span></h2>
+        <p className="text-xl text-foreground/800 mb-7 pr-20">
+          Als schnellstwachsender Door-to-Door Vertrieb Bayerns übernehmen wir für führende Unternehmen in der Energiebranche den Außendienst. Mit hocheffektiven Vertriebslösungen und einem ambitionierten Team setzen wir regelmäßig neue Maßstäbe im Markt der erneuerbaren Energie.
+        </p>
+
+        <Button variant="default" className="self-start text-[22px] rounded-[99px]">
+          Mehr erfahren
+        </Button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
         
         {/* Tilted green section with angled shapes */}
-        <section className="relative w-full mt-1 mb-1 py-20 pl-10 pr-8 overflow-hidden">
-          {/* Extra background layer with opposite tilt */}
-          <div className="absolute inset-0 bg-[#A0BDB0] -z-20"
-             style={{ clipPath: 'polygon(0 0, 100% 10%, 100% 100%, 0 90%)' }}></div>
+        <section className="relative w-full py-10 pl-10 pr-8 overflow-hidden">
+
+        <div className="absolute inset-0 bg-[#0B3F28] dark:from-[#0A0A0A] dark:to-[#0A0A0A] z-0"></div>
           
-          {/* Main background */}
-          <div className="absolute inset-0 bg-[#0B3E27] -z-10"
-               style={{ clipPath: 'polygon(0 12.5%, 100% 0, 100% 87.5%, 0 100%)' }}></div>
+  {/* Texture background */}
+  <div className="absolute inset-0 opacity-[0.06] bg-[url('https://framerusercontent.com/images/6mcf62RlDfRfU61Yg5vb2pefpi4.png')] bg-repeat bg-[size:128px] z-0"></div>
+
           
           <div className="container mx-auto px-6 sm:px-12 md:px-24 lg:px-32 relative z-10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
@@ -301,7 +348,7 @@ WILLKOMMEN BEI SELLWELL  </span>
               <div className="flex flex-col text-white mt-10 items-start">
                 <span className="mb-3 inline-block bg-gradient-to-r from-[#ffffff] to-[#a9aaac] text-[#0B3E27] text-[16px] font-[700] rounded-[99px] px-4 py-1
 ">KARRIEREERFOLG MIT SELLWELL</span>
-                <h2 className="headrr mb-3 bg-gradient-to-r from-[#ffffff] to-[#A9AAAC] bg-clip-text text-transparent
+                <h2 className="headrr inter800 mb-3 bg-gradient-to-r from-[#ffffff] to-[#A9AAAC] bg-clip-text text-transparent
 ">Entfalte dein volles<br />Potenzial im Direktvertrieb</h2>
                 
                 <ul className="space-y-2 mb-8">
@@ -395,7 +442,7 @@ WILLKOMMEN BEI SELLWELL  </span>
               </div>
               
               {/* Right column - Image */}
-              <div className="relative h-80 md:h-[350px] lg:h-[400px] rounded-lg overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10">
+              <div className="mt-7 shadow-[0_0_60px_0_rgba(5, 46, 22,0.55)] relative h-80 md:h-[350px] lg:h-[400px] rounded-[25px] overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10 ">
                 <div className="absolute inset-0 flex items-center justify-center">
                   {/* Placeholder for actual image */}
                   <Image 
@@ -410,13 +457,29 @@ WILLKOMMEN BEI SELLWELL  </span>
           </div>
         </section>
 
+{/* Projekt erfolgreich vermarkten mit Sellwell */}
+<section className="relative pl-4 pr-4 py-16 bg-[#FFFFFF] w-full">
 
-{/* Two-column section */}
-<section className="pl-4 pr-4 py-16 bg-background w-full">
           <div className="container mx-auto px-6 sm:px-12 md:px-24 lg:px-32">
+          
+          {/* Noise texture overlay - now with higher opacity and comes before vertical lines */}
+          <div className="absolute inset-0 opacity-[0.12] bg-[url('https://framerusercontent.com/images/6mcf62RlDfRfU61Yg5vb2pefpi4.png')] bg-repeat bg-[size:128px] z-[2]"></div>
+          
+          {/* Vertical blocks grid - lines with dual shadow effect */}
+          <div className="absolute inset-0 flex justify-between z-[1]">
+            {[...Array(24)].map((_, i) => {
+              return (
+                <div key={i} className="h-full w-[4%]" style={{
+                  borderRight: '0.25px solid rgba(244, 242, 241,0.1)',
+                  boxShadow: '-26px 0 40px rgba(244, 242, 241,0.24), 10px 0 25px rgba(0, 0, 0, 0.001)'
+                }}></div>
+              );
+            })}
+          </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
               {/* Left column - Image with reduced height */}
-              <div className="relative h-80 md:h-[320px] lg:h-[360px] xl:h-[400px] max-h-[450px] rounded-lg overflow-hidden">
+              <div className="z-[100] relative h-80 md:h-[320px] lg:h-[360px] xl:h-[400px] max-h-[450px] rounded-[25px] overflow-hidden shadow-[0_0_60px_0_rgba(63,98,18,0.5)] backdrop-blur-sm border border-white/10">
                 <div className="absolute inset-0 bg-gray-300 flex items-center justify-center">
                   <Image 
                     src="/Projekterfolg.png" 
@@ -428,9 +491,9 @@ WILLKOMMEN BEI SELLWELL  </span>
               </div>
               
               {/* Right column - Content */}
-              <div className="flex flex-col start-items items-start">
+              <div className="flex flex-col start-items items-start z-[125]">
                 <span className="mb-3 inline-block bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-[16px] font-[600] rounded-[99px] px-4 py-1">PROJEKTERFOLG MIT SELLWELL</span>
-                <h2 className="headr mb-2 font-[700]">Produkt erfolgreich<br /><span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">mit Sellwell vermarkten</span></h2>
+                <h2 className="headr mb-2 inter800">Produkt erfolgreich<br /><span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">mit Sellwell vermarkten</span></h2>
                 <p className="text-foreground/80 mb-6 text-xl">
                 Wir vermarkten Ihr Produkt effizient, verlässlich und mit messbaren ErgebnissenEffizient. Konstante Weiterbildung unseres Teams und bewährte Vertriebsprozesse, die kontinuierlich optimiert werden, machen uns zum optimalen Partner für Ihr Unternehmen.
                 </p>
@@ -443,11 +506,11 @@ WILLKOMMEN BEI SELLWELL  </span>
         </section>
 
 {/* Three Column Section */}
-<section className="bg-[#0B3F27] py-20 mb-7">
+<section className="bg-[#0B3F27] py-18">
   <div className="container mx-auto px-6 sm:px-12 md:px-24 lg:px-32">
     <div className="mb-10">
   <div className="text-center tracking-[-2px] bg-gradient-to-r from-[#EDEDEE] to-[#A7A8AA] bg-clip-text text-transparent
- inter700 text-[45px] text-[#fff]">Was wir bieten</div>
+ inter800 text-[45px] text-[#fff] mr-[6px]">Was wir bieten</div>
  <Image 
                     src="/uuunderlined.svg"
                     alt="Textunderline"
@@ -525,8 +588,7 @@ WILLKOMMEN BEI SELLWELL  </span>
       {/* Header spans full width */}
       <MissionSection />
 
-      {/* Statistics Section */}
-      <Statistics />
+      <Stats />
       {/* Button Container - jetzt außerhalb des Grids */}
 
 
@@ -621,7 +683,7 @@ WILLKOMMEN BEI SELLWELL  </span>
           </div>
         </div>
         
-        <h2 className="text-center headr mb-[30px]">Unsere Leistungen</h2>
+        <h2 className="text-center inter800 headr mb-[30px]">Unsere Leistungen</h2>
         
         <div className="mb-16">
           <Tabs
@@ -687,7 +749,7 @@ WILLKOMMEN BEI SELLWELL  </span>
       <div className="flex flex-col ml-[-20px] items-start">
         <span className="mb-3 inline-block bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-[16px] font-[600] rounded-[99px] px-4 py-1
 ">DER PERFEKTE PARTNER</span>
-        <h2 className="headr mb-6">Projekterfolg -<br /><span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
+        <h2 className="headr inter800 mb-6">Projekterfolg -<br /><span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
 ">verlässlich & stressfrei</span></h2>
         
         {/* Benefits with checkmarks */}
@@ -802,7 +864,7 @@ WILLKOMMEN BEI SELLWELL  </span>
   </div>
 </div>
 </div>
-    <h2 className="headr text-center mb-[-10px]">Erfolge des Teams</h2>
+    <h2 className="headr inter800 text-center mb-[-10px]">Erfolge des Teams</h2>
     <AnimatedTestimonials
       testimonials={[
         {
@@ -866,7 +928,7 @@ WILLKOMMEN BEI SELLWELL  </span>
   </div>
   </div>
   </div>
-      <h1 className="inter700 tracking-[-1.6px] text-[55px] text-[#000000]" style={{ textAlign: 'center', marginBottom: '4rem' }}>
+      <h1 className="inter800 tracking-[-1.6px] text-[55px] text-[#000000] mt-4" style={{ textAlign: 'center', marginBottom: '4rem' }}>
         Einblicke aus <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
 ">dem Team</span>
       </h1>
@@ -898,7 +960,7 @@ WILLKOMMEN BEI SELLWELL  </span>
   </div>
         {/* Heading */}
         <div className="richtext prose-h2:text-white mb-3 lg:mb-3">
-          <h2 className="text-center inter700 text-[55px] text-black tracking-[-1.5px] pt-7 mb-15 leading-[1.2]">Echter Vertrieb.<br /><span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
+          <h2 className="text-center inter800 text-[55px] text-black tracking-[-1.5px] pt-7 mb-15 leading-[1.2]">Echter Vertrieb.<br /><span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
 ">Echte Ergebnisse.</span></h2>
         </div>
         {/* Slider */}
