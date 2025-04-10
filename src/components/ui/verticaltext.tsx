@@ -37,7 +37,7 @@ const AnimatedTextSlideshow = () => {
               />
             </div>
             
-            <span className="text-[40px] font-semibold" style={{ fontFamily: "'Switzer', sans-serif" }}>
+            <span className="text-[40px] font-semibold text-[#000000]" style={{ fontFamily: "'Switzer', sans-serif" }}>
               Bei Sellwell
             </span>
           </div>

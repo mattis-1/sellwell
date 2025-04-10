@@ -21,13 +21,13 @@ const MissionSection = () => {
   return (
     <section className="relative w-full pt-20 mt-[-2px] pl-4 pr-4 bg-[#EBE9E8] overflow-hidden mb">
       {/* Smooth transition gradient at bottom */}
-      <div className="absolute top-0 left-0 right-0 h-60 bg-gradient-to-b from-[#EBE9E8] to-transparent dark:to-[#0A0A0A] z-[0]"></div>
+      <div className="absolute top-0 left-0 right-0 h-60 bg-gradient-to-b from-[#EBE9E8] to-transparent z-[0]"></div>
           {/* Background layers end */}
       <div className="container mx-auto px-6 sm:px-12 md:px-24 lg:px-32">
         {/* Mission Statement */} 
         <div className="max-w-4xl mx-auto text-center mb-20">
           <div className="mt-[-20px] flex justify-center mb-5">
-            <div className="inline-flex items-center dark:bg-gray-800/90 backdrop-blur-sm rounded-[14px] px-4 py-2 border-[1.7px] border-[#C8C7C6] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
+            <div className="inline-flex items-center backdrop-blur-sm rounded-[14px] px-4 py-2 border-[1.7px] border-[#C8C7C6] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
               <Image 
                 src="/Green Star.svg" 
                 alt="Green Star" 
@@ -35,7 +35,7 @@ const MissionSection = () => {
                 height={22}
                 className="mr-2"
               />
-              <p className="text-center font-medium text-primary mb-[2.25px]">
+              <p className="text-center font-medium text-[#000] mb-[2.25px]">
                 Wachstum & Leistung
               </p>
             </div>
@@ -45,7 +45,7 @@ const MissionSection = () => {
           </h2>
           <AnimatedText
             text="Unsere Mission bei Sellwell ist es, erstklassige Vertriebslösungen zu liefern und ambitionierten Talenten ein Umfeld zu schaffen, in dem sie gefördert werden und ihr volles Potenzial entfalten können. Täglich arbeiten wir daran, unser Team zu stärken und unseren Partnern bessere Ergebnisse zu liefern."
-            className="text-lg mb-[-80px] text-foreground/80 px-30 font-[600]"
+            className="text-lg mb-[-80px] text-[#000] px-30 font-[600]"
           />
         </div>
         

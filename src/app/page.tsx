@@ -143,13 +143,13 @@ export default function Home() {
                   height={22}
                   className="mr-2"
                 />
-                <p className="text-center font-medium text-primary mb-[2.25px]">
+                <p className="text-center font-medium text-[#000] mb-[2.25px]">
                   Nummer 1 Vertrieb im D2D in Bayern
                 </p>
               </div>
               
               <div className="text-center max-w-4xl mx-auto">
-                <h1 className="text-[50px] md:text-[55px] lg:text-[65px] inter800 tracking-[-2px] leading-[1.3] font-bold mb-5">
+                <h1 className="text-[50px] text-[#000] md:text-[55px] lg:text-[65px] inter800 tracking-[-2px] leading-[1.3] font-bold mb-5">
                   Mit Sellwell als Partner{" "}
                   <span className="bg-gradient-to-r from-[#14532d] to-[#16a34a] bg-clip-text text-transparent"><br />neue Türen öffnen.</span>
                 </h1>
@@ -173,7 +173,7 @@ export default function Home() {
         <div className="relative overflow-hidden bg-[#FFF] mt-[-70px]">
             {/* Hero content with higher z-index */}
           <div className="relative z-10 px-8 pt-10 pb-10 sm:px-90 sm:pb-10 container mx-auto">
-          <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#E7E7E6] to-[#ffffff] z-1"></div>
+          <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[#FFFFFF] z-1"></div>
 
             <div className="flex flex-col items-center ">
             <div className=" relative h-180 max-h-[650px] rounded-[49px] overflow-hidden shadow-[0_0_100px_3_rgba(5,46,22,1)] backdrop-blur-sm border border-white/10 z-100">
@@ -318,8 +318,8 @@ export default function Home() {
         <span className="mb-3 inline-block bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-[16px] font-[600] rounded-[99px] px-4 py-1">
           WILLKOMMEN BEI SELLWELL
         </span>
-        <h2 className="headr inter800 mb-3">Der Partner<br /><span className="bg-gradient-to-r from-[#14532d] to-[#16a34a] bg-clip-text text-transparent">im D2D in Bayern</span></h2>
-        <p className="text-xl text-foreground/800 mb-7 pr-20">
+        <h2 className="headr text-[#000000] inter800 mb-3">Der Partner<br /><span className="bg-gradient-to-r from-[#14532d] to-[#16a34a] bg-clip-text text-transparent">im D2D in Bayern</span></h2>
+        <p className="text-xl text-[#000000] mb-7 pr-20">
           Als schnellstwachsender Door-to-Door Vertrieb Bayerns übernehmen wir für führende Unternehmen in der Energiebranche den Außendienst. Mit hocheffektiven Vertriebslösungen und einem ambitionierten Team setzen wir regelmäßig neue Maßstäbe im Markt der erneuerbaren Energie.
         </p>
 
@@ -482,8 +482,8 @@ export default function Home() {
               {/* Right column - Content */}
               <div className="flex flex-col start-items items-start z-[125]">
                 <span className="mb-3 inline-block bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-[16px] font-[600] rounded-[99px] px-4 py-1">PROJEKTERFOLG MIT SELLWELL</span>
-                <h2 className="headr mb-2 inter800">Produkt erfolgreich<br /><span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">mit Sellwell vermarkten</span></h2>
-                <p className="text-foreground/80 mb-6 text-xl">
+                <h2 className="headr mb-2 text-[#000000] inter800">Produkt erfolgreich<br /><span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">mit Sellwell vermarkten</span></h2>
+                <p className="text-[#000000] mb-6 text-xl">
                 Wir vermarkten Ihr Produkt effizient, verlässlich und mit messbaren ErgebnissenEffizient. Konstante Weiterbildung unseres Teams und bewährte Vertriebsprozesse, die kontinuierlich optimiert werden, machen uns zum optimalen Partner für Ihr Unternehmen.
                 </p>
                 <Button variant="default" className="self-start text-[22px] rounded-[99px]">
