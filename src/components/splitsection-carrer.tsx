@@ -13,10 +13,10 @@ const SplitSection = () => {
   const [modalMode, setModalMode] = useState<'Firma' | 'Bewerber'>('Firma');
   
   // Functions to handle opening modal with specific mode
-  const openFirmaModal = () => {
+  {/*const openFirmaModal = () => {
     setModalMode('Firma');
     setIsModalOpen(true);
-  };
+  };*/}
   
   const openBewerberModal = () => {
     setModalMode('Bewerber');
