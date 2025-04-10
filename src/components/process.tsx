@@ -31,13 +31,13 @@ interface ProcessProps {
 
 const Process: React.FC<ProcessProps> = ({
   // Default values for all customizable properties
-  rowSpacing = "mb-24",                // Increased from mb-16
-  contentSpacing = "pr-12",            // Increased from pr-8
-  iconTextSpacing = "mr-8",            // Increased from mr-6
-  textPadding = "pr-8",                // Increased from pr-6
-  imageHeight = "h-56",                // Decreased from h-64
-  imageHeightMd = "md:h-72",           // Decreased from md:h-80
-  iconSize = "w-20 h-20",              // Kept the same
+  rowSpacing = "mb-12 sm:mb-16 md:mb-24",     // Responsive spacing
+  contentSpacing = "sm:pr-6 md:pr-12",        // Responsive spacing
+  iconTextSpacing = "mr-4 sm:mr-6 md:mr-8",   // Responsive spacing
+  textPadding = "pr-0 sm:pr-4 md:pr-8",       // Responsive padding
+  imageHeight = "h-48 sm:h-52 md:h-56",       // Responsive height
+  imageHeightMd = "md:h-64 lg:h-72",          // Responsive height for medium up
+  iconSize = "w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20", // Responsive icon size
   customRowClass = "",
   customImageClass = "",
   customTextClass = "",
@@ -110,39 +110,39 @@ const Process: React.FC<ProcessProps> = ({
   }, []);
 
   return (
-    <section className="container mx-auto px-4 pt-30 py-20">
+    <section className="container mx-auto px-4 pt-12 sm:pt-20 md:pt-30 py-10 sm:py-16 md:py-20">
       <div className="max-w-4xl mx-auto text-center mb-1">
-        <div className="mt-[-20px] flex justify-center mb-3">
-          <div className="inline-flex items-center g-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-[14px] px-4 py-2 border-[1.7px] border-[#C8C7C6] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
+        <div className="mt-[-10px] sm:mt-[-20px] flex justify-center mb-3">
+          <div className="inline-flex items-center backdrop-blur-sm rounded-[10px] sm:rounded-[14px] px-3 sm:px-4 py-1.5 sm:py-2 border-[1.5px] sm:border-[1.7px] border-[#C8C7C6] shadow-[1px_1px_10px_0px_rgba(0,0,0,0.15)] sm:shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
             <Image 
               src="/Green Star.svg" 
               alt="Green Star" 
-              width={22}
-              height={22}
-              className="mr-2"
+              width={18}
+              height={18}
+              className="mr-1.5 sm:mr-2"
             />
-            <p className="text-center font-medium text-primary mb-[2.25px]">
+            <p className="text-center text-sm sm:text-base font-medium text-primary mb-[2px]">
               Unser Bewerbungsprozess
             </p>
           </div>
         </div>
       </div>
       
-      <div className="inter800 text-[65px] tracking-[-2px] text-center pb-2 text-[#000000] mb-10">So leicht ist es</div>
+      <div className="inter800 text-3xl sm:text-4xl md:text-5xl lg:text-[65px] tracking-[-1px] sm:tracking-[-1.5px] md:tracking-[-2px] text-center pb-2 text-[#000000] mb-6 sm:mb-8 md:mb-10">So leicht ist es</div>
       
       {rows.map((row) => (
         <div 
           key={row.id} 
           data-id={row.id.toString()}
-          className={`process-row mb-[30px] flex flex-col md:flex-row items-center ${rowSpacing} transition-opacity duration-1000 ease-in-out ${
+          className={`process-row mb-[20px] sm:mb-[30px] flex flex-col md:flex-row items-center ${rowSpacing} transition-opacity duration-1000 ease-in-out ${
             visibleRows[row.id.toString()] ? 'opacity-100' : 'opacity-0'
-          } ${customRowClass} py-12 px-6 border border-gray-100 rounded-[70px] shadow-[0px_4px_20px_0px_rgba(0,0,0,0.2)]`}
+          } ${customRowClass} py-6 sm:py-8 md:py-12 px-4 sm:px-5 md:px-6 border border-gray-100 rounded-[20px] sm:rounded-[40px] md:rounded-[70px] shadow-[0px_2px_10px_0px_rgba(0,0,0,0.1)] sm:shadow-[0px_4px_20px_0px_rgba(0,0,0,0.2)]`}
         >
           {/* Left side: Larger column with icon, headline and text */}
           <div className={`md:w-3/5 ${contentSpacing}`}>
-            <div className="flex items-start pl-10">
+            <div className="flex items-start pl-2 sm:pl-6 md:pl-10">
               {/* Icon Container - Larger and now can use custom images */}
-              <div className={`flex-shrink-0 mt-[-14px] ${iconTextSpacing} ${iconSize}`}>
+              <div className={`flex-shrink-0 mt-[-10px] sm:mt-[-14px] ${iconTextSpacing} ${iconSize}`}>
                 {row.iconUrl ? (
                   <div className={`relative ${iconSize}`}>
                     <Image 
@@ -154,57 +154,61 @@ const Process: React.FC<ProcessProps> = ({
                     />
                   </div>
                 ) : (
-                  <div className={`flex items-center justify-center bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-2xl font-bold rounded-full ${iconSize}`}>
+                  <div className={`flex items-center justify-center bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-xl sm:text-2xl font-bold rounded-full ${iconSize}`}>
                     {row.id}
                   </div>
                 )}
               </div>
 
               <div className={customTextClass}>
-                <h3 className="text-[38px] tracking-[-1px] inter800 text-[#000000] font-bold mb-3">{row.headline}</h3>
-                <p className={`text-[#000] font-[400] text-[18px] ${textPadding}`}>{row.text}</p>
+                <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-[38px] tracking-[-0.5px] sm:tracking-[-1px] inter800 text-[#000000] font-bold mb-2 sm:mb-3">{row.headline}</h3>
+                <p className={`text-[#000] font-[400] text-sm sm:text-base md:text-[18px] ${textPadding}`}>{row.text}</p>
               </div>
             </div>
           </div>
 
           {/* Right side: Image - now pushed more to the right */}
-          <div className="md:w-2/5 mt-8 md:mt-0 pr-5">
+          <div className="md:w-2/5 mt-6 sm:mt-8 md:mt-0 pr-0 sm:pr-3 md:pr-5 w-full">
             <div className={`relative w-full ${imageHeight} ${imageHeightMd} ${customImageClass}`}>
               <Image 
                 src={row.imageUrl} 
                 alt={`Image for ${row.headline}`} 
                 fill
-                className="object-cover rounded-[30px]"
+                className="object-cover rounded-[15px] sm:rounded-[20px] md:rounded-[30px]"
               />
             </div>
           </div>
         </div>
       ))}
       
-            <div className="max-w-4xl mx-auto text-center mt-30 mb-1">
-        <div className="mt-[-20px] flex justify-center mb-3">
-          <div className="inline-flex items-center bg-transparent backdrop-blur-sm rounded-[14px] px-4 py-2 border-[1.7px] border-[#C8C7C6]">
+      <div className="max-w-4xl mx-auto text-center mt-16 sm:mt-20 md:mt-30 mb-1">
+        <div className="mt-[-10px] sm:mt-[-20px] flex justify-center mb-3">
+          <div className="inline-flex items-center bg-transparent backdrop-blur-sm rounded-[10px] sm:rounded-[14px] px-3 sm:px-4 py-1.5 sm:py-2 border-[1.5px] sm:border-[1.7px] border-[#C8C7C6]">
             <Image 
               src="/Green Star.svg" 
               alt="Green Star" 
-              width={22}
-              height={22}
-              className="mr-2"
+              width={18}
+              height={18}
+              className="mr-1.5 sm:mr-2"
             />
-            <p className="text-center font-medium text-primary mb-[2.25px]">
+            <p className="text-center text-sm sm:text-base font-medium text-primary mb-[2px]">
               Richtig Karriere machen
             </p>
           </div>
         </div>
       </div>
-      <div className="inter800 text-[#000000] tracking-[-1px] text-center text-[45px]">Starte in deine neue<br />Zukunft <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
-">mit Sellwell</span></div>
+
+      <div className="inter800 text-[#000000] tracking-[-0.5px] sm:tracking-[-1px] text-center text-2xl sm:text-3xl md:text-4xl lg:text-[45px]">
+        Starte in deine neue<br />Zukunft <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">mit Sellwell</span>
+      </div>
+
       <a href="/bewerben">
         <div className="text-center">
-          <Button className="py-2 text-[25px] mt-6 mb-3 rounded-[99px]" variant="default">
-JETZT SCHNELL BEWERBEN          </Button>
+          <Button className="py-1.5 sm:py-2 text-base sm:text-xl md:text-[25px] mt-4 sm:mt-6 mb-2 sm:mb-3 rounded-[99px]" variant="default">
+            JETZT SCHNELL BEWERBEN
+          </Button>
         </div>
-        <div className="inter700 text-[19px] text-center bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">
+        <div className="inter700 text-sm sm:text-base md:text-[19px] text-center bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">
           Ohne Lebenslauf & Anschreiben
         </div>
       </a>

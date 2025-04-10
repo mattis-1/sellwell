@@ -14,9 +14,8 @@ const YouTubeGrid: React.FC<YouTubeGridProps> = ({
 }) => {
   return (
     <div
+      className="grid grid-cols-1 md:grid-cols-2"
       style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(2, 1fr)',
         gap: gap,
       }}
     >
@@ -30,6 +29,7 @@ const YouTubeGrid: React.FC<YouTubeGridProps> = ({
             height: 0,
             borderRadius: borderRadius,
             overflow: 'hidden',
+            marginBottom: index === videoIds.length - 1 || index === videoIds.length - 2 ? '0' : '',
           }}
         >
           <iframe
@@ -45,6 +45,7 @@ const YouTubeGrid: React.FC<YouTubeGridProps> = ({
               height: '100%',
               borderRadius: borderRadius,
             }}
+            title={`YouTube video ${index + 1}`}
           ></iframe>
         </div>
       ))}

@@ -720,154 +720,148 @@ export default function Home() {
 
 {/*Für Unternehmen Benefits*/}
 <section className="bg-[#EBE9E8] pb-0">
-  <div className="bg-[#ffffff] rounded-[70px] py-7">
-<div className=" pt-14 pb-16 bg-background mx-3  bg-[#ffffff] rounded-[70px] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)] ">
-  {/* Width-controlled container - adjust the max-w-[1200px] or w-[90%] value to control width */}
-  <div className="mx-auto w-[100%] max-w-[1200px] bg-[#fff]">
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
-      {/* Left column - Image with reduced height */}
-      <div className="relative h-full ml-5 mr-[-5px] w-auto rounded-[35px] overflow-hidden">
-        <div className="absolute inset-0 bg-gray-300 flex items-center justify-center">
-          <Image 
-            src="/Perfekter Partner.png" 
-            alt="Vertriebsvorteile" 
-            fill 
-            className="object-cover"
-          />
+  <div className="bg-[#ffffff] rounded-[30px] sm:rounded-[50px] md:rounded-[70px] py-4 sm:py-5 md:py-7 mx-2 sm:mx-3">
+    <div className="pt-8 sm:pt-10 md:pt-14 pb-10 sm:pb-12 md:pb-16 bg-background bg-[#ffffff] rounded-[30px] sm:rounded-[50px] md:rounded-[70px] shadow-[1px_1px_10px_0px_rgba(0,0,0,0.15)] sm:shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
+      {/* Width-controlled container */}
+      <div className="mx-auto w-[95%] sm:w-[100%] max-w-[1200px] bg-[#fff]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-center">
+          {/* Left column - Image with responsive sizing */}
+          <div className="relative h-64 sm:h-72 md:h-80 lg:h-full mx-auto w-[90%] sm:ml-5 sm:mr-[-5px] md:w-auto rounded-[20px] sm:rounded-[35px] overflow-hidden">
+            <div className="absolute inset-0 bg-gray-300 flex items-center justify-center">
+              <Image 
+                src="/Perfekter Partner.png" 
+                alt="Vertriebsvorteile" 
+                fill 
+                className="object-cover"
+              />
+            </div>
+          </div>
+          
+          {/* Right column - Content with benefits */}
+          <div className="flex flex-col ml-0 md:ml-[-20px] items-start px-2 sm:px-0">
+            <span className="mb-2 sm:mb-3 inline-block bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-[14px] sm:text-[16px] font-[600] rounded-[99px] px-3 sm:px-4 py-1">
+              DER PERFEKTE PARTNER
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:headr inter800 text-[#000000] mb-4 sm:mb-6">
+              Projekterfolg -<br />
+              <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">
+                verlässlich & stressfrei
+              </span>
+            </h2>
+            
+            {/* Benefits with checkmarks - optimized for mobile */}
+            <div className="space-y-3 sm:space-y-4 md:space-y-5 mb-6">
+              <div className="flex items-start gap-2 sm:gap-3">
+                {/* Checkbox container */}
+                <div
+                  className="flex items-center justify-center rounded-[6px] sm:rounded-[8px] flex-shrink-0 mt-0.5 w-5 h-5 sm:w-6 sm:h-6 md:w-[25px] md:h-[25px] min-w-[20px] sm:min-w-[24px] md:min-w-[25px]"
+                  style={{
+                    background: "linear-gradient(to bottom, #4b4b4b, #141414)",
+                    border: "2px solid #0C462B"
+                  }}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 text-primary flex-shrink-0" viewBox="0 0 20 20" fill="#ffffff">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <p className="text-[15px] sm:text-[16px] md:text-[18px] font-[600] text-[#000]/80">
+                  Skalierbarer Außendienst - ohne eigene Ressourcenbindung
+                </p>
+              </div>
+
+              <div className="flex items-start gap-2 sm:gap-3">
+                <div
+                  className="flex items-center justify-center rounded-[6px] sm:rounded-[8px] flex-shrink-0 mt-0.5 w-5 h-5 sm:w-6 sm:h-6 md:w-[25px] md:h-[25px] min-w-[20px] sm:min-w-[24px] md:min-w-[25px]"
+                  style={{
+                    background: "linear-gradient(to bottom, #4b4b4b, #141414)",
+                    border: "2px solid #0C462B"
+                  }}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 text-primary flex-shrink-0" viewBox="0 0 20 20" fill="#ffffff">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <p className="text-[15px] sm:text-[16px] md:text-[18px] font-[600] text-[#000]/80">
+                  Verlässliche Steigerung Ihrer Verkaufszahlen
+                </p>
+              </div>
+
+              <div className="flex items-start gap-2 sm:gap-3">
+                <div
+                  className="flex items-center justify-center rounded-[6px] sm:rounded-[8px] flex-shrink-0 mt-0.5 w-5 h-5 sm:w-6 sm:h-6 md:w-[25px] md:h-[25px] min-w-[20px] sm:min-w-[24px] md:min-w-[25px]"
+                  style={{
+                    background: "linear-gradient(to bottom, #4b4b4b, #141414)",
+                    border: "2px solid #0C462B"
+                  }}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 text-primary flex-shrink-0" viewBox="0 0 20 20" fill="#ffffff">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <p className="text-[15px] sm:text-[16px] md:text-[18px] font-[600] text-[#000]/80">
+                  Schnell und ohne großen Aufwand erste Erfolge sehen
+                </p>
+              </div>
+
+              <div className="flex items-start gap-2 sm:gap-3">
+                <div
+                  className="flex items-center justify-center rounded-[6px] sm:rounded-[8px] flex-shrink-0 mt-0.5 w-5 h-5 sm:w-6 sm:h-6 md:w-[25px] md:h-[25px] min-w-[20px] sm:min-w-[24px] md:min-w-[25px]"
+                  style={{
+                    background: "linear-gradient(to bottom, #4b4b4b, #141414)",
+                    border: "2px solid #0C462B"
+                  }}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 text-primary flex-shrink-0" viewBox="0 0 20 20" fill="#ffffff">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <p className="text-[15px] sm:text-[16px] md:text-[18px] font-[600] text-[#000]/80">
+                  Bewährte Verkaufsstrategien für maximale Abschlussraten
+                </p>
+              </div>
+            </div>
+
+            {/* Green gradient CTA button */}
+            <Button variant="default" className="self-start text-base sm:text-lg md:text-[22px] rounded-[99px] py-2 md:pb-3">
+              Beratungsgespräch vereinbaren
+            </Button>
+          </div>
         </div>
-      </div>
-      
-      {/* Right column - Content with benefits */}
-      <div className="flex flex-col ml-[-20px] items-start">
-        <span className="mb-3 inline-block bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-[16px] font-[600] rounded-[99px] px-4 py-1
-">DER PERFEKTE PARTNER</span>
-        <h2 className="headr inter800 text-[#000000] mb-6">Projekterfolg -<br /><span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
-">verlässlich & stressfrei</span></h2>
-        
-        {/* Benefits with checkmarks */}
-        <div className="space-y-5 mb-6">
-        <div className="flex items-start gap-3 mb-[10px]">
-  {/* New container with gradient background, white 10px border, and a white checkmark inside */}
-  <div
-    className="flex items-center justify-center rounded-[8px]"
-    style={{
-      width: "25px",
-      height: "25px",
-      background: "linear-gradient(to bottom, #4b4b4b, #141414)",
-      border: "2.5px  #0C462B",
-    }}
-  >
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="#ffffff">
-              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-            </svg>
-  </div>
-  <p className="text-[18px] w-160 max-w-220 font-[600] text-[#000]/80">
-    Skalierbarer Außendienst - ohne eigene Ressourcenbindung
-  </p>
-</div>
-
-<div className="flex items-start gap-3 mb-[10px]">
-  {/* New container with gradient background, white 10px border, and a white checkmark inside */}
-  <div
-    className="flex items-center justify-center rounded-[8px]"
-    style={{
-      width: "25px",
-      height: "25px",
-      background: "linear-gradient(to bottom, #4b4b4b, #141414)",
-      border: "2.5px  #0C462B",
-    }}
-  >
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="#ffffff">
-              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-            </svg>
-  </div>
-  <p className="text-[18px] w-160 max-w-220 font-[600] text-[#000]/80">
-  Verlässliche Steigerung Ihrer Verkaufszahlen
-  </p>
-</div>
-
-<div className="flex items-start gap-3 mb-[10px]">
-  {/* New container with gradient background, white 10px border, and a white checkmark inside */}
-  <div
-    className="flex items-center justify-center rounded-[8px]"
-    style={{
-      width: "25px",
-      height: "25px",
-      background: "linear-gradient(to bottom, #4b4b4b, #141414)",
-      border: "2.5px  #0C462B",
-    }}
-  >
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="#ffffff">
-              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-            </svg>
-  </div>
-  <p className="text-[18px] w-160 max-w-220 font-[600] text-[#000]/80">
-  Schnell und ohne großen Aufwand erste Erfolge sehen
-  </p>
-</div>
-
-<div className="flex items-start gap-3 mb-[10px]">
-  {/* New container with gradient background, white 10px border, and a white checkmark inside */}
-  <div
-    className="flex items-center justify-center rounded-[8px]"
-    style={{
-      width: "25px",
-      height: "25px",
-      background: "linear-gradient(to bottom, #4b4b4b, #141414)",
-      border: "2.5px  #0C462B",
-    }}
-  >
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="#ffffff">
-              <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-            </svg>
-  </div>
-  <p className="text-[18px] w-160 max-w-220 font-[600] text-[#000]/80">
- Bewährte Verkaufsstrategien für maximale Abschlussraten
-  </p>
-</div>
-
-        </div>
-
-        {/* Green gradient CTA button */}
-        <Button variant="default" className="self-start text-[22px] rounded-[99px] pb-3">
-                  Beratungsgespräch vereinbaren
-                </Button>
       </div>
     </div>
   </div>
-</div>
-</div>
 </section>
 
 {/*Offene Stellen */}
 <Stellen />
 
-  <section className="pt-20">
-  <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem' }}>
+<section className="pt-10 sm:pt-16 md:pt-20">
+  <div className="mx-auto px-4 sm:px-6 md:px-8" style={{ maxWidth: '1200px' }}>
     {/* Mission Statement */}
     <div className="max-w-4xl mx-auto text-center mb-1">
-<div className="mt-[-20px] flex justify-center mb-1">
-  <div className="inline-flex items-center g-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-[14px] px-4 py-2 border-[1.7px] border-[#C8C7C6] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
-       <Image 
-         src="/Green Star.svg" 
-         alt="Green Star" 
-         width={22}
-         height={22}
-         className="mr-2"
-       />
-    <p className="text-center font-medium text-primary mb-[2.25px]">
-      Das sagen unsere Mitarbeiter
-    </p>
-  </div>
-  </div>
-  </div>
-      <h1 className="inter800 tracking-[-1.6px] text-[55px] text-[#000000] mt-4" style={{ textAlign: 'center', marginBottom: '4rem' }}>
-        Einblicke aus <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent
-">dem Team</span>
-      </h1>
-      <YouTubeGrid videoIds={videoIds} borderRadius="22px" gap="40px" />
+      <div className="mt-[-10px] sm:mt-[-20px] flex justify-center mb-1">
+        <div className="inline-flex items-center backdrop-blur-sm rounded-[10px] sm:rounded-[14px] px-3 sm:px-4 py-1.5 sm:py-2 border-[1.5px] sm:border-[1.7px] border-[#C8C7C6] shadow-[1px_1px_10px_0px_rgba(0,0,0,0.15)] sm:shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
+          <Image 
+            src="/Green Star.svg" 
+            alt="Green Star" 
+            width={18}
+            height={18}
+            className="mr-1.5 sm:mr-2"
+          />
+          <p className="text-center text-sm sm:text-base font-medium text-primary mb-[2px]">
+            Das sagen unsere Mitarbeiter
+          </p>
+        </div>
+      </div>
     </div>
-    </section>
+    
+    <h1 className="inter800 tracking-[-0.75px] sm:tracking-[-1.2px] md:tracking-[-1.6px] text-2xl sm:text-4xl md:text-5xl lg:text-[55px] text-[#000000] mt-2 sm:mt-4 text-center mb-6 sm:mb-10 md:mb-16">
+      Einblicke aus <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">dem Team</span>
+    </h1>
+    
+    <YouTubeGrid videoIds={videoIds} borderRadius="16px sm:22px" gap="20px sm:30px md:40px" />
+  </div>
+</section>
 
 
     <section className="pt-5 lg:py-5 relative overflow-clip mb-[-40px] sm:mb-[-60px] md:mb-[-75px]">
