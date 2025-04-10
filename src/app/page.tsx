@@ -528,7 +528,7 @@ export default function Home() {
   <div className="container mx-auto px-6 sm:px-12 md:px-24 lg:px-32">
     <div className="mb-10">
   <div className="text-center tracking-[-2px] bg-gradient-to-r from-[#EDEDEE] to-[#A7A8AA] bg-clip-text text-transparent
- inter800 text-3xl sm:text-[35px] md:text-[45px] lg:text-[42px] text-[#fff] mr-[6px]">Was wir bieten</div>
+ inter800 tracking-[-1.3px] text-3xl sm:text-[35px] md:text-[40px] lg:text-[50px] text-[#fff] mr-[6px]">Was wir bieten</div>
  <Image 
                     src="/uuunderlined.svg"
                     alt="Textunderline"
