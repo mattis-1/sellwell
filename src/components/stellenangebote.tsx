@@ -1,5 +1,7 @@
 import React from 'react';
 import FadeIn from '@/components/fadein';
+import SimpleModal from "@/components/SimpleModal";
+import { useState } from 'react'
 
 
 const Stellen = () => {
@@ -36,6 +38,22 @@ const Stellen = () => {
     borderRadius: '45px',
     pointerEvents: 'none',
   };
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+    const [modalMode, setModalMode] = useState<'Firma' | 'Bewerber'>('Firma');
+    
+    // Functions to handle modal
+    const openFirmaModal = () => {
+      setModalMode('Firma');
+      setIsModalOpen(true);
+    };
+    
+    const openBewerberModal = () => {
+      setModalMode('Bewerber');
+      setIsModalOpen(true);
+    };
+    
+    const closeModal = () => setIsModalOpen(false);
 
   return (
     <section className="bg-[#fff]">
@@ -84,6 +102,7 @@ text-[26px]">Vertriebler im Außendienst</span><br />(m/w/d)
                 </div>
               </div>
               <button 
+                onClick={openBewerberModal}
                 className="inline-flex items-center inter700 px-4 py-2 text-white font-semibold rounded-full hover:opacity-90 transition w-full justify-center relative z-10"
                 style={{ background: 'linear-gradient(to right, #0B4028 0%, #037942 100%)' }}
               >
@@ -128,6 +147,7 @@ text-[26px]">Senior Sales<br />Manager</span> (m/w/d)
                 </div>
               </div>
               <button 
+              onClick={openBewerberModal}
                 className="inline-flex items-center inter700 px-4 py-2 text-white font-semibold rounded-full hover:opacity-90 transition w-full justify-center relative z-10"
                 style={{ background: 'linear-gradient(to right, #0B4028 0%, #037942 100%)' }}
               >
@@ -173,6 +193,7 @@ text-[26px]">Business Development Manager</span> (m/w/d)
                 </div>
               </div>
               <button 
+              onClick={openBewerberModal}
                 className="inline-flex items-center inter700 px-4 py-2 text-white font-semibold rounded-full hover:opacity-90 transition w-full justify-center relative z-10"
                 style={{ background: 'linear-gradient(to right, #0B4028 0%, #037942 100%)' }}
               >
@@ -188,6 +209,7 @@ text-[26px]">Business Development Manager</span> (m/w/d)
         {/* View All Jobs Button (Optional) */}
         <div className="mt-15 pb-5 text-center">
           <button 
+          onClick={openBewerberModal}
             className="inter700 inline-flex items-center px-6 py-3 text-white font-semibold rounded-full text-[20px] hover:opacity-90 transition"
             style={{ background: 'linear-gradient(to right, #0B4028 0%, #037942 100%)' }}
           >
@@ -196,6 +218,11 @@ text-[26px]">Business Development Manager</span> (m/w/d)
         </div>
       </div>
     </div>
+    <SimpleModal 
+                isOpen={isModalOpen} 
+                onClose={closeModal}
+                mode={modalMode} 
+              />
     </section>
   );
 };

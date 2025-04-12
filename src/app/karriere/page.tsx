@@ -1,16 +1,35 @@
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import Header from "@/components/header"
+import AnnouncementBar from "@/components/karriere/announcement-bar"
+import Hero from "@/components/karriere/hero"
+import Benefits from "@/components/karriere/benefits"
+import FeaturedSection from "@/components/karriere/featured-section"
+import AboutSection from "@/components/karriere/about-section"
+import EmployeeTestimonials from "@/components/karriere/employee-testimonials"
+import TimelineSection from "@/components/karriere/timeline-section"
+import StatsSection from "@/components/karriere/stats-section"
+import InfiniteScroll from "@/components/karriere/infinite-scroll"
+import FAQSection from "@/components/karriere/faq-section"
+import FinalCTA from "@/components/karriere/final-cta"
+import Footer from "@/components/karriere/footer"
 
 export default function KarrierePage() {
-    return (
-    <div className="flex min-h-screen flex-col w-full">
-    <Header />
-      <main className="min-h-screen p-4 md:p-8">
-        <h1 className="text-3xl font-bold mb-6">Karriere bei Sell Well Consulting</h1>
-        <p>Hier finden Sie unsere aktuellen Stellenangebote und Karrieremöglichkeiten.</p>
-        {/* Weiterer Inhalt der Karriere-Seite */}
+  return (
+    <div className="flex min-h-screen flex-col">
+      <AnnouncementBar />
+      <Header />
+      <main>
+        <Hero />
+        <Benefits />
+        <FeaturedSection />
+        <AboutSection />
+        <EmployeeTestimonials />
+        <StatsSection />
+        <TimelineSection />
+        <InfiniteScroll />
+        <FAQSection />
+        <FinalCTA />
       </main>
-    <Footer />
+      <Footer />
     </div>
-    );
-  }
+  )
+}

@@ -62,13 +62,19 @@ const Header = () => {
               HOME
             </Link>
             <Link 
-              href="/#ueber-uns" 
+              href="/#about" 
               className="inter700 text-white hover:text-white/80 mx-4"
             >
               ÜBER UNS
             </Link>
             <Link 
               href="/karriere" 
+              className="inter700 text-white hover:text-white/80 mx-4"
+            >
+              KARRIERE
+            </Link>
+            <Link 
+              href="#leistungen" 
               className="inter700 text-white hover:text-white/80 mx-4"
             >
               PRODUKTPARTNER

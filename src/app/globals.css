@@ -289,6 +289,11 @@ body > div {
   pointer-events: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 .fade-left3 {
   position: absolute;
   top: 0;
@@ -369,4 +374,19 @@ body > div {
 .fade-in-left.is-visible,
 .fade-in-right.is-visible {
   transform: translate(0);
+}
+
+/* Add these animation styles to your globals.css file */
+
+@keyframes slow-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-slow-spin {
+  animation: slow-spin 20s linear infinite;
 }

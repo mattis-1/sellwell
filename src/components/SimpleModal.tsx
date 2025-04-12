@@ -4,15 +4,15 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
-// Define TypeScript interface for component props
-interface BeautifulModalProps {
+// Basic props interface - keeping the same interface as SimpleModal
+interface SimpleModalProps {
   isOpen: boolean;
   onClose: () => void;
-  mode: 'Firma' | 'Bewerber'; // New prop to specify the mode
+  mode: 'Firma' | 'Bewerber';
 }
 
-export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: BeautifulModalProps) {
-  // Common form state
+export default function SimpleModal({ isOpen, onClose, mode = 'Firma' }: SimpleModalProps) {
+  // Form state from BeautifulModal
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -165,7 +165,7 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
             key={index}
             className={`h-2 w-2 rounded-full ${
               index + 1 === currentStep
-                ? 'bg-gradient-to-r from-[#A954F4] to-[#EA489A]'
+                ? 'bg-gradient-to-r from-[#0C462B] to-[#16a34a]'
                 : index + 1 < currentStep
                 ? 'bg-gray-400'
                 : 'bg-gray-700'
@@ -192,7 +192,7 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
                     placeholder="Vorname"
-                    className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 text-white placeholder-gray-500 focus:border-[#A954F4] focus:outline-none focus:ring-1 focus:ring-[#A954F4]"
+                    className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 text-white placeholder-gray-500 focus:border-[#0C462B] focus:outline-none focus:ring-1 focus:ring-[#16a34a]"
                   />
                 </div>
                 <div className="relative flex-1">
@@ -201,7 +201,7 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
                     placeholder="Nachname"
-                    className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 text-white placeholder-gray-500 focus:border-[#A954F4] focus:outline-none focus:ring-1 focus:ring-[#A954F4]"
+                    className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 text-white placeholder-gray-500 focus:border-[#0C462B] focus:outline-none focus:ring-1 focus:ring-[#16a34a]"
                   />
                 </div>
               </div>
@@ -217,7 +217,7 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
                   value={company}
                   onChange={(e) => setCompany(e.target.value)}
                   placeholder="Firma"
-                  className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 pl-10 text-white placeholder-gray-500 focus:border-[#A954F4] focus:outline-none focus:ring-1 focus:ring-[#A954F4]"
+                  className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 pl-10 text-white placeholder-gray-500 focus:border-[#0C462B] focus:outline-none focus:ring-1 focus:ring-[#16a34a]"
                 />
                 <span className="absolute left-3 top-1/2 -translate-y-1/2 transform text-gray-500">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -237,7 +237,7 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Deine Nachricht"
                   rows={4}
-                  className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 text-white placeholder-gray-500 focus:border-[#A954F4] focus:outline-none focus:ring-1 focus:ring-[#A954F4]"
+                  className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 text-white placeholder-gray-500 focus:border-[#0C462B] focus:outline-none focus:ring-1 focus:ring-[#16a34a]"
                 />
               </div>
             </>
@@ -252,7 +252,7 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Deine E-Mail Adresse"
-                  className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 pl-10 text-white placeholder-gray-500 focus:border-[#A954F4] focus:outline-none focus:ring-1 focus:ring-[#A954F4]"
+                  className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 pl-10 text-white placeholder-gray-500 focus:border-[#0C462B] focus:outline-none focus:ring-1 focus:ring-[#16a34a]"
                 />
                 <span className="absolute left-3 top-1/2 -translate-y-1/2 transform text-gray-500">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -266,7 +266,7 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="Telefonnummer"
-                  className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 pl-10 text-white placeholder-gray-500 focus:border-[#A954F4] focus:outline-none focus:ring-1 focus:ring-[#A954F4]"
+                  className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 pl-10 text-white placeholder-gray-500 focus:border-[#0C462B] focus:outline-none focus:ring-1 focus:ring-[#16a34a]"
                 />
                 <span className="absolute left-3 top-1/2 -translate-y-1/2 transform text-gray-500">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -293,7 +293,7 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
                     placeholder="Vorname"
-                    className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 text-white placeholder-gray-500 focus:border-[#A954F4] focus:outline-none focus:ring-1 focus:ring-[#A954F4]"
+                    className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 text-white placeholder-gray-500 focus:border-[#0C462B] focus:outline-none focus:ring-1 focus:ring-[#16a34a]"
                   />
                 </div>
                 <div className="relative flex-1">
@@ -302,7 +302,7 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
                     placeholder="Nachname"
-                    className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 text-white placeholder-gray-500 focus:border-[#A954F4] focus:outline-none focus:ring-1 focus:ring-[#A954F4]"
+                    className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 text-white placeholder-gray-500 focus:border-[#0C462B] focus:outline-none focus:ring-1 focus:ring-[#16a34a]"
                   />
                 </div>
               </div>
@@ -317,7 +317,7 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
                   onClick={() => setSalesExperience('Ja, habe ich')}
                   className={`flex items-center justify-center gap-2 rounded-lg border py-3 px-4 text-sm font-medium transition-all duration-200 ${
                     salesExperience === 'Ja, habe ich'
-                      ? 'border-[#A954F4] bg-[#A954F4]/10 text-white'
+                      ? 'border-[#0C462B] bg-[#16a34a]/10 text-white'
                       : 'border-gray-800 bg-gray-900 text-gray-300 hover:bg-gray-800'
                   }`}
                 >
@@ -327,7 +327,7 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
                   onClick={() => setSalesExperience('Nein, ich bin Quereinsteiger')}
                   className={`flex items-center justify-center gap-2 rounded-lg border py-3 px-4 text-sm font-medium transition-all duration-200 ${
                     salesExperience === 'Nein, ich bin Quereinsteiger'
-                      ? 'border-[#A954F4] bg-[#A954F4]/10 text-white'
+                      ? 'border-[#0C462B] bg-[#16a34a]/10 text-white'
                       : 'border-gray-800 bg-gray-900 text-gray-300 hover:bg-gray-800'
                   }`}
                 >
@@ -345,7 +345,7 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
                   onClick={() => setJobImportance('motiviertes umfeld')}
                   className={`flex items-center justify-center gap-2 rounded-lg border py-3 px-4 text-sm font-medium transition-all duration-200 ${
                     jobImportance === 'motiviertes umfeld'
-                      ? 'border-[#A954F4] bg-[#A954F4]/10 text-white'
+                      ? 'border-[#0C462B] bg-[#16a34a]/10 text-white'
                       : 'border-gray-800 bg-gray-900 text-gray-300 hover:bg-gray-800'
                   }`}
                 >
@@ -355,7 +355,7 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
                   onClick={() => setJobImportance('hoher verdienst')}
                   className={`flex items-center justify-center gap-2 rounded-lg border py-3 px-4 text-sm font-medium transition-all duration-200 ${
                     jobImportance === 'hoher verdienst'
-                      ? 'border-[#A954F4] bg-[#A954F4]/10 text-white'
+                      ? 'border-[#0C462B] bg-[#16a34a]/10 text-white'
                       : 'border-gray-800 bg-gray-900 text-gray-300 hover:bg-gray-800'
                   }`}
                 >
@@ -365,7 +365,7 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
                   onClick={() => setJobImportance('richtige ausbildung')}
                   className={`flex items-center justify-center gap-2 rounded-lg border py-3 px-4 text-sm font-medium transition-all duration-200 ${
                     jobImportance === 'richtige ausbildung'
-                      ? 'border-[#A954F4] bg-[#A954F4]/10 text-white'
+                      ? 'border-[#0C462B] bg-[#16a34a]/10 text-white'
                       : 'border-gray-800 bg-gray-900 text-gray-300 hover:bg-gray-800'
                   }`}
                 >
@@ -375,7 +375,7 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
                   onClick={() => setJobImportance('spaß an der arbeit')}
                   className={`flex items-center justify-center gap-2 rounded-lg border py-3 px-4 text-sm font-medium transition-all duration-200 ${
                     jobImportance === 'spaß an der arbeit'
-                      ? 'border-[#A954F4] bg-[#A954F4]/10 text-white'
+                      ? 'border-[#0C462B] bg-[#16a34a]/10 text-white'
                       : 'border-gray-800 bg-gray-900 text-gray-300 hover:bg-gray-800'
                   }`}
                 >
@@ -393,7 +393,7 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
                   onClick={() => setPeopleContact('Ja bin ich gerne')}
                   className={`flex items-center justify-center gap-2 rounded-lg border py-3 px-4 text-sm font-medium transition-all duration-200 ${
                     peopleContact === 'Ja bin ich gerne'
-                      ? 'border-[#A954F4] bg-[#A954F4]/10 text-white'
+                      ? 'border-[#0C462B] bg-[#16a34a]/10 text-white'
                       : 'border-gray-800 bg-gray-900 text-gray-300 hover:bg-gray-800'
                   }`}
                 >
@@ -403,7 +403,7 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
                   onClick={() => setPeopleContact('Nein, das ist nichts für mich')}
                   className={`flex items-center justify-center gap-2 rounded-lg border py-3 px-4 text-sm font-medium transition-all duration-200 ${
                     peopleContact === 'Nein, das ist nichts für mich'
-                      ? 'border-[#A954F4] bg-[#A954F4]/10 text-white'
+                      ? 'border-[#0C462B] bg-[#16a34a]/10 text-white'
                       : 'border-gray-800 bg-gray-900 text-gray-300 hover:bg-gray-800'
                   }`}
                 >
@@ -421,7 +421,7 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
                   onClick={() => setDriversLicense('Ja')}
                   className={`flex items-center justify-center gap-2 rounded-lg border py-3 px-4 text-sm font-medium transition-all duration-200 ${
                     driversLicense === 'Ja'
-                      ? 'border-[#A954F4] bg-[#A954F4]/10 text-white'
+                      ? 'border-[#0C462B] bg-[#16a34a]/10 text-white'
                       : 'border-gray-800 bg-gray-900 text-gray-300 hover:bg-gray-800'
                   }`}
                 >
@@ -431,7 +431,7 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
                   onClick={() => setDriversLicense('Nein')}
                   className={`flex items-center justify-center gap-2 rounded-lg border py-3 px-4 text-sm font-medium transition-all duration-200 ${
                     driversLicense === 'Nein'
-                      ? 'border-[#A954F4] bg-[#A954F4]/10 text-white'
+                      ? 'border-[#0C462B] bg-[#16a34a]/10 text-white'
                       : 'border-gray-800 bg-gray-900 text-gray-300 hover:bg-gray-800'
                   }`}
                 >
@@ -450,7 +450,7 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
                   onChange={(e) => setFitReason(e.target.value)}
                   placeholder="Erzähl uns mehr über dich"
                   rows={4}
-                  className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 text-white placeholder-gray-500 focus:border-[#A954F4] focus:outline-none focus:ring-1 focus:ring-[#A954F4]"
+                  className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 text-white placeholder-gray-500 focus:border-[#0C462B] focus:outline-none focus:ring-1 focus:ring-[#16a34a]"
                 />
               </div>
             </>
@@ -465,7 +465,7 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Deine E-Mail Adresse"
-                  className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 pl-10 text-white placeholder-gray-500 focus:border-[#A954F4] focus:outline-none focus:ring-1 focus:ring-[#A954F4]"
+                  className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 pl-10 text-white placeholder-gray-500 focus:border-[#0C462B] focus:outline-none focus:ring-1 focus:ring-[#16a34a]"
                 />
                 <span className="absolute left-3 top-1/2 -translate-y-1/2 transform text-gray-500">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -479,7 +479,7 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="Telefonnummer"
-                  className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 pl-10 text-white placeholder-gray-500 focus:border-[#A954F4] focus:outline-none focus:ring-1 focus:ring-[#A954F4]"
+                  className="w-full rounded-lg border border-gray-800 bg-gray-900 px-4 py-3 pl-10 text-white placeholder-gray-500 focus:border-[#0C462B] focus:outline-none focus:ring-1 focus:ring-[#16a34a]"
                 />
                 <span className="absolute left-3 top-1/2 -translate-y-1/2 transform text-gray-500">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -513,6 +513,10 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
     }
   };
 
+  // If modal is not open, return null (early return)
+  if (!isOpen) return null;
+
+  // Return the AnimatePresence for smooth animations
   return (
     <AnimatePresence>
       {isOpen && (
@@ -553,7 +557,7 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
                 className="w-full"
               >
                 <div className="mb-6 flex justify-center">
-                  <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-gradient-to-br from-[#A954F4] to-[#EA489A]">
+                  <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-gradient-to-br from-[#0C462B] to-[#16a34a]">
                     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M12 16c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4zm0 2c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z" fill="white"/>
                       <path d="M12 8c-.36 0-.7.07-1.01.19l1.3 1.3c.57.1 1.11.39 1.5.8l1.5-1.5A3.89 3.89 0 0012 8z" fill="white"/>
@@ -600,7 +604,7 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
                     disabled={!isNextEnabled()}
                     className={`flex-1 flex items-center justify-center gap-2 rounded-lg py-2 sm:py-3 font-medium text-white transition-all duration-200 ${
                       isNextEnabled()
-                        ? 'bg-gradient-to-r from-[#A954F4] to-[#EA489A] hover:shadow-lg hover:shadow-[#A954F4]/40'
+                        ? 'bg-gradient-to-r from-[#0C462B] to-[#16a34a] hover:shadow-lg hover:shadow-[#0C462B]/40'
                         : 'bg-gray-700 cursor-not-allowed'
                     }`}
                   >
@@ -642,7 +646,7 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
             
             {/* Right side (image) - Only visible on md and larger screens */}
             <motion.div 
-              className="hidden bg-gradient-to-br from-[#A954F4]/20 to-[#EA489A]/20 md:block md:w-1/2"
+              className="hidden bg-gradient-to-br from-[#0C462B]/20 to-[#16a34a]/20 md:block md:w-1/2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
@@ -650,8 +654,8 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
               <div className="relative h-full w-full">
                 {/* Decorative elements */}
                 <div className="absolute left-0 top-0 h-full w-full">
-                  <div className="absolute right-[10%] top-[20%] h-32 w-32 rounded-full bg-gradient-to-br from-[#A954F4]/30 to-[#EA489A]/30 blur-xl"></div>
-                  <div className="absolute bottom-[30%] left-[10%] h-24 w-24 rounded-full bg-gradient-to-br from-[#EA489A]/30 to-[#A954F4]/30 blur-xl"></div>
+                  <div className="absolute right-[10%] top-[20%] h-32 w-32 rounded-full bg-gradient-to-br from-[#0C462B]/30 to-[#16a34a]/30 blur-xl"></div>
+                  <div className="absolute bottom-[30%] left-[10%] h-24 w-24 rounded-full bg-gradient-to-br from-[#16a34a]/30 to-[#0C462B]/30 blur-xl"></div>
                 </div>
                 
                 {/* Card display */}
@@ -674,9 +678,9 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
                         
                         {/* Animated gradient background */}
                         <div className="absolute left-0 top-0 h-[600px] w-[300px] animate-slow-spin opacity-50">
-                          <div className="absolute left-[40%] top-[5%] h-[250px] w-[250px] rounded-full bg-[#A954F4]/30 blur-[80px]"></div>
-                          <div className="absolute left-[0%] top-[40%] h-[250px] w-[250px] rounded-full bg-[#EA489A]/30 blur-[80px]"></div>
-                          <div className="absolute left-[30%] top-[65%] h-[200px] w-[200px] rounded-full bg-[#EA489A]/30 blur-[80px]"></div>
+                          <div className="absolute left-[40%] top-[5%] h-[250px] w-[250px] rounded-full bg-[#0C462B]/30 blur-[80px]"></div>
+                          <div className="absolute left-[0%] top-[40%] h-[250px] w-[250px] rounded-full bg-[#16a34a]/30 blur-[80px]"></div>
+                          <div className="absolute left-[30%] top-[65%] h-[200px] w-[200px] rounded-full bg-[#16a34a]/30 blur-[80px]"></div>
                         </div>
                         
                         {/* Card content */}
@@ -685,7 +689,7 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
                           <div className="mt-10 flex h-16 w-16 items-center justify-center rounded-full bg-white/10 backdrop-blur-md">
                             {/* Replace this with the appropriate logo */}
                             <div className="text-white text-lg font-bold">
-                              {mode === 'Firma' ? 'SW' : 'SW'}
+                              SW
                             </div>
                           </div>
                           
@@ -698,7 +702,7 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
                           {/* Benefits list */}
                           <div className="mt-8 space-y-4 px-4 w-full">
                             <div className="flex items-center gap-3 mb-[14px]">
-                              <div className="mb-0 h-6 w-6 rounded-full bg-gradient-to-r from-[#A954F4] to-[#EA489A] p-[2px]">
+                              <div className="mb-0 h-6 w-6 rounded-full bg-gradient-to-r from-[#0C462B] to-[#16a34a] p-[2px]">
                                 <div className="flex h-full w-full items-center justify-center rounded-full bg-gray-900">
                                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                     <polyline points="20 6 9 17 4 12"></polyline>
@@ -711,7 +715,7 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
                             </div>
                             
                             <div className="flex items-center gap-3 mb-[14px]">
-                              <div className="mb-0 h-6 w-6 rounded-full bg-gradient-to-r from-[#A954F4] to-[#EA489A] p-[2px]">
+                              <div className="mb-0 h-6 w-6 rounded-full bg-gradient-to-r from-[#0C462B] to-[#16a34a] p-[2px]">
                                 <div className="flex h-full w-full items-center justify-center rounded-full bg-gray-900">
                                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                     <polyline points="20 6 9 17 4 12"></polyline>
@@ -724,7 +728,7 @@ export default function BeautifulModal({ isOpen, onClose, mode = 'Firma' }: Beau
                             </div>
                             
                             <div className="flex items-center gap-3 mb-[14px]">
-                              <div className="mb-0 h-6 w-6 rounded-full bg-gradient-to-r from-[#A954F4] to-[#EA489A] p-[2px]">
+                              <div className="mb-0 h-6 w-6 rounded-full bg-gradient-to-r from-[#0C462B] to-[#16a34a] p-[2px]">
                                 <div className="flex h-full w-full items-center justify-center rounded-full bg-gray-900">
                                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                     <polyline points="20 6 9 17 4 12"></polyline>

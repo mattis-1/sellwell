@@ -3,21 +3,19 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button'
 import Proof from "@/components/socialproof"
 import { useState } from 'react';
-import BeautifulModal from "@/components/BeautifulModal";
+import SimpleModal from "@/components/SimpleModal";
 import FadeIn from '@/components/fadein';
 
 const SplitSection = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
-  // State for modal mode (Firma or Bewerber)
   const [modalMode, setModalMode] = useState<'Firma' | 'Bewerber'>('Firma');
   
-  // Functions to handle opening modal with specific mode
-  {/*const openFirmaModal = () => {
+  // Functions to handle modal
+  const openFirmaModal = () => {
     setModalMode('Firma');
     setIsModalOpen(true);
-  };*/}
+  };
   
   const openBewerberModal = () => {
     setModalMode('Bewerber');
@@ -25,6 +23,7 @@ const SplitSection = () => {
   };
   
   const closeModal = () => setIsModalOpen(false);
+
 
   return (
     <section className="relative w-full overflow-hidden bg-[#ffffff]">
@@ -49,12 +48,7 @@ const SplitSection = () => {
             <Button onClick={openBewerberModal} variant="default" className="self-start text-base sm:text-lg md:text-[22px] rounded-[99px] py-2 px-5">
               JETZT BEWERBEN
             </Button>
-            {/* The modal component with dynamic mode */}
-            <BeautifulModal 
-              isOpen={isModalOpen} 
-              onClose={closeModal}
-              mode={modalMode} 
-            />
+            
             <div className="inter600 text-start ml-2 sm:ml-[10px] mt-2 text-sm sm:text-base">
               Schnell & Ohne Lebenslauf
             </div>
@@ -75,6 +69,11 @@ const SplitSection = () => {
         </div>
       </div>
       </FadeIn>
+      <SimpleModal 
+            isOpen={isModalOpen} 
+            onClose={closeModal}
+            mode={modalMode} 
+          />
     </section>
   );
 };

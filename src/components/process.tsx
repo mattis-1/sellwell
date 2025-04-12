@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import FadeIn from "@/components/fadein"
+import SimpleModal from '@/components/SimpleModal'
 
 interface RowContent {
   id: number;
@@ -43,6 +44,19 @@ const Process: React.FC<ProcessProps> = ({
   customImageClass = "",
   customTextClass = "",
 }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMode, setModalMode] = useState<'Firma' | 'Bewerber'>('Firma');
+
+  
+  const openBewerberModal = () => {
+    setModalMode('Bewerber');
+    setIsModalOpen(true);
+  };
+  
+  const closeModal = () => setIsModalOpen(false);
+
+
+
   // State to track which rows are visible
   const [visibleRows, setVisibleRows] = useState<Record<string, boolean>>({});
   
@@ -99,7 +113,8 @@ const Process: React.FC<ProcessProps> = ({
         }
       });
     }, observerOptions);
-    
+
+
     // Select all row elements after they've been rendered
     const rowElements = document.querySelectorAll('.process-row');
     rowElements.forEach(el => observer.observe(el));
@@ -218,17 +233,24 @@ const Process: React.FC<ProcessProps> = ({
       </div>
      </FadeIn>
      <FadeIn delay={300}>
-      <a href="/bewerben">
+    
         <div className="text-center">
-          <Button className="py-1.5 sm:py-2 text-base sm:text-xl md:text-[25px] mt-4 sm:mt-6 mb-2 sm:mb-3 rounded-[99px]" variant="default">
+          <Button 
+          onClick={openBewerberModal}
+          className="py-1.5 sm:py-2 text-base sm:text-xl md:text-[25px] mt-4 sm:mt-6 mb-2 sm:mb-3 rounded-[99px]" variant="default">
             JETZT SCHNELL BEWERBEN
           </Button>
         </div>
         <div className="inter700 text-sm sm:text-base md:text-[19px] text-center bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">
           Ohne Lebenslauf & Anschreiben
         </div>
-      </a>
+ 
       </FadeIn>
+      <SimpleModal 
+              isOpen={isModalOpen} 
+              onClose={closeModal}
+              mode={modalMode} 
+            />
     </section>
   );
 };

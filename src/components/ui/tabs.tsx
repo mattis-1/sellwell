@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import FadeIn from "@/components/fadein"
+import SimpleModal from '@/components/SimpleModal'
+
 
 type Tab = {
   title: string;
@@ -31,6 +33,19 @@ export const Tabs = ({
   contentClassName?: string;
 }) => {
   const [activeTab, setActiveTab] = useState(propTabs[0]);
+
+const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMode, setModalMode] = useState<'Firma' | 'Bewerber'>('Firma');
+  
+  // Functions to handle modal
+  const openFirmaModal = () => {
+    setModalMode('Firma');
+    setIsModalOpen(true);
+  };
+  
+  const closeModal = () => setIsModalOpen(false);
+
+
 
   return (
     <>
@@ -104,21 +119,23 @@ export const Tabs = ({
                 </p>
                 
                 {activeTab.buttonText && (
-                  <div className="mt-2 sm:mt-auto">
-                    <a 
-                      href={activeTab.buttonLink || "#"} 
-                      className="inline-block px-4 sm:px-5 md:px-6 py-2 sm:py-3 text-sm sm:text-base text-white font-semibold rounded-full transition-all bg-gradient-to-r from-[#0B3E27] to-[#047A43] shadow-[0_2px_8px_-2px_rgba(4,122,67,0.5)] hover:shadow-[0_4px_12px_-2px_rgba(4,122,67,0.7)]"
-                    >
-                      {activeTab.buttonText}
-                    </a>
-                  </div>
+                  <button onClick={openFirmaModal} className="inline-block px-4 sm:px-5 md:px-6 py-2 sm:py-3 text-sm sm:text-base text-white font-semibold rounded-full transition-all bg-gradient-to-r from-[#0B3E27] to-[#047A43] shadow-[0_2px_8px_-2px_rgba(4,122,67,0.5)] hover:shadow-[0_4px_12px_-2px_rgba(4,122,67,0.7)]">
+                    {activeTab.buttonText}
+                  </button>
                 )}
               </div>
             </div>
           </motion.div>
         </AnimatePresence>
+        
       </div>
       </FadeIn>
+      <SimpleModal 
+    isOpen={isModalOpen} 
+    onClose={closeModal}
+    mode={modalMode} 
+  />
     </>
+    
   );
 };

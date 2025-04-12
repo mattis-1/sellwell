@@ -14,8 +14,8 @@ import Slider from "@/components/slider"
 import Process from "@/components/process"
 import Somebenefits from "@/components/columnbenefits"
 import AnimatedStats from "@/components/ui/stats"
-import BeautifulModal from "@/components/BeautifulModal";
 import { useState } from 'react';
+import SimpleModal from "@/components/SimpleModal";
 import FadeIn from '@/components/fadein';
 
 
@@ -29,6 +29,23 @@ const videoIds = [
 ];
 
 export default function Home() {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMode, setModalMode] = useState<'Firma' | 'Bewerber'>('Firma');
+  
+  // Functions to handle modal
+  const openFirmaModal = () => {
+    setModalMode('Firma');
+    setIsModalOpen(true);
+  };
+  
+  const openBewerberModal = () => {
+    setModalMode('Bewerber');
+    setIsModalOpen(true);
+  };
+  
+  const closeModal = () => setIsModalOpen(false);
+
 
   const cards = [
     {
@@ -75,23 +92,7 @@ export default function Home() {
     },
   ];
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
   
-  // State for modal mode (Firma or Bewerber)
-  const [modalMode, setModalMode] = useState<'Firma' | 'Bewerber'>('Firma');
-  
-  // Functions to handle opening modal with specific mode
-  const openFirmaModal = () => {
-    setModalMode('Firma');
-    setIsModalOpen(true);
-  };
-  
-  const openBewerberModal = () => {
-    setModalMode('Bewerber');
-    setIsModalOpen(true);
-  };
-  
-  const closeModal = () => setIsModalOpen(false);
   return (
     <div className="flex min-h-screen flex-col w-full bg-[#FFFFFF]">
 
@@ -181,10 +182,14 @@ export default function Home() {
               Ob du als Vertriebstalent richtig Karriere machen willst, oder nach optimalen Vertriebslösungen für deine Unternehmung suchst - Sellwell ist der perfekter Partner für dich. 
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-10 sm:mb-20">
-              <Button className="text-base sm:text-lg md:text-[20px] py-2 rounded-[99px]" variant="default">
+              <Button 
+              onClick={openBewerberModal}
+              className="text-base sm:text-lg md:text-[20px] py-2 rounded-[99px]" variant="default">
                 Für Vertriebstalente
               </Button>
-              <Button className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent text-base sm:text-lg md:text-[20px] rounded-[99px] mt-2 sm:mt-0" variant="outline">
+              <Button 
+              onClick={openFirmaModal}
+              className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent text-base sm:text-lg md:text-[20px] rounded-[99px] mt-2 sm:mt-0" variant="outline">
                 Für Unternehmen
               </Button>
             </div>
@@ -328,10 +333,12 @@ export default function Home() {
         <p className="text-lg sm:text-xl text-[#000000] mb-6 pr-0 sm:pr-8 md:pr-12 lg:pr-20">
           Als schnellstwachsender Door-to-Door Vertrieb Bayerns übernehmen wir für führende Unternehmen in der Energiebranche den Außendienst. Mit hocheffektiven Vertriebslösungen und einem ambitionierten Team setzen wir regelmäßig neue Maßstäbe im Markt der erneuerbaren Energie.
         </p>
-
-        <Button variant="default" className="self-start text-lg sm:text-[22px] rounded-[99px]">
+        <a href="#about">
+        <Button 
+        variant="default" className="self-start text-lg sm:text-[22px] rounded-[99px]">
           Mehr erfahren
         </Button>
+        </a>
       </div>
       </FadeIn>
     </div>
@@ -445,7 +452,9 @@ export default function Home() {
           </li>
         </ul>
                 
-        <button onClick={openBewerberModal} className="inline-flex bg-gradient-to-r from-[#D8D8D9] to-[#AFB0B2] items-center px-5 py-2.5 text-[#0B3E27] font-[700] text-[16px] sm:text-[19px] rounded-full transition shadow-[0_2px_3px_rgba(0,0,0,0.5)] self-start">
+        <button    
+        onClick={openBewerberModal}
+        className="inline-flex bg-gradient-to-r from-[#D8D8D9] to-[#AFB0B2] items-center px-5 py-2.5 text-[#0B3E27] font-[700] text-[16px] sm:text-[19px] rounded-full transition shadow-[0_2px_3px_rgba(0,0,0,0.5)] self-start">
           MEHR ERFAHREN
         </button>
       </div>
@@ -492,20 +501,15 @@ export default function Home() {
           Wir vermarkten Ihr Produkt effizient, verlässlich und mit messbaren ErgebnissenEffizient. Konstante Weiterbildung unseres Teams und bewährte Vertriebsprozesse, die kontinuierlich optimiert werden, machen uns zum optimalen Partner für Ihr Unternehmen.
         </p>
         <Button 
+            onClick={openFirmaModal}
             variant="default" 
             className="self-start text-lg sm:text-[22px] rounded-[99px]"
-            onClick={openFirmaModal}
+            
           >
             Jetzt Projekt anfragen
           </Button>
       
-       {/* The modal component with dynamic mode */}
-       <BeautifulModal 
-        isOpen={isModalOpen} 
-        onClose={closeModal}
-        mode={modalMode} 
-      />
-    
+      
     
       </div></FadeIn>     
     </div>
@@ -592,8 +596,9 @@ export default function Home() {
   </div>
 </section>
 
-      {/*Über uns*/}
-      <VerticalGallerySection />
+<section id="about">
+   <VerticalGallerySection />
+</section>
 
       {/* Header spans full width */}
       <MissionSection />
@@ -682,7 +687,7 @@ export default function Home() {
 </div>
 </section>
 
-<section className="py-8 sm:py-10 md:pb-12 md:pt-15 bg-[#EBE9E8] w-full">
+<section id="leistungen" className="py-8 sm:py-10 md:pb-12 md:pt-15 bg-[#EBE9E8] w-full">
   <div className="container mx-auto px-4 sm:px-6">
     {/* Mission Statement */}
     <FadeIn delay={100}>
@@ -854,7 +859,9 @@ export default function Home() {
             </div>
 
             {/* Green gradient CTA button */}
-            <Button variant="default" className="self-start text-base sm:text-lg md:text-[22px] rounded-[99px] py-2 md:pb-3">
+            <Button 
+            onClick={openFirmaModal}
+            variant="default" className="self-start text-base sm:text-lg md:text-[22px] rounded-[99px] py-2 md:pb-3">
               Beratungsgespräch vereinbaren
             </Button>
           </div>
@@ -954,10 +961,19 @@ export default function Home() {
 {/*4 CTA Kasten*/}
 <FeatureGrid />
 
+
+
 </main>
       
       {/* Footer spans full width */}
       <Footer />
+
+      <SimpleModal 
+        isOpen={isModalOpen} 
+        onClose={closeModal}
+        mode={modalMode} 
+      />
+
     </div>
   );
 }
