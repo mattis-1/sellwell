@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import FadeIn from '@/components/fadein';
 
 const VerticalGallerySection = () => {
 
@@ -58,6 +59,7 @@ const VerticalGallerySection = () => {
       <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-24 xl:px-32 relative z-[2]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start">
           {/* Left Column - Text and Features */}
+          <FadeIn delay={100} direction="none">
           <div className="flex flex-col mt-0 sm:mt-1 pl-0 sm:pl-5 items-start text-white">
             <span className="mb-2 sm:mb-3 inline-block bg-gradient-to-r from-[#14532d] to-[#16a34a] text-white text-[14px] sm:text-[16px] font-[600] rounded-[99px] px-3 sm:px-4 py-1">ÜBER SELLWELL</span>
             <h2 className="inter800 tracking-[-1.3px] text-3xl sm:text-[35px] md:text-[40px] lg:text-[50px] mt-1 leading-[1.2] sm:leading-[1.3] mb-3 sm:mb-5 text-black">
@@ -75,7 +77,7 @@ const VerticalGallerySection = () => {
               Die Kombination aus strukturierter Einarbeitung, stetiger Verbesserung, persönlicher Fortbildung und außergewöhnlich attraktiver Vergütung macht uns zum Arbeitgeber der Wahl für junge, ambitionierte Vertriebstalente.
             </p>
           </div>
-          
+          </FadeIn>
           {/* Gallery - Vertical on desktop, Horizontal on mobile */}
           <div className="gallery-container">
             {/* Desktop Vertical Scrolling Gallery (hidden on mobile) */}

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import FadeIn from "@/components/fadein"
 
 type Tab = {
   title: string;
@@ -34,6 +35,7 @@ export const Tabs = ({
   return (
     <>
       {/* Tabs navigation - vertical on mobile, horizontal on larger screens */}
+      <FadeIn delay={300}>
       <div
         className={cn(
           "flex flex-col sm:flex-row items-center justify-start relative overflow-visible no-visible-scrollbar max-w-full w-full mb-6 sm:mb-8 md:mb-12 px-1 sm:px-0",
@@ -54,20 +56,21 @@ export const Tabs = ({
                 layoutId="active-tab"
                 transition={{ type: "spring", duration: 0.4, bounce: 0.15 }}
                 className={cn(
-                  "absolute inset-0 bg-gray-200 dark:bg-zinc-800 rounded-full",
+                  "absolute inset-0 bg-gray-200 rounded-full",
                   activeTabClassName
                 )}
               />
             )}
 
-            <span className="relative block text-black dark:text-white font-medium text-sm md:text-base">
+            <span className="relative block text-black font-medium text-sm md:text-base">
               {tab.title}
             </span>
           </button>
         ))}
       </div>
-      
+      </FadeIn>
       {/* Tab content with image + text layout */}
+      <FadeIn delay={300}>
       <div className={cn("mt-4 sm:mt-6 md:mt-8 relative", contentClassName)}>
         <AnimatePresence mode="wait">
           <motion.div
@@ -115,6 +118,7 @@ export const Tabs = ({
           </motion.div>
         </AnimatePresence>
       </div>
+      </FadeIn>
     </>
   );
 };

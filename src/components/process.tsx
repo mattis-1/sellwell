@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import FadeIn from "@/components/fadein"
 
 interface RowContent {
   id: number;
@@ -195,6 +196,7 @@ const Process: React.FC<ProcessProps> = ({
       
       <div className="max-w-4xl mx-auto text-center mt-16 sm:mt-20 md:mt-30 mb-1">
         <div className="mt-[-10px] sm:mt-[-20px] flex justify-center mb-3">
+        <FadeIn delay={100}>
           <div className="inline-flex items-center bg-transparent backdrop-blur-sm rounded-[10px] sm:rounded-[14px] px-3 sm:px-4 py-1.5 sm:py-2 border-[1.5px] sm:border-[1.7px] border-[#C8C7C6]">
             <Image 
               src="/Green Star.svg" 
@@ -207,13 +209,15 @@ const Process: React.FC<ProcessProps> = ({
               Richtig Karriere machen
             </p>
           </div>
+          </FadeIn>
         </div>
       </div>
-
+      <FadeIn delay={200}>
       <div className="inter800 text-[#000000] tracking-[-0.5px] sm:tracking-[-1px] text-center text-2xl sm:text-3xl md:text-4xl lg:text-[45px]">
         Starte in deine neue<br />Zukunft <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">mit Sellwell</span>
       </div>
-
+     </FadeIn>
+     <FadeIn delay={300}>
       <a href="/bewerben">
         <div className="text-center">
           <Button className="py-1.5 sm:py-2 text-base sm:text-xl md:text-[25px] mt-4 sm:mt-6 mb-2 sm:mb-3 rounded-[99px]" variant="default">
@@ -224,6 +228,7 @@ const Process: React.FC<ProcessProps> = ({
           Ohne Lebenslauf & Anschreiben
         </div>
       </a>
+      </FadeIn>
     </section>
   );
 };

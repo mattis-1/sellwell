@@ -201,39 +201,7 @@ const AnimatedStats = () => {
         ))}
       </div>
 
-      {/* For the image slider component that needs horizontal scrolling instead of vertical on mobile */}
-      <div className="mt-8 sm:mt-12 overflow-hidden">
-        {/* Two rows of horizontally scrolling images on mobile */}
-        <div className="flex flex-col gap-4">
-          {/* First row */}
-          <div className="overflow-x-auto hide-scrollbar">
-            <div className="flex space-x-4 pb-2 pr-4 min-w-max">
-              {/* Example images - replace with your actual content */}
-              {[1, 2, 3, 4, 5].map((item) => (
-                <div key={`row1-${item}`} className="w-64 h-40 bg-gray-200 rounded-lg flex-shrink-0 relative overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center text-gray-400">
-                    Slide Image {item}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          {/* Second row */}
-          <div className="overflow-x-auto hide-scrollbar">
-            <div className="flex space-x-4 pb-2 pr-4 min-w-max">
-              {/* Example images - replace with your actual content */}
-              {[6, 7, 8, 9, 10].map((item) => (
-                <div key={`row2-${item}`} className="w-64 h-40 bg-gray-200 rounded-lg flex-shrink-0 relative overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center text-gray-400">
-                    Slide Image {item}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
+    
 
       <style jsx>{`
         .hide-scrollbar::-webkit-scrollbar {

@@ -1,6 +1,8 @@
 // components/WasWirBieten.tsx
 import React from "react";
 import Image from "next/image";
+import FadeIn from '@/components/fadein';
+
 
 interface BenefitBox {
   id: number;
@@ -32,7 +34,7 @@ const Somebenefits: React.FC = () => {
   ];
 
   return (
-    <section className="bg-white pt-16">
+    <section className="bg-white pt-20">
       <div className="container mx-auto px-4">
         {/* Headline with SVG Underline */}
         <div className="text-center mb-16">

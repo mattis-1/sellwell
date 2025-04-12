@@ -1,4 +1,6 @@
 import React from 'react';
+import FadeIn from '@/components/fadein';
+
 
 // Define the feature box props interface
 interface FeatureBoxProps {
@@ -18,6 +20,8 @@ const FeatureBox = ({
   overlayOpacity = 0.6, // Default overlay opacity
 }: FeatureBoxProps) => {
   return (
+    
+    <FadeIn delay={100}>
     <div 
       className="rounded-3xl p-8 flex flex-col items-start h-full relative overflow-hidden shadow-lg"
       style={{ 
@@ -52,6 +56,7 @@ const FeatureBox = ({
               </button>
       </div>
     </div>
+    </FadeIn>
   );
 };
 

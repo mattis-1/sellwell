@@ -16,6 +16,7 @@ import Somebenefits from "@/components/columnbenefits"
 import AnimatedStats from "@/components/ui/stats"
 import BeautifulModal from "@/components/BeautifulModal";
 import { useState } from 'react';
+import FadeIn from '@/components/fadein';
 
 
 const videoIds = [
@@ -149,12 +150,14 @@ export default function Home() {
       </div>
       
       {/* Smooth transition gradient at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-20 sm:h-30 bg-gradient-to-b from-transparent to-[#F4F2F1] dark:to-[#0A0A0A] z-[4]"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-20 sm:h-30 bg-gradient-to-b from-transparent to-[#F4F2F1] z-[4]"></div>
       {/* Background layers end */}
 
       {/* Hero content with higher z-index - adjusted padding for mobile */}
+      
       <div className="relative z-10 px-4 sm:px-8 md:px-20 pt-12 sm:pt-20 pb-10 sm:pb-16 container mx-auto">
         <div className="flex flex-col items-center">
+        
           <div className="inline-flex items-center rounded-[10px] sm:rounded-[14px] px-3 sm:px-4 py-1.5 sm:py-2 border-[1px] border-[#AAA] shadow-[1px_1px_10px_0px_rgba(0,0,0,0.15)] sm:shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)] mb-4 sm:mb-5">
             <Image 
               src="/Green Star.svg" 
@@ -167,7 +170,8 @@ export default function Home() {
               Nummer 1 Vertrieb im D2D in Bayern
             </p>
           </div>
-          
+        
+
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-3xl sm:text-[15px] md:text-[50px] lg:text-[65px] inter800 tracking-[-1px] sm:tracking-[-1.5px] md:tracking-[-2px] leading-[1.2] sm:leading-[1.3] font-bold mb-3 sm:mb-5">
               Mit Sellwell als Partner{" "}
@@ -189,25 +193,7 @@ export default function Home() {
       </div>
     </div>
 
-    <section>
-      <div className="relative overflow-hidden bg-[#FFF] mt-[-40px] sm:mt-[-70px]">
-        {/* Hero content with higher z-index */}
-        <div className="relative z-10 px-4 sm:px-8 md:px-20 lg:px-90 pt-6 sm:pt-10 pb-6 sm:pb-10 container mx-auto">
-          <div className="absolute top-0 left-0 right-0 h-16 sm:h-24 bg-gradient-to-b from-transparent to-[#FFFFFF] z-1"></div>
 
-          <div className="flex flex-col items-center">
-            <div className="relative w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[650px] rounded-[20px] sm:rounded-[30px] md:rounded-[49px] overflow-hidden shadow-[0_0_50px_2px_rgba(5,46,22,0.8)] sm:shadow-[0_0_100px_3px_rgba(5,46,22,1)] backdrop-blur-sm border border-white/10 z-100">
-              <Image 
-                src="/sellwellteam.png" 
-                alt="Sellwell Team" 
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
         <section className="bg-[#F4F2F1]">
       {/* Infinite scrolling logos */}
@@ -216,64 +202,64 @@ export default function Home() {
           <div className="logos-slider">
             {/* First set of logos */}
             <div className="inline-block">
-              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+              <div className="h-16 w-32 rounded flex items-center justify-center mx-6">
                 <Image src='/case1.svg' alt="Eon Logo" width={128} height={64} />
               </div>
             </div>
             <div className="inline-block">
-              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+              <div className="h-16 w-32 rounded flex items-center justify-center mx-6">
                 <Image src="/case2.svg" alt="Eon Logo" width={128} height={64} />
               </div>
             </div>
             <div className="inline-block">
-              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+              <div className="h-16 w-32 rounded flex items-center justify-center mx-6">
                 <Image src='/case3.svg' alt="Eon Logo" width={128} height={64} />
               </div>
             </div>
             <div className="inline-block">
-              <div className="h-16 w-33 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+              <div className="h-16 w-33 rounded flex items-center justify-center mx-6">
                 <Image src='/case4.svg' alt="Eon Logo" width={128} height={64} />
               </div>
             </div>
             <div className="inline-block">
-              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+              <div className="h-16 w-32 rounded flex items-center justify-center mx-6">
                 <Image src='case1.svg' alt="Eon Logo" width={128} height={64} />
               </div>
             </div>
             <div className="inline-block">
-              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+              <div className="h-16 w-32 rounded flex items-center justify-center mx-6">
                 <Image src='/case2.svg' alt="Eon Logo" width={128} height={64} />
               </div>
             </div>
             
             {/* Duplicate for seamless loop */}
             <div className="inline-block">
-              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+              <div className="h-16 w-32 rounded flex items-center justify-center mx-6">
                 <Image src='/case3.svg' alt="Eon Logo" width={128} height={64} />
               </div>
             </div>
             <div className="inline-block">
-              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+              <div className="h-16 w-32 rounded flex items-center justify-center mx-6">
                 <Image src="/case4.svg" alt="Eon Logo" width={128} height={64} />
               </div>
             </div>
             <div className="inline-block">
-              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+              <div className="h-16 w-32 rounded flex items-center justify-center mx-6">
                 <Image src='/case1.svg' alt="Eon Logo" width={128} height={64} />
               </div>
             </div>
             <div className="inline-block">
-              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+              <div className="h-16 w-32 rounded flex items-center justify-center mx-6">
                 <Image src='/case2.svg' alt="Eon Logo" width={128} height={64} />
               </div>
             </div>
             <div className="inline-block">
-              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+              <div className="h-16 w-32 rounded flex items-center justify-center mx-6">
                 <Image src='case3.svg' alt="Eon Logo" width={128} height={64} />
               </div>
             </div>
             <div className="inline-block">
-              <div className="h-16 w-32 dark:bg-gray-700/80 rounded flex items-center justify-center mx-6">
+              <div className="h-16 w-32 rounded flex items-center justify-center mx-6">
                 <Image src='/case4.svg' alt="Eon Logo" width={128} height={64} />
               </div>
             </div>
@@ -333,6 +319,7 @@ export default function Home() {
       </div>
       
       {/* Right column - Content */}
+      <FadeIn direction="none" delay={200}>
       <div className="flex flex-col items-start mt-6 md:mt-0">
         <span className="mb-3 inline-block bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-[14px] sm:text-[16px] font-[600] rounded-[99px] px-4 py-1">
           WILLKOMMEN BEI SELLWELL
@@ -346,6 +333,7 @@ export default function Home() {
           Mehr erfahren
         </Button>
       </div>
+      </FadeIn>
     </div>
   </div>
 </section>
@@ -360,6 +348,7 @@ export default function Home() {
   <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-24 xl:px-32 relative z-10">
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
       {/* Left column - Content with checklist */}
+      <FadeIn direction="none" delay={200}>
       <div className="flex flex-col text-white mt-6 md:mt-10 items-start">
         <span className="mb-3 inline-block bg-gradient-to-r from-[#ffffff] to-[#a9aaac] text-[#0B3E27] text-[14px] sm:text-[16px] font-[700] rounded-[99px] px-4 py-1">
           KARRIEREERFOLG MIT SELLWELL
@@ -460,7 +449,7 @@ export default function Home() {
           MEHR ERFAHREN
         </button>
       </div>
-              
+      </FadeIn>      
       {/* Right column - Image */}
       <div className="mt-8 md:mt-7 shadow-[0_0_60px_0_rgba(5,46,22,0.55)] relative h-64 sm:h-80 md:h-[350px] lg:h-[400px] rounded-[25px] overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10">
         <div className="absolute inset-0 flex items-center justify-center">
@@ -475,6 +464,8 @@ export default function Home() {
     </div>
   </div>
 </section>
+
+//bis hier so far 
 
 {/* Projekt erfolgreich vermarkten mit Sellwell */}
 <section className="relative px-4 py-12 sm:py-16 bg-[#FFFFFF] w-full">
@@ -494,7 +485,7 @@ export default function Home() {
           />
         </div>
       </div>
-              
+      <FadeIn direction="none" delay={200}>   
       {/* Right column - Content */}
       <div className="flex flex-col start-items items-start z-[125] mt-6 md:mt-0">
         <span className="mb-3 inline-block bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-[14px] sm:text-[16px] font-[600] rounded-[99px] px-4 py-1">PROJEKTERFOLG MIT SELLWELL</span>
@@ -518,7 +509,7 @@ export default function Home() {
       />
     
     
-      </div>
+      </div></FadeIn>     
     </div>
   </div>
 </section>
@@ -539,6 +530,7 @@ export default function Home() {
  </div>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Column 1 */}
+      <FadeIn direction="up" delay={100}>
       <div className="flex flex-col items-center text-center">
         <div className="mb-[-2.5px]">
         <Image 
@@ -556,8 +548,9 @@ export default function Home() {
           Für ein Erfolg förderndes und<br />familiäres Arbeitsklima.
         </p>
       </div>
-
+</FadeIn>
       {/* Column 2 */}
+<FadeIn direction="up" delay={200}>
       <div className="flex flex-col items-center text-center">
         <div className="mb-[-2.5px]">
         <Image 
@@ -575,8 +568,9 @@ export default function Home() {
           Strategien und Prozesse, die sich in den letzten<br /> Jahren etliche Male bewähren konnten. 
         </p>
       </div>
-      
+      </FadeIn>
       {/* Column 3 */}
+      <FadeIn direction="up" delay={300}>
       <div className="flex flex-col items-center text-center">
         <div className="mb-[-2.5px]">
         <Image 
@@ -594,7 +588,7 @@ export default function Home() {
           Wachstum & erfolgsorientiertes <br />Denken sind unsere größte Priorität.
         </p>
       </div>
-      
+      </FadeIn>
       
     </div>
   </div>
@@ -621,7 +615,8 @@ export default function Home() {
 <div className="bg-[#0B3F27] py-14 mx-5 rounded-[70px]">
   <div className="container mx-auto px-6 sm:px-12 md:px-24 lg:px-32">
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-      
+    <FadeIn direction="none" delay={100}>
+
       {/* Column 1 */}
       <div className="flex flex-col items-center text-center">
         <div className="mb-[-2.5px]">
@@ -640,7 +635,8 @@ export default function Home() {
         Egal worum es geht - Ansprechpartner<br />stehen immer an deiner Seite.
         </p>
       </div>
-
+      </FadeIn>
+<FadeIn direction="none" delay={200}>
       {/* Column 2 */}
       <div className="flex flex-col items-center text-center">
         <div className="mb-[-2.5px]">
@@ -659,7 +655,9 @@ export default function Home() {
         Innerhalb kürzester Zeit aufsteigen<br />und Gehalt steigern.
         </p>
       </div>
-      
+      </FadeIn>
+      <FadeIn direction="none" delay={300}>
+
       {/* Column 3 */}
       <div className="flex flex-col items-center text-center">
         <div className="mb-[-2.5px]">
@@ -678,7 +676,7 @@ export default function Home() {
         Durch dein Umfeld und konstante<br />Weiterbildung Charakter stärken.
         </p>
       </div>
-      
+      </FadeIn>  
       
     </div>
   </div>
@@ -689,6 +687,7 @@ export default function Home() {
 <section className="py-8 sm:py-10 md:pb-12 md:pt-15 bg-[#EBE9E8] w-full">
   <div className="container mx-auto px-4 sm:px-6">
     {/* Mission Statement */}
+    <FadeIn delay={100}>
     <div className="max-w-4xl mx-auto text-center mb-4 sm:mb-7">
       <div className="mt-[-10px] sm:mt-[-20px] flex justify-center mb-1">
         <div className="inline-flex items-center backdrop-blur-sm rounded-[10px] sm:rounded-[14px] px-3 sm:px-4 py-1.5 sm:py-2 border-[1.5px] sm:border-[1.7px] border-[#C8C7C6] shadow-[1px_1px_10px_0px_rgba(0,0,0,0.15)] sm:shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
@@ -705,8 +704,8 @@ export default function Home() {
         </div>
       </div>
     </div>
-    
-    <h2 className="text-center text-[#000000] inter800 text-3xl sm:text-4xl md:text-5xl lg:headr mb-4 sm:mb-[30px]">Unsere Leistungen</h2>
+    </FadeIn>
+    <FadeIn delay={200}><h2 className="text-center text-[#000000] inter800 text-3xl sm:text-4xl md:text-5xl lg:headr mb-4 sm:mb-[30px]">Unsere Leistungen</h2></FadeIn>
     
     <div className="mb-8 sm:mb-12 md:mb-16">
       <Tabs
@@ -748,6 +747,7 @@ export default function Home() {
         ]}
       />
     </div>
+    
   </div>
 </section>
 
@@ -771,6 +771,7 @@ export default function Home() {
           </div>
           
           {/* Right column - Content with benefits */}
+          <FadeIn delay={200}>
           <div className="flex flex-col ml-0 md:ml-[-20px] items-start px-2 sm:px-0">
             <span className="mb-2 sm:mb-3 inline-block bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-[14px] sm:text-[16px] font-[600] rounded-[99px] px-3 sm:px-4 py-1">
               DER PERFEKTE PARTNER
@@ -859,6 +860,7 @@ export default function Home() {
               Beratungsgespräch vereinbaren
             </Button>
           </div>
+          </FadeIn>
         </div>
       </div>
     </div>
@@ -869,6 +871,7 @@ export default function Home() {
 <Stellen />
 
 <section className="pt-10 sm:pt-16 md:pt-20">
+<FadeIn delay={100}>
   <div className="mx-auto px-4 sm:px-6 md:px-8" style={{ maxWidth: '1200px' }}>
     {/* Mission Statement */}
     <div className="max-w-4xl mx-auto text-center mb-1">
@@ -895,6 +898,7 @@ export default function Home() {
     {/* YouTubeGrid with updated props - no longer needed as we're handling these with Tailwind classes */}
     <YouTubeGrid videoIds={videoIds} />
   </div>
+</FadeIn>
 </section>
 
 

@@ -1,4 +1,6 @@
 import React from 'react';
+import FadeIn from '@/components/fadein';
+
 
 const Stellen = () => {
   // Common card style for the container
@@ -46,7 +48,7 @@ const Stellen = () => {
         
         {/* Three horizontally stacked boxes */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          
+          <FadeIn delay={100}>
           {/* Job Card 1 */}
           <div className="relative group transition-all h-full">
             <div 
@@ -89,7 +91,8 @@ text-[26px]">Vertriebler im Außendienst</span><br />(m/w/d)
               </button>
             </div>
           </div>
-          
+          </FadeIn>
+          <FadeIn delay={200}>
           {/* Job Card 2 */}
           <div className="relative group transition-all h-full">
             <div 
@@ -132,7 +135,8 @@ text-[26px]">Senior Sales<br />Manager</span> (m/w/d)
               </button>
             </div>
           </div>
-          
+          </FadeIn>
+          <FadeIn delay={300}>
           {/* Job Card 3 */}
           <div className="relative group transition-all h-full ">
             <div 
@@ -176,8 +180,9 @@ text-[26px]">Business Development Manager</span> (m/w/d)
               </button>
               </div>
             </div>
+            
           </div>
-          
+          </FadeIn>
         </div>
         
         {/* View All Jobs Button (Optional) */}

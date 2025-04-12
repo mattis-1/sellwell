@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import AnimatedText from '@/components/ui/missiontext';
 import ATS from "@/components/ui/verticaltext";
+import FadeIn from '@/components/fadein';
 
 const MissionSection = () => {
   const [, setIsLoaded] = useState(false);
@@ -15,7 +16,7 @@ const MissionSection = () => {
   return (
     <section className="relative w-full pt-12 sm:pt-20 mt-[-2px] px-4 bg-[#EBE9E8] overflow-hidden">
       {/* Smooth transition gradient at top */}
-      <div className="absolute top-0 left-0 right-0 h-40 sm:h-60 bg-gradient-to-b from-[#EBE9E8] to-transparent z-[0]"></div>
+      <FadeIn direction="none" delay={100}>
       
       <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-24 xl:px-32">
         {/* Mission Statement */} 
@@ -53,7 +54,8 @@ const MissionSection = () => {
           </div>
         </div>
       </div>
-      
+      </FadeIn>
+
       {/* Tailwind doesn't support keyframes directly - we need to use a style tag for animations */}
       <style jsx>{`
         .slider-widget {

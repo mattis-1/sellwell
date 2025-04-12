@@ -36,32 +36,34 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* Override dark mode preference - force light theme */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Keep all variables the same as light mode */
+    --background: #ffffff;
+    --foreground: #171717;
     
-    /* Dark mode brand colors */
-    --primary: #2A6A4A; /* Lighter Dark Green for dark mode */
+    /* Keep brand colors consistent */
+    --primary: #1F4D36;
     --primary-foreground: #ffffff;
-    --secondary: #F0C04D; /* Slightly brighter gold for dark mode */
+    --secondary: #D4AF37;
     --secondary-foreground: #171717;
-    --accent: #6B6B6B; /* Lighter gray for dark mode */
+    --accent: #4B4B4B;
     --accent-foreground: #ffffff;
     
-    /* Dark mode UI colors */
-    --card: #171717;
-    --card-foreground: #ededed;
-    --muted: #2a2a2a;
-    --muted-foreground: #a1a1aa;
-    --popover: #171717;
-    --popover-foreground: #ededed;
-    --border: #3f3f46;
-    --input: #3f3f46;
-    --ring: #F0C04D;
+    /* Keep UI colors consistent */
+    --card: #ffffff;
+    --card-foreground: #171717;
+    --muted: #f3f4f6;
+    --muted-foreground: #6B7280;
+    --popover: #ffffff;
+    --popover-foreground: #171717;
+    --border: #e5e7eb;
+    --input: #e5e7eb;
+    --ring: #D4AF37;
     
-    /* Stronger glow in dark mode */
-    --gold-glow: 0 0 20px 5px rgba(240, 192, 77, 0.7);
+    /* Glow effect consistency */
+    --gold-glow: 0 0 15px 2px rgba(212, 175, 55, 0.6);
   }
 }
 
@@ -307,4 +309,64 @@ body > div {
   background: linear-gradient(to left, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
   z-index: 2;
   pointer-events: none;
+}
+
+
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Different animation delays for staggered effects */
+.delay-100 {
+  transition-delay: 0.1s;
+}
+
+.delay-200 {
+  transition-delay: 0.2s;
+}
+
+.delay-300 {
+  transition-delay: 0.3s;
+}
+
+.delay-400 {
+  transition-delay: 0.4s;
+}
+
+.delay-500 {
+  transition-delay: 0.5s;
+}
+
+/* Different animation directions */
+.fade-in-up {
+  transform: translateY(20px);
+}
+
+.fade-in-down {
+  transform: translateY(-20px);
+}
+
+.fade-in-left {
+  transform: translateX(-20px);
+}
+
+.fade-in-right {
+  transform: translateX(20px);
+}
+
+/* When visible, reset transforms */
+.fade-in-up.is-visible,
+.fade-in-down.is-visible,
+.fade-in-left.is-visible,
+.fade-in-right.is-visible {
+  transform: translate(0);
 }

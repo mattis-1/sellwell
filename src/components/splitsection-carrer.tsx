@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import Proof from "@/components/socialproof"
 import { useState } from 'react';
 import BeautifulModal from "@/components/BeautifulModal";
+import FadeIn from '@/components/fadein';
 
 const SplitSection = () => {
 
@@ -28,6 +29,7 @@ const SplitSection = () => {
   return (
     <section className="relative w-full overflow-hidden bg-[#ffffff]">
       <Proof />
+      <FadeIn delay={200} direction="none">
       <div className="flex flex-col md:flex-row min-h-[400px] md:min-h-[500px] bg-[#ffffff]">
         {/* Left side: Content */}
         <div className="w-full md:w-1/2 bg-background flex items-center">
@@ -58,7 +60,6 @@ const SplitSection = () => {
             </div>
           </div>
         </div>
-        
         {/* Right side: Image */}
         <div className="w-full md:w-1/2 h-[550px] sm:h-[500px] md:min-h-full relative">
           {/* Image as background */}
@@ -73,7 +74,7 @@ const SplitSection = () => {
           </div>
         </div>
       </div>
-      
+      </FadeIn>
     </section>
   );
 };
