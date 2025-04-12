@@ -1,6 +1,5 @@
 // components/YouTubeGrid.tsx
 import React from 'react';
-import FadeIn from '@/components/fadein';
 
 
 interface YouTubeGridProps {

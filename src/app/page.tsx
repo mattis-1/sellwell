@@ -465,8 +465,6 @@ export default function Home() {
   </div>
 </section>
 
-//bis hier so far 
-
 {/* Projekt erfolgreich vermarkten mit Sellwell */}
 <section className="relative px-4 py-12 sm:py-16 bg-[#FFFFFF] w-full">
   <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-24 xl:px-32">
