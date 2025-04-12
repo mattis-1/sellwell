@@ -1,8 +1,6 @@
 // components/WasWirBieten.tsx
 import React from "react";
 import Image from "next/image";
-import FadeIn from '@/components/fadein';
-
 
 interface BenefitBox {
   id: number;
