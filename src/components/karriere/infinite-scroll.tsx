@@ -57,12 +57,15 @@ export default function InfiniteScroll() {
         scrollPos1 += scrollSpeed1
         scrollPos2 += scrollSpeed2
 
-        // Reset position when scrolled half way
-        if (scrollPos1 >= scroll1.firstElementChild?.clientWidth! * images1.length) {
+        // Fixed: Remove non-null assertion after optional chaining
+        const firstElementWidth1 = scroll1.firstElementChild?.clientWidth || 0
+        if (scrollPos1 >= firstElementWidth1 * images1.length) {
           scrollPos1 = 0
         }
 
-        if (scrollPos2 >= scroll2.firstElementChild?.clientWidth! * images2.length) {
+        // Fixed: Remove non-null assertion after optional chaining
+        const firstElementWidth2 = scroll2.firstElementChild?.clientWidth || 0
+        if (scrollPos2 >= firstElementWidth2 * images2.length) {
           scrollPos2 = 0
         }
 
