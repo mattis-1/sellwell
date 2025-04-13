@@ -482,7 +482,7 @@ export default function Home() {
 
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
       {/* Left column - Image with reduced height */}
-      <div className="z-[100] relative h-64 sm:h-80 md:h-[320px] lg:h-[360px] xl:h-[400px] max-h-[450px] rounded-[25px] overflow-hidden shadow-[0_0_60px_0_rgba(63,98,18,0.5)] backdrop-blur-sm border border-white/10">
+      <div className="z-[10] relative h-64 sm:h-80 md:h-[320px] lg:h-[360px] xl:h-[400px] max-h-[450px] rounded-[25px] overflow-hidden shadow-[0_0_60px_0_rgba(63,98,18,0.5)] backdrop-blur-sm border border-white/10">
         <div className="absolute inset-0 bg-gray-300 flex items-center justify-center">
           <Image 
             src="/Projekterfolg.png" 

@@ -42,12 +42,6 @@ const Stellen = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalMode, setModalMode] = useState<'Firma' | 'Bewerber'>('Firma');
     
-    // Functions to handle modal
-    const openFirmaModal = () => {
-      setModalMode('Firma');
-      setIsModalOpen(true);
-    };
-    
     const openBewerberModal = () => {
       setModalMode('Bewerber');
       setIsModalOpen(true);
