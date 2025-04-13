@@ -174,7 +174,7 @@ const AnimatedStats = () => {
       </div>
 
       {/* The grid container for the 4 stat columns - 2x2 on mobile */}
-      <div className="max-w-[95%] sm:max-w-[90%] mx-auto grid grid-cols-2 md:grid-cols-4 gap-5 sm:gap-6 pt-4 sm:pt-5 sm:mt-[-40px] relative z-10">
+      <div className="max-w-[95%] sm:max-w-[90%] mx-auto grid grid-cols-2 md:grid-cols-4 gap-5 sm:gap-6 sm:mt-[-45px] relative z-10">
         {statsData.map((item, index) => (
           <div key={index} className="flex flex-col items-center">
             {/* Icon Container with Gradient Background */}

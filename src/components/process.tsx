@@ -1,5 +1,5 @@
 // components/process.tsx
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import FadeIn from "@/components/fadein"
@@ -46,7 +46,20 @@ const Process: React.FC<ProcessProps> = ({
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalMode, setModalMode] = useState<'Firma' | 'Bewerber'>('Firma');
-
+  
+  // Benefits for the slider
+  const benefits = [
+    "Überdurchschnittliches Gehalt",
+    "Regelmäßige Trainings",
+    "Flexible Arbeitszeiten",
+    "Schnelle Aufstiegsmöglichkeiten",
+    "Teamevents & Incentives",
+    "Moderne Arbeitsumgebung",
+    "Persönliche Weiterentwicklung",
+    "Langfristige Karriereperspektive",
+    "Innovatives Arbeitsumfeld",
+    "Unterstützendes Team"
+  ];
   
   const openBewerberModal = () => {
     setModalMode('Bewerber');
@@ -54,8 +67,6 @@ const Process: React.FC<ProcessProps> = ({
   };
   
   const closeModal = () => setIsModalOpen(false);
-
-
 
   // State to track which rows are visible
   const [visibleRows, setVisibleRows] = useState<Record<string, boolean>>({});
@@ -126,7 +137,7 @@ const Process: React.FC<ProcessProps> = ({
   }, []);
 
   return (
-    <section className="container mx-auto px-4 pt-12 sm:pt-20 md:pt-30 py-10 sm:py-16 md:py-20">
+    <section className="container mx-auto px-4 pt-12 sm:pt-20 md:pt-30 py-20 sm:py-26 md:py-30">
       <div className="max-w-4xl mx-auto text-center mb-1">
         <div className="mt-[-10px] sm:mt-[-20px] flex justify-center mb-3">
           <div className="inline-flex items-center backdrop-blur-sm rounded-[10px] sm:rounded-[14px] px-3 sm:px-4 py-1.5 sm:py-2 border-[1.5px] sm:border-[1.7px] border-[#C8C7C6] shadow-[1px_1px_10px_0px_rgba(0,0,0,0.15)] sm:shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
@@ -144,7 +155,7 @@ const Process: React.FC<ProcessProps> = ({
         </div>
       </div>
       
-      <div className="inter800 text-3xl sm:text-4xl md:text-5xl lg:text-[65px] tracking-[-1px] sm:tracking-[-1.5px] md:tracking-[-2px] text-center pb-2 text-[#000000] mb-6 sm:mb-8 md:mb-10">So leicht ist es</div>
+      <div className="inter800 mt-10 text-3xl sm:text-4xl md:text-5xl lg:text-[65px] tracking-[-1px] sm:tracking-[-1.5px] md:tracking-[-2px] text-center pb-2 text-[#000000] mb-10 sm:mb-12 md:mb-15">So leicht ist es</div>
       
       {rows.map((row) => (
         <div 
@@ -209,10 +220,10 @@ const Process: React.FC<ProcessProps> = ({
         </div>
       ))}
       
-      <div className="max-w-4xl mx-auto text-center mt-16 sm:mt-20 md:mt-30 mb-1">
+      <div className="max-w-4xl mx-auto text-center mt-26 sm:mt-30 md:mt-40 mb-1">
         <div className="mt-[-10px] sm:mt-[-20px] flex justify-center mb-3">
         <FadeIn delay={100}>
-          <div className="inline-flex items-center bg-transparent backdrop-blur-sm rounded-[10px] sm:rounded-[14px] px-3 sm:px-4 py-1.5 sm:py-2 border-[1.5px] sm:border-[1.7px] border-[#C8C7C6]">
+          <div className="inline-flex items-center bg-transparent backdrop-blur-sm rounded-[10px] sm:rounded-[14px] px-3 sm:px-4 py-1.5 sm:py-2 border-[1.5px] sm:border-[1.7px] border-[#C8C7C6] shadow-[1px_1px_10px_0px_rgba(0,0,0,0.15)] sm:shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
             <Image 
               src="/Green Star.svg" 
               alt="Green Star" 
@@ -228,7 +239,8 @@ const Process: React.FC<ProcessProps> = ({
         </div>
       </div>
       <FadeIn delay={200}>
-      <div className="inter800 text-[#000000] tracking-[-0.5px] sm:tracking-[-1px] text-center text-2xl sm:text-3xl md:text-4xl lg:text-[45px]">
+      {/* Increased text size for this headline */}
+      <div className="leading-20 inter800 text-[#000000] tracking-[-0.8px] sm:tracking-[-1.2px] md:tracking-[-1.5px] text-center text-3xl sm:text-4xl md:text-5xl lg:text-[60px]">
         Starte in deine neue<br />Zukunft <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">mit Sellwell</span>
       </div>
      </FadeIn>
@@ -237,20 +249,89 @@ const Process: React.FC<ProcessProps> = ({
         <div className="text-center">
           <Button 
           onClick={openBewerberModal}
-          className="py-1.5 sm:py-2 text-base sm:text-xl md:text-[25px] mt-4 sm:mt-6 mb-2 sm:mb-3 rounded-[99px]" variant="default">
-            JETZT SCHNELL BEWERBEN
+          className="py-1.5 sm:py-2 text-base sm:text-xl md:text-[28px] mt-4 sm:mt-6 mb-2 sm:mb-3 rounded-[99px]" variant="default">
+            Jetzt schnell bewerben
           </Button>
         </div>
-        <div className="inter700 text-sm sm:text-base md:text-[19px] text-center bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">
+        <div className="inter700 text-sm sm:text-base md:text-[19px] text-center bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent mb-10">
           Ohne Lebenslauf & Anschreiben
         </div>
  
       </FadeIn>
+
+      {/* Benefits slider section */}
+      <FadeIn delay={400}>
+        <div className="max-w-3xl mx-auto relative">
+          {/* Left gradient fade */}
+          <div className="absolute left-0 top-0 bottom-0 w-[10%] md:w-[15%] z-10 pointer-events-none" 
+               style={{ 
+                 background: 'linear-gradient(to right, white, rgba(255,255,255,0))' 
+               }}>
+          </div>
+          
+          {/* Right gradient fade */}
+          <div className="absolute right-0 top-0 bottom-0 w-[10%] md:w-[15%] z-10 pointer-events-none" 
+               style={{ 
+                 background: 'linear-gradient(to left, white, rgba(255,255,255,0))' 
+               }}>
+          </div>
+          
+          {/* Benefits slider container */}
+          <div className="overflow-hidden py-4">
+            <div className="flex animate-marquee whitespace-nowrap">
+              {/* First set of benefits */}
+              {benefits.map((benefit, index) => (
+                <div key={`benefit-1-${index}`} className="flex items-center mx-4 md:mx-6">
+                  <div 
+                    className="w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center rounded-full bg-gradient-to-r from-[#0C462B] to-[#057741] mr-2 sm:mr-3 flex-shrink-0"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 text-white" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="font-medium text-sm sm:text-base">{benefit}</span>
+                </div>
+              ))}
+              
+              {/* Duplicate benefits for seamless looping */}
+              {benefits.map((benefit, index) => (
+                <div key={`benefit-2-${index}`} className="flex items-center mx-4 md:mx-6">
+                  <div 
+                    className="w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center rounded-full bg-gradient-to-r from-[#0C462B] to-[#057741] mr-2 sm:mr-3 flex-shrink-0"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 text-white" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="font-medium text-sm sm:text-base">{benefit}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </FadeIn>
+      
       <SimpleModal 
-              isOpen={isModalOpen} 
-              onClose={closeModal}
-              mode={modalMode} 
-            />
+        isOpen={isModalOpen} 
+        onClose={closeModal}
+        mode={modalMode} 
+      />
+
+      {/* Add animation for the slider */}
+      <style jsx global>{`
+        @keyframes marquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        
+        .animate-marquee {
+          animation: marquee 40s linear infinite;
+        }
+      `}</style>
     </section>
   );
 };

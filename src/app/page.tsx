@@ -8,7 +8,6 @@ import VerticalGallerySection from "@/components/waterfall";
 import SplitSection from "@/components/splitsection-carrer";
 import Stellen from "@/components/stellenangebote";
 import { Tabs } from "@/components/ui/tabs"
-import FeatureGrid from "@/components/ctasection"
 import YouTubeGrid from "@/components/youtube"
 import Slider from "@/components/slider"
 import Process from "@/components/process"
@@ -614,77 +613,80 @@ export default function Home() {
 
 {/* Three Column Section */}
 <section className="bg-[#EBE9E8] pb-10">
-<div className="bg-[#ffffff] pb-10 rounded-b-[70px] shadow-[0px_6px_10px_0px_rgba(0,0,0,0.15)]">
-<div className="bg-[#0B3F27] py-14 mx-5 rounded-[70px]">
-  <div className="container mx-auto px-6 sm:px-12 md:px-24 lg:px-32">
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-    <FadeIn direction="none" delay={100}>
-
-      {/* Column 1 */}
-      <div className="flex flex-col items-center text-center">
-        <div className="mb-[-2.5px]">
-        <Image 
-  src="/6.svg" 
-  alt="Shaking Hands" 
-  width={108} 
-  height={108} 
-  className="w-25 h-25"
-/>
+  <div className="bg-[#ffffff] pb-14 pt-5 rounded-b-[70px] shadow-[0px_6px_10px_0px_rgba(0,0,0,0.15)]">
+    {/* Added a max-width container to limit width on larger screens */}
+    <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="bg-[#0B3F27] py-14 rounded-[70px]">
+        {/* Adjusted padding to be more consistent */}
+        <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <FadeIn direction="none" delay={100}>
+              {/* Column 1 */}
+              <div className="flex flex-col items-center text-center">
+                <div className="mb-[-2.5px]">
+                  <Image 
+                    src="/6.svg" 
+                    alt="Shaking Hands" 
+                    width={108} 
+                    height={108} 
+                    className="w-25 h-25"
+                  />
+                </div>
+                <h3 className="benefitheader mb-2">
+                  Individuelle<br />Unterstützung
+                </h3>
+                <p className="benefittext">
+                  Egal worum es geht - Ansprechpartner<br />stehen immer an deiner Seite.
+                </p>
+              </div>
+            </FadeIn>
+            
+            <FadeIn direction="none" delay={200}>
+              {/* Column 2 */}
+              <div className="flex flex-col items-center text-center">
+                <div className="mb-[-2.5px]">
+                  <Image 
+                    src="/7.svg" 
+                    alt="aufstieg" 
+                    width={108} 
+                    height={108} 
+                    className="w-25 h-25"
+                  />
+                </div>
+                <h3 className="benefitheader mb-2">
+                  Große & schnelle<br /> Aufstiegsmöglichkeiten
+                </h3>
+                <p className="benefittext">
+                  Innerhalb kürzester Zeit aufsteigen<br />und Gehalt steigern.
+                </p>
+              </div>
+            </FadeIn>
+            
+            <FadeIn direction="none" delay={300}>
+              {/* Column 3 */}
+              <div className="flex flex-col items-center text-center">
+                <div className="mb-[-2.5px]">
+                  <Image 
+                    src="/8.svg" 
+                    alt="personal development" 
+                    width={108} 
+                    height={108} 
+                    className="w-25 h-25"
+                  />
+                </div>
+                <h3 className="benefitheader mb-2">
+                  Persönliche<br />Weiterentwicklung
+                </h3>
+                <p className="benefittext">
+                  Durch dein Umfeld und konstante<br />Weiterbildung Charakter stärken.
+                </p>
+              </div>
+            </FadeIn>  
+          </div>
         </div>
-        <h3 className="benefitheader mb-2">
-        Individuelle<br />Unterstützung
-        </h3>
-        <p className="benefittext">
-        Egal worum es geht - Ansprechpartner<br />stehen immer an deiner Seite.
-        </p>
       </div>
-      </FadeIn>
-<FadeIn direction="none" delay={200}>
-      {/* Column 2 */}
-      <div className="flex flex-col items-center text-center">
-        <div className="mb-[-2.5px]">
-        <Image 
-  src="/7.svg" 
-  alt="aufstieg" 
-  width={108} 
-  height={108} 
-  className="w-25 h-25"
-/>
-        </div>
-        <h3 className="benefitheader mb-2">
-        Große & schnelle<br /> Aufstiegsmöglichkeiten
-        </h3>
-        <p className="benefittext">
-        Innerhalb kürzester Zeit aufsteigen<br />und Gehalt steigern.
-        </p>
-      </div>
-      </FadeIn>
-      <FadeIn direction="none" delay={300}>
-
-      {/* Column 3 */}
-      <div className="flex flex-col items-center text-center">
-        <div className="mb-[-2.5px]">
-        <Image 
-  src="/8.svg" 
-  alt="personal development" 
-  width={108} 
-  height={108} 
-  className="w-25 h-25"
-/>
-        </div>
-        <h3 className="benefitheader mb-2">
-        Persönliche<br />Weiterentwicklung
-        </h3>
-        <p className="benefittext">
-        Durch dein Umfeld und konstante<br />Weiterbildung Charakter stärken.
-        </p>
-      </div>
-      </FadeIn>  
-      
     </div>
   </div>
-</div>
-</div>
 </section>
 
 <section id="leistungen" className="py-8 sm:py-10 md:pb-12 md:pt-15 bg-[#EBE9E8] w-full">
@@ -732,7 +734,7 @@ export default function Home() {
             value: "b2c",
             image: "/Leistung2.png", // Replace with your actual image path
             imageAlt: "Neukundengewinnung und Lead Generation",
-            heading: "Neukunden & Lead Generation",
+            heading: "Neukundengewinnung und Lead Generierung",
             text: "Wir bringen Ihr Produkt direkt zu den relevanten Kunden und übernehmen den gesamten Akquiseprozess im Door-to-Door Bereich. Mit gezielter Ansprache und bewährten Verkaufstechniken überzeugen wir potenzielle Kunden und generieren qualifizierte Abschlüsse für Ihr Unternehmen.",
             buttonText: "JETZT KONTAKT AUFNEHMEN",
             buttonLink: "/kontakt"
@@ -754,15 +756,16 @@ export default function Home() {
   </div>
 </section>
 
-{/*Für Unternehmen Benefits*/}
-<section className="bg-[#EBE9E8] pb-0">
-  <div className="bg-[#ffffff] rounded-[30px] sm:rounded-[50px] md:rounded-[70px] py-4 sm:py-5 md:py-7 mx-2 sm:mx-3">
-    <div className="pt-8 sm:pt-10 md:pt-14 pb-10 sm:pb-12 md:pb-16 bg-background bg-[#ffffff] rounded-[30px] sm:rounded-[50px] md:rounded-[70px] shadow-[1px_1px_10px_0px_rgba(0,0,0,0.15)] sm:shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
-      {/* Width-controlled container */}
-      <div className="mx-auto w-[95%] sm:w-[100%] max-w-[1200px] bg-[#fff]">
+<section className="bg-[#EBE9E8] pb-10">
+  {/* Add container to control max width */}
+  <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    {/* Removed redundant white box container */}
+    <div className="pt-8 sm:pt-10 md:pt-14 pb-10 sm:pb-12 md:pb-16 bg-[#ffffff] rounded-[30px] sm:rounded-[55px] md:rounded-[75px] shadow-[1px_1px_10px_0px_rgba(0,0,0,0.15)] sm:shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
+      {/* Simplified width-controlled container */}
+      <div className="mx-auto px-7 sm:px-6 lg:px-1 max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-center">
           {/* Left column - Image with responsive sizing */}
-          <div className="relative h-64 sm:h-72 md:h-80 lg:h-full mx-auto w-[90%] sm:ml-5 sm:mr-[-5px] md:w-auto rounded-[20px] sm:rounded-[35px] overflow-hidden">
+          <div className="relative h-64 sm:h-72 md:h-80 lg:h-96 w-full rounded-[20px] sm:rounded-[35px] overflow-hidden">
             <div className="absolute inset-0 bg-gray-300 flex items-center justify-center">
               <Image 
                 src="/Perfekter Partner.png" 
@@ -775,96 +778,98 @@ export default function Home() {
           
           {/* Right column - Content with benefits */}
           <FadeIn delay={200}>
-          <div className="flex flex-col ml-0 md:ml-[-20px] items-start px-2 sm:px-0">
-            <span className="mb-2 sm:mb-3 inline-block bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-[14px] sm:text-[16px] font-[600] rounded-[99px] px-3 sm:px-4 py-1">
-              DER PERFEKTE PARTNER
-            </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:headr inter800 text-[#000000] mb-4 sm:mb-6">
-              Projekterfolg -<br />
-              <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">
-                verlässlich & stressfrei
+            <div className="flex flex-col items-start">
+              <span className="mb-2 sm:mb-3 inline-block bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-[14px] sm:text-[16px] font-[600] rounded-[99px] px-3 sm:px-4 py-1">
+                DER PERFEKTE PARTNER
               </span>
-            </h2>
-            
-            {/* Benefits with checkmarks - optimized for mobile */}
-            <div className="space-y-3 sm:space-y-4 md:space-y-5 mb-6">
-              <div className="flex items-start gap-2 sm:gap-3">
-                {/* Checkbox container */}
-                <div
-                  className="flex items-center justify-center rounded-[6px] sm:rounded-[8px] flex-shrink-0 mt-0.5 w-5 h-5 sm:w-6 sm:h-6 md:w-[25px] md:h-[25px] min-w-[20px] sm:min-w-[24px] md:min-w-[25px]"
-                  style={{
-                    background: "linear-gradient(to bottom, #4b4b4b, #141414)",
-                    border: "2px solid #0C462B"
-                  }}
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 text-primary flex-shrink-0" viewBox="0 0 20 20" fill="#ffffff">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
+              <h2 className="text-2xl sm:text-3xl md:text-[42px] lg:headr inter800 text-[#000000] mb-4 sm:mb-6">
+                Projekterfolg -<br />
+                <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">
+                  verlässlich & stressfrei
+                </span>
+              </h2>
+              
+              {/* Benefits with checkmarks - optimized for mobile */}
+              <div className="space-y-3 sm:space-y-4 md:space-y-5 mb-6">
+                <div className="flex items-start gap-2 sm:gap-3">
+                  {/* Checkbox container */}
+                  <div
+                    className="flex items-center justify-center rounded-[6px] sm:rounded-[8px] flex-shrink-0 mt-0.5 w-5 h-5 sm:w-6 sm:h-6 md:w-[25px] md:h-[25px] min-w-[20px] sm:min-w-[24px] md:min-w-[25px]"
+                    style={{
+                      background: "linear-gradient(to bottom, #4b4b4b, #141414)",
+                      border: "2px solid #0C462B"
+                    }}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 text-primary flex-shrink-0" viewBox="0 0 20 20" fill="#ffffff">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <p className="text-[15px] sm:text-[16px] md:text-[18px] font-[600] text-[#000]/80">
+                    Skalierbarer Außendienst - ohne eigene Ressourcenbindung
+                  </p>
                 </div>
-                <p className="text-[15px] sm:text-[16px] md:text-[18px] font-[600] text-[#000]/80">
-                  Skalierbarer Außendienst - ohne eigene Ressourcenbindung
-                </p>
+
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <div
+                    className="flex items-center justify-center rounded-[6px] sm:rounded-[8px] flex-shrink-0 mt-0.5 w-5 h-5 sm:w-6 sm:h-6 md:w-[25px] md:h-[25px] min-w-[20px] sm:min-w-[24px] md:min-w-[25px]"
+                    style={{
+                      background: "linear-gradient(to bottom, #4b4b4b, #141414)",
+                      border: "2px solid #0C462B"
+                    }}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 text-primary flex-shrink-0" viewBox="0 0 20 20" fill="#ffffff">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <p className="text-[15px] sm:text-[16px] md:text-[18px] font-[600] text-[#000]/80">
+                    Verlässliche Steigerung Ihrer Verkaufszahlen
+                  </p>
+                </div>
+
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <div
+                    className="flex items-center justify-center rounded-[6px] sm:rounded-[8px] flex-shrink-0 mt-0.5 w-5 h-5 sm:w-6 sm:h-6 md:w-[25px] md:h-[25px] min-w-[20px] sm:min-w-[24px] md:min-w-[25px]"
+                    style={{
+                      background: "linear-gradient(to bottom, #4b4b4b, #141414)",
+                      border: "2px solid #0C462B"
+                    }}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 text-primary flex-shrink-0" viewBox="0 0 20 20" fill="#ffffff">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <p className="text-[15px] sm:text-[16px] md:text-[18px] font-[600] text-[#000]/80">
+                    Schnell und ohne großen Aufwand erste Erfolge sehen
+                  </p>
+                </div>
+
+                <div className="flex items-start gap-2 sm:gap-3">
+                  <div
+                    className="flex items-center justify-center rounded-[6px] sm:rounded-[8px] flex-shrink-0 mt-0.5 w-5 h-5 sm:w-6 sm:h-6 md:w-[25px] md:h-[25px] min-w-[20px] sm:min-w-[24px] md:min-w-[25px]"
+                    style={{
+                      background: "linear-gradient(to bottom, #4b4b4b, #141414)",
+                      border: "2px solid #0C462B"
+                    }}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 text-primary flex-shrink-0" viewBox="0 0 20 20" fill="#ffffff">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <p className="text-[15px] sm:text-[16px] md:text-[18px] font-[600] text-[#000]/80">
+                    Bewährte Verkaufsstrategien für maximale Abschlussraten
+                  </p>
+                </div>
               </div>
 
-              <div className="flex items-start gap-2 sm:gap-3">
-                <div
-                  className="flex items-center justify-center rounded-[6px] sm:rounded-[8px] flex-shrink-0 mt-0.5 w-5 h-5 sm:w-6 sm:h-6 md:w-[25px] md:h-[25px] min-w-[20px] sm:min-w-[24px] md:min-w-[25px]"
-                  style={{
-                    background: "linear-gradient(to bottom, #4b4b4b, #141414)",
-                    border: "2px solid #0C462B"
-                  }}
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 text-primary flex-shrink-0" viewBox="0 0 20 20" fill="#ffffff">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <p className="text-[15px] sm:text-[16px] md:text-[18px] font-[600] text-[#000]/80">
-                  Verlässliche Steigerung Ihrer Verkaufszahlen
-                </p>
-              </div>
-
-              <div className="flex items-start gap-2 sm:gap-3">
-                <div
-                  className="flex items-center justify-center rounded-[6px] sm:rounded-[8px] flex-shrink-0 mt-0.5 w-5 h-5 sm:w-6 sm:h-6 md:w-[25px] md:h-[25px] min-w-[20px] sm:min-w-[24px] md:min-w-[25px]"
-                  style={{
-                    background: "linear-gradient(to bottom, #4b4b4b, #141414)",
-                    border: "2px solid #0C462B"
-                  }}
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 text-primary flex-shrink-0" viewBox="0 0 20 20" fill="#ffffff">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <p className="text-[15px] sm:text-[16px] md:text-[18px] font-[600] text-[#000]/80">
-                  Schnell und ohne großen Aufwand erste Erfolge sehen
-                </p>
-              </div>
-
-              <div className="flex items-start gap-2 sm:gap-3">
-                <div
-                  className="flex items-center justify-center rounded-[6px] sm:rounded-[8px] flex-shrink-0 mt-0.5 w-5 h-5 sm:w-6 sm:h-6 md:w-[25px] md:h-[25px] min-w-[20px] sm:min-w-[24px] md:min-w-[25px]"
-                  style={{
-                    background: "linear-gradient(to bottom, #4b4b4b, #141414)",
-                    border: "2px solid #0C462B"
-                  }}
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 text-primary flex-shrink-0" viewBox="0 0 20 20" fill="#ffffff">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <p className="text-[15px] sm:text-[16px] md:text-[18px] font-[600] text-[#000]/80">
-                  Bewährte Verkaufsstrategien für maximale Abschlussraten
-                </p>
-              </div>
+              {/* Green gradient CTA button */}
+              <Button 
+                onClick={openFirmaModal}
+                variant="default" 
+                className="self-start text-base sm:text-lg md:text-[22px] rounded-[99px] py-2 md:pb-3"
+              >
+                Beratungsgespräch vereinbaren
+              </Button>
             </div>
-
-            {/* Green gradient CTA button */}
-            <Button 
-            onClick={openFirmaModal}
-            variant="default" className="self-start text-base sm:text-lg md:text-[22px] rounded-[99px] py-2 md:pb-3">
-              Beratungsgespräch vereinbaren
-            </Button>
-          </div>
           </FadeIn>
         </div>
       </div>
@@ -957,10 +962,6 @@ export default function Home() {
 {/*Instagram Einbindung*/}
 <section>
 </section>
-
-{/*4 CTA Kasten*/}
-<FeatureGrid />
-
 
 
 </main>

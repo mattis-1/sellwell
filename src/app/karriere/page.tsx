@@ -10,7 +10,7 @@ import StatsSection from "@/components/karriere/stats-section"
 import InfiniteScroll from "@/components/karriere/infinite-scroll"
 import FAQSection from "@/components/karriere/faq-section"
 import FinalCTA from "@/components/karriere/final-cta"
-import Footer from "@/components/karriere/footer"
+import Footer from "@/components/footer"
 
 export default function KarrierePage() {
   return (
