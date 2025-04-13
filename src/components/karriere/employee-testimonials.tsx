@@ -113,7 +113,8 @@ export default function EmployeeTestimonials() {
                       )}
                     </div>
                     <div className="p-6">
-                      <p className="text-gray-700 italic mb-4">"{testimonial.quote}"</p>
+                      {/* Make sure to use HTML entities for quotes */}
+                      <p className="text-gray-700 italic mb-4">&quot;{testimonial.quote}&quot;</p>
                       <div className="flex items-center">
                         <div className="h-12 w-12 rounded-full overflow-hidden mr-4">
                           <Image
