@@ -1,5 +1,5 @@
 // components/process.tsx
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import FadeIn from "@/components/fadein"
