@@ -1,0 +1,30 @@
+[
+  {
+    "id": "63ff1f82-445a-4ebe-9d17-4108d5cfeaff",
+    "firstName": "Mattis",
+    "lastName": "Kubisa",
+    "salesExperience": "Ja, habe ich",
+    "jobImportance": "richtige ausbildung",
+    "peopleContact": "Ja bin ich gerne",
+    "driversLicense": "Ja",
+    "fitReason": "Weil ich cool bin",
+    "email": "mattiskubisa@gmail.com",
+    "phone": "017676869448",
+    "createdAt": "2025-04-15T23:06:58.689Z",
+    "status": "new"
+  },
+  {
+    "id": "4edf53ff-52df-4754-8d73-5b1aeb00d6b1",
+    "firstName": "Mattis",
+    "lastName": "Kubisa",
+    "salesExperience": "Ja, habe ich",
+    "jobImportance": "hoher verdienst",
+    "peopleContact": "Ja bin ich gerne",
+    "driversLicense": "Nein",
+    "fitReason": "fnsdf",
+    "email": "mattiskubisa@gmail.com",
+    "phone": "8787878787",
+    "createdAt": "2025-04-15T23:11:48.921Z",
+    "status": "new"
+  }
+]

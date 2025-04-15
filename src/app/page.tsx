@@ -16,6 +16,7 @@ import AnimatedStats from "@/components/ui/stats"
 import { useState } from 'react';
 import SimpleModal from "@/components/SimpleModal";
 import FadeIn from '@/components/fadein';
+import CookieBanner from '@/components/cookiebanner'
 
 
 const videoIds = [
@@ -279,7 +280,7 @@ export default function Home() {
 
 
 
-
+<CookieBanner />
 
         
        {/* Welcome Section */}

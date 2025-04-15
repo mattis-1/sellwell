@@ -1,0 +1,24 @@
+[
+  {
+    "id": "b0898915-9513-4fb2-8e70-0f2555e473b8",
+    "firstName": "Mattis",
+    "lastName": "Kubisa",
+    "company": "B&M Marketscale",
+    "message": "Mattis ist cool",
+    "email": "mattiskubisa@gmail.com",
+    "phone": "017676869448",
+    "createdAt": "2025-04-15T23:08:53.370Z",
+    "status": "new"
+  },
+  {
+    "id": "38cb9010-df10-4eb1-8d70-31ab688712e2",
+    "firstName": "fsd",
+    "lastName": "fsdf",
+    "company": "fas",
+    "message": "fd",
+    "email": "mattiskubisa@gmail.com",
+    "phone": "017676869448",
+    "createdAt": "2025-04-15T23:12:31.984Z",
+    "status": "new"
+  }
+]

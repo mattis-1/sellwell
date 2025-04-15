@@ -29,6 +29,11 @@ export default function SimpleModal({ isOpen, onClose, mode = 'Firma' }: SimpleM
   const [driversLicense, setDriversLicense] = useState('');
   const [fitReason, setFitReason] = useState('');
   
+  // Form status
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  
   // Current step state - different total steps based on mode
   const [currentStep, setCurrentStep] = useState(1);
   const totalSteps = mode === 'Firma' ? 4 : 7; // 4 steps for Firma, 7 for Bewerber
@@ -68,6 +73,71 @@ export default function SimpleModal({ isOpen, onClose, mode = 'Firma' }: SimpleM
     setPeopleContact('');
     setDriversLicense('');
     setFitReason('');
+    
+    // Reset status
+    setSubmitError('');
+    setSubmitSuccess(false);
+    setIsSubmitting(false);
+  };
+
+  // Submit form to API
+  const submitForm = async () => {
+    setIsSubmitting(true);
+    setSubmitError('');
+    
+    try {
+      // Determine which endpoint to use based on mode
+      const endpoint = mode === 'Firma' ? '/api/firma' : '/api/bewerber';
+      
+      // Prepare form data based on mode
+      const formData = mode === 'Firma' 
+        ? {
+            firstName,
+            lastName,
+            company,
+            message,
+            email,
+            phone
+          }
+        : {
+            firstName,
+            lastName,
+            salesExperience,
+            jobImportance,
+            peopleContact,
+            driversLicense,
+            fitReason,
+            email,
+            phone
+          };
+      
+      // Submit to API
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
+      }
+      
+      // Handle success
+      setSubmitSuccess(true);
+      
+      // Optional: close modal after successful submission
+      setTimeout(() => {
+        onClose();
+      }, 2000);
+      
+    } catch (error) {
+      console.error('Submission error:', error);
+      setSubmitError('Ein Fehler ist aufgetreten. Bitte versuche es später erneut.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   // Go to next step
@@ -75,31 +145,8 @@ export default function SimpleModal({ isOpen, onClose, mode = 'Firma' }: SimpleM
     if (currentStep < totalSteps) {
       setCurrentStep(currentStep + 1);
     } else {
-      // Submit form
-      if (mode === 'Firma') {
-        console.log('Firma Form submitted', {
-          firstName,
-          lastName,
-          company,
-          message,
-          email,
-          phone
-        });
-      } else {
-        console.log('Bewerber Form submitted', {
-          firstName,
-          lastName,
-          salesExperience,
-          jobImportance,
-          peopleContact,
-          driversLicense,
-          fitReason,
-          email,
-          phone
-        });
-      }
-      // Optional: close modal or show success message
-      onClose();
+      // Submit form when on last step
+      submitForm();
     }
   };
 
@@ -576,63 +623,86 @@ export default function SimpleModal({ isOpen, onClose, mode = 'Firma' }: SimpleM
               {/* Step indicator */}
               {renderStepIndicator()}
               
-              <motion.div
-                className="w-full max-w-md space-y-4"
-                key={currentStep}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ delay: 0.2 }}
-              >
-                {/* Current step content */}
-                {renderStepContent()}
-                
-                {/* Navigation buttons */}
-                <div className="flex gap-3 mt-6">
-                  {currentStep > 1 && (
-                    <button 
-                      onClick={handleBack}
-                      className="flex items-center justify-center gap-2 rounded-lg border border-gray-800 bg-transparent py-2 sm:py-3 px-3 sm:px-4 text-sm font-medium text-white transition-all duration-200 hover:bg-gray-900"
-                    >
-                      <ChevronLeft size={16} />
-                      <span className="hidden sm:inline">Zurück</span>
-                    </button>
+              {/* Show success message if form submitted successfully */}
+              {submitSuccess ? (
+                <motion.div
+                  className="w-full max-w-md space-y-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  <div className="flex flex-col items-center justify-center space-y-4 text-center">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
+                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 6L9 17l-5-5" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-medium text-white">Vielen Dank!</h3>
+                    <p className="text-gray-400">
+                      {mode === 'Firma' 
+                        ? 'Wir haben deine Anfrage erhalten und werden uns in Kürze bei dir melden.' 
+                        : 'Wir haben deine Bewerbung erhalten und werden sie sorgfältig prüfen.'}
+                    </p>
+                  </div>
+                </motion.div>
+              ) : (
+                <motion.div
+                  className="w-full max-w-md space-y-4"
+                  key={currentStep}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  {/* Current step content */}
+                  {renderStepContent()}
+                  
+                  {/* Error message */}
+                  {submitError && (
+                    <div className="mt-2 text-sm text-red-500">
+                      {submitError}
+                    </div>
                   )}
                   
-                  <button 
-                    onClick={handleNext}
-                    disabled={!isNextEnabled()}
-                    className={`flex-1 flex items-center justify-center gap-2 rounded-lg py-2 sm:py-3 font-medium text-white transition-all duration-200 ${
-                      isNextEnabled()
-                        ? 'bg-gradient-to-r from-[#0C462B] to-[#16a34a] hover:shadow-lg hover:shadow-[#0C462B]/40'
-                        : 'bg-gray-700 cursor-not-allowed'
-                    }`}
-                  >
-                    {getNextButtonText()}
-                    {currentStep < totalSteps && <ChevronRight size={16} />}
-                  </button>
-                </div>
-                
-                {currentStep === 1 && mode === 'Firma' && (
-                  <>
-                    <div className="relative flex items-center py-2">
-                      <div className="flex-grow border-t border-gray-800"></div>
-                      <span className="mx-4 flex-shrink text-xs text-gray-500">ODER</span>
-                      <div className="flex-grow border-t border-gray-800"></div>
-                    </div>
+                  {/* Navigation buttons */}
+                  <div className="flex gap-3 mt-6">
+                    {currentStep > 1 && (
+                      <button 
+                        onClick={handleBack}
+                        className="flex items-center justify-center gap-2 rounded-lg border border-gray-800 bg-transparent py-2 sm:py-3 px-3 sm:px-4 text-sm font-medium text-white transition-all duration-200 hover:bg-gray-900"
+                      >
+                        <ChevronLeft size={16} />
+                        <span className="hidden sm:inline">Zurück</span>
+                      </button>
+                    )}
                     
-                    <button className="flex w-full items-center justify-center gap-2 rounded-lg border border-gray-800 bg-transparent py-3 text-sm font-medium text-white transition-all duration-200 hover:bg-gray-900">
-                      <svg width="18" height="18" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fillRule="evenodd" clipRule="evenodd" d="M14.72 8.15908C14.72 7.66272 14.6755 7.18545 14.5927 6.72726H8V9.43499H11.7673C11.605 10.31 11.1118 11.0514 10.3705 11.5477V13.3041H12.6327C13.9564 12.0854 14.72 10.2909 14.72 8.15908Z" fill="#4285F4"></path>
-                        <path fillRule="evenodd" clipRule="evenodd" d="M7.9996 15C9.8896 15 11.4741 14.3732 12.6323 13.3041L10.37 11.5477C9.74323 11.9677 8.94141 12.2159 7.9996 12.2159C6.17641 12.2159 4.63323 10.9845 4.08278 9.33H1.74414V11.1436C2.89596 13.4314 5.26323 15 7.9996 15Z" fill="#34A853"></path>
-                        <path fillRule="evenodd" clipRule="evenodd" d="M4.08318 9.32999C3.94318 8.90999 3.86364 8.46135 3.86364 7.99999C3.86364 7.53863 3.94318 7.08999 4.08318 6.66999V4.85635H1.74455C1.27045 5.80135 1 6.87044 1 7.99999C1 9.12954 1.27045 10.1986 1.74455 11.1436L4.08318 9.32999Z" fill="#FBBC05"></path>
-                        <path fillRule="evenodd" clipRule="evenodd" d="M7.9996 3.78409C9.02732 3.78409 9.95005 4.13727 10.6755 4.83091L12.6832 2.82318C11.471 1.69364 9.88641 1 7.9996 1C5.26323 1 2.89596 2.56864 1.74414 4.85636L4.08278 6.67C4.63323 5.01545 6.17641 3.78409 7.9996 3.78409Z" fill="#EA4335"></path>
-                      </svg>
-                      Mit Google fortfahren
+                    <button 
+                      onClick={handleNext}
+                      disabled={!isNextEnabled() || isSubmitting}
+                      className={`flex-1 flex items-center justify-center gap-2 rounded-lg py-2 sm:py-3 font-medium text-white transition-all duration-200 ${
+                        isNextEnabled() && !isSubmitting
+                          ? 'bg-gradient-to-r from-[#0C462B] to-[#16a34a] hover:shadow-lg hover:shadow-[#0C462B]/40'
+                          : 'bg-gray-700 cursor-not-allowed'
+                      }`}
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Wird gesendet...
+                        </>
+                      ) : (
+                        <>
+                          {getNextButtonText()}
+                          {currentStep < totalSteps && <ChevronRight size={16} />}
+                        </>
+                      )}
                     </button>
-                  </>
-                )}
-              </motion.div>
+                  </div>
+                </motion.div>
+              )}
               
               <motion.p 
                 className="mt-6 sm:mt-8 text-xs text-gray-500"
@@ -640,7 +710,7 @@ export default function SimpleModal({ isOpen, onClose, mode = 'Firma' }: SimpleM
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
               >
-                Mit dem Absenden stimmst du zu, dass wir dich kontaktieren dürfen.
+                Mit dem Eintragen stimmst du unserer Datenschutzerklärung zu.
               </motion.p>
             </motion.div>
             
