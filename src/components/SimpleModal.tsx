@@ -87,7 +87,7 @@ export default function SimpleModal({ isOpen, onClose, mode = 'Firma' }: SimpleM
     
     try {
       // Determine which endpoint to use based on mode
-      const endpoint = mode === 'Firma' ? '/api/firma' : '/api/bewerber';
+      const endpoint = mode === 'Firma' ? 'https://sellwell-consulting.de/api/firma' : 'https://sellwell-consulting.de/api/bewerber';
       
       // Prepare form data based on mode
       const formData = mode === 'Firma' 
