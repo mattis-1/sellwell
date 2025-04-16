@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import { sendFirmaEmail } from './email';
+import { sendFirmaConfirmationEmail } from './user-email';
 
 // Define types
 export interface ContactRequest {
@@ -38,8 +39,11 @@ export async function saveContactRequest(contactData: ContactRequestInput): Prom
     // Store in memory (only for current session)
     contacts.push(newContact);
     
-    // Send email notification - this is the most important part
+    // Send email notification to admin
     await sendFirmaEmail(newContact);
+    
+    // Send confirmation email to the contact person
+    await sendFirmaConfirmationEmail(newContact);
     
     return newContact;
   } catch (error) {

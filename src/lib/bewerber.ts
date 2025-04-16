@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import { sendBewerberEmail } from './email';
+import { sendBewerberConfirmationEmail } from './user-email';
 
 // Define types
 export interface JobApplication {
@@ -41,8 +42,11 @@ export async function saveJobApplication(applicationData: JobApplicationInput): 
     // Store in memory (only for current session)
     applications.push(newApplication);
     
-    // Send email notification - this is the most important part
+    // Send email notification to admin
     await sendBewerberEmail(newApplication);
+    
+    // Send confirmation email to the applicant
+    await sendBewerberConfirmationEmail(newApplication);
     
     return newApplication;
   } catch (error) {
