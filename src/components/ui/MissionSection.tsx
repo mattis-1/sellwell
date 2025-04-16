@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import AnimatedText from '@/components/ui/missiontext';
-import ATS from "@/components/ui/verticaltext";
 import FadeIn from '@/components/fadein';
 
 const MissionSection = () => {

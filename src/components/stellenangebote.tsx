@@ -102,7 +102,7 @@ const Stellen = () => {
           
           {/* Job cards grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {jobs.map((job, index) => (
+            {jobs.map((job) => (
               <FadeIn>
                 <div className="relative group transition-all h-full">
                   <div 
