@@ -24,7 +24,8 @@ export default function SimpleModal({ isOpen, onClose, mode = 'Firma' }: SimpleM
   
   // Bewerber-specific state
   const [salesExperience, setSalesExperience] = useState('');
-  const [jobImportance, setJobImportance] = useState('');
+  // Change from string to string[]
+const [jobImportance, setJobImportance] = useState<string[]>([]);
   const [peopleContact, setPeopleContact] = useState('');
   const [driversLicense, setDriversLicense] = useState('');
   const [fitReason, setFitReason] = useState('');
@@ -69,7 +70,7 @@ export default function SimpleModal({ isOpen, onClose, mode = 'Firma' }: SimpleM
     
     // Bewerber-specific fields
     setSalesExperience('');
-    setJobImportance('');
+    setJobImportance([]); // Reset to empty array instead of empty string
     setPeopleContact('');
     setDriversLicense('');
     setFitReason('');
@@ -79,7 +80,6 @@ export default function SimpleModal({ isOpen, onClose, mode = 'Firma' }: SimpleM
     setSubmitSuccess(false);
     setIsSubmitting(false);
   };
-
   // Submit form to API
   const submitForm = async () => {
     setIsSubmitting(true);
@@ -103,7 +103,7 @@ export default function SimpleModal({ isOpen, onClose, mode = 'Firma' }: SimpleM
             firstName,
             lastName,
             salesExperience,
-            jobImportance,
+            jobImportance: jobImportance.join(', '), // Join array values for API
             peopleContact,
             driversLicense,
             fitReason,
@@ -180,7 +180,7 @@ export default function SimpleModal({ isOpen, onClose, mode = 'Firma' }: SimpleM
         case 2:
           return salesExperience !== '';
         case 3:
-          return jobImportance !== '';
+          return jobImportance.length > 0; // Check array length instead of string
         case 4:
           return peopleContact !== '';
         case 5:
@@ -194,7 +194,6 @@ export default function SimpleModal({ isOpen, onClose, mode = 'Firma' }: SimpleM
       }
     }
   };
-
   // Next button text based on current step
   const getNextButtonText = () => {
     if (currentStep === totalSteps) {
@@ -383,54 +382,79 @@ export default function SimpleModal({ isOpen, onClose, mode = 'Firma' }: SimpleM
               </div>
             </>
           );
-        case 3:
-          return (
-            <>
-              <h2 className="text-xl font-medium text-white mb-4">Was ist dir bei deinem neuen Job besonders wichtig?</h2>
-              <div className="grid grid-cols-1 gap-3">
-                <button
-                  onClick={() => setJobImportance('motiviertes umfeld')}
-                  className={`flex items-center justify-center gap-2 rounded-lg border py-3 px-4 text-sm font-medium transition-all duration-200 ${
-                    jobImportance === 'motiviertes umfeld'
-                      ? 'border-[#0C462B] bg-[#16a34a]/10 text-white'
-                      : 'border-gray-800 bg-gray-900 text-gray-300 hover:bg-gray-800'
-                  }`}
-                >
-                  Motiviertes Umfeld
-                </button>
-                <button
-                  onClick={() => setJobImportance('hoher verdienst')}
-                  className={`flex items-center justify-center gap-2 rounded-lg border py-3 px-4 text-sm font-medium transition-all duration-200 ${
-                    jobImportance === 'hoher verdienst'
-                      ? 'border-[#0C462B] bg-[#16a34a]/10 text-white'
-                      : 'border-gray-800 bg-gray-900 text-gray-300 hover:bg-gray-800'
-                  }`}
-                >
-                  Hoher Verdienst
-                </button>
-                <button
-                  onClick={() => setJobImportance('richtige ausbildung')}
-                  className={`flex items-center justify-center gap-2 rounded-lg border py-3 px-4 text-sm font-medium transition-all duration-200 ${
-                    jobImportance === 'richtige ausbildung'
-                      ? 'border-[#0C462B] bg-[#16a34a]/10 text-white'
-                      : 'border-gray-800 bg-gray-900 text-gray-300 hover:bg-gray-800'
-                  }`}
-                >
-                  Richtige Ausbildung
-                </button>
-                <button
-                  onClick={() => setJobImportance('spaß an der arbeit')}
-                  className={`flex items-center justify-center gap-2 rounded-lg border py-3 px-4 text-sm font-medium transition-all duration-200 ${
-                    jobImportance === 'spaß an der arbeit'
-                      ? 'border-[#0C462B] bg-[#16a34a]/10 text-white'
-                      : 'border-gray-800 bg-gray-900 text-gray-300 hover:bg-gray-800'
-                  }`}
-                >
-                  Spaß an der Arbeit
-                </button>
-              </div>
-            </>
-          );
+          case 3:
+  return (
+    <>
+      <h2 className="text-xl font-medium text-white mb-4">Was ist dir bei deinem neuen Job besonders wichtig?</h2>
+      <p className="text-sm text-gray-400 mb-3">Mehrfachauswahl möglich</p>
+      <div className="grid grid-cols-1 gap-3">
+        <button
+          onClick={() => {
+            if (jobImportance.includes('motiviertes umfeld')) {
+              setJobImportance(jobImportance.filter(item => item !== 'motiviertes umfeld'));
+            } else {
+              setJobImportance([...jobImportance, 'motiviertes umfeld']);
+            }
+          }}
+          className={`flex items-center justify-center gap-2 rounded-lg border py-3 px-4 text-sm font-medium transition-all duration-200 ${
+            jobImportance.includes('motiviertes umfeld')
+              ? 'border-[#0C462B] bg-[#16a34a]/10 text-white'
+              : 'border-gray-800 bg-gray-900 text-gray-300 hover:bg-gray-800'
+          }`}
+        >
+          Motiviertes Umfeld
+        </button>
+        <button
+          onClick={() => {
+            if (jobImportance.includes('hoher verdienst')) {
+              setJobImportance(jobImportance.filter(item => item !== 'hoher verdienst'));
+            } else {
+              setJobImportance([...jobImportance, 'hoher verdienst']);
+            }
+          }}
+          className={`flex items-center justify-center gap-2 rounded-lg border py-3 px-4 text-sm font-medium transition-all duration-200 ${
+            jobImportance.includes('hoher verdienst')
+              ? 'border-[#0C462B] bg-[#16a34a]/10 text-white'
+              : 'border-gray-800 bg-gray-900 text-gray-300 hover:bg-gray-800'
+          }`}
+        >
+          Hoher Verdienst
+        </button>
+        <button
+          onClick={() => {
+            if (jobImportance.includes('richtige ausbildung')) {
+              setJobImportance(jobImportance.filter(item => item !== 'richtige ausbildung'));
+            } else {
+              setJobImportance([...jobImportance, 'richtige ausbildung']);
+            }
+          }}
+          className={`flex items-center justify-center gap-2 rounded-lg border py-3 px-4 text-sm font-medium transition-all duration-200 ${
+            jobImportance.includes('richtige ausbildung')
+              ? 'border-[#0C462B] bg-[#16a34a]/10 text-white'
+              : 'border-gray-800 bg-gray-900 text-gray-300 hover:bg-gray-800'
+          }`}
+        >
+          Richtige Ausbildung
+        </button>
+        <button
+          onClick={() => {
+            if (jobImportance.includes('spaß an der arbeit')) {
+              setJobImportance(jobImportance.filter(item => item !== 'spaß an der arbeit'));
+            } else {
+              setJobImportance([...jobImportance, 'spaß an der arbeit']);
+            }
+          }}
+          className={`flex items-center justify-center gap-2 rounded-lg border py-3 px-4 text-sm font-medium transition-all duration-200 ${
+            jobImportance.includes('spaß an der arbeit')
+              ? 'border-[#0C462B] bg-[#16a34a]/10 text-white'
+              : 'border-gray-800 bg-gray-900 text-gray-300 hover:bg-gray-800'
+          }`}
+        >
+          Spaß an der Arbeit
+        </button>
+      </div>
+    </>
+  );
         case 4:
           return (
             <>
