@@ -161,7 +161,7 @@ const generateBewerberEmailTemplate = (data: JobApplication): string => {
             background-color: #f5f5f5;
           }
           .container { 
-            width: 95%; 
+            width: 90%; 
             max-width: 600px; 
             margin: 0 auto; 
             padding: 20px 0; 
