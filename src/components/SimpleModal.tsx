@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
-
+import Image from "next/image"
 // Basic props interface - keeping the same interface as SimpleModal
 interface SimpleModalProps {
   isOpen: boolean;
@@ -753,92 +753,32 @@ const [jobImportance, setJobImportance] = useState<string[]>([]);
                 </div>
                 
                 {/* Card display */}
-                {isAnimating && (
-                  <motion.div 
-                    className="absolute inset-0 flex items-center justify-center"
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ 
-                      delay: 0.7, 
-                      duration: 0.8,
-                      type: "spring",
-                      stiffness: 100 
-                    }}
-                  >
-                    {/* Updated card display */}
-                    <div className="relative mx-auto h-[420px] w-[320px] overflow-hidden rounded-xl shadow-2xl">
-                      <div className="absolute inset-0 overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-black"></div>
-                        
-                        {/* Animated gradient background */}
-                        <div className="absolute left-0 top-0 h-[600px] w-[300px] animate-slow-spin opacity-50">
-                          <div className="absolute left-[40%] top-[5%] h-[250px] w-[250px] rounded-full bg-[#0C462B]/30 blur-[80px]"></div>
-                          <div className="absolute left-[0%] top-[40%] h-[250px] w-[250px] rounded-full bg-[#16a34a]/30 blur-[80px]"></div>
-                          <div className="absolute left-[30%] top-[65%] h-[200px] w-[200px] rounded-full bg-[#16a34a]/30 blur-[80px]"></div>
-                        </div>
-                        
-                        {/* Card content */}
-                        <div className="absolute inset-0 flex flex-col items-center">
-                          {/* Logo (placeholder) */}
-                          <div className="mt-10 flex h-16 w-16 items-center justify-center rounded-full bg-white/10 backdrop-blur-md">
-                            {/* Replace this with the appropriate logo */}
-                            <div className="text-white text-lg font-bold">
-                              SW
-                            </div>
-                          </div>
-                          
-                          <div className="mt-4 space-y-1 text-center">
-                            <h3 className="text-[22px] md:text-[25px] mb-[-12px] font-bold text-white">
-                              {mode === 'Firma' ? 'Vertriebsstrategie\noptimieren' : 'Karriere im\nVertrieb'}
-                            </h3>
-                          </div>
-                          
-                          {/* Benefits list */}
-                          <div className="mt-8 space-y-4 px-4 w-full">
-                            <div className="flex items-center gap-3 mb-[14px]">
-                              <div className="mb-0 h-6 w-6 rounded-full bg-gradient-to-r from-[#0C462B] to-[#16a34a] p-[2px]">
-                                <div className="flex h-full w-full items-center justify-center rounded-full bg-gray-900">
-                                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                  </svg>
-                                </div>
-                              </div>
-                              <span className="text-[15px] md:text-[16px] text-white">
-                                {mode === 'Firma' ? 'Optimierte Vertriebsstrategien' : 'Hohes Gehalt + Provision'}
-                              </span>
-                            </div>
-                            
-                            <div className="flex items-center gap-3 mb-[14px]">
-                              <div className="mb-0 h-6 w-6 rounded-full bg-gradient-to-r from-[#0C462B] to-[#16a34a] p-[2px]">
-                                <div className="flex h-full w-full items-center justify-center rounded-full bg-gray-900">
-                                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                  </svg>
-                                </div>
-                              </div>
-                              <span className="text-[15px] md:text-[16px] text-white">
-                                {mode === 'Firma' ? 'Erfahrene Vertriebspartner' : 'Professionelle Ausbildung'}
-                              </span>
-                            </div>
-                            
-                            <div className="flex items-center gap-3 mb-[14px]">
-                              <div className="mb-0 h-6 w-6 rounded-full bg-gradient-to-r from-[#0C462B] to-[#16a34a] p-[2px]">
-                                <div className="flex h-full w-full items-center justify-center rounded-full bg-gray-900">
-                                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                  </svg>
-                                </div>
-                              </div>
-                              <span className="text-[15px] md:text-[16px] text-white">
-                                {mode === 'Firma' ? 'Messbare Ergebnisse' : 'Motiviertes Team'}
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                )}
+                {/* Card display */}
+{isAnimating && (
+  <motion.div 
+    className="absolute inset-0 flex items-center justify-center"
+    initial={{ opacity: 0, y: 30 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ 
+      delay: 0.7, 
+      duration: 0.8,
+      type: "spring",
+      stiffness: 100 
+    }}
+  >
+    {/* Image card */}
+    <div className="relative mx-auto h-[420px] w-[320px] overflow-hidden rounded-xl shadow-2xl">
+      <Image 
+        src="/ABOUT7.png" 
+        alt="About Sellwell"
+        layout="fill"
+        objectFit="cover"
+        priority
+        className="rounded-xl"
+      />
+    </div>
+  </motion.div>
+)}
               </div>
             </motion.div>
             

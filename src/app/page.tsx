@@ -397,7 +397,7 @@ export default function Home() {
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
             </div>
-            <span className="text-[16px] sm:text-[18px]">Schneller Aufstieg & Top Gehalt - problemlos 5-stellig verdienen</span>
+            <span className="text-[16px] sm:text-[18px]">Schneller Aufstieg & Top Gehalt - 5-stellig verdienen machbar</span>
           </li>
           <li className="flex items-start gap-3">
             <div
@@ -478,7 +478,7 @@ export default function Home() {
 <section className="relative px-4 py-12 sm:py-16 bg-[#FFFFFF] w-full">
   <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-24 xl:px-32">
     {/* Noise texture overlay */}
-    <div className="absolute inset-0 opacity-[0.12] bg-[url('https://framerusercontent.com/images/6mcf62RlDfRfU61Yg5vb2pefpi4.png')] bg-repeat bg-[size:128px] z-[2]"></div>
+   <div className="absolute inset-0 opacity-[0.06] bg-[url('https://framerusercontent.com/images/6mcf62RlDfRfU61Yg5vb2pefpi4.png')] bg-repeat bg-[size:128px] z-0"></div>
 
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
       {/* Left column - Image with reduced height */}
