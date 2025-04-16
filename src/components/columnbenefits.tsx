@@ -13,13 +13,13 @@ const Somebenefits: React.FC = () => {
   const benefits: BenefitBox[] = [
     {
       id: 1,
-      header: "Grenzlose Wachstumsmöglichkeiten",
+      header: "Endlose Möglichkeiten",
       description: "Dein Gehalt hängt zu 100% von deiner Leistung ab. Bei guter Arbeit wirst du gut bezahlt und kannst in wenigen Monaten früher unvorstellbare Gehälter mit nach Hause nehmen.",
       iconUrl: "/bagz.svg",
     },
     {
       id: 2,
-      header: "Auch als Quereinsteiger erfolgreich durchstarten",
+      header: "Als Quereinsteiger erfolgreich starten",
       description: "Auch als Quereinsteiger kannst du bei uns dank individueller Unterstützung und einem positiven Arbeitsumfeld in Kürze aufsteigen und richtig Karriere machen.",
       iconUrl: "/learntoearn.svg",
     },
@@ -53,13 +53,16 @@ const Somebenefits: React.FC = () => {
         </div>
 
         {/* Three Column Layout */}
-        <div className="grid grid-cols-1 mt-16 gap-4 md:grid-cols-3">
+        <div className="grid grid-cols-1 mt-16 gap-6 sm:gap-8 md:grid-cols-3 px-2 sm:px-4 md:px-6 mb-16">
           {benefits.map((benefit) => (
             <div 
               key={benefit.id} 
-              className="flex flex-col items-center text-center p-4 md:p-6"
+              className="flex flex-col items-center text-center bg-white rounded-[35px] shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 sm:p-8"
               data-aos="fade-up"
               data-aos-delay={benefit.id * 100}
+              style={{
+                boxShadow: "0 0 30px rgba(0, 0, 0, 0.25)"
+              }}
             >
               {/* Icon */}
               <div className="w-20 h-20 mb-6">
@@ -75,7 +78,7 @@ const Somebenefits: React.FC = () => {
               </div>
               
               {/* Header */}
-              <h3 className="text-xl md:text-[27.5px] inter700 px-2 mb-4 bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">
+              <h3 className="text-xl sm:text-2xl md:text-[27.5px] inter700 px-2 mb-4 bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">
                 {benefit.header}
               </h3>
               

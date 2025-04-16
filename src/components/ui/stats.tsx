@@ -161,7 +161,7 @@ const AnimatedStats = () => {
     <section ref={sectionRef} className="relative pt-12 sm:pt-16 md:pt-25 py-8 sm:py-10 md:py-15">
       {/* SVG Line at the top - limited to 90% width and centered, hidden on mobile */}
       <div className="hidden sm:block max-w-[90%] mx-auto relative">
-        <div style={{ filter: 'drop-shadow(0px -4px 10px rgba(0, 0, 0, 0.40))' }}>
+        <div style={{ filter: 'drop-shadow(0px -4px 10px rgba(0, 0, 0, 0.10))' }}>
           <Image
             src="/Cool Line.svg"
             alt="Cool Line"

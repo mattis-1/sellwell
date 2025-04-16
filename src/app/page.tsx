@@ -106,34 +106,34 @@ export default function Home() {
       <div className="absolute inset-0 bg-[#FFFFFF] dark:from-[#0A0A0A] dark:to-[#0A0A0A] z-0"></div>
       
       {/* Left abstract elements - adjusted positioning for mobile */}
-      <div className="absolute top-[-20%] sm:top-[-10%] left-[-60%] sm:left-[-40%] w-[100%] sm:w-[95%] h-[100%] sm:h-[120%] z-[1] opacity-80 sm:opacity-90">
-        <div className="relative w-full h-full">
-          <div className="absolute w-[80%] h-[80%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.4)_0%,rgba(217,249,157,0.15)_70%)] top-[10%] left-[10%] blur-[50px]"></div>
-          <div className="absolute w-[60%] h-[60%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.45)_0%,rgba(217,249,157,0.2)_70%)] top-[20%] left-[20%] blur-[40px]"></div>
-          <div className="absolute w-[40%] h-[40%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.5)_0%,rgba(217,249,157,0.25)_70%)] top-[30%] left-[30%] blur-[30px]"></div>
-          <div className="absolute w-[25%] h-[25%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.55)_0%,rgba(217,249,157,0.3)_70%)] top-[38%] left-[38%] blur-[20px]"></div>
-        </div>
-        <div className="relative w-full h-full -rotate-25">
-          <div className="absolute w-[70%] h-[70%] rounded-full bg-[radial-gradient(circle,rgba(217,249,157,0.4)_0%,rgba(134,239,172,0.15)_70%)] top-[15%] left-[15%] blur-[45px]"></div>
-          <div className="absolute w-[50%] h-[50%] rounded-full bg-[radial-gradient(circle,rgba(217,249,157,0.45)_0%,rgba(134,239,172,0.2)_70%)] top-[25%] left-[25%] blur-[35px]"></div>
-          <div className="absolute w-[30%] h-[30%] rounded-full bg-[radial-gradient(circle,rgba(217,249,157,0.5)_0%,rgba(134,239,172,0.25)_70%)] top-[35%] left-[35%] blur-[25px]"></div>
-        </div>
-      </div>
-      
-      {/* Right abstract elements - adjusted positioning for mobile */}
-      <div className="absolute top-[-20%] sm:top-[-10%] right-[-60%] sm:right-[-40%] w-[100%] sm:w-[95%] h-[100%] sm:h-[120%] z-[1] opacity-80 sm:opacity-90 rotate-180">
-        <div className="relative w-full h-full">
-          <div className="absolute w-[80%] h-[80%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.4)_0%,rgba(217,249,157,0.15)_70%)] top-[10%] left-[10%] blur-[50px]"></div>
-          <div className="absolute w-[60%] h-[60%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.45)_0%,rgba(217,249,157,0.2)_70%)] top-[20%] left-[20%] blur-[40px]"></div>
-          <div className="absolute w-[40%] h-[40%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.5)_0%,rgba(217,249,157,0.25)_70%)] top-[30%] left-[30%] blur-[30px]"></div>
-          <div className="absolute w-[25%] h-[25%] rounded-full bg-[radial-gradient(circle,rgba(134,239,172,0.55)_0%,rgba(217,249,157,0.3)_70%)] top-[38%] left-[38%] blur-[20px]"></div>
-        </div>
-        <div className="relative w-full h-full -rotate-25">
-          <div className="absolute w-[70%] h-[70%] rounded-full bg-[radial-gradient(circle,rgba(217,249,157,0.4)_0%,rgba(134,239,172,0.15)_70%)] top-[15%] left-[15%] blur-[45px]"></div>
-          <div className="absolute w-[50%] h-[50%] rounded-full bg-[radial-gradient(circle,rgba(217,249,157,0.45)_0%,rgba(134,239,172,0.2)_70%)] top-[25%] left-[25%] blur-[35px]"></div>
-          <div className="absolute w-[30%] h-[30%] rounded-full bg-[radial-gradient(circle,rgba(217,249,157,0.5)_0%,rgba(134,239,172,0.25)_70%)] top-[35%] left-[35%] blur-[25px]"></div>
-        </div>
-      </div>
+      <div className="absolute top-[-20%] sm:top-[-10%] left-[-60%] sm:left-[-40%] w-[100%] sm:w-[95%] h-[100%] sm:h-[120%] z-[1] opacity-40 sm:opacity-50">
+      <div className="relative w-full h-full">
+    <div className="absolute w-[80%] h-[80%] rounded-full bg-[radial-gradient(circle,rgba(22,163,74,0.4)_0%,rgba(12,70,43,0.15)_70%)] top-[10%] left-[10%] blur-[50px]"></div>
+    <div className="absolute w-[60%] h-[60%] rounded-full bg-[radial-gradient(circle,rgba(22,163,74,0.45)_0%,rgba(12,70,43,0.2)_70%)] top-[20%] left-[20%] blur-[40px]"></div>
+    <div className="absolute w-[40%] h-[40%] rounded-full bg-[radial-gradient(circle,rgba(22,163,74,0.5)_0%,rgba(12,70,43,0.25)_70%)] top-[30%] left-[30%] blur-[30px]"></div>
+    <div className="absolute w-[25%] h-[25%] rounded-full bg-[radial-gradient(circle,rgba(22,163,74,0.55)_0%,rgba(12,70,43,0.3)_70%)] top-[38%] left-[38%] blur-[20px]"></div>
+  </div>
+  <div className="relative w-full h-full -rotate-25">
+    <div className="absolute w-[70%] h-[70%] rounded-full bg-[radial-gradient(circle,rgba(22,163,74,0.4)_0%,rgba(12,70,43,0.15)_70%)] top-[15%] left-[15%] blur-[45px]"></div>
+    <div className="absolute w-[50%] h-[50%] rounded-full bg-[radial-gradient(circle,rgba(22,163,74,0.45)_0%,rgba(12,70,43,0.2)_70%)] top-[25%] left-[25%] blur-[35px]"></div>
+    <div className="absolute w-[30%] h-[30%] rounded-full bg-[radial-gradient(circle,rgba(22,163,74,0.5)_0%,rgba(12,70,43,0.25)_70%)] top-[35%] left-[35%] blur-[25px]"></div>
+  </div>
+</div>
+
+{/* Right abstract elements - adjusted for darker green */}
+<div className="absolute top-[-20%] sm:top-[-10%] right-[-60%] sm:right-[-40%] w-[100%] sm:w-[95%] h-[100%] sm:h-[120%] z-[1] opacity-40 sm:opacity-50 rotate-180">
+  <div className="relative w-full h-full">
+    <div className="absolute w-[80%] h-[80%] rounded-full bg-[radial-gradient(circle,rgba(22,163,74,0.4)_0%,rgba(12,70,43,0.15)_70%)] top-[10%] left-[10%] blur-[50px]"></div>
+    <div className="absolute w-[60%] h-[60%] rounded-full bg-[radial-gradient(circle,rgba(22,163,74,0.45)_0%,rgba(12,70,43,0.2)_70%)] top-[20%] left-[20%] blur-[40px]"></div>
+    <div className="absolute w-[40%] h-[40%] rounded-full bg-[radial-gradient(circle,rgba(22,163,74,0.5)_0%,rgba(12,70,43,0.25)_70%)] top-[30%] left-[30%] blur-[30px]"></div>
+    <div className="absolute w-[25%] h-[25%] rounded-full bg-[radial-gradient(circle,rgba(22,163,74,0.55)_0%,rgba(12,70,43,0.3)_70%)] top-[38%] left-[38%] blur-[20px]"></div>
+  </div>
+  <div className="relative w-full h-full -rotate-25">
+    <div className="absolute w-[70%] h-[70%] rounded-full bg-[radial-gradient(circle,rgba(22,163,74,0.4)_0%,rgba(12,70,43,0.15)_70%)] top-[15%] left-[15%] blur-[45px]"></div>
+    <div className="absolute w-[50%] h-[50%] rounded-full bg-[radial-gradient(circle,rgba(22,163,74,0.45)_0%,rgba(12,70,43,0.2)_70%)] top-[25%] left-[25%] blur-[35px]"></div>
+    <div className="absolute w-[30%] h-[30%] rounded-full bg-[radial-gradient(circle,rgba(22,163,74,0.5)_0%,rgba(12,70,43,0.25)_70%)] top-[35%] left-[35%] blur-[25px]"></div>
+  </div>
+</div>
       
       {/* Noise texture overlay */}
       <div className="absolute inset-0 opacity-[0.08] sm:opacity-[0.12] bg-[url('https://framerusercontent.com/images/6mcf62RlDfRfU61Yg5vb2pefpi4.png')] bg-repeat bg-[size:128px] z-[2]"></div>
