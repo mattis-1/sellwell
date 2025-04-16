@@ -4,6 +4,31 @@ import { JWT } from 'google-auth-library';
 // Your Google Sheet ID (from the URL of your sheet)
 const SPREADSHEET_ID = '13xQufn_RmVuYcUVRemPHKhCQYL9ZxVzqSw0lv3HaQZo';
 
+// Define an interface for the Bewerber sheet data
+export interface BewerberData {
+  id: string | number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  salesExperience: string; // Change to boolean if appropriate
+  jobImportance: string;
+  peopleContact: string;
+  driversLicense: string;
+  fitReason: string;
+}
+
+// Define an interface for the Firmen sheet data
+export interface FirmenData {
+  id: string | number;
+  firstName: string;
+  lastName: string;
+  company: string;
+  email: string;
+  phone: string;
+  message: string;
+}
+
 // Create a JWT client using service account credentials
 const getAuthClient = () => {
   const credentials = JSON.parse(
@@ -18,23 +43,23 @@ const getAuthClient = () => {
 };
 
 // Function to append data to the Bewerber sheet
-export async function appendToBewerberSheet(data: any) {
+export async function appendToBewerberSheet(data: BewerberData) {
   try {
     const authClient = getAuthClient();
     const sheets = google.sheets({ version: 'v4', auth: authClient });
     
     // Format the data according to your sheet headers
     const rowData = [
-      data.id, // ID
-      data.firstName, // Vorname
-      data.lastName, // Nachname
-      data.email, // Email
-      data.phone, // Telefonnummer
+      data.id,           // ID
+      data.firstName,    // Vorname
+      data.lastName,     // Nachname
+      data.email,        // Email
+      data.phone,        // Telefonnummer
       data.salesExperience, // Erfahrung?
-      data.jobImportance, // Besonders wichtig?
-      data.peopleContact, // Gerne unterwegs und im Kontakt?
-      data.driversLicense, // Führerschein?
-      data.fitReason, // Passt gut zu Sellwell, weil ...
+      data.jobImportance,   // Besonders wichtig?
+      data.peopleContact,   // Gerne unterwegs und im Kontakt?
+      data.driversLicense,  // Führerschein?
+      data.fitReason,       // Passt gut zu Sellwell, weil ...
       new Date().toLocaleString('de-DE'), // Eingetragen am ...
       '', // Persönlichkeitstest?
       '', // Persönlichkeitstest Ergebnis
@@ -59,20 +84,20 @@ export async function appendToBewerberSheet(data: any) {
 }
 
 // Function to append data to the Firmen sheet
-export async function appendToFirmenSheet(data: any) {
+export async function appendToFirmenSheet(data: FirmenData) {
   try {
     const authClient = getAuthClient();
     const sheets = google.sheets({ version: 'v4', auth: authClient });
     
     // Format the data according to your sheet headers
     const rowData = [
-      data.id, // ID
-      data.firstName, // Vorname
-      data.lastName, // Nachname
-      data.company, // Unternehmen
-      data.email, // Email
-      data.phone, // Telefonnummer
-      data.message, // Nachricht
+      data.id,           // ID
+      data.firstName,    // Vorname
+      data.lastName,     // Nachname
+      data.company,      // Unternehmen
+      data.email,        // Email
+      data.phone,        // Telefonnummer
+      data.message,      // Nachricht
       new Date().toLocaleString('de-DE') // Eingetragen am ...
     ];
     
