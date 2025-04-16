@@ -211,7 +211,7 @@ const [jobImportance, setJobImportance] = useState<string[]>([]);
             key={index}
             className={`h-2 w-2 rounded-full ${
               index + 1 === currentStep
-                ? 'bg-gradient-to-r from-[#0C462B] to-[#16a34a]'
+                ? 'bg-gradient-to-r from-[#18473A] to-[#2D7D63]'
                 : index + 1 < currentStep
                 ? 'bg-gray-400'
                 : 'bg-gray-700'
@@ -628,12 +628,13 @@ const [jobImportance, setJobImportance] = useState<string[]>([]);
                 className="w-full"
               >
                 <div className="mb-6 flex justify-center">
-                  <div className="flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-gradient-to-br from-[#0C462B] to-[#16a34a]">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 16c2.206 0 4-1.794 4-4s-1.794-4-4-4-4 1.794-4 4 1.794 4 4 4zm0 2c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z" fill="white"/>
-                      <path d="M12 8c-.36 0-.7.07-1.01.19l1.3 1.3c.57.1 1.11.39 1.5.8l1.5-1.5A3.89 3.89 0 0012 8z" fill="white"/>
-                      <path d="M15.19 11.77A4.007 4.007 0 0112 16c-2.21 0-4-1.79-4-4 0-1.18.51-2.25 1.33-2.98l-1.48-1.48A5.93 5.93 0 006 12c0 3.31 2.69 6 6 6 1.79 0 3.42-.79 4.53-2.04l-1.34-1.34z" fill="white"/>
-                    </svg>
+                  <div className="flex h-20 w-20 sm:h-20 sm:w-20 items-center justify-center rounded-full bg-gradient-to-br from-[#184739] to-[#2C7A61]">
+                    <Image 
+                        src="/sellwell logo.png"
+                        alt="Logo"
+                        width={150}
+                        height={150}
+                    />
                   </div>
                 </div>
                 <h1 className="mb-2 text-xl sm:text-2xl font-bold text-white md:text-3xl">{getModalTitle()}</h1>

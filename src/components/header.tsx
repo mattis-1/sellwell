@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -21,8 +22,13 @@ const Header = () => {
       <div className="container flex h-20 items-center justify-between">
         {/* Left side: Company name */}
         <div className="flex items-center gap-2">
-          <Link href="/" className="text-2xl text-white">
-            Sellwell GmbH
+          <Link href="https://sellwell-consulting.de">
+            <Image 
+               src="/sellwell logo.png"
+               alt="Sellwell Logo"
+               width={160}
+               height={160}
+            />
           </Link>
         </div>
         
