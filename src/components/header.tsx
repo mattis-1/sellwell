@@ -16,7 +16,7 @@ const Header = () => {
 
   return (
     <header className="w-full z-50"
-            style={{ background: 'linear-gradient(90deg, #0B3E27 0%, #197048 100%)' }}>
+            style={{ background: 'linear-gradient(90deg, #184639 0%, #2F8267 100%' }}>
       {/* The header background is full width but the content is constrained */}
       <div className="container flex h-20 items-center justify-between">
         {/* Left side: Company name */}

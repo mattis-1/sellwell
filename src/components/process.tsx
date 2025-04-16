@@ -241,7 +241,7 @@ const Process: React.FC<ProcessProps> = ({
       <FadeIn delay={200}>
       {/* Increased text size for this headline */}
       <div className="leading-20 inter800 text-[#000000] tracking-[-0.8px] sm:tracking-[-1.2px] md:tracking-[-1.5px] text-center text-3xl sm:text-4xl md:text-5xl lg:text-[60px]">
-        Starte in deine neue<br />Zukunft <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">mit Sellwell</span>
+        Starte in deine neue<br />Zukunft <span className="bg-gradient-to-r from-[#184639] to-[#2F8267] bg-clip-text text-transparent">mit Sellwell</span>
       </div>
      </FadeIn>
      <FadeIn delay={300}>
@@ -253,7 +253,7 @@ const Process: React.FC<ProcessProps> = ({
             Jetzt schnell bewerben
           </Button>
         </div>
-        <div className="inter700 text-sm sm:text-base md:text-[19px] text-center bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent mb-10">
+        <div className="inter700 text-sm sm:text-base md:text-[19px] text-center bg-gradient-to-r from-[#184639] to-[#2F8267] bg-clip-text text-transparent mb-10">
           Ohne Lebenslauf & Anschreiben
         </div>
  
@@ -283,7 +283,7 @@ const Process: React.FC<ProcessProps> = ({
               {benefits.map((benefit, index) => (
                 <div key={`benefit-1-${index}`} className="flex items-center mx-4 md:mx-6">
                   <div 
-                    className="w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center rounded-full bg-gradient-to-r from-[#0C462B] to-[#057741] mr-2 sm:mr-3 flex-shrink-0"
+                    className="w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center rounded-full bg-gradient-to-r from-[#184639] to-[#2F8267] mr-2 sm:mr-3 flex-shrink-0"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 text-white" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />

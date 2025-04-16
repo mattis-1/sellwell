@@ -85,7 +85,7 @@ const Slider: React.FC<SliderProps> = ({ cards }) => {
                   <div className="absolute bottom-0 left-0 w-full p-2 pl-4 sm:pl-6 pb-3 sm:pb-4 z-20">
                     <p className="text-base sm:text-lg md:text-[20px] inter700 text-white">{card.name}</p>
                     <div className="flex justify-between items-center">
-                      <div className="bg-gradient-to-r from-[#0B3E27] to-[#047A43] text-white text-xs font-semibold py-1 px-2 rounded-full shadow-md inline-block">
+                      <div className="bg-gradient-to-r from-[#184639] to-[#2F8267] text-white text-xs font-semibold py-1 px-2 rounded-full shadow-md inline-block">
                         {card.role}
                       </div>
                       <a href={card.video} target="_blank" rel="noopener noreferrer">

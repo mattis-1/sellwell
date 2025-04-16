@@ -29,11 +29,11 @@ const SplitSection = () => {
             {/* Left side: Content */}
             <div className="w-full md:w-1/2 bg-background flex items-center">
               <div className="w-full max-w-xl mx-auto py-8 sm:py-12 md:py-12 pr-4 sm:pr-6 md:pr-8">
-                <span className="mb-2 sm:mb-3 inline-block bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-[14px] sm:text-[16px] font-[600] rounded-[99px] px-3 sm:px-4 py-1">
+                <span className="mb-2 sm:mb-3 inline-block bg-gradient-to-r from-[#184639] to-[#2F8267] text-white text-[14px] sm:text-[16px] font-[600] rounded-[99px] px-3 sm:px-4 py-1">
                   KARRIEREMÖGLICHKEITEN
                 </span>
                 <h2 className="tracking-[-1.3px] text-3xl sm:text-[35px] md:text-[40px] lg:text-[50px] inter800 mb-3 sm:mb-5 leading-tight">
-                  <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent ">
+                  <span className="bg-gradient-to-r from-[#184639] to-[#2F8267] bg-clip-text text-transparent ">
                     Warum
                   </span> bei<br />Sellwell arbeiten?
                 </h2>

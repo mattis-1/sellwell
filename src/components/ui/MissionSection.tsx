@@ -38,22 +38,14 @@ const MissionSection = () => {
           <h2 className="inter800 tracking-[-1.3px] text-3xl sm:text-[35px] md:text-[40px] lg:text-[50px] text-black mb-4 leading-[1.3] sm:leading-[1.5] z-[15]">
             Unsere Mission
           </h2>
-          <div className="px-0 sm:px-6 md:px-10 lg:px-30">
+          <div className="px-0 sm:px-6 md:px-10 lg:px-30 mb-40">
             <AnimatedText
               text="Unsere Mission bei Sellwell ist es, erstklassige Vertriebslösungen zu liefern und ambitionierten Talenten ein Umfeld zu schaffen, in dem sie gefördert werden und ihr volles Potenzial entfalten können. Täglich arbeiten wir daran, unser Team zu stärken und unseren Partnern bessere Ergebnisse zu liefern."
               className="text-base sm:text-lg mb-[-50px] sm:mb-[-80px] text-[#000] font-[600]"
             />
           </div>
         </div>
-        
-        {/* Testimonials Slider Widget with Centered Image */}
-        <div className="relative pt-2 sm:pt-5 pb-20 sm:pb-35 mt-1 h-[200px] sm:h-[280px]">
-          {/* Slider rows with testimonials */}
-          <div className="slider-widget">
-            <ATS />
-          </div>
         </div>
-      </div>
       </FadeIn>
 
       {/* Tailwind doesn't support keyframes directly - we need to use a style tag for animations */}

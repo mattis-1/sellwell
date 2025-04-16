@@ -176,7 +176,7 @@ export default function Home() {
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-3xl sm:text-[15px] md:text-[50px] lg:text-[65px] inter800 tracking-[-1px] sm:tracking-[-1.5px] md:tracking-[-2px] leading-[1.2] sm:leading-[1.3] font-bold mb-3 sm:mb-5">
               Mit Sellwell als Partner{" "}
-              <span className="bg-gradient-to-r from-[#14532d] to-[#16a34a] bg-clip-text text-transparent"><br />neue Türen öffnen.</span>
+              <span className="bg-gradient-to-r from-[#184639] to-[#2F8267] bg-clip-text text-transparent"><br />neue Türen öffnen.</span>
             </h1>
             <p className="font-[500] text-base sm:text-lg md:text-[20px] mx-auto mb-6 sm:mb-8 text-[#171717] max-w-180">
               Ob du als Vertriebstalent richtig Karriere machen willst, oder nach optimalen Vertriebslösungen für deine Unternehmung suchst - Sellwell ist der perfekter Partner für dich. 
@@ -189,7 +189,7 @@ export default function Home() {
               </Button>
               <Button 
               onClick={openFirmaModal}
-              className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent text-base sm:text-lg md:text-[20px] rounded-[99px] mt-2 sm:mt-0" variant="outline">
+              className="bg-gradient-to-r from-[#184639] to-[#2F8267] bg-clip-text text-transparent text-base sm:text-lg md:text-[20px] rounded-[99px] mt-2 sm:mt-0" variant="outline">
                 Für Unternehmen
               </Button>
             </div>
@@ -326,10 +326,10 @@ export default function Home() {
       {/* Right column - Content */}
       <FadeIn direction="none" delay={200}>
       <div className="flex flex-col items-start mt-6 md:mt-0">
-        <span className="mb-3 inline-block bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-[14px] sm:text-[16px] font-[600] rounded-[99px] px-4 py-1">
+        <span className="mb-3 inline-block bg-gradient-to-r from-[#184639] to-[#2F8267] text-white text-[14px] sm:text-[16px] font-[600] rounded-[99px] px-4 py-1">
           WILLKOMMEN BEI SELLWELL
         </span>
-        <h2 className="text-[#000000] inter800 text-3xl sm:text-[35px] md:text-[45px] lg:text-[50px] mb-3">Der Partner<br /><span className="bg-gradient-to-r from-[#14532d] to-[#16a34a] bg-clip-text text-transparent">im D2D in Bayern</span></h2>
+        <h2 className="text-[#000000] inter800 text-3xl sm:text-[35px] md:text-[45px] lg:text-[50px] mb-3">Der Partner<br /><span className="bg-gradient-to-r from-[#184639] to-[#2F8267] bg-clip-text text-transparent">im D2D in Bayern</span></h2>
         <p className="text-lg sm:text-xl text-[#000000] mb-6 pr-0 sm:pr-8 md:pr-12 lg:pr-20">
           Als schnellstwachsender Door-to-Door Vertrieb Bayerns übernehmen wir für führende Unternehmen in der Energiebranche den Außendienst. Mit hocheffektiven Vertriebslösungen und einem ambitionierten Team setzen wir regelmäßig neue Maßstäbe im Markt der erneuerbaren Energie.
         </p>
@@ -347,7 +347,7 @@ export default function Home() {
 
 {/* Karriereerfolg Section */}
 <section className="relative w-full py-10 px-4 sm:pl-10 sm:pr-8 overflow-hidden">
-  <div className="absolute inset-0 bg-[#0B3F28] dark:from-[#0A0A0A] dark:to-[#0A0A0A] z-0"></div>
+  <div className="absolute inset-0 bg-[#184639] z-0"></div>
         
   {/* Texture background */}
   <div className="absolute inset-0 opacity-[0.06] bg-[url('https://framerusercontent.com/images/6mcf62RlDfRfU61Yg5vb2pefpi4.png')] bg-repeat bg-[size:128px] z-0"></div>
@@ -495,8 +495,8 @@ export default function Home() {
       <FadeIn direction="none" delay={200}>   
       {/* Right column - Content */}
       <div className="flex flex-col start-items items-start z-[125] mt-6 md:mt-0">
-        <span className="mb-3 inline-block bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-[14px] sm:text-[16px] font-[600] rounded-[99px] px-4 py-1">PROJEKTERFOLG MIT SELLWELL</span>
-        <h2 className=" mb-2 text-[#000000] inter800 tracking-[-1.3px] text-3xl sm:text-[35px] md:text-[40px] lg:text-[45px]">Produkt erfolgreich<br /><span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">mit Sellwell vermarkten</span></h2>
+        <span className="mb-3 inline-block bg-gradient-to-r from-[#184639] to-[#2F8267] text-white text-[14px] sm:text-[16px] font-[600] rounded-[99px] px-4 py-1">PROJEKTERFOLG MIT SELLWELL</span>
+        <h2 className=" mb-2 text-[#000000] inter800 tracking-[-1.3px] text-3xl sm:text-[35px] md:text-[40px] lg:text-[45px]">Produkt erfolgreich<br /><span className="bg-gradient-to-r from-[#184639] to-[#2F8267] bg-clip-text text-transparent">mit Sellwell vermarkten</span></h2>
         <p className="text-[#000000] mb-6 text-lg sm:text-xl">
           Wir vermarkten Ihr Produkt effizient, verlässlich und mit messbaren ErgebnissenEffizient. Konstante Weiterbildung unseres Teams und bewährte Vertriebsprozesse, die kontinuierlich optimiert werden, machen uns zum optimalen Partner für Ihr Unternehmen.
         </p>
@@ -517,7 +517,7 @@ export default function Home() {
 </section>
 
 {/* Three Column Section */}
-<section className="bg-[#0B3F27] py-18">
+<section className="bg-[#184639] py-18">
   <div className="container mx-auto px-6 sm:px-12 md:px-24 lg:px-32">
     <div className="mb-10">
   <div className="text-center tracking-[-2px] bg-gradient-to-r from-[#EDEDEE] to-[#A7A8AA] bg-clip-text text-transparent
@@ -617,7 +617,7 @@ export default function Home() {
   <div className="bg-[#ffffff] pb-14 pt-5 rounded-b-[70px] shadow-[0px_6px_10px_0px_rgba(0,0,0,0.15)]">
     {/* Added a max-width container to limit width on larger screens */}
     <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div className="bg-[#0B3F27] py-14 rounded-[70px]">
+      <div className="bg-[#184639] py-14 rounded-[70px]">
         {/* Adjusted padding to be more consistent */}
         <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -780,12 +780,12 @@ export default function Home() {
           {/* Right column - Content with benefits */}
           <FadeIn delay={200}>
             <div className="flex flex-col items-start">
-              <span className="mb-2 sm:mb-3 inline-block bg-gradient-to-r from-[#0C462B] to-[#067741] text-white text-[14px] sm:text-[16px] font-[600] rounded-[99px] px-3 sm:px-4 py-1">
+              <span className="mb-2 sm:mb-3 inline-block bg-gradient-to-r from-[#184639] to-[#2F8267] text-white text-[14px] sm:text-[16px] font-[600] rounded-[99px] px-3 sm:px-4 py-1">
                 DER PERFEKTE PARTNER
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-[42px] lg:headr inter800 text-[#000000] mb-4 sm:mb-6">
                 Projekterfolg -<br />
-                <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#184639] to-[#2F8267] bg-clip-text text-transparent">
                   verlässlich & stressfrei
                 </span>
               </h2>
@@ -903,7 +903,7 @@ export default function Home() {
     </div>
     
     <h1 className="inter800 tracking-[-0.75px] sm:tracking-[-1.2px] md:tracking-[-1.6px] text-2xl sm:text-4xl md:text-5xl lg:text-[55px] text-[#000000] mt-2 sm:mt-4 text-center mb-8 sm:mb-10 md:mb-16">
-      Einblicke aus <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">dem Team</span>
+      Einblicke aus <span className="bg-gradient-to-r from-[#184639] to-[#2F8267] bg-clip-text text-transparent">dem Team</span>
     </h1>
     
     {/* YouTubeGrid with updated props - no longer needed as we're handling these with Tailwind classes */}
@@ -939,7 +939,7 @@ export default function Home() {
     <div className="richtext prose-h2:text-white mb-2 sm:mb-3">
       <h2 className="text-center inter800 text-3xl sm:text-4xl md:text-5xl lg:text-[55px] text-black tracking-[-0.75px] sm:tracking-[-1px] md:tracking-[-1.5px] pt-3 sm:pt-5 md:pt-7 mb-6 sm:mb-10 md:mb-15 leading-[1.2]">
         Echter Vertrieb.<br />
-        <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">
+        <span className="bg-gradient-to-r from-[#184639] to-[#2F8267] bg-clip-text text-transparent">
           Echte Ergebnisse.
         </span>
       </h2>

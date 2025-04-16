@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0B3E27] text-white relative pt-8 sm:pt-10 md:pt-12 pb-4 sm:pb-6 w-full max-w-full">
+    <footer className="bg-[#184639] text-white relative pt-8 sm:pt-10 md:pt-12 pb-4 sm:pb-6 w-full max-w-full">
       <div className="container mx-auto px-4 w-full">
         {/* Top section with Noch Fragen and menu columns */}
         <div className="grid grid-cols-2 md:grid-cols-12 gap-5 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16">
@@ -73,7 +73,7 @@ const Footer = () => {
       {/* Large SELLWELL text - optimized for mobile */}
       <div className="w-full overflow-hidden text-center">
         <h2 
-          className="text-[4rem] xs:text-[5rem] sm:text-[7rem] md:text-[10rem] lg:text-[12rem] xl:text-[16rem] font-bold text-transparent bg-clip-text bg-gradient-to-t from-[#0B3E27] to-[#00884A] tracking-tight"
+          className="text-[4rem] xs:text-[5rem] sm:text-[7rem] md:text-[10rem] lg:text-[12rem] xl:text-[16rem] font-bold text-transparent bg-clip-text bg-gradient-to-t from-[#184639] to-[#369374] tracking-tight"
           style={{ lineHeight: '0.8' }}
         >
           SELLWELL

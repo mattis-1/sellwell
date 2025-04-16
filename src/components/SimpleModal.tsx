@@ -705,7 +705,7 @@ const [jobImportance, setJobImportance] = useState<string[]>([]);
                       disabled={!isNextEnabled() || isSubmitting}
                       className={`flex-1 flex items-center justify-center gap-2 rounded-lg py-2 sm:py-3 font-medium text-white transition-all duration-200 ${
                         isNextEnabled() && !isSubmitting
-                          ? 'bg-gradient-to-r from-[#0C462B] to-[#16a34a] hover:shadow-lg hover:shadow-[#0C462B]/40'
+                          ? 'bg-gradient-to-r from-[#184639] to-[#2F8267] hover:shadow-lg hover:shadow-[#0C462B]/40'
                           : 'bg-gray-700 cursor-not-allowed'
                       }`}
                     >

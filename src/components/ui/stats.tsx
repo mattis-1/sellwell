@@ -180,7 +180,7 @@ const AnimatedStats = () => {
             {/* Icon Container with Gradient Background */}
             <div className="relative w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 mb-2 sm:mb-4 md:mb-6 p-1">
               {/* Gradient Background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#0C462B] to-[#057741] rounded-full"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-[#184639] to-[#2F8267] rounded-full"></div>
               
               {/* Icon with padding */}
               <div className="absolute inset-0 flex items-center justify-center p-3 sm:p-4 md:p-5">

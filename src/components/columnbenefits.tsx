@@ -37,7 +37,7 @@ const Somebenefits: React.FC = () => {
         {/* Headline with SVG Underline */}
         <div className="text-center mb-16">
           <h2 className="inter800 text-[#000000] tracking-[-1.3px] text-3xl sm:text-[35px] md:text-[40px] lg:text-[50px]">
-            Bei uns <span className="bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">im Vertrieb</span> ...
+            Bei uns <span className="bg-gradient-to-r from-[#184639] to-[#2F8267] bg-clip-text text-transparent">im Vertrieb</span> ...
           </h2>
           {/*
           <div className="relative w-127 h-1 mb-5 mx-auto">
@@ -78,7 +78,7 @@ const Somebenefits: React.FC = () => {
               </div>
               
               {/* Header */}
-              <h3 className="text-xl sm:text-2xl md:text-[27.5px] inter700 px-2 mb-4 bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">
+              <h3 className="text-xl sm:text-2xl md:text-[30.5px] inter700 px-2 mb-4 bg-gradient-to-r from-[#184639] to-[#2F8267] bg-clip-text text-transparent">
                 {benefit.header}
               </h3>
               
