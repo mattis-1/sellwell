@@ -106,7 +106,7 @@ export default function Home() {
       <div className="absolute inset-0 bg-[#FFFFFF] dark:from-[#0A0A0A] dark:to-[#0A0A0A] z-0"></div>
       
       {/* Left abstract elements - adjusted positioning for mobile */}
-      <div className="absolute top-[-20%] sm:top-[-10%] left-[-60%] sm:left-[-40%] w-[100%] sm:w-[95%] h-[100%] sm:h-[120%] z-[1] opacity-40 sm:opacity-50">
+      <div className="absolute top-[-20%] sm:top-[-10%] left-[-60%] sm:left-[-40%] w-[100%] sm:w-[95%] h-[100%] sm:h-[120%] z-[1] opacity-25 sm:opacity-35">
       <div className="relative w-full h-full">
     <div className="absolute w-[80%] h-[80%] rounded-full bg-[radial-gradient(circle,rgba(22,163,74,0.4)_0%,rgba(12,70,43,0.15)_70%)] top-[10%] left-[10%] blur-[50px]"></div>
     <div className="absolute w-[60%] h-[60%] rounded-full bg-[radial-gradient(circle,rgba(22,163,74,0.45)_0%,rgba(12,70,43,0.2)_70%)] top-[20%] left-[20%] blur-[40px]"></div>
@@ -121,7 +121,7 @@ export default function Home() {
 </div>
 
 {/* Right abstract elements - adjusted for darker green */}
-<div className="absolute top-[-20%] sm:top-[-10%] right-[-60%] sm:right-[-40%] w-[100%] sm:w-[95%] h-[100%] sm:h-[120%] z-[1] opacity-40 sm:opacity-50 rotate-180">
+<div className="absolute top-[-20%] sm:top-[-10%] right-[-60%] sm:right-[-40%] w-[100%] sm:w-[95%] h-[100%] sm:h-[120%] z-[1] opacity-25 sm:opacity-35 rotate-180">
   <div className="relative w-full h-full">
     <div className="absolute w-[80%] h-[80%] rounded-full bg-[radial-gradient(circle,rgba(22,163,74,0.4)_0%,rgba(12,70,43,0.15)_70%)] top-[10%] left-[10%] blur-[50px]"></div>
     <div className="absolute w-[60%] h-[60%] rounded-full bg-[radial-gradient(circle,rgba(22,163,74,0.45)_0%,rgba(12,70,43,0.2)_70%)] top-[20%] left-[20%] blur-[40px]"></div>
