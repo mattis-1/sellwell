@@ -55,34 +55,74 @@ const generateFirmaEmailTemplate = (data: ContactRequest): string => {
   return `
     <html>
       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
-          body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-          .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-          h1 { color: #0C462B; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+          body { 
+            font-family: Arial, sans-serif; 
+            line-height: 1.6; 
+            color: #333; 
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+          }
+          .container { 
+            width: 95%; 
+            max-width: 600px; 
+            margin: 0 auto; 
+            padding: 20px 0; 
+          }
+          h1 { 
+            color: #0C462B; 
+            border-bottom: 2px solid #eee; 
+            padding-bottom: 10px; 
+            margin-bottom: 20px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+          }
           .section { margin-bottom: 20px; }
-          .label { font-weight: bold; margin-right: 5px; }
-          .highlight { background-color: #f8f9fa; padding: 15px; border-left: 4px solid #16a34a; }
+          .label { 
+            font-weight: bold; 
+            margin-right: 5px; 
+            color: #555;
+          }
+          .info-box {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            padding: 15px;
+            margin-bottom: 12px;
+          }
+          .highlight { 
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+            padding: 20px; 
+            border-left: 4px solid #16a34a; 
+            margin-bottom: 20px;
+          }
         </style>
       </head>
       <body>
         <div class="container">
-          <h1>Neue Vertriebslösung Anfrage</h1>
+          <h1>Neue Kooperationsanfrage</h1>
           
           <div class="section">
-            <div><span class="label">Name:</span> ${data.firstName} ${data.lastName}</div>
-            <div><span class="label">Unternehmen:</span> ${data.company}</div>
-            <div><span class="label">Email:</span> ${data.email}</div>
-            <div><span class="label">Telefon:</span> ${data.phone}</div>
+            <div class="info-box"><span class="label">Name:</span> ${data.firstName} ${data.lastName}</div>
+            <div class="info-box"><span class="label">Unternehmen:</span> ${data.company}</div>
+            <div class="info-box"><span class="label">Email:</span> ${data.email}</div>
+            <div class="info-box"><span class="label">Telefon:</span> ${data.phone}</div>
           </div>
           
-          <div class="section highlight">
+          <div class="highlight">
             <div><span class="label">Nachricht:</span></div>
             <div>${data.message.replace(/\n/g, '<br>')}</div>
           </div>
           
-          <div class="section">
-            <p>Datum: ${formattedDate}</p>
-            <p>Status: ${data.status}</p>
+          <div class="info-box">
+            <span class="label">Datum:</span> ${formattedDate}
+          </div>
+          <div class="info-box">
+            <span class="label">Status:</span> ${data.status}
           </div>
         </div>
       </body>
@@ -110,14 +150,51 @@ const generateBewerberEmailTemplate = (data: JobApplication): string => {
   return `
     <html>
       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
-          body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-          .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-          h1 { color: #0C462B; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+          body { 
+            font-family: Arial, sans-serif; 
+            line-height: 1.6; 
+            color: #333; 
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+          }
+          .container { 
+            width: 95%; 
+            max-width: 600px; 
+            margin: 0 auto; 
+            padding: 20px 0; 
+          }
+          h1 { 
+            color: #0C462B; 
+            border-bottom: 2px solid #eee; 
+            padding-bottom: 10px; 
+            margin-bottom: 20px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+          }
           .section { margin-bottom: 20px; }
-          .label { font-weight: bold; margin-right: 5px; }
-          .highlight { background-color: #f8f9fa; padding: 15px; border-left: 4px solid #16a34a; }
-          .data-row { margin-bottom: 8px; }
+          .label { 
+            font-weight: bold; 
+            margin-right: 5px; 
+            color: #555;
+          }
+          .info-box {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            padding: 15px;
+            margin-bottom: 12px;
+          }
+          .highlight { 
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+            padding: 20px; 
+            border-left: 4px solid #16a34a; 
+            margin-bottom: 20px;
+          }
         </style>
       </head>
       <body>
@@ -125,26 +202,28 @@ const generateBewerberEmailTemplate = (data: JobApplication): string => {
           <h1>Neue Bewerbung bei Sellwell</h1>
           
           <div class="section">
-            <div class="data-row"><span class="label">Name:</span> ${data.firstName} ${data.lastName}</div>
-            <div class="data-row"><span class="label">Email:</span> ${data.email}</div>
-            <div class="data-row"><span class="label">Telefon:</span> ${data.phone}</div>
+            <div class="info-box"><span class="label">Name:</span> ${data.firstName} ${data.lastName}</div>
+            <div class="info-box"><span class="label">Email:</span> ${data.email}</div>
+            <div class="info-box"><span class="label">Telefon:</span> ${data.phone}</div>
           </div>
           
           <div class="section">
-            <div class="data-row"><span class="label">Vertriebserfahrung:</span> ${data.salesExperience}</div>
-            <div class="data-row"><span class="label">Wichtigkeit im Job:</span> ${data.jobImportance}</div>
-            <div class="data-row"><span class="label">Kontakt zu Menschen:</span> ${data.peopleContact}</div>
-            <div class="data-row"><span class="label">Führerschein:</span> ${data.driversLicense}</div>
+            <div class="info-box"><span class="label">Vertriebserfahrung:</span> ${data.salesExperience}</div>
+            <div class="info-box"><span class="label">Wichtigkeit im Job:</span> ${data.jobImportance}</div>
+            <div class="info-box"><span class="label">Kontakt zu Menschen:</span> ${data.peopleContact}</div>
+            <div class="info-box"><span class="label">Führerschein:</span> ${data.driversLicense}</div>
           </div>
           
-          <div class="section highlight">
+          <div class="highlight">
             <div><span class="label">Passt gut zu Sellwell, weil:</span></div>
             <div>${data.fitReason.replace(/\n/g, '<br>')}</div>
           </div>
           
-          <div class="section">
-            <p>Datum: ${formattedDate}</p>
-            <p>Status: ${data.status}</p>
+          <div class="info-box">
+            <span class="label">Datum:</span> ${formattedDate}
+          </div>
+          <div class="info-box">
+            <span class="label">Status:</span> ${data.status}
           </div>
         </div>
       </body>
@@ -169,7 +248,7 @@ export async function sendFirmaEmail(data: ContactRequest): Promise<boolean> {
     const mailOptions = {
       from: `"Sellwell Kontaktformular" <${process.env.EMAIL_USER}>`,
       to: recipientEmail,
-      subject: `Neue Anfrage: ${data.firstName} ${data.lastName} von ${data.company}`,
+      subject: `Neue Kooperationsanfrage: ${data.firstName} ${data.lastName} von ${data.company}`,
       html: generateFirmaEmailTemplate(data),
       replyTo: data.email,
     };
