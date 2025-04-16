@@ -39,6 +39,19 @@ const createTransporter = () => {
  * Generate HTML email template for firma contact requests
  */
 const generateFirmaEmailTemplate = (data: ContactRequest): string => {
+  // Create a proper date object from the ISO string
+  const dateObj = new Date(data.createdAt);
+  
+  // Format the date for German timezone (Europe/Berlin)
+  const formattedDate = new Intl.DateTimeFormat('de-DE', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    timeZone: 'Europe/Berlin'
+  }).format(dateObj);
+  
   return `
     <html>
       <head>
@@ -68,7 +81,7 @@ const generateFirmaEmailTemplate = (data: ContactRequest): string => {
           </div>
           
           <div class="section">
-            <p>Datum: ${new Date(data.createdAt).toLocaleString('de-DE')}</p>
+            <p>Datum: ${formattedDate}</p>
             <p>Status: ${data.status}</p>
           </div>
         </div>
@@ -81,6 +94,19 @@ const generateFirmaEmailTemplate = (data: ContactRequest): string => {
  * Generate HTML email template for bewerber job applications
  */
 const generateBewerberEmailTemplate = (data: JobApplication): string => {
+  // Create a proper date object from the ISO string
+  const dateObj = new Date(data.createdAt);
+  
+  // Format the date for German timezone (Europe/Berlin)
+  const formattedDate = new Intl.DateTimeFormat('de-DE', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    timeZone: 'Europe/Berlin'
+  }).format(dateObj);
+  
   return `
     <html>
       <head>
@@ -117,7 +143,7 @@ const generateBewerberEmailTemplate = (data: JobApplication): string => {
           </div>
           
           <div class="section">
-            <p>Datum: ${new Date(data.createdAt).toLocaleString('de-DE')}</p>
+            <p>Datum: ${formattedDate}</p>
             <p>Status: ${data.status}</p>
           </div>
         </div>

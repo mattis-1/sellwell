@@ -386,7 +386,7 @@ const [jobImportance, setJobImportance] = useState<string[]>([]);
   return (
     <>
       <h2 className="text-xl font-medium text-white mb-4">Was ist dir bei deinem neuen Job besonders wichtig?</h2>
-      <p className="text-sm text-gray-400 mb-3">Mehrfachauswahl möglich</p>
+      
       <div className="grid grid-cols-1 gap-3">
         <button
           onClick={() => {
