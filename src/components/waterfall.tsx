@@ -31,23 +31,14 @@ const VerticalGallerySection = () => {
   ];
 
   const imageGroup2 = [
+    
     { 
       id: 9, 
-      imageUrl: "/ABOUT5.png", 
-      alt: "Customer Meeting"
-    },
-    { 
-      id: 10, 
-      imageUrl: "/ABOUT6.png", 
-      alt: "Award Ceremony"
-    },
-    { 
-      id: 11, 
       imageUrl: "/ABOUT7.png", 
       alt: "Team Workshop"
     },
     { 
-      id: 12, 
+      id: 10, 
       imageUrl: "/ABOUT8.png", 
       alt: "Office Culture"
     },

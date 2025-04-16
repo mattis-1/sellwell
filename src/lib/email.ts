@@ -2,20 +2,37 @@ import nodemailer from 'nodemailer';
 import { JobApplication } from './bewerber';
 import { ContactRequest } from './firma';
 
-// Email configuration using environment variables
-const emailConfig = {
-  host: process.env.EMAIL_HOST,
-  port: parseInt(process.env.EMAIL_PORT || '587'),
-  secure: process.env.EMAIL_SECURE === 'true',
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASSWORD,
-  },
+// Email configuration using environment variables with improved error handling
+const getEmailConfig = () => {
+  // Check if required email environment variables exist
+  const missingVars = [];
+  if (!process.env.EMAIL_HOST) missingVars.push('EMAIL_HOST');
+  if (!process.env.EMAIL_USER) missingVars.push('EMAIL_USER');
+  if (!process.env.EMAIL_PASSWORD) missingVars.push('EMAIL_PASSWORD');
+  
+  if (missingVars.length > 0) {
+    console.error(`CRITICAL EMAIL ERROR: Missing environment variables: ${missingVars.join(', ')}`);
+  }
+  
+  return {
+    host: process.env.EMAIL_HOST || '',
+    port: parseInt(process.env.EMAIL_PORT || '587'),
+    secure: process.env.EMAIL_SECURE === 'true',
+    auth: {
+      user: process.env.EMAIL_USER || '',
+      pass: process.env.EMAIL_PASSWORD || '',
+    },
+  };
 };
 
-// Create transporter
+// Create transporter with better error handling
 const createTransporter = () => {
-  return nodemailer.createTransport(emailConfig);
+  const config = getEmailConfig();
+  console.log('Email config (without password):', {
+    ...config,
+    auth: { user: config.auth.user, pass: config.auth.pass ? '****' : 'NOT SET' }
+  });
+  return nodemailer.createTransport(config);
 };
 
 /**
@@ -114,21 +131,35 @@ const generateBewerberEmailTemplate = (data: JobApplication): string => {
  */
 export async function sendFirmaEmail(data: ContactRequest): Promise<boolean> {
   try {
+    // Check if notification email is set
+    const recipientEmail = process.env.NOTIFICATION_EMAIL;
+    if (!recipientEmail) {
+      console.error('CRITICAL: NOTIFICATION_EMAIL environment variable is not set');
+      return false;
+    }
+    
     const transporter = createTransporter();
     
     const mailOptions = {
       from: `"Sellwell Kontaktformular" <${process.env.EMAIL_USER}>`,
-      to: process.env.NOTIFICATION_EMAIL || 'service@bmmarketscale.com',
+      to: recipientEmail,
       subject: `Neue Anfrage: ${data.firstName} ${data.lastName} von ${data.company}`,
       html: generateFirmaEmailTemplate(data),
       replyTo: data.email,
     };
     
+    console.log(`Attempting to send email to ${recipientEmail}`);
     const info = await transporter.sendMail(mailOptions);
     console.log('Message sent:', info.messageId);
     return true;
   } catch (error) {
-    console.error('Error sending firma email:', error);
+    console.error('CRITICAL - Error sending firma email:', error);
+    // Log detailed error information
+    if (error instanceof Error) {
+      console.error('Error name:', error.name);
+      console.error('Error message:', error.message);
+      console.error('Error stack:', error.stack);
+    }
     return false;
   }
 }
@@ -138,21 +169,35 @@ export async function sendFirmaEmail(data: ContactRequest): Promise<boolean> {
  */
 export async function sendBewerberEmail(data: JobApplication): Promise<boolean> {
   try {
+    // Check if notification email is set
+    const recipientEmail = process.env.NOTIFICATION_EMAIL;
+    if (!recipientEmail) {
+      console.error('CRITICAL: NOTIFICATION_EMAIL environment variable is not set');
+      return false;
+    }
+    
     const transporter = createTransporter();
     
     const mailOptions = {
       from: `"Sellwell Bewerbungen" <${process.env.EMAIL_USER}>`,
-      to: process.env.NOTIFICATION_EMAIL || 'service@bmmarketscale.com',
+      to: recipientEmail,
       subject: `Neue Bewerbung: ${data.firstName} ${data.lastName}`,
       html: generateBewerberEmailTemplate(data),
       replyTo: data.email,
     };
     
+    console.log(`Attempting to send email to ${recipientEmail}`);
     const info = await transporter.sendMail(mailOptions);
     console.log('Message sent:', info.messageId);
     return true;
   } catch (error) {
-    console.error('Error sending bewerber email:', error);
+    console.error('CRITICAL - Error sending bewerber email:', error);
+    // Log detailed error information
+    if (error instanceof Error) {
+      console.error('Error name:', error.name);
+      console.error('Error message:', error.message);
+      console.error('Error stack:', error.stack);
+    }
     return false;
   }
 }
