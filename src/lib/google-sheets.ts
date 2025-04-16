@@ -42,6 +42,24 @@ const getAuthClient = () => {
   });
 };
 
+// Function to get formatted date and time in German format with correct timezone
+function getFormattedDateTime() {
+  // Create a date object with the current time
+  const now = new Date();
+  
+  // Format the date for German timezone (Europe/Berlin)
+  return now.toLocaleString('de-DE', { 
+    timeZone: 'Europe/Berlin',
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false
+  });
+}
+
 // Function to append data to the Bewerber sheet
 export async function appendToBewerberSheet(data: BewerberData) {
   try {
@@ -60,7 +78,7 @@ export async function appendToBewerberSheet(data: BewerberData) {
       data.peopleContact,   // Gerne unterwegs und im Kontakt?
       data.driversLicense,  // Führerschein?
       data.fitReason,       // Passt gut zu Sellwell, weil ...
-      new Date().toLocaleString('de-DE'), // Eingetragen am ...
+      getFormattedDateTime(), // Eingetragen am ... (with correct timezone)
       '', // Persönlichkeitstest?
       '', // Persönlichkeitstest Ergebnis
       ''  // Persönlichkeitstest Einträge
@@ -98,7 +116,7 @@ export async function appendToFirmenSheet(data: FirmenData) {
       data.email,        // Email
       data.phone,        // Telefonnummer
       data.message,      // Nachricht
-      new Date().toLocaleString('de-DE') // Eingetragen am ...
+      getFormattedDateTime() // Eingetragen am ... (with correct timezone)
     ];
     
     const result = await sheets.spreadsheets.values.append({
