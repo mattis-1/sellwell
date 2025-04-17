@@ -1,6 +1,7 @@
 import nodemailer from 'nodemailer';
 import { JobApplication } from './bewerber';
 import { ContactRequest } from './firma';
+import Image from "next/image"
 
 // Reuse the email configuration from the main email.ts file
 // We could import it, but to avoid circular dependencies, we'll duplicate just this part
@@ -118,27 +119,27 @@ const generateFirmaConfirmationTemplate = (data: ContactRequest): string => {
               
               <div class="social-links">
                 <a href="https://www.youtube.com/@SellwellConsulting" class="social-icon" target="_blank">
-                    <span style="color: #FF0000; font-size: 18px; margin-right: 5px;">▶️</span> Sellwell Consulting YouTube-Kanal
+                  <img src="https://sellwell-consulting.de/email-youtube.png" alt="YouTube" width="24" height="24" style="vertical-align: middle;"> Sellwell Consulting YouTube-Kanal
                 </a>
                 <a href="https://www.instagram.com/kress_maximilian/" class="social-icon" target="_blank">
-                    <span style="color: #C13584; font-size: 18px; margin-right: 5px;">📸</span> Sellwell Consulting auf Instagram
+                  <img src="https://sellwell-consulting.de/email-insta.png" alt="Instagram" width="24" height="24" style="vertical-align: middle;"> Sellwell Consulting auf Instagram
                 </a>
                 <a href="https://sellwell-consulting.de" class="social-icon" target="_blank">
-                    <span style="color: #2D7D63; font-size: 18px; margin-right: 5px;">🌐</span> Zur Website von Sellwell Consulting
+                  <img src="https://sellwell-consulting.de/favicon.ico" alt="Website" width="24" height="24" style="vertical-align: middle;"> Zur Website von Sellwell Consulting
                 </a>
               </div>
               
               <div class="contact-info">
                 <div class="contact-item">
-                  <span style="margin-right: 10px; font-size: 18px;">📞</span>
+                  <img src="https://sellwell-consulting.de/email-phone.png" alt="Telefon" style="width: 16px; height: 16px; margin-right: 10px;">
                   +49 176 76869448
                 </div>
                 <div class="contact-item">
-                  <span style="margin-right: 10px; font-size: 18px;">✉️</span>
+                  <img src="https://sellwell-consulting.de/email-email.png" alt="Email" style="width: 16px; height: 16px; margin-right: 10px;">
                   info@sell-well-consulting.de
                 </div>
                 <div class="contact-item">
-                  <span style="margin-right: 10px; font-size: 18px;">📍</span>
+                  <img src="https://sellwell-consulting.de/email-location.png" alt="Adresse" style="width: 16px; height: 16px; margin-right: 10px;">
                   Leiblstraße 26, 85567 Neubiberg
                 </div>
               </div>
@@ -151,7 +152,7 @@ const generateFirmaConfirmationTemplate = (data: ContactRequest): string => {
       </body>
       </html>
     `;
-};
+  };
 
 /**
  * Generate confirmation email template for users who submit the Bewerber form
@@ -253,33 +254,33 @@ const generateBewerberConfirmationTemplate = (data: JobApplication): string => {
             
             <p>Um einen besseren Einblick in eine Karriere bei Sellwell zu bekommen, kannst du uns auch gerne auf Instagram und Youtube folgen.</p>
             
-           <div class="social-icons">
-  <a href="https://youtube.com/sellwell" class="social-icon">
-    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="Youtube" width="24" height="24" style="vertical-align: middle;"> Youtube
-  </a>
-  
-  <a href="https://instagram.com/sellwell" class="social-icon">
-    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="24" height="24" style="vertical-align: middle;"> Instagram
-  </a>
-</div>
+            <div class="social-icons">
+              <a href="https://youtube.com/sellwell" class="social-icon">
+                <img src="https://sellwell-consulting.de/email-youtube.png" alt="Youtube" width="24" height="24" style="vertical-align: middle;"> Youtube
+              </a>
+              
+              <a href="https://instagram.com/sellwell" class="social-icon">
+                <img src="https://sellwell-consulting.de/email-insta.png" alt="Instagram" width="24" height="24" style="vertical-align: middle;"> Instagram
+              </a>
+            </div>
             
             <p>Bis bald<br>
             dein Sellwell Team</p>
             
             <div class="contact-info">
-  <div class="contact-item">
-    <img src="https://cdn-icons-png.flaticon.com/512/455/455705.png" alt="Telefon" class="icon" style="width: 16px; height: 16px;">
-    +49 176 76869448
-  </div>
-  <div class="contact-item">
-    <img src="https://cdn-icons-png.flaticon.com/512/552/552486.png" alt="Email" class="icon" style="width: 16px; height: 16px;">
-    info@sell-well-consulting.de
-  </div>
-  <div class="contact-item">
-    <img src="https://cdn-icons-png.flaticon.com/512/1054/1054092.png" alt="Adresse" class="icon" style="width: 16px; height: 16px;">
-    Edelweißstraße 6, 81541 München
-  </div>
-</div>
+              <div class="contact-item">
+                <img src="https://sellwell-consulting.de/email-phone.png" alt="Telefon" class="icon" style="width: 16px; height: 16px;">
+                +49 176 76869448
+              </div>
+              <div class="contact-item">
+                <img src="https://sellwell-consulting.de/email-email.png" alt="Email" class="icon" style="width: 16px; height: 16px;">
+                info@sell-well-consulting.de
+              </div>
+              <div class="contact-item">
+                <img src="https://sellwell-consulting.de/email-location.png" alt="Adresse" class="icon" style="width: 16px; height: 16px;">
+                Edelweißstraße 6, 81541 München
+              </div>
+            </div>
             
             <div class="footer">
               <a href="https://sellwell-consulting.de/impressum">Impressum</a> | 
@@ -290,6 +291,7 @@ const generateBewerberConfirmationTemplate = (data: JobApplication): string => {
       </html>
     `;
   };
+  
 
 /**
  * Send confirmation email to company contact request submitter
