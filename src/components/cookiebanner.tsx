@@ -40,7 +40,7 @@ const CookieBanner: React.FC = () => {
       <CardContent className="flex flex-col md:flex-row items-center justify-between gap-4">
         <p className="text-sm flex-1">
           Wir verwenden Cookies, um Ihre Erfahrung zu verbessern. Mehr dazu in unserer{' '}
-          <a href="/cookie-policy" className="text-green-700 underline">
+          <a href="/cookie-richtlinien" className="text-green-700 underline">
             Cookie-Richtlinie
           </a>.
         </p>
