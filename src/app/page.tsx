@@ -103,7 +103,7 @@ export default function Home() {
     {/* Hero Section with contained background */}
     <div className="relative overflow-hidden">
       {/* Background layers start */}
-      <div className="absolute inset-0 bg-[#FFFFFF] dark:from-[#0A0A0A] dark:to-[#0A0A0A] z-0"></div>
+      <div className="absolute inset-0 bg-[#FFFFFF] z-0"></div>
       
       {/* Left abstract elements - adjusted positioning for mobile */}
       <div className="absolute top-[-20%] sm:top-[-10%] left-[-60%] sm:left-[-40%] w-[100%] sm:w-[95%] h-[100%] sm:h-[120%] z-[1] opacity-25 sm:opacity-35">
@@ -135,9 +135,7 @@ export default function Home() {
   </div>
 </div>
       
-      {/* Noise texture overlay */}
-      <div className="absolute inset-0 opacity-[0.08] sm:opacity-[0.12] bg-[url('https://framerusercontent.com/images/6mcf62RlDfRfU61Yg5vb2pefpi4.png')] bg-repeat bg-[size:128px] z-[2]"></div>
-      
+          
       {/* Vertical blocks grid - reduced number for mobile */}
       <div className="absolute inset-0 flex justify-between z-[1]">
         {[...Array(12)].map((_, i) => {
