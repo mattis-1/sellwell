@@ -302,7 +302,6 @@ export default function Home() {
   </div>
           
   {/* Texture background */}
-  <div className="absolute inset-0 opacity-[0.12] bg-[url('https://framerusercontent.com/images/6mcf62RlDfRfU61Yg5vb2pefpi4.png')] bg-repeat bg-[size:128px] z-0"></div>
   
   {/* Top gradient overlay */}
   <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#F4F2F1] to-transparent z-1"></div>
@@ -348,7 +347,6 @@ export default function Home() {
   <div className="absolute inset-0 bg-[#184639] z-0"></div>
         
   {/* Texture background */}
-  <div className="absolute inset-0 opacity-[0.06] bg-[url('https://framerusercontent.com/images/6mcf62RlDfRfU61Yg5vb2pefpi4.png')] bg-repeat bg-[size:128px] z-0"></div>
         
   <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-24 xl:px-32 relative z-10">
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
@@ -476,7 +474,6 @@ export default function Home() {
 <section className="relative px-4 py-12 sm:py-16 bg-[#FFFFFF] w-full">
   <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-24 xl:px-32">
     {/* Noise texture overlay */}
-   <div className="absolute inset-0 opacity-[0.06] bg-[url('https://framerusercontent.com/images/6mcf62RlDfRfU61Yg5vb2pefpi4.png')] bg-repeat bg-[size:128px] z-0"></div>
 
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
       {/* Left column - Image with reduced height */}
