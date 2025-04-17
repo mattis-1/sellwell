@@ -1,7 +1,6 @@
 import nodemailer from 'nodemailer';
 import { JobApplication } from './bewerber';
 import { ContactRequest } from './firma';
-import Image from "next/image"
 
 // Reuse the email configuration from the main email.ts file
 // We could import it, but to avoid circular dependencies, we'll duplicate just this part
