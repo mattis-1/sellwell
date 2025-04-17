@@ -2,9 +2,9 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-    "./src/pages//*.{js,ts,jsx,tsx,mdx}",
-    "./src/components//.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/.{js,ts,jsx,tsx,mdx}",
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     container: {
@@ -12,7 +12,7 @@ const config: Config = {
       padding: {
         DEFAULT: "1rem",
         sm: "1.5rem",
-        lg: "2rem"
+        lg: "2rem",
       },
       screens: {
         sm: "640px",
@@ -23,6 +23,10 @@ const config: Config = {
       },
     },
     extend: {
+      // Hier fügen wir die Inter‑Schriftart als Default sans hinzu:
+      fontFamily: {
+        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+      },
       colors: {
         border: "var(--border)",
         input: "var(--input)",
@@ -74,7 +78,8 @@ const config: Config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       backgroundImage: {
-        'grid-white': 'linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px)',
+        "grid-white":
+          "linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px)",
       },
     },
   },

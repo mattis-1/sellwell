@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter', // Add variable name for Inter
+  variable: '--font-inter',
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
 });
 
@@ -36,13 +36,11 @@ export default function RootLayout({
     <html 
       lang="de" 
       suppressHydrationWarning
-      className={cn(inter.variable)} // Add Inter as a class to html element
+      className={cn(inter.variable, geistSans.variable, geistMono.variable)}
     >
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased w-full overscroll-none",
-          geistSans.variable,
-          geistMono.variable
+          "min-h-screen bg-background font-sans antialiased w-full overscroll-none"
         )}
       >
         <div className="w-full">

@@ -167,7 +167,7 @@ export default function Home() {
               height={18}
               className="mr-1.5 sm:mr-2"
             />
-            <p className="text-center text-sm sm:text-base font-medium text-[#000] mb-[2px]">
+            <p className="inter500 text-center text-sm sm:text-base font-medium text-[#000] mb-[2px]">
               Nummer 1 Vertrieb im D2D in Bayern
             </p>
           </div>
@@ -178,18 +178,18 @@ export default function Home() {
               Mit Sellwell als Partner{" "}
               <span className="bg-gradient-to-r from-[#184639] to-[#2F8267] bg-clip-text text-transparent"><br />neue Türen öffnen.</span>
             </h1>
-            <p className="font-[500] text-base sm:text-lg md:text-[20px] mx-auto mb-6 sm:mb-8 text-[#171717] max-w-180">
+            <p className="font-[500] inter500 text-base sm:text-lg md:text-[20px] mx-auto mb-6 sm:mb-8 text-[#171717] max-w-180">
               Ob du als Vertriebstalent richtig Karriere machen willst, oder nach optimalen Vertriebslösungen für deine Unternehmung suchst - Sellwell ist der perfekter Partner für dich. 
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-10 sm:mb-20">
               <Button 
               onClick={openBewerberModal}
-              className="text-base sm:text-lg md:text-[20px] py-2 rounded-[99px]" variant="default">
+              className="text-base sm:text-lg md:text-[20px] py-2 rounded-[99px] inter500" variant="default">
                 Für Vertriebstalente
               </Button>
               <Button 
               onClick={openFirmaModal}
-              className="bg-gradient-to-r from-[#184639] to-[#2F8267] bg-clip-text text-transparent text-base sm:text-lg md:text-[20px] rounded-[99px] mt-2 sm:mt-0" variant="outline">
+              className="inter500 bg-gradient-to-r from-[#184639] to-[#2F8267] bg-clip-text text-transparent text-base sm:text-lg md:text-[20px] rounded-[99px] mt-2 sm:mt-0" variant="outline">
                 Für Unternehmen
               </Button>
             </div>

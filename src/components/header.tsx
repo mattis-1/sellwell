@@ -3,8 +3,27 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import SimpleModal from "@/components/SimpleModal";
 
 const Header = () => {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMode, setModalMode] = useState<'Firma' | 'Bewerber'>('Firma');
+  
+  // Functions to handle modal
+  const openFirmaModal = () => {
+    setModalMode('Firma');
+    setIsModalOpen(true);
+  };
+  
+  const openBewerberModal = () => {
+    setModalMode('Bewerber');
+    setIsModalOpen(true);
+  };
+  
+  const closeModal = () => setIsModalOpen(false);
+
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -89,12 +108,12 @@ const Header = () => {
 
           {/* Contact Button - desktop only */}
           <div className="hidden md:block">
-            <Link href="/kontakt">
+            <Link href="/kontakt" onClick={openBewerberModal}>
               <button 
-                className="inline-flex items-center px-5 py-2.5 text-[#000] font-[700] text-base rounded-[10px] hover:opacity-90 transition shadow-[0_2px_3px_rgba(0,0,0,0.5)]" 
+                className="inter700 inline-flex items-center px-5 py-2.5 text-[#000] font-[700] text-base rounded-[10px] hover:opacity-90 transition shadow-[0_2px_3px_rgba(0,0,0,0.5)]" 
                 style={{ background: 'radial-gradient(circle, #E7E8E8 100%, #ABACAE 0%)' }}
               >
-                KONTAKT
+                JETZT BEWERBEN
               </button>
             </Link>
           </div>
@@ -157,21 +176,21 @@ const Header = () => {
           {/* Mobile Navigation Links */}
           <nav className="flex flex-col space-y-6 mb-8">
             <Link 
-              href="/" 
+              href="https://sellwell-consulting.de" 
               className="inter700 text-white text-xl hover:text-white/80"
               onClick={closeMobileMenu}
             >
               HOME
             </Link>
             <Link 
-              href="/#ueber-uns" 
+              href="https://sellwell-consulting.de/#about" 
               className="inter700 text-white text-xl hover:text-white/80"
               onClick={closeMobileMenu}
             >
               ÜBER UNS
             </Link>
             <Link 
-              href="/karriere" 
+              href="https://sellwell-consulting.de/#leistungen" 
               className="inter700 text-white text-xl hover:text-white/80"
               onClick={closeMobileMenu}
             >
@@ -180,12 +199,12 @@ const Header = () => {
           </nav>
 
           {/* Contact Button in Mobile Menu */}
-          <Link href="/kontakt" onClick={closeMobileMenu}>
+          <Link href="/kontakt" onClick={openFirmaModal}>
             <button 
-              className="w-full inline-flex items-center justify-center px-5 py-3 text-[#000] font-[700] text-base rounded-[10px] hover:opacity-90 transition shadow-[0_2px_3px_rgba(0,0,0,0.5)]" 
+              className="inter700 w-full inline-flex items-center justify-center px-5 py-3 text-[#000] font-[700] text-base rounded-[10px] hover:opacity-90 transition shadow-[0_2px_3px_rgba(0,0,0,0.5)]" 
               style={{ background: 'radial-gradient(circle, #E7E8E8 100%, #ABACAE 0%)' }}
             >
-              KONTAKT
+              JETZT BEWERBEN
             </button>
           </Link>
 
@@ -219,7 +238,13 @@ const Header = () => {
           </div>
         </div>
       </div>
+      <SimpleModal 
+              isOpen={isModalOpen} 
+              onClose={closeModal}
+              mode={modalMode} 
+            />
     </header>
+    
   );
 };
 
