@@ -4,6 +4,7 @@ import { Metadata } from 'next';
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import Header from "@/components/header";
+import Footer from "@/components/footer"
 import {
   Building,
   Phone,
@@ -162,6 +163,7 @@ export default function ImpressumPage() {
           </CardContent>
         </Card>
       </div>
+      <Footer />
     </>
   );
 }
