@@ -20,89 +20,137 @@ const createTransporter = () => {
  * Generate confirmation email template for users who submit the Firma form
  */
 const generateFirmaConfirmationTemplate = (data: ContactRequest): string => {
-  return `
-    <html>
+    return `
+      <!DOCTYPE html>
+      <html lang="de">
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-          body { 
-            font-family: Arial, sans-serif; 
-            line-height: 1.6; 
-            color: #333; 
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-          }
-          .container { 
-            width: 95%; 
-            max-width: 600px; 
-            margin: 0 auto; 
-            padding: 20px 0; 
-          }
-          h1 { 
-            color: #0C462B; 
-            border-bottom: 2px solid #eee; 
-            padding-bottom: 10px; 
-            margin-bottom: 20px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-          }
-          p { margin-bottom: 16px; }
-          .section { margin-bottom: 20px; }
-          .info-box {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-            padding: 15px;
-            margin-bottom: 12px;
-          }
-          .highlight { 
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-            padding: 20px; 
-            border-left: 4px solid #16a34a; 
-            margin-bottom: 20px;
-          }
-          .footer {
-            text-align: center;
-            font-size: 14px;
-            color: #666;
-            margin-top: 30px;
-            padding-top: 15px;
-            border-top: 1px solid #ddd;
-          }
-        </style>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Vielen Dank für Ihre Anfrage zur Zusammenarbeit!</title>
+          <style>
+              body { 
+                font-family: Arial, sans-serif; 
+                line-height: 1.6; 
+                color: #333; 
+                margin: 0;
+                padding: 0;
+                background-color: #f5f5f5;
+              }
+              .container { 
+                width: 90%; 
+                max-width: 500px; 
+                margin: 0 auto; 
+                padding: 20px 15px;
+                background-color: #ffffff;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+              }
+              @media (max-width: 480px) {
+                .container {
+                  width: 85%;
+                  padding: 15px 10px;
+                }
+              }
+              .content {
+                font-size: 16px;
+                line-height: 1.6;
+                color: #23496d;
+              }
+              .content p {
+                margin: 10px 0;
+              }
+              .button {
+                display: inline-block;
+                background: linear-gradient(to right, #19483B, #2D7D63);
+                color: white;
+                text-decoration: none;
+                font-weight: bold;
+                padding: 12px 24px;
+                border-radius: 25px;
+                margin: 15px 0;
+                text-align: center;
+              }
+              .social-links {
+                margin: 25px 0;
+                text-align: center;
+              }
+              .social-icon {
+                display: block;
+                margin: 10px 0;
+                text-decoration: none;
+                color: #2D7D63;
+                font-size: 14px;
+              }
+              .contact-info {
+                margin-top: 30px;
+                padding-top: 20px;
+                border-top: 1px solid #ddd;
+              }
+              .contact-item {
+                display: flex;
+                align-items: center;
+                margin-bottom: 8px;
+              }
+              .footer {
+                text-align: center;
+                font-size: 14px;
+                color: #666;
+                margin-top: 30px;
+                padding-top: 15px;
+                border-top: 1px solid #ddd;
+              }
+              .footer a {
+                color: #2D7D63;
+                text-decoration: none;
+              }
+          </style>
       </head>
       <body>
-        <div class="container">
-          <h1>Danke für Ihre Anfrage</h1>
-          
-          <p>Sehr geehrte(r) ${data.firstName} ${data.lastName},</p>
-          
-          <p>vielen Dank für Ihre Kooperationsanfrage. Wir haben folgende Informationen erhalten:</p>
-          
-          <div class="info-box">
-            <strong>Unternehmen:</strong> ${data.company}
+          <div class="container">
+              <div class="content">
+                  <p>Sehr geehrte(r) ${data.lastName},</p>
+                  <p>vielen Dank für Ihre Anfrage zur Zusammenarbeit. Wir freuen uns, mit Ihnen in Kontakt zu treten und eine erfolgreiche Partnerschaft aufzubauen.</p>
+                  <p>Im nächsten Schritt wird unser Team Sie kontaktieren, um die Details der Zusammenarbeit zu besprechen und einen passenden Zeitplan zu vereinbaren. Wir freuen uns darauf, mit Ihnen gemeinsam die nächsten Schritte zu planen.</p>
+                  <p>Bei Fragen stehen wir Ihnen selbstverständlich jederzeit zur Verfügung.</p>
+                  <p>Mit freundlichen Grüßen,<br>
+                  Ihr Team von Sellwell Consulting</p>
+              </div>
+              
+              <div class="social-links">
+                <a href="https://www.youtube.com/@SellwellConsulting" class="social-icon" target="_blank">
+                    <span style="color: #FF0000; font-size: 18px; margin-right: 5px;">▶️</span> Sellwell Consulting YouTube-Kanal
+                </a>
+                <a href="https://www.instagram.com/kress_maximilian/" class="social-icon" target="_blank">
+                    <span style="color: #C13584; font-size: 18px; margin-right: 5px;">📸</span> Sellwell Consulting auf Instagram
+                </a>
+                <a href="https://sellwell-consulting.de" class="social-icon" target="_blank">
+                    <span style="color: #2D7D63; font-size: 18px; margin-right: 5px;">🌐</span> Zur Website von Sellwell Consulting
+                </a>
+              </div>
+              
+              <div class="contact-info">
+                <div class="contact-item">
+                  <span style="margin-right: 10px; font-size: 18px;">📞</span>
+                  +49 176 76869448
+                </div>
+                <div class="contact-item">
+                  <span style="margin-right: 10px; font-size: 18px;">✉️</span>
+                  info@sell-well-consulting.de
+                </div>
+                <div class="contact-item">
+                  <span style="margin-right: 10px; font-size: 18px;">📍</span>
+                  Leiblstraße 26, 85567 Neubiberg
+                </div>
+              </div>
+              
+              <div class="footer">
+                <a href="https://sellwell-consulting.de/impressum">Impressum</a> | 
+                <a href="https://sellwell-consulting.de/datenschutz">Datenschutz</a>
+              </div>
           </div>
-          
-          <div class="highlight">
-            <strong>Ihre Nachricht:</strong><br>
-            ${data.message.replace(/\n/g, '<br>')}
-          </div>
-          
-          <p>Ein Mitglied unseres Teams wird sich innerhalb der nächsten 48 Stunden mit Ihnen in Verbindung setzen.</p>
-          
-          <p>Mit freundlichen Grüßen,<br>
-          Das Sellwell-Team</p>
-          
-          <div class="footer">
-            <p>© 2025 Sellwell Consulting | <a href="https://sellwell-consulting.de">sellwell-consulting.de</a></p>
-          </div>
-        </div>
       </body>
-    </html>
-  `;
+      </html>
+    `;
 };
 
 /**
@@ -205,33 +253,33 @@ const generateBewerberConfirmationTemplate = (data: JobApplication): string => {
             
             <p>Um einen besseren Einblick in eine Karriere bei Sellwell zu bekommen, kannst du uns auch gerne auf Instagram und Youtube folgen.</p>
             
-            <div class="social-icons">
-              <a href="https://youtube.com/sellwell" class="social-icon">
-                <img src="https://sellwell-consulting.de/assets/youtube-icon.png" alt="Youtube" width="24" height="24" style="vertical-align: middle;"> Youtube
-              </a>
-              
-              <a href="https://instagram.com/sellwell" class="social-icon">
-                <img src="https://sellwell-consulting.de/assets/instagram-icon.png" alt="Instagram" width="24" height="24" style="vertical-align: middle;"> Instagram
-              </a>
-            </div>
+           <div class="social-icons">
+  <a href="https://youtube.com/sellwell" class="social-icon">
+    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="Youtube" width="24" height="24" style="vertical-align: middle;"> Youtube
+  </a>
+  
+  <a href="https://instagram.com/sellwell" class="social-icon">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="24" height="24" style="vertical-align: middle;"> Instagram
+  </a>
+</div>
             
             <p>Bis bald<br>
             dein Sellwell Team</p>
             
             <div class="contact-info">
-              <div class="contact-item">
-                <img src="https://sellwell-consulting.de/assets/phone-icon.png" alt="Telefon" class="icon">
-                +49 176 76869448
-              </div>
-              <div class="contact-item">
-                <img src="https://sellwell-consulting.de/assets/email-icon.png" alt="Email" class="icon">
-                info@sell-well-consulting.de
-              </div>
-              <div class="contact-item">
-                <img src="https://sellwell-consulting.de/assets/address-icon.png" alt="Adresse" class="icon">
-                Edelweißstraße 6, 81541 München
-              </div>
-            </div>
+  <div class="contact-item">
+    <img src="https://cdn-icons-png.flaticon.com/512/455/455705.png" alt="Telefon" class="icon" style="width: 16px; height: 16px;">
+    +49 176 76869448
+  </div>
+  <div class="contact-item">
+    <img src="https://cdn-icons-png.flaticon.com/512/552/552486.png" alt="Email" class="icon" style="width: 16px; height: 16px;">
+    info@sell-well-consulting.de
+  </div>
+  <div class="contact-item">
+    <img src="https://cdn-icons-png.flaticon.com/512/1054/1054092.png" alt="Adresse" class="icon" style="width: 16px; height: 16px;">
+    Edelweißstraße 6, 81541 München
+  </div>
+</div>
             
             <div class="footer">
               <a href="https://sellwell-consulting.de/impressum">Impressum</a> | 
