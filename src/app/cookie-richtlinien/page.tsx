@@ -11,7 +11,7 @@ import {
   AlertTriangle,
   FileText,
   Check,
-  X,
+  
   Info,
   Globe
 } from "lucide-react";
