@@ -10,10 +10,8 @@ import {
   Lock,
   Cookie,
   UserCheck,
-  Mail,
   AlertTriangle,
   Database,
-  Settings,
   Globe
 } from "lucide-react";
 
@@ -135,44 +133,28 @@ export default function DatenschutzPage() {
               <div className="flex items-start gap-3 mb-6">
                 <Cookie className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                 <div>
-                  <h3 className="font-medium mb-2">Cookies</h3>
+                  <h3 className="font-medium mb-2">Cookies und Tracking</h3>
                   <p className="text-muted-foreground mb-4">
-                    Unsere Website verwendet Cookies. Cookies sind Textdateien, die über einen Internetbrowser auf einem Computersystem abgelegt und gespeichert werden. Viele Cookies enthalten eine sogenannte Cookie-ID. Eine Cookie-ID ist eine eindeutige Kennung des Cookies. Sie besteht aus einer Zeichenfolge, durch welche Internetseiten und Server dem konkreten Internetbrowser zugeordnet werden können, in dem das Cookie gespeichert wurde.
+                    Unsere Website verwendet Cookies. Cookies sind Textdateien, die über einen Internetbrowser auf einem Computersystem abgelegt und gespeichert werden. Wir setzen Cookies ein, um unsere Website nutzerfreundlicher zu gestalten und grundlegende Seitenanalysen durchzuführen.
                   </p>
                   <p className="text-muted-foreground mb-4">
-                    Wir setzen Cookies ein, um unsere Website nutzerfreundlicher zu gestalten. Einige Elemente unserer Internetseite erfordern es, dass der aufrufende Browser auch nach einem Seitenwechsel identifiziert werden kann. In den Cookies werden dabei folgende Daten gespeichert und übermittelt:
+                    Für Analysen und Marketingzwecke verwenden wir unter anderem Facebook Pixel. Diese ermöglichen es uns, die Nutzung unserer Website zu analysieren und unsere Angebote besser auf Ihre Interessen abzustimmen. 
                   </p>
-                  <ul className="list-disc pl-5 text-muted-foreground mb-4">
-                    <li>Spracheinstellungen</li>
-                    <li>Log-In-Informationen</li>
-                    <li>Tracking-Informationen für Website-Analyse</li>
-                    <li>Facebook Pixel Daten</li>
-                  </ul>
                   <p className="text-muted-foreground">
-                    Die Rechtsgrundlage für die Verarbeitung personenbezogener Daten unter Verwendung von Cookies ist Art. 6 Abs. 1 lit. f DSGVO. Der Zweck der Verwendung technisch notwendiger Cookies ist, die Nutzung von Websites für die Nutzer zu vereinfachen.
+                    Die Rechtsgrundlage für die Verarbeitung personenbezogener Daten unter Verwendung von technisch notwendigen Cookies ist Art. 6 Abs. 1 lit. f DSGVO. Die Rechtsgrundlage für die Verarbeitung personenbezogener Daten unter Verwendung von Cookies zu Analysezwecken ist bei Vorliegen einer entsprechenden Einwilligung des Nutzers Art. 6 Abs. 1 lit. a DSGVO.
                   </p>
                 </div>
               </div>
               
               <div className="flex items-start gap-3 mb-6">
-                <Mail className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                <Globe className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                 <div>
-                  <h3 className="font-medium mb-2">Kontaktformular</h3>
+                  <h3 className="font-medium mb-2">Kontaktmöglichkeiten und Formulare</h3>
                   <p className="text-muted-foreground mb-4">
-                    Wenn Sie das Kontaktformular auf unserer Website nutzen, werden die von Ihnen angegebenen personenbezogenen Daten an uns übermittelt und gespeichert. Diese Daten umfassen typischerweise:
-                  </p>
-                  <ul className="list-disc pl-5 text-muted-foreground mb-4">
-                    <li>Name</li>
-                    <li>E-Mail-Adresse</li>
-                    <li>Telefonnummer (optional)</li>
-                    <li>Inhalt Ihrer Anfrage</li>
-                    <li>Weitere Informationen, die Sie freiwillig angeben</li>
-                  </ul>
-                  <p className="text-muted-foreground mb-4">
-                    Diese Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet. Die Rechtsgrundlage für die Verarbeitung ist Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung) bzw. Art. 6 Abs. 1 lit. a DSGVO (Einwilligung), wenn Sie durch Absenden des Formulars Ihre Einwilligung zur Datenverarbeitung geben.
+                    Wenn Sie uns per Kontaktformular oder E-Mail kontaktieren, werden die von Ihnen mitgeteilten Daten (Ihre E-Mail-Adresse, ggf. Ihr Name und Ihre Telefonnummer) gespeichert, um Ihre Fragen zu beantworten. Die in diesem Zusammenhang anfallenden Daten löschen wir, nachdem die Speicherung nicht mehr erforderlich ist, oder schränken die Verarbeitung ein, falls gesetzliche Aufbewahrungspflichten bestehen.
                   </p>
                   <p className="text-muted-foreground">
-                    Die Daten werden gelöscht, sobald sie für die Erreichung des Zweckes ihrer Erhebung nicht mehr erforderlich sind. Für die personenbezogenen Daten aus dem Kontaktformular ist dies der Fall, wenn die jeweilige Konversation mit Ihnen beendet ist. Beendet ist die Konversation dann, wenn sich aus den Umständen entnehmen lässt, dass der betroffene Sachverhalt abschließend geklärt ist.
+                    Die Rechtsgrundlage für die Verarbeitung der Daten, die im Zuge einer Übersendung einer E-Mail oder über ein Kontaktformular übermittelt werden, ist Art. 6 Abs. 1 lit. f DSGVO. Zielt der E-Mail-Kontakt oder das Kontaktformular auf den Abschluss eines Vertrages ab, so ist zusätzliche Rechtsgrundlage für die Verarbeitung Art. 6 Abs. 1 lit. b DSGVO.
                   </p>
                 </div>
               </div>
@@ -202,44 +184,6 @@ export default function DatenschutzPage() {
                   </p>
                 </div>
               </div>
-            </section>
-            
-            <Separator className="my-8" />
-            
-            <section className="mb-8">
-              <h2 className="text-xl font-semibold mb-4 pb-2 border-b-2 border-primary inline-block">
-                Externe Dienste und Inhalte
-              </h2>
-              
-              <div className="flex items-start gap-3 mb-6">
-                <Globe className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="font-medium mb-2">Website-Analyse</h3>
-                  <p className="text-muted-foreground mb-4">
-                    Wir nutzen grundlegende Analysedienste, um die Nutzung unserer Website zu verstehen und zu verbessern. Dabei werden verschiedene Nutzungsdaten erfasst, wie beispielsweise aufgerufene Seiten, Verweildauer, Herkunftsseiten und grundlegende Informationen über Browser und Betriebssystem. Diese Daten werden anonymisiert verarbeitet und dienen ausschließlich statistischen Zwecken sowie der Optimierung unseres Angebots.
-                  </p>
-                  <p className="text-muted-foreground">
-                    Die Rechtsgrundlage für diese Datenverarbeitung ist unser berechtigtes Interesse nach Art. 6 Abs. 1 lit. f DSGVO, unsere Webseite zu optimieren und die Nutzererfahrung zu verbessern.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-3 mb-6">
-                <Settings className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="font-medium mb-2">Facebook Pixel</h3>
-                  <p className="text-muted-foreground mb-4">
-                    Unsere Website verwendet den "Facebook-Pixel" der Meta Platforms Ireland Ltd., 4 Grand Canal Square, Grand Canal Harbour, Dublin 2, Irland. Dieser ermöglicht es uns, die Wirksamkeit unserer Werbeanzeigen zu messen, indem wir das Verhalten von Besuchern verfolgen, nachdem diese eine Facebook-Anzeige gesehen oder geklickt haben.
-                  </p>
-                  <p className="text-muted-foreground mb-4">
-                    Durch die Verwendung des Facebook-Pixels können wir auch Ihnen auf Facebook und Instagram interessenbasierte Werbeanzeigen anzeigen ("Facebook-Ads"). In diesem Prozess werden keine personenbezogenen Daten an Facebook übermittelt, die eine direkte Identifikation einzelner Nutzer erlauben würden.
-                  </p>
-                  <p className="text-muted-foreground">
-                    Die Rechtsgrundlage für die Nutzung des Facebook-Pixels ist Ihre Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO. Sie können der Datenerfassung durch Facebook-Pixel jederzeit widersprechen, indem Sie Ihre Cookie-Einstellungen in Ihrem Browser anpassen oder Tools wie die Facebook-Opt-Out-Funktion nutzen.
-                  </p>
-                </div>
-              </div>
-              
             </section>
             
             <Separator className="my-8" />
