@@ -80,10 +80,10 @@ export default function ImpressumPage() {
               <div className="flex items-start gap-3 mb-6">
                 <Globe className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                 <div>
-                  <p className="font-medium text-muted-foreground">Handelsregister</p>
+                  <p className="font-medium text-muted-foreground">Steuernummer</p>
                   <p>
-                    Amtsgericht Musterstadt<br />
-                    Handelsregisternummer: HRB 12345
+                    Amtsgericht München<br />
+                    Steuernummer: 143/179/71983
                   </p>
                 </div>
               </div>
@@ -92,7 +92,7 @@ export default function ImpressumPage() {
                 <FileText className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-medium text-muted-foreground">Umsatzsteuer-Identifikationsnummer</p>
-                  <p>DE 123456789</p>
+                  <p>DE363648231</p>
                 </div>
               </div>
               
