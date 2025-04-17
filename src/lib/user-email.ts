@@ -109,109 +109,139 @@ const generateFirmaConfirmationTemplate = (data: ContactRequest): string => {
  * Generate confirmation email template for users who submit the Bewerber form
  */
 const generateBewerberConfirmationTemplate = (data: JobApplication): string => {
-  return `
-    <html>
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-          body { 
-            font-family: Arial, sans-serif; 
-            line-height: 1.6; 
-            color: #333; 
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-          }
-          .container { 
-            width: 95%; 
-            max-width: 600px; 
-            margin: 0 auto; 
-            padding: 20px 0; 
-          }
-          h1 { 
-            color: #0C462B; 
-            border-bottom: 2px solid #eee; 
-            padding-bottom: 10px; 
-            margin-bottom: 20px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-          }
-          p { margin-bottom: 16px; }
-          .section { margin-bottom: 20px; }
-          .info-box {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-            padding: 15px;
-            margin-bottom: 12px;
-          }
-          .highlight { 
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-            padding: 20px; 
-            border-left: 4px solid #16a34a; 
-            margin-bottom: 20px;
-          }
-          .steps {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-            padding: 15px;
-            margin: 20px 0;
-          }
-          .step {
-            padding: 10px;
-            border-bottom: 1px solid #eee;
-          }
-          .step:last-child {
-            border-bottom: none;
-          }
-          .footer {
-            text-align: center;
-            font-size: 14px;
-            color: #666;
-            margin-top: 30px;
-            padding-top: 15px;
-            border-top: 1px solid #ddd;
-          }
-        </style>
-      </head>
-      <body>
-        <div class="container">
-          <h1>Bewerbung erhalten</h1>
-          
-          <p>Hallo ${data.firstName},</p>
-          
-          <p>vielen Dank für deine Bewerbung bei Sellwell. Wir freuen uns über dein Interesse an einer Karriere im Vertrieb!</p>
-          
-          <div class="highlight">
-            <strong>Warum du zu Sellwell passt:</strong><br>
-            ${data.fitReason.replace(/\n/g, '<br>')}
+    return `
+      <html>
+        <head>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <style>
+            body { 
+              font-family: Arial, sans-serif; 
+              line-height: 1.6; 
+              color: #333; 
+              margin: 0;
+              padding: 0;
+              background-color: #f5f5f5;
+            }
+            .container { 
+              width: 90%; 
+              max-width: 500px; 
+              margin: 0 auto; 
+              padding: 20px 15px; 
+            }
+            @media (max-width: 480px) {
+              .container {
+                width: 85%;
+                padding: 15px 10px;
+              }
+            }
+            h1 { 
+              color: #2D7D63; 
+              padding-bottom: 10px; 
+              margin-bottom: 20px;
+              font-weight: 800;
+              letter-spacing: -0.5px;
+            }
+            p { margin-bottom: 16px; }
+            .button {
+              display: inline-block;
+              background: linear-gradient(to right, #19483B, #2D7D63);
+              color: white;
+              text-decoration: none;
+              font-weight: bold;
+              padding: 12px 24px;
+              border-radius: 25px;
+              margin: 15px 0;
+              text-align: center;
+            }
+            .social-icons {
+              margin: 25px 0;
+            }
+            .social-icon {
+              display: inline-block;
+              margin-right: 15px;
+              color: #2D7D63;
+              text-decoration: none;
+            }
+            .contact-info {
+              margin-top: 30px;
+              padding-top: 20px;
+              border-top: 1px solid #ddd;
+            }
+            .contact-item {
+              display: flex;
+              align-items: center;
+              margin-bottom: 8px;
+            }
+            .icon {
+              margin-right: 10px;
+              width: 16px;
+              height: 16px;
+            }
+            .footer {
+              text-align: center;
+              font-size: 14px;
+              color: #666;
+              margin-top: 30px;
+              padding-top: 15px;
+              border-top: 1px solid #ddd;
+            }
+            .footer a {
+              color: #2D7D63;
+              text-decoration: none;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <p>Hallo ${data.firstName},</p>
+            
+            <p>vielen Dank für deine Bewerbung. Wir freuen uns über dein Interesse, als Vertriebler bei uns durchzustarten.</p>
+            
+            <p>Unser Team bearbeitet deine Bewerbung so schnell wie möglich und wir melden uns in Kürze bei dir mit weiteren Informationen.</p>
+            
+            <p>Falls du es noch nicht getan haben solltest, gehe gerne einmal unseren kurzen Persönlichkeitstest durch, um deinen Auswahlprozess zu beschleunigen.</p>
+            
+            <a href="https://sellwell-consulting.de/personality" class="button">ZUM PERSÖNLICHKEITSTEST</a>
+            
+            <p>Um einen besseren Einblick in eine Karriere bei Sellwell zu bekommen, kannst du uns auch gerne auf Instagram und Youtube folgen.</p>
+            
+            <div class="social-icons">
+              <a href="https://youtube.com/sellwell" class="social-icon">
+                <img src="https://sellwell-consulting.de/assets/youtube-icon.png" alt="Youtube" width="24" height="24" style="vertical-align: middle;"> Youtube
+              </a>
+              
+              <a href="https://instagram.com/sellwell" class="social-icon">
+                <img src="https://sellwell-consulting.de/assets/instagram-icon.png" alt="Instagram" width="24" height="24" style="vertical-align: middle;"> Instagram
+              </a>
+            </div>
+            
+            <p>Bis bald<br>
+            dein Sellwell Team</p>
+            
+            <div class="contact-info">
+              <div class="contact-item">
+                <img src="https://sellwell-consulting.de/assets/phone-icon.png" alt="Telefon" class="icon">
+                +49 176 76869448
+              </div>
+              <div class="contact-item">
+                <img src="https://sellwell-consulting.de/assets/email-icon.png" alt="Email" class="icon">
+                info@sell-well-consulting.de
+              </div>
+              <div class="contact-item">
+                <img src="https://sellwell-consulting.de/assets/address-icon.png" alt="Adresse" class="icon">
+                Edelweißstraße 6, 81541 München
+              </div>
+            </div>
+            
+            <div class="footer">
+              <a href="https://sellwell-consulting.de/impressum">Impressum</a> | 
+              <a href="https://sellwell-consulting.de/datenschutz">Datenschutz</a>
+            </div>
           </div>
-          
-          <p>Hier sind die nächsten Schritte in unserem Bewerbungsprozess:</p>
-          
-          <div class="steps">
-            <div class="step">1. <strong>Bewerbungseingang</strong> - Erledigt ✓</div>
-            <div class="step">2. <strong>Erstgespräch</strong> - Ein Recruiter wird dich innerhalb von 5 Werktagen kontaktieren</div>
-            <div class="step">3. <strong>Fachgespräch</strong> - Bei gegenseitigem Interesse</div>
-            <div class="step">4. <strong>Angebot</strong> - Der Start deiner Karriere bei Sellwell</div>
-          </div>
-          
-          <p>Falls du Fragen hast, kannst du uns gerne unter <a href="mailto:recruiting@sellwell-consulting.de">recruiting@sellwell-consulting.de</a> kontaktieren.</p>
-          
-          <p>Viele Grüße,<br>
-          Das Recruiting-Team von Sellwell</p>
-          
-          <div class="footer">
-            <p>© 2025 Sellwell Consulting | <a href="https://sellwell-consulting.de/karriere">sellwell-consulting.de/karriere</a></p>
-          </div>
-        </div>
-      </body>
-    </html>
-  `;
-};
+        </body>
+      </html>
+    `;
+  };
 
 /**
  * Send confirmation email to company contact request submitter
