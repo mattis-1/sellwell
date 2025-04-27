@@ -33,8 +33,10 @@ export default function SellwellFaqSection() {
   const [isIntersecting, setIsIntersecting] = useState(false)
   const [openFaqs, setOpenFaqs] = useState<number[]>([0]) // Start with first FAQ open, now using array
   const sectionRef = useRef<HTMLElement>(null)
+  const sliderRef = useRef<HTMLDivElement>(null)
   const [touchStart, setTouchStart] = useState<number | null>(null)
   const [touchEnd, setTouchEnd] = useState<number | null>(null)
+  const [scrollPosition, setScrollPosition] = useState(0)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -67,14 +69,52 @@ export default function SellwellFaqSection() {
     })
   }
 
+  // Minimum distance required for swipe
+  const minSwipeDistance = 50
+
   // Swipe handling for mobile
   const onTouchStart = (e: React.TouchEvent) => {
     setTouchEnd(null)
     setTouchStart(e.targetTouches[0].clientX)
+    
+    // Store the current scroll position
+    if (sliderRef.current) {
+      setScrollPosition(sliderRef.current.scrollLeft)
+    }
   }
 
   const onTouchMove = (e: React.TouchEvent) => {
     setTouchEnd(e.targetTouches[0].clientX)
+    
+    // Calculate and apply immediate scroll for a dragging effect
+    if (touchStart !== null && sliderRef.current) {
+      const xDiff = touchStart - e.targetTouches[0].clientX;
+      sliderRef.current.scrollLeft = scrollPosition + xDiff;
+    }
+  }
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    
+    if (sliderRef.current) {
+      if (isLeftSwipe) {
+        // Scroll right
+        sliderRef.current.scrollBy({
+          left: window.innerWidth / 2,
+          behavior: 'smooth'
+        });
+      } else if (isRightSwipe) {
+        // Scroll left
+        sliderRef.current.scrollBy({
+          left: -window.innerWidth / 2,
+          behavior: 'smooth'
+        });
+      }
+    }
   }
 
   return (
@@ -91,9 +131,12 @@ export default function SellwellFaqSection() {
         <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 z-10 bg-gradient-to-l from-white to-transparent"></div>
         
         <div 
-          className="flex sellwell-marquee-content whitespace-nowrap h-[300px] md:h-[500px]"
+          ref={sliderRef}
+          className="flex overflow-x-auto scrollbar-hide h-[300px] md:h-[500px] scroll-smooth"
+          style={{scrollbarWidth: 'none', msOverflowStyle: 'none'}}
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
         >
           {[...images, ...images, ...images].map((image, index) => (
             <div key={index} className="w-[240px] h-[300px] md:w-[300px] md:h-[500px] flex-shrink-0 mx-2">
