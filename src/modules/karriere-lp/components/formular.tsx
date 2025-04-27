@@ -35,12 +35,12 @@ export default function ApplicationForm() {
     try {
       // Track form submission event
       if (typeof window !== "undefined") {
-        // @ts-ignore
+        // @ts-expect-error - gtag may not be defined on window
         window.gtag?.("event", "form_submission", {
           event_category: "Application",
           event_label: "Application Form Submitted",
         })
-        // @ts-ignore
+        // @ts-expect-error - fbq may not be defined on window
         window.fbq?.("track", "Lead")
       }
 
