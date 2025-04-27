@@ -1,0 +1,232 @@
+/* Sellwell Landing Page Scoped Styles */
+.sellwell-landing {
+    /* Base styles */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+      "Helvetica Neue", sans-serif;
+  }
+  
+  /* Font faces - these will be available globally, but that's usually fine for fonts */
+  @font-face {
+    font-family: "Mazard Bold";
+    src: url("/fonts/MazardBold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "Mazard Medium";
+    src: url("/fonts/MazardMedium.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  /* Scoped component styles */
+  .sellwell-landing h1,
+  .sellwell-landing h2,
+  .sellwell-landing h3,
+  .sellwell-landing h4,
+  .sellwell-landing h5,
+  .sellwell-landing h6 {
+    font-family: "Mazard Bold", system-ui, sans-serif;
+    font-weight: 700;
+  }
+  
+  .sellwell-landing p,
+  .sellwell-landing span,
+  .sellwell-landing div,
+  .sellwell-landing li {
+    font-family: "Mazard Medium", system-ui, sans-serif;
+  }
+  
+  /* Button styles */
+  .sellwell-btn-primary {
+    background-image: linear-gradient(to right, #16a34a, #166534);
+    color: white;
+    font-weight: 700;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    transition: all 300ms;
+  }
+  
+  .sellwell-btn-primary:hover {
+    box-shadow: 0 10px 15px -3px rgba(134, 239, 172, 0.3);
+  }
+  
+  .sellwell-btn-primary:active {
+    transform: scale(0.95);
+  }
+  
+  .sellwell-btn-primary:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #22c55e, 0 0 0 4px white;
+  }
+  
+  .sellwell-btn-secondary {
+    background-color: transparent;
+    border: 2px solid #86efac;
+    color: #15803d;
+    font-weight: 700;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    transition: all 300ms;
+  }
+  
+  .sellwell-btn-secondary:hover {
+    background-color: rgba(134, 239, 172, 0.1);
+  }
+  
+  .sellwell-btn-secondary:active {
+    transform: scale(0.95);
+  }
+  
+  .sellwell-btn-secondary:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #86efac, 0 0 0 4px white;
+  }
+  
+  /* Card styles */
+  .sellwell-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    transition: all 300ms;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sellwell-card-glass {
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    transition: all 300ms;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+  }
+  
+  /* Section styles */
+  .sellwell-section {
+    padding: 4rem 1rem;
+  }
+  
+  @media (min-width: 768px) {
+    .sellwell-section {
+      padding: 6rem 1rem;
+    }
+  }
+  
+  .sellwell-section-alt {
+    padding: 4rem 1rem;
+    background-color: #f9fafb;
+  }
+  
+  @media (min-width: 768px) {
+    .sellwell-section-alt {
+      padding: 6rem 1rem;
+    }
+  }
+  
+  /* Container */
+  .sellwell-container {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Benefit containers */
+  .sellwell-benefit-container {
+    border: 2px solid #15803d;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .sellwell-benefit-container-alt {
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  /* Icon styles */
+  .sellwell-icon {
+    color: #15803d;
+    width: 3rem;
+    height: 3rem;
+    transition: all 300ms;
+  }
+  
+  /* Form styles */
+  .sellwell-form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #d1d5db;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .sellwell-form-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #22c55e;
+  }
+  
+  .sellwell-form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #374151;
+  }
+  
+  .sellwell-form-section {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 500ms;
+  }
+  
+  .sellwell-form-section.active {
+    max-height: 1000px;
+  }
+  
+  /* Animation utilities */
+  .sellwell-fade-up {
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: all 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  
+  .sellwell-fade-up.appear {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Marquee animation */
+  .sellwell-marquee {
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .sellwell-marquee-content {
+    display: flex;
+    white-space: nowrap;
+    animation: sellwell-marquee 30s linear infinite;
+  }
+  
+  @keyframes sellwell-marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
