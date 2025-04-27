@@ -45,12 +45,12 @@ export default function SellwellHero() {
   return (
     <section
       ref={sectionRef}
-      className={`sellwell-section bg-white flex flex-col items-center min-h-screen transition-opacity duration-1000 ${
+      className={`sellwell-section bg-white flex flex-col items-center min-h-screen transition-opacity duration-1000 p-0 ${
         isIntersecting ? "opacity-100" : "opacity-0"
       }`}
     >
-      {/* Benefits Banner */}
-      <div className="w-full bg-green-700 text-white overflow-hidden">
+      {/* Benefits Banner - Moved to top with full width */}
+      <div className="w-screen bg-green-700 text-white overflow-hidden">
         <div className="sellwell-marquee">
           <div className="sellwell-marquee-content">
             {allBenefits.map((benefit, index) => (

@@ -33,6 +33,8 @@ export default function SellwellFaqSection() {
   const [isIntersecting, setIsIntersecting] = useState(false)
   const [openFaqs, setOpenFaqs] = useState<number[]>([0]) // Start with first FAQ open, now using array
   const sectionRef = useRef<HTMLElement>(null)
+  const [touchStart, setTouchStart] = useState<number | null>(null)
+  const [touchEnd, setTouchEnd] = useState<number | null>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -65,16 +67,36 @@ export default function SellwellFaqSection() {
     })
   }
 
+  // Swipe handling for mobile
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null)
+    setTouchStart(e.targetTouches[0].clientX)
+  }
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX)
+  }
+
   return (
     <section
       ref={sectionRef}
-      className={`sellwell-section relative transition-all duration-1000 ${isIntersecting ? "opacity-100" : "opacity-0"}`}
+      className={`sellwell-section relative transition-all duration-1000 p-0 ${isIntersecting ? "opacity-100" : "opacity-0"}`}
     >
-      {/* Image Slider */}
-      <div className="w-full h-[400px] md:h-[500px] overflow-hidden relative">
-        <div className="flex sellwell-marquee-content whitespace-nowrap">
-          {[...images, ...images].map((image, index) => (
-            <div key={index} className="w-[300px] h-[400px] md:h-[500px] flex-shrink-0 mx-2">
+      {/* Image Slider - Full width with fade gradients */}
+      <div className="w-screen relative overflow-hidden">
+        {/* Left gradient */}
+        <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 z-10 bg-gradient-to-r from-white to-transparent"></div>
+        
+        {/* Right gradient */}
+        <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 z-10 bg-gradient-to-l from-white to-transparent"></div>
+        
+        <div 
+          className="flex sellwell-marquee-content whitespace-nowrap h-[300px] md:h-[500px]"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+        >
+          {[...images, ...images, ...images].map((image, index) => (
+            <div key={index} className="w-[240px] h-[300px] md:w-[300px] md:h-[500px] flex-shrink-0 mx-2">
               <Image
                 src={`/${image}`}
                 alt={`Team Image ${index + 1}`}
@@ -94,7 +116,7 @@ export default function SellwellFaqSection() {
       </div>
 
       {/* FAQ Container */}
-      <div className="sellwell-container -mt-40 md:-mt-60 relative z-10">
+      <div className="sellwell-container -mt-20 md:-mt-40 relative z-10">
         <div className="sellwell-card p-6 md:p-10 max-w-3xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-8">Häufig gestellte Fragen</h2>
 

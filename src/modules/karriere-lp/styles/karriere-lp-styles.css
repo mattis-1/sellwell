@@ -105,23 +105,23 @@
   
   /* Section styles */
   .sellwell-section {
-    padding: 4rem 1rem;
+    padding: 0 0 4rem 0;
   }
   
   @media (min-width: 768px) {
     .sellwell-section {
-      padding: 6rem 1rem;
+      padding: 0 0 6rem 0;
     }
   }
   
   .sellwell-section-alt {
-    padding: 4rem 1rem;
+    padding: 4rem 0;
     background-color: #f9fafb;
   }
   
   @media (min-width: 768px) {
     .sellwell-section-alt {
-      padding: 6rem 1rem;
+      padding: 6rem 0;
     }
   }
   
@@ -131,6 +131,8 @@
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
   
   /* Benefit containers */
