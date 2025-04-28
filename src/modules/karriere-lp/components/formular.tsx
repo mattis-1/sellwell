@@ -239,7 +239,7 @@ const Formular = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  // Submit handler with API integration and redirect
+  // Submit handler with faster redirection
   const handleSubmit = async () => {
     const isValid = validateCurrentQuestion();
     if (!isValid) return;
@@ -279,24 +279,11 @@ const Formular = () => {
         throw new Error(`Server responded with an error: ${response.status}`);
       }
       
-      // Get the response data
-      const result = await response.json();
+      // Immediately redirect without showing any alerts
+      window.location.href = '/danke?lead=true';
       
-      // Display success message
-      alert('Bewerbung erfolgreich eingereicht!');
-      
-      // Redirect to thank you page
-      if (result.redirectUrl) {
-        window.location.href = result.redirectUrl;
-      } else {
-        window.location.href = '/danke?lead=true';
-      }
-      
-      // Reset form (though not needed due to redirect)
-      setFormData(initialFormData);
-      setCurrentQuestion(0);
     } catch (error) {
-      // Handle error
+      // Only show error alerts
       console.error('Error submitting form:', error);
       alert('Es gab einen Fehler bei der Übermittlung. Bitte versuche es erneut.');
       setIsSubmitting(false);
@@ -314,7 +301,7 @@ const Formular = () => {
         { value: true, label: 'Ja' },
         { value: false, label: 'Nein' },
       ],
-      icon: <Briefcase className="h-6 w-6 text-green-700" />,
+      icon: <Briefcase className="h-6 w-6 text-[#1899C6]" />,
     },
     {
       id: 'experienceLevel',
@@ -322,11 +309,11 @@ const Formular = () => {
       question: 'Wie viel Erfahrung?',
       field: 'experienceLevel',
       options: [
-        { value: 'Unter_1_Jahr', label: 'Unter 1 Jahr' },
-        { value: '1-3_Jahre', label: '1-3 Jahre' },
-        { value: '3+_Jahre', label: '3+ Jahre' },
+        { value: 'under1', label: 'Unter 1 Jahr' },
+        { value: '1to3', label: '1-3 Jahre' },
+        { value: 'over3', label: '3+ Jahre' },
       ],
-      icon: <Clock className="h-6 w-6 text-green-700" />,
+      icon: <Clock className="h-6 w-6 text-[#1899C6]" />,
       condition: () => formData.hasSalesExperience === true,
     },
     {
@@ -341,7 +328,7 @@ const Formular = () => {
         { value: 'teamSpirit', label: 'Teamspirit' },
         { value: 'responsibility', label: 'Eigenverantwortung' },
       ],
-      icon: <GraduationCap className="h-6 w-6 text-green-700" />,
+      icon: <GraduationCap className="h-6 w-6 text-[#1899C6]" />,
     },
     {
       id: 'peopleContact',
@@ -352,14 +339,14 @@ const Formular = () => {
       max: 5,
       minLabel: 'Gar nicht',
       maxLabel: 'Sehr gerne',
-      icon: <Users className="h-6 w-6 text-green-700" />,
+      icon: <Users className="h-6 w-6 text-[#1899C6]" />,
     },
     {
       id: 'greatestStrength',
       type: 'textarea',
       question: 'Was würdest du als deine größte Stärke für den Vertrieb bezeichnen?',
       field: 'greatestStrength',
-      icon: <Zap className="h-6 w-6 text-green-700" />,
+      icon: <Zap className="h-6 w-6 text-[#1899C6]" />,
     },
     {
       id: 'driversLicense',
@@ -370,7 +357,7 @@ const Formular = () => {
         { value: true, label: 'Ja' },
         { value: false, label: 'Nein' },
       ],
-      icon: <Car className="h-6 w-6 text-green-700" />,
+      icon: <Car className="h-6 w-6 text-[#1899C6]" />,
     },
     {
       id: 'name',
@@ -378,7 +365,7 @@ const Formular = () => {
       question: 'Wie heißt Du?',
       fields: ['firstName', 'lastName'],
       labels: ['Vorname', 'Nachname'],
-      icon: <User className="h-6 w-6 text-green-700" />,
+      icon: <User className="h-6 w-6 text-[#1899C6]" />,
     },
     {
       id: 'contact',
@@ -390,7 +377,7 @@ const Formular = () => {
         <Mail className="h-6 w-6 text-green-700" key="mail-icon" />,
         <Phone className="h-6 w-6 text-green-700" key="phone-icon" />
       ],
-      icon: <Mail className="h-6 w-6 text-green-700" />, // Required icon property
+      icon: <Mail className="h-6 w-6 text-[#1899C6]" />, // Required icon property
     },
   ];
 

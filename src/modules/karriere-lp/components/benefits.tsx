@@ -3,6 +3,7 @@
 import { useRef, useEffect, useState } from "react"
 import { Lightbulb, Users, TrendingUp } from "lucide-react"
 import Link from "next/link"
+import Button from "@/modules/karriere-lp/components/button"
 
 export default function SellwellBenefits() {
   const [isIntersecting, setIsIntersecting] = useState(false)
@@ -74,9 +75,7 @@ export default function SellwellBenefits() {
         </div>
 
         <div className="text-center mt-12">
-          <Link href="#sellwell-application-form" className="sellwell-btn-primary inline-block">
-            Jetzt schnell bewerben
-          </Link>
+          <a href="#formular"><Button>JETZT SCHNELL BEWERBEN</Button></a>
           <p className="text-sm text-gray-500 mt-2">Ohne Lebenslauf und Anschreiben</p>
         </div>
       </div>

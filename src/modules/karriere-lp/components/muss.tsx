@@ -2,7 +2,7 @@
 
 import { useRef, useEffect, useState } from "react"
 import { Check } from "lucide-react"
-import Link from "next/link"
+import Button from "@/modules/karriere-lp/components/button"
 
 const requirements = [
   "Du kommunizierst gerne mit anderen Menschen",
@@ -57,9 +57,9 @@ export default function SellwellRequirements() {
           </ul>
 
           <div className="text-center mt-12">
-            <Link href="#sellwell-application-form" className="sellwell-btn-primary inline-block">
-              Jetzt bewerben
-            </Link>
+            
+            <a href="#formular"><Button>JETZT BEWERBEN</Button>
+          <p className="text-sm text-gray-500 mt-2">In unter 60 Sekunden</p></a>
           </div>
         </div>
       </div>

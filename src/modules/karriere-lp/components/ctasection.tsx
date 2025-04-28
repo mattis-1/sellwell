@@ -2,6 +2,8 @@
 
 import { useRef, useEffect, useState } from "react"
 import Link from "next/link"
+import Button from "@/modules/karriere-lp/components/button"
+
 
 export default function SellwellCtaSection() {
   const [isIntersecting, setIsIntersecting] = useState(false)
@@ -49,12 +51,7 @@ export default function SellwellCtaSection() {
             Klicke jetzt hier unten auf den Button und bewirb dich in unter 5 Minuten ohne Anschreiben und ohne
             Lebenslauf
           </p>
-          <Link
-            href="#sellwell-application-form"
-            className="sellwell-btn-primary bg-white text-green-700 hover:bg-gray-100 inline-block"
-          >
-            Jetzt bewerben
-          </Link>
+          <a href="#formular"><Button>JETZT BEWERBEN</Button></a>
         </div>
       </div>
     </section>

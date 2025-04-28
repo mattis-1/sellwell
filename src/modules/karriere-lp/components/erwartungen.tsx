@@ -2,7 +2,8 @@
 
 import { useRef, useEffect, useState } from "react"
 import { BookOpen, Clock, TrendingUp } from "lucide-react"
-import Link from "next/link"
+import Button from "@/modules/karriere-lp/components/button"
+
 
 export default function SellwellExpectations() {
   const [isIntersecting, setIsIntersecting] = useState(false)
@@ -72,10 +73,9 @@ export default function SellwellExpectations() {
         </div>
 
         <div className="text-center mt-12">
-          <Link href="#sellwell-application-form" className="sellwell-btn-primary inline-block">
-            Jetzt schnell bewerben
-          </Link>
-          <p className="text-sm text-gray-500 mt-2">Ohne Lebenslauf und Anschreiben</p>
+          
+           <a href="#formular"><Button>JETZT SCHNELL BEWERBEN</Button>
+          <p className="text-sm text-gray-500 mt-2">Ohne Lebenslauf und Anschreiben</p></a>
         </div>
       </div>
     </section>
