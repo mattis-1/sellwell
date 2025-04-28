@@ -36,10 +36,6 @@ export default function ThankYouPage() {
       }`}
     >
       <div className="max-w-3xl mx-auto px-6 py-16 text-center relative">
-        {/* Background glow */}
-        <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10">
-          <div className="w-[500px] h-[500px] bg-[#22d3ee] rounded-full filter blur-3xl opacity-20" />
-        </div>
 
         {/* Success icon or checkmark */}
         <div className="flex justify-center mb-8">
