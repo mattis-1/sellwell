@@ -34,7 +34,8 @@ export default function SellwellBenefits() {
       className={`sellwell-section-alt transition-all duration-1000 ${isIntersecting ? "opacity-100" : "opacity-0"}`}
     >
       <div className="sellwell-container">
-        <Subhead>Deine Vorteile bei Sellwell</Subhead>
+        <div className="mx-auto">
+        <Subhead>Deine Vorteile bei Sellwell</Subhead></div>
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Grenzenloses Wachstum beginnt hier</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -44,8 +45,8 @@ export default function SellwellBenefits() {
               <Image 
               src="/shx-icon1.svg"
               alt="icon"
-              width={50}
-              height={50}
+              width={75}
+              height={75}
               />
             </div>
             <h3 className="text-xl font-bold mb-3">Endlose Verdienstmöglichkeiten</h3>
@@ -61,8 +62,8 @@ export default function SellwellBenefits() {
             <Image 
               src="/shx-icon2.svg"
               alt="icon"
-              width={100}
-              height={100}
+              width={75}
+              height={75}
               />
             </div>
             <h3 className="text-xl font-bold mb-3">Individuelle Unterstützung, von 0 auf</h3>
@@ -78,8 +79,8 @@ export default function SellwellBenefits() {
             <Image 
               src="/shx-icon3.svg"
               alt="icon"
-              width={25}
-              height={25}
+              width={75}
+              height={75}
               />
             </div>
             <h3 className="text-xl font-bold mb-3">Ambitioniertes & spaßiges Umfeld</h3>

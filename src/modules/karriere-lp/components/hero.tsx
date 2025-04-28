@@ -56,7 +56,12 @@ export default function SellwellHero() {
             {allBenefits.map((benefit, index) => (
               <div key={index} className="flex items-center mx-4">
                 <span>{benefit}</span>
-                <div className="mx-3 w-2 h-2 bg-green-300 rounded-full"></div>
+                <Image 
+                src="/check-lp.svg"
+                alt="check"
+                width={50}
+                height={50}
+                />
               </div>
             ))}
           </div>
