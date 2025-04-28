@@ -80,7 +80,7 @@ export default function SellwellFaqSection() {
       <div className="absolute bottom-0 left-0 right-0 h-[70vh] z-0 pointer-events-none bg-gradient-to-t from-[#1E5645] to-transparent"></div>
 
       {/* Image Slider - Enhanced infinite version */}
-      <div className="w-screen relative overflow-hidden bg-gray-50">
+      <div className="w-screen relative overflow-hidden bg-white">
         {/* Left gradient */}
         <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 z-10 bg-gradient-to-r from-gray-50 to-transparent"></div>
         
