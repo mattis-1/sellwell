@@ -662,11 +662,12 @@ const Formular = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center p-0">
+    <div className="w-full flex flex-col items-center">
       {/* Add custom styles */}
       <style>{tailwindStyles}</style>
       
-      <div className="w-full max-w-xl overflow-hidden px-3 sm:px-4">
+      {/* Wrap the form in a div with auto height instead of min-h-screen */}
+      <div className="w-full max-w-xl px-3 sm:px-4 my-4">
         {/* Improved Progress bar */}
         <div className="h-2 bg-gray-100 rounded-full overflow-hidden mb-4">
           <div 
@@ -675,7 +676,7 @@ const Formular = () => {
           />
         </div>
         
-        <div className="px-3 py-4 sm:px-4 sm:py-6">
+        <div className="bg-white rounded-xl shadow-lg px-3 py-4 sm:px-4 sm:py-6">
           {/* Main content with dynamic height */}
           <div className="flex flex-col justify-between">
             <AnimatePresence mode="wait" initial={false} custom={direction}>

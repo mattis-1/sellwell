@@ -34,7 +34,8 @@ export default function SellwellFaqSection() {
   const [openFaqs, setOpenFaqs] = useState<number[]>([0]) 
   const sectionRef = useRef<HTMLElement>(null)
   const sliderRef = useRef<HTMLDivElement>(null)
-  const [animationPaused, setAnimationPaused] = useState(false)
+  const [isAutoScrolling, setIsAutoScrolling] = useState(true)
+  // Animation will run continuously without pausing
   
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -59,14 +60,7 @@ export default function SellwellFaqSection() {
   // We duplicate images multiple times to ensure the slider has enough content
   const extendedImages = [...images, ...images, ...images, ...images, ...images]
 
-  // Handle user interaction with slider
-  const pauseAutoScroll = () => {
-    setAnimationPaused(true)
-    // Resume auto-scrolling after 5 seconds of inactivity
-    setTimeout(() => {
-      setAnimationPaused(false)
-    }, 5000)
-  }
+  // No longer needed - continuous animation without pause
 
   // Updated toggle function to handle multiple open FAQs
   const toggleFaq = (index: number) => {
@@ -91,17 +85,14 @@ export default function SellwellFaqSection() {
         {/* Right gradient */}
         <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 z-10 bg-gradient-to-l from-gray-50 to-transparent"></div>
         
-        {/* Infinite slider with CSS animation */}
+        {/* Infinite slider with CSS animation - always running */}
         <div 
           ref={sliderRef}
           className="flex overflow-hidden h-[320px] md:h-[520px]"
-          onMouseEnter={pauseAutoScroll}
-          onTouchStart={pauseAutoScroll}
         >
           <div 
             className="flex animate-marquee"
             style={{ 
-              animationPlayState: animationPaused ? 'paused' : 'running',
               animationDuration: '60s',
               willChange: 'transform'
             }}

@@ -38,7 +38,7 @@ export default function SellwellExpectations() {
             <span className="font-light text-sm tracking-wide">DEINE VORTEILE BEI SELLWELL</span>
           </div>
         </div>
-        <h2 className="text-5xl md:text-6xl font-bold text-center mb-12">Was dich erwartet</h2>
+        <h2 className="text-[40px] md:text-[45px] font-bold text-center mb-12">Was dich erwartet</h2>
 
         {/* Background glow */}
         <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
@@ -47,14 +47,16 @@ export default function SellwellExpectations() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto relative z-10">
           {/* Expectation 1 */}
-          <div className="sellwell-benefit-container relative overflow-hidden rounded-lg p-6">
-            <Image
-              src="/grid-shx.svg"
-              alt=""
-              fill
-              style={{ objectFit: "contain" }}
-              className="-z-10 pointer-events-none select-none"
-            />
+          <div className="sellwell-benefit-container relative overflow-hidden rounded-lg p-6 bg-gray-50/80 backdrop-blur-sm shadow-md">
+            <div className="absolute inset-0 -z-10">
+              <Image
+                src="/grid-shx.svg"
+                alt=""
+                fill
+                style={{ objectFit: "cover" }}
+                className="pointer-events-none select-none opacity-90"
+              />
+            </div>
             <div className="mb-4">
               <Image
                 src="/shx-icon4.webp"
@@ -70,14 +72,16 @@ export default function SellwellExpectations() {
           </div>
 
           {/* Expectation 2 */}
-          <div className="sellwell-benefit-container relative overflow-hidden rounded-lg p-6">
-            <Image
-              src="/grid-shx.svg"
-              alt=""
-              fill
-              style={{ objectFit: "contain" }}
-              className="-z-10 pointer-events-none select-none"
-            />
+          <div className="sellwell-benefit-container relative overflow-hidden rounded-lg p-6 bg-gray-50/80 backdrop-blur-sm shadow-md">
+            <div className="absolute inset-0 -z-10">
+              <Image
+                src="/grid-shx.svg"
+                alt=""
+                fill
+                style={{ objectFit: "cover" }}
+                className="pointer-events-none select-none opacity-90"
+              />
+            </div>
             <div className="mb-4">
               <Image
                 src="/shx-icon5.webp"
@@ -94,14 +98,16 @@ export default function SellwellExpectations() {
           </div>
 
           {/* Expectation 3 */}
-          <div className="sellwell-benefit-container relative overflow-hidden rounded-lg p-6">
-            <Image
-              src="/grid-shx.svg"
-              alt=""
-              fill
-              style={{ objectFit: "contain" }}
-              className="-z-10 pointer-events-none select-none"
-            />
+          <div className="sellwell-benefit-container relative overflow-hidden rounded-lg p-6 bg-gray-50/80 backdrop-blur-sm shadow-md">
+            <div className="absolute inset-0 -z-10">
+              <Image
+                src="/grid-shx.svg"
+                alt=""
+                fill
+                style={{ objectFit: "cover" }}
+                className="pointer-events-none select-none opacity-90"
+              />
+            </div>
             <div className="mb-4">
               <Image
                 src="/shx-icon6.webp"

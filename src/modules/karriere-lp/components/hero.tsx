@@ -61,7 +61,7 @@ export default function SellwellHero() {
                 alt="check"
                 width={35}
                 height={35}
-                className="pr-2.5 pl-1"
+                className="pr-2.5 pl-2"
                 />
               </div>
             ))}

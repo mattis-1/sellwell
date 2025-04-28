@@ -75,7 +75,7 @@ export default function SellwellTestimonials() {
             <span className="font-light text-sm tracking-wide">TEAMKULTUR BEI SELLWELL</span>
           </div>
         </div>
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">Das sagt<span className="special-text">unser Team</span></h2>
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">Das sagt <span className="special-text">unser Team</span></h2>
 
         <div className="relative w-screen -mx-[calc(50vw-50%)]">
           <div className="bg-[#1395C0] py-12">
