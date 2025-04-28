@@ -4,9 +4,6 @@ import { useRef, useEffect, useState } from "react"
 import Button from "@/modules/karriere-lp/components/button"
 import Image from "next/image"
 
-// Updated button component with proper TypeScript types
-
-
 const requirements = [
   {
     text: "Du bereit bist, richtig Gas zu geben und viel Geld zu verdienen",
@@ -35,7 +32,6 @@ export default function SellwellRequirements() {
         const [entry] = entries
         if (entry.isIntersecting) {
           setIsVisible(true)
-          // Unobserve after activation to improve performance
           if (sectionRef.current) observer.unobserve(sectionRef.current)
         }
       },
@@ -61,41 +57,29 @@ export default function SellwellRequirements() {
       }`}
     >
       <div className="sellwell-container-2 max-w-4xl mx-auto">
-        {/* Glassmorphic container with image */}
-        <div className="sellwell-benefit-container-alt rounded-[33px] p-3 mb-10 max-w-md mx-auto">
-          <Image
-            src="/sellwellteam.png" // Replace with your actual image path
-            alt="Sellwell Team"
-            width={300}
-            height={200}
-            className="rounded-[33px] object-cover mb-2"
-            onError={(e) => {
-              // Fallback if image fails to load
-              const target = e.target as HTMLImageElement;
-              if (target) {
-                target.style.display = 'none';
-              }
-            }}
-          />
-        </div>
-
-        <div className="text-center mb-10">
-          <h2 className="font-inter text-[28px] tracking-[-1.4px] leading-[37px] text-[rgb(17,17,17)] font-semibold mb-8">
+        <div className="text-center mb-8">
+          <h2 className="font-inter text-[28px] tracking-[-1.4px] leading-[37px] text-[rgb(17,17,17)] font-semibold mb-4">
             Wir suchen dich als Vertriebler im Außendienst (m/w/d)
           </h2>
+          
+          {/* Short paragraph instead of long ones */}
+          <p className="font-inter text-[16px] max-w-2xl mx-auto tracking-[-0.2px] text-[rgb(17,17,17)] mb-6">
+            Wir bieten dir einen zuverlässigen Weg, im Außendienst im Energie-Sektor erfolgreich zu werden. Unser bewährtes System ermöglicht dir, mit dem richtigen Einsatz ein überdurchschnittliches Einkommen zu erzielen.
+          </p>
+          
           <p className="font-inter text-[25px] font-semibold tracking-[-0.5px] text-[rgb(17,17,17)] mb-6">
             Bewirb dich wenn:
           </p>
         </div>
 
-        <div className="max-w-2xl mx-auto mb-12">
+        <div className="max-w-xl mx-auto mb-12">
           <ul className="space-y-3">
             {requirements.map((requirement, index) => (
               <li 
                 key={index} 
-                className="flex items-start"
+                className="flex items-start bg-white rounded-full py-2 px-4 shadow-sm"
               >
-                <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mr-4 mt-[2px]">
+                <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mr-3 mt-[2px]">
                   {/* Green checkmark */}
                   <svg 
                     width="16" 
@@ -117,21 +101,35 @@ export default function SellwellRequirements() {
             ))}
           </ul>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-8">
             <a href="#formular">
               <Button>Jetzt durchstarten</Button>
               <p className="text-sm text-gray-500 mt-2">In unter 60 Sekunden bewerben</p>
             </a>
           </div>
         </div>
+
+        {/* Full-width image container at the bottom */}
+        <div className="sellwell-benefit-container-alt relative w-full h-[300px] overflow-hidden rounded-[33px] mt-12 mb-0 p-0">
+          <Image
+            src="/sellwellteam.png"
+            alt="Sellwell Team"
+            fill
+            sizes="100vw"
+            style={{ objectFit: 'cover', objectPosition: 'center' }}
+            className="rounded-[33px]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.6)] to-transparent"></div>
+          <div className="absolute bottom-6 left-0 w-full text-center">
+            <p className="text-white font-semibold text-xl mb-2">Werde Teil unseres Teams</p>
+            <p className="text-white text-sm max-w-md mx-auto">Gemeinsam erfolgreich im Vertrieb</p>
+          </div>
+        </div>
       </div>
 
-      {/* Add custom CSS for the glassmorphic container */}
+      {/* Custom CSS for the glassmorphic container */}
       <style jsx global>{`
         .sellwell-benefit-container-alt {
-          border-radius: 20px;
-          align-content: flex-start;
-          align-items: flex-start;
           background-clip: border-box;
           background-image: linear-gradient(132deg, rgba(235, 255, 225, 0.5) 0%, rgba(124, 242, 165, 0.5) 100%);
           background-position-x: 0%;
@@ -139,10 +137,9 @@ export default function SellwellRequirements() {
           background-repeat: repeat;
           background-size: auto;
           background-origin: padding-box;
-          padding: 1.5rem;
-          display: flex;
           border-width: 1px;
           border-color: rgb(124, 242, 165);
+          display: flex;
           flex-direction: column;
           align-items: center;
           text-align: center;

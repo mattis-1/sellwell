@@ -1,24 +1,38 @@
+"use client"
+
 import Link from "next/link"
+import Image from "next/image"
 import { Instagram } from "lucide-react"
 
 export default function SellwellFooter() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-gradient-to-t from-[#A6F7C2] to-[#F1FFEA] text-black py-12 border-t border-px border-[#7CF2A5]">
-      <div className="sellwell-container">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-6 md:mb-0">
-            <p className="text-[25px] font-bold text-center">Sellwell Consulting GmbH</p>
-            <p className="text-gray-100 mt-1 text-center text-lg">Wo Visionen verwirklicht werden.</p>
+    <footer className="bg-gradient-to-t from-[#A6F7C2] to-[#F1FFEA] text-[#1A1A1A] py-10">
+      <div className="sellwell-container max-w-6xl mx-auto px-4">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+          {/* Logo and tagline section */}
+          <div className="flex flex-col items-center md:items-start">
+            <div className="flex items-center mb-2">
+              <Image
+                src="/sellwell-logo-black.svg" 
+                alt="Sellwell Consulting Logo"
+                width={40}
+                height={40}
+                className="mr-2"
+              />
+              <p className="text-[22px] font-semibold">Sellwell Consulting</p>
+            </div>
+            <p className="text-[#246551] font-medium text-sm md:text-base">Wo Visionen verwirklicht werden.</p>
           </div>
 
-          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
+          {/* Links section */}
+          <div className="flex flex-wrap justify-center gap-6 md:gap-8">
             <Link
               href="https://sellwell-consulting.de/impressum"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-100 hover:text-white transition-colors"
+              className="text-[#1A1A1A] hover:text-[#246551] transition-colors text-sm md:text-base"
             >
               Impressum
             </Link>
@@ -26,7 +40,7 @@ export default function SellwellFooter() {
               href="https://sellwell-consulting.de/datenschutz"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-100 hover:text-white transition-colors"
+              className="text-[#1A1A1A] hover:text-[#246551] transition-colors text-sm md:text-base"
             >
               Datenschutz
             </Link>
@@ -34,16 +48,23 @@ export default function SellwellFooter() {
               href="https://instagram.com/kress_maximilian/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-100 hover:text-white transition-colors flex items-center gap-2"
+              className="text-[#1A1A1A] hover:text-[#246551] transition-colors flex items-center gap-1.5 text-sm md:text-base"
             >
-              <Instagram className="w-5 h-5" />
+              <Instagram className="w-4 h-4 md:w-5 md:h-5" />
               <span>Instagram</span>
             </Link>
           </div>
         </div>
 
-        <div className="border-t border-white mt-8 pt-8 mx-10 text-center text-gray-100">
-          <p>&copy; {currentYear} Sellwell Consulting GmbH. Alle Rechte vorbehalten.</p>
+        {/* Divider with subtle design */}
+        <div className="my-6 relative">
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-transparent via-[#7CF2A5] to-transparent"></div>
+          <div className="border-t border-[#7CF2A580] w-full"></div>
+        </div>
+
+        {/* Copyright section */}
+        <div className="text-center">
+          <p className="text-[#1A1A1A99] text-sm">&copy; {currentYear} Sellwell Consulting GmbH. Alle Rechte vorbehalten.</p>
         </div>
       </div>
     </footer>

@@ -4,6 +4,9 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Inter, Montserrat } from 'next/font/google'
 import MetaPixel from "@/modules/karriere-lp/components/pixel";
+import UrlParamRemover from "@/modules/karriere-lp/components/urlParamRemover";
+
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -53,6 +56,7 @@ export default function RootLayout({
         )}
       >
         <MetaPixel />
+        <UrlParamRemover />
         <div className="w-full">
           {children}
         </div>

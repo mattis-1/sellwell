@@ -101,7 +101,7 @@ export default function SellwellAboutUs() {
          
 
           {/* Image frame */}
-          <div className="bg-white p-1 rounded-[30px] w-[100%] max-w-[100%] mx-auto">
+          <div className="rounded-[30px] w-[100%] max-w-[100%] mx-auto">
             <Image
               src="/Unsere Mission 2.png"
               alt="Unsere Mission"
@@ -124,7 +124,7 @@ export default function SellwellAboutUs() {
          <div className="text-center mt-8">
             <a href="#formular">
               <Button>Jetzt bewerben</Button>
-              <p className="text-sm text-gray-500 mt-2">Und Teil unseres Teams werden</p>
+              <p className="text-sm text-gray-500 mt-2">Und Teil des Teams werden</p>
             </a>
           </div>
       </div>
