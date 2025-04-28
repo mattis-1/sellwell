@@ -57,15 +57,21 @@ export default function SellwellRequirements() {
       }`}
     >
       <div className="sellwell-container-2 max-w-4xl mx-auto">
+        {/* Added image at the top of the section */}
+        <div className="mb-8 flex justify-center">
+          <Image
+            src="/WarumBei.png"
+            alt="Warum bei Sellwell"
+            width={800}
+            height={400}
+            className="rounded-[30px]"
+          />
+        </div>
+        
         <div className="text-center mb-8">
-          <h2 className="font-inter text-[28px] tracking-[-1.4px] leading-[37px] text-[rgb(17,17,17)] font-semibold mb-4">
-            Wir suchen dich als Vertriebler im Außendienst (m/w/d)
+          <h2 className="font-inter text-[32px] tracking-[-1.4px] leading-[40px] text-[rgb(17,17,17)] font-semibold mb-4">
+            Wir suchen dich als Vertriebler im Außendienst <span className="text-[24px]">(m/w/d)</span>
           </h2>
-          
-          {/* Short paragraph instead of long ones */}
-          <p className="font-inter text-[16px] max-w-2xl mx-auto tracking-[-0.2px] text-[rgb(17,17,17)] mb-6">
-            Wir bieten dir einen zuverlässigen Weg, im Außendienst im Energie-Sektor erfolgreich zu werden. Unser bewährtes System ermöglicht dir, mit dem richtigen Einsatz ein überdurchschnittliches Einkommen zu erzielen.
-          </p>
           
           <p className="font-inter text-[25px] font-semibold tracking-[-0.5px] text-[rgb(17,17,17)] mb-6">
             Bewirb dich wenn:
@@ -77,7 +83,7 @@ export default function SellwellRequirements() {
             {requirements.map((requirement, index) => (
               <li 
                 key={index} 
-                className="flex items-start bg-white rounded-full py-2 px-4 shadow-sm"
+                className="flex items-start bg-white rounded-full py-2 px-4"
               >
                 <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mr-3 mt-[2px]">
                   {/* Green checkmark */}
@@ -104,7 +110,7 @@ export default function SellwellRequirements() {
           <div className="text-center mt-8">
             <a href="#formular">
               <Button>Jetzt durchstarten</Button>
-              <p className="text-sm text-gray-500 mt-2">In unter 60 Sekunden bewerben</p>
+              <p className="subbtnt mt-2">In unter 60 Sekunden bewerben</p>
             </a>
           </div>
         </div>
@@ -143,6 +149,14 @@ export default function SellwellRequirements() {
           flex-direction: column;
           align-items: center;
           text-align: center;
+        }
+        
+        /* New CSS class for subbtnt text */
+        .subbtnt {
+          font-size: 14px;
+          color: #111;
+          font-weight: 600;
+          letter-spacing: -0.3px;
         }
       `}</style>
     </section>

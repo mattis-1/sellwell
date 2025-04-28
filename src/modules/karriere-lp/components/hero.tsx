@@ -75,8 +75,8 @@ export default function SellwellHero() {
         isIntersecting ? "opacity-100" : "opacity-0"
       }`}
     >
-      {/* Benefits Banner with smoother animation */}
-      <div className="w-screen py-3 bg-gradient-to-r from-[#205B49] via-[#2E8166] to-[#205B49] text-white overflow-hidden">
+      {/* Benefits Banner with smoother animation - UPDATED GRADIENT AND TEXT COLOR */}
+      <div className="w-screen py-3 bg-gradient-to-r from-[#C8F9D7] to-[#EDFEEB] text-black overflow-hidden">
         <div className="sellwell-marquee">
           <div className="sellwell-marquee-content">
             {allBenefits.map((benefit, index) => (
@@ -122,24 +122,24 @@ export default function SellwellHero() {
           />
         </motion.div>
 
-        {/* Headline with enhanced typography */}
+        {/* Headline with enhanced typography - ADDED SILVER GRADIENT */}
         <motion.h1 
           variants={itemVariants}
           className="font-montserrat text-3xl md:text-4xl lg:text-5xl text-center tracking-[-1px] font-[600] max-w-4xl mx-auto px-4 mb-8 leading-tight"
         >
           <span className="relative inline-block">
-            <span className="relative z-10 ">Entfalte dein volles Potenzial</span>
+            <span className="relative z-10 bg-clip-text text-transparent bg-gradient-to-r from-gray-600 via-gray-300 to-gray-500">Entfalte dein volles Potenzial</span>
           </span> als Vertriebler im Strom- & Gasvertrieb
         </motion.h1>
 
-        {/* Vimeo Video with green border */}
+        {/* Vimeo Video with updated border styles */}
         <motion.div 
           variants={itemVariants}
-          className="w-full max-w-5xl mx-auto px-4 mb-12"
+          className="w-full max-w-[95%] mx-auto px-4 mb-12"
         >
-          <div className="video-wrapper p-3 rounded-lg" style={{ border: '3px solid #246551' }}>
+          <div className="video-wrapper p-1 rounded-2xl" style={{ border: '1px solid #246551' }}>
             <div className="video-container relative">
-              <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden">
+              <div className="aspect-video bg-gray-100 rounded-xl overflow-hidden">
                 <iframe
                   src="https://player.vimeo.com/video/1079393532?h=ae44b49c5b&color=246551&title=0&byline=0&portrait=0&dnt=1"
                   className="absolute top-0 left-0 w-full h-full"
@@ -173,7 +173,7 @@ export default function SellwellHero() {
         
         .video-wrapper {
           background-color: transparent;
-          border-radius: 8px;
+          border-radius: 20px;
           transition: all 0.3s ease;
         }
         
@@ -197,6 +197,14 @@ export default function SellwellHero() {
           100% {
             transform: translateX(-50%);
           }
+        }
+        
+        /* New CSS class for subbtnt text */
+        .subbtnt {
+          font-size: 14px;
+          color: #111;
+          font-weight: 600;
+          letter-spacing: -0.3px;
         }
       `}</style>
     </section>

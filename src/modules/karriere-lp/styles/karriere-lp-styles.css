@@ -154,6 +154,13 @@
     -webkit-text-fill-color: transparent;
     color: transparent;
   }
+
+  .subutton {
+    font-size: 14px;
+    color: #111;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+  }
   
   .sellwell-benefit-container-alt {
     border-radius: 20px;

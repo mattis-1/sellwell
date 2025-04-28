@@ -14,13 +14,6 @@ export default function SellwellFooter() {
           {/* Logo and tagline section */}
           <div className="flex flex-col items-center md:items-start">
             <div className="flex items-center mb-2">
-              <Image
-                src="/sellwell-logo-black.svg" 
-                alt="Sellwell Consulting Logo"
-                width={40}
-                height={40}
-                className="mr-2"
-              />
               <p className="text-[22px] font-semibold">Sellwell Consulting</p>
             </div>
             <p className="text-[#246551] font-medium text-sm md:text-base">Wo Visionen verwirklicht werden.</p>

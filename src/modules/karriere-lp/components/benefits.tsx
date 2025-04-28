@@ -80,7 +80,7 @@ export default function SellwellBenefits() {
               height={75}
               />
             </div>
-            <h3 className="text-[24px] font-[600] text-left tracking-[-0.72px] leading-[30.4px] mb-3 pl-2 ">Ambitioniertes & spaßiges Umfeld</h3>
+            <h3 className="text-[24px] font-[600] text-left tracking-[-0.72px] leading-[30.4px] mb-3 pl-2 ">Ambitioniertes &<br />spaßiges Umfeld</h3>
             <p className="font-inter text-[#111111] text-left text-[14px] tracking-[-0.22px] leading-[22.4px] pl-2">
             Werde Teil eines jungen, dynamischen Teams mit flachen Hierarchien. Bei uns wird hart gearbeitet, aber
             auch der Spaß kommt nicht zu kurz.
@@ -92,7 +92,7 @@ export default function SellwellBenefits() {
 
         <div className="text-center mt-12">
           <a href="#formular"><Button>Jetzt schnell bewerben</Button></a>
-          <p className="text-sm text-gray-500 mt-2">Ohne Lebenslauf und Anschreiben</p>
+          <p className="subutton mt-2">Ohne Lebenslauf und Anschreiben</p>
         </div>
       </div>
     </section>
