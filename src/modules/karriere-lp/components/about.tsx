@@ -36,18 +36,18 @@ export default function SellwellAboutUs() {
         {/* Main gradient container */}
         <div className="sellwell-about-container">
           {/* Headline */}
-          <h2 className="font-inter text-[30px] font-semibold tracking-[-0.75px] leading-[35px] text-[rgb(17,17,17)] mb-6 text-center">
+          <h2 className="font-inter text-[30px] font-[600] tracking-[-0.75px] leading-[35px] text-[rgb(17,17,17)] mb-6 text-left">
             Was ist Sellwell Consulting?
           </h2>
 
           {/* Text content */}
-          <div className="mb-8 text-center">
-            <p className="font-inter text-[14px] font-normal tracking-[-0.2px] leading-[20px] text-[#111111] mb-4">
+          <div className="mb-8 text-left">
+            <p className="font-inter text-[16px] font-normal tracking-[-0.2px] leading-[20px] text-[#111111] mb-4">
               Mit der SellWell-Consulting GmbH ist es einerseits unser Ziel, Verbrauchern dabei zu helfen, drastisch bei
               ihren Strom- und Gas-Rechnungen zu sparen, und andererseits unseren Mitarbeitern an diesem sehr lukrativen
               Markt teilhaben zu lassen.
             </p>
-            <p className="font-inter text-[14px] font-normal tracking-[-0.2px] leading-[20px] text-[#111111]">
+            <p className="font-inter text-[16px] font-normal tracking-[-0.2px] leading-[20px] text-[#111111]">
               Denn als Vertriebler ist dein Gehalt so gut wie deine Leistung. Wir haben uns vor mehreren Jahren selbst
               durchkämpfen müssen. Mittlerweile geben wir unseren festangestellten Mitarbeitern ein funktionierendes
               System an die Hand, mit dem sie 100-200 Verträge im Monat abschließen und sich dadurch ein
@@ -60,14 +60,19 @@ export default function SellwellAboutUs() {
             {/* Stat container 1 */}
             <div className="bg-white rounded-[999px] p-4 flex items-center w-full">
               <div className="flex-shrink-0 mr-4">
-                <StarIcon />
+                <Image 
+                 src="/8.svg" 
+                 alt="icon"
+                 width={50}
+                 height={50}
+                />
               </div>
               <div>
-                <div className="font-inter text-[18px] font-bold text-[#111111]">
-                  10.000+ glückliche Kunden
+                <div className="font-inter text-[20px] font-[600] text-[#111111] tracking-[-0.5px]">
+                  10.000+
                 </div>
-                <div className="font-inter text-[12px] text-gray-600">
-                  Zufriedene Kunden in ganz Deutschland
+                <div className="font-inter tracking-[-0.3px] text-[14px] text-[rgb(17, 17, 17)] ">
+                  Glückliche Kunden
                 </div>
               </div>
             </div>
@@ -75,7 +80,12 @@ export default function SellwellAboutUs() {
             {/* Stat container 2 */}
             <div className="bg-white rounded-[999px] p-4 flex items-center w-full">
               <div className="flex-shrink-0 mr-4">
-                <StarIcon />
+              <Image 
+                 src="/8.svg" 
+                 alt="icon"
+                 width={50}
+                 height={50}
+                />
               </div>
               <div>
                 <div className="font-inter text-[18px] font-bold text-[#111111]">
@@ -109,7 +119,7 @@ export default function SellwellAboutUs() {
           {/* CTA Button */}
           <div className="text-center mt-8">
             <a href="#formular">
-              <Button>JETZT SCHNELL BEWERBEN</Button>
+              <Button>Jetzt bewerben</Button>
               <p className="text-sm text-gray-500 mt-2">Und Teil unseres Teams werden</p>
             </a>
           </div>
@@ -123,7 +133,7 @@ export default function SellwellAboutUs() {
           align-content: flex-start;
           align-items: flex-start;
           background-clip: border-box;
-          background-image: linear-gradient(132deg, rgba(235, 255, 225, 0.5) 0%, rgba(124, 242, 165, 0.5) 100%);
+          background-image: linear-gradient(119deg, rgba(235, 255, 225, 0.7) 0%, rgba(124, 242, 165, 0.7) 100%);
           background-position-x: 0%;
           background-position-y: 0%;
           background-repeat: repeat;
