@@ -4,11 +4,47 @@ import { usePathname } from "next/navigation";
 import Script from "next/script";
 import { useEffect } from "react";
 
-// Declare fbq for TypeScript
+// Define proper types for Facebook Pixel
+interface FacebookPixelEventOptions {
+  [key: string]: string | number | boolean | object;
+}
+
+type FacebookPixelEventType = 
+  | 'PageView' 
+  | 'Lead' 
+  | 'Purchase' 
+  | 'CompleteRegistration' 
+  | 'Contact' 
+  | 'CustomizeProduct'
+  | 'Donate'
+  | 'FindLocation'
+  | 'InitiateCheckout'
+  | 'Schedule'
+  | 'Search'
+  | 'SubmitApplication'
+  | 'ViewContent'
+  | 'Subscribe'
+  | 'StartTrial'
+  | string; // Allow custom event names
+
+interface FacebookPixel {
+  (method: 'init', pixelId: string): void;
+  (method: 'track', eventName: FacebookPixelEventType, options?: FacebookPixelEventOptions): void;
+  (method: 'trackCustom', eventName: string, options?: FacebookPixelEventOptions): void;
+  (method: string, ...args: unknown[]): void;
+  getState(): unknown;
+  callMethod?(method: string, ...args: unknown[]): void;
+  queue?: Array<unknown>;
+  push?(args: unknown): void;
+  loaded?: boolean;
+  version?: string;
+}
+
+// Declare fbq with the specific type
 declare global {
   interface Window {
-    fbq: any;
-    _fbq: any;
+    fbq: FacebookPixel;
+    _fbq: FacebookPixel;
   }
 }
 
