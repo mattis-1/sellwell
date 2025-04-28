@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef, useEffect, useState } from "react"
-import Image from "next/image"
+//import Image from "next/image"
 import { motion } from "framer-motion"
 import Button from "@/modules/karriere-lp/components/button"
 
