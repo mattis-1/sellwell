@@ -82,7 +82,7 @@ export default function SellwellHero() {
       }`}
     >
       {/* Benefits Banner with smoother animation */}
-      <div className="w-screen py-3 bg-gradient-to-r from-[#205B49] via-[#2E8166] to-[#205B49] text-white overflow-hidden">
+      <div className="w-screen py-3 bg-gradient-to-r from-[#205B49] via-[#215F4C] to-[#205B49] text-white overflow-hidden">
         <div className="sellwell-marquee">
           <div className="sellwell-marquee-content">
             {allBenefits.map((benefit, index) => (
@@ -136,8 +136,7 @@ export default function SellwellHero() {
           <span className="relative inline-block">
             <span className="relative z-10">Entfalte dein volles Potenzial</span>
             <span className="absolute bottom-2 left-0 w-full h-3 bg-[#246551]/10 -z-0 transform -rotate-1"></span>
-          </span>{" "}
-          als Vertriebler im Strom- & Gasvertrieb
+          </span> als Vertriebler im Strom- & Gasvertrieb
         </motion.h1>
 
         {/* Vimeo Video with beautiful styling */}
@@ -203,12 +202,8 @@ export default function SellwellHero() {
         <motion.div 
           variants={itemVariants}
           id="formular" 
-          className="w-full max-w-2xl mx-auto px-4 mb-16"
+          className="w-full max-w-[85%] mx-auto px-4 mb-16"
         >
-          <div className="apply-now-banner text-center mb-8">
-            <div className="text-xl md:text-2xl font-bold text-[#246551] mb-2">Bereit, durchzustarten?</div>
-            <div className="text-gray-600">Fülle das Formular aus und wir melden uns innerhalb von 24h!</div>
-          </div>
           <Formular />
         </motion.div>
       </motion.div>
