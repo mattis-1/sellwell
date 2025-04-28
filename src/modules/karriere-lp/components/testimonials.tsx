@@ -5,6 +5,74 @@ import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import Button from "@/modules/karriere-lp/components/button"
 
+// Define types for the component props
+interface CleanYouTubeEmbedProps {
+  videoId: string;
+}
+
+// Clean YouTube Embed component
+const CleanYouTubeEmbed: React.FC<CleanYouTubeEmbedProps> = ({ videoId }) => {
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [thumbnailError, setThumbnailError] = useState<boolean>(false);
+  
+  // YouTube thumbnail URLs - we'll try maxresdefault first (highest quality)
+  const highResThumbnail = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+  // Fallback to hqdefault if maxresdefault is not available
+  const fallbackThumbnail = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+  
+  // Handle thumbnail load error (switch to fallback)
+  const handleThumbnailError = () => {
+    setThumbnailError(true);
+  };
+  
+  // Play the video when thumbnail is clicked
+  const playVideo = () => {
+    setIsPlaying(true);
+  };
+  
+  return (
+    <div 
+      className="w-full h-full relative overflow-hidden rounded-lg cursor-pointer"
+      onClick={!isPlaying ? playVideo : undefined}
+      style={{ cursor: isPlaying ? 'default' : 'pointer' }}
+    >
+      {!isPlaying ? (
+        // Thumbnail with play button overlay
+        <>
+          <Image 
+            src={thumbnailError ? fallbackThumbnail : highResThumbnail}
+            alt="Video thumbnail"
+            fill
+            sizes="(max-width: 768px) 100vw, 800px"
+            className="object-cover"
+            onError={handleThumbnailError}
+            priority
+          />
+          <div 
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
+                      w-16 h-12 bg-black/70 rounded-lg flex justify-center items-center
+                      transition-all hover:bg-black/90 hover:scale-105"
+          >
+            <div 
+              className="w-0 h-0 border-t-[10px] border-t-transparent 
+                        border-b-[10px] border-b-transparent
+                        border-l-[16px] border-l-white ml-1"
+            />
+          </div>
+        </>
+      ) : (
+        // Actual YouTube embed (only loaded after clicking)
+        <iframe
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          className="w-full h-full absolute inset-0"
+        />
+      )}
+    </div>
+  );
+};
 
 // Update testimonials to reference YouTube video IDs instead of local MP4s
 const testimonials = [
@@ -94,15 +162,8 @@ export default function SellwellTestimonials() {
                   {testimonials.map((t, idx) => (
                     <div key={idx} className="w-full flex-shrink-0 px-4">
                       <div className="bg-black rounded-lg overflow-hidden aspect-video mb-6">
-                        {/* YouTube embed */}
-                        <iframe
-                          src={`https://www.youtube.com/embed/${t.videoId}?modestbranding=1&rel=0`}
-                          title={`${t.name} Testimonial`}
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                          allowFullScreen
-                          loading="lazy"
-                          className="w-full h-full"
-                        />
+                        {/* Replace iframe with clean YouTube embed */}
+                        <CleanYouTubeEmbed videoId={t.videoId} />
                       </div>
 
                       <div className="flex items-center">
@@ -114,12 +175,12 @@ export default function SellwellTestimonials() {
                             height={64}
                             className="object-cover w-full h-full"
                             onError={(e) => {
-                              const target = e.target as HTMLImageElement
-                              target.onerror = null
+                              const target = e.target as HTMLImageElement;
+                              target.onerror = null;
                               target.src =
                                 "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23f9fafb'/%3E%3Ctext x='50%25' y='50%25' dominantBaseline='middle' textAnchor='middle' fontFamily='system-ui' fontSize='24' fill='%23166534'%3E" +
                                 t.name.charAt(0) +
-                                "%3C/text%3E%3C/svg%3E"
+                                "%3C/text%3E%3C/svg%3E";
                             }}
                           />
                         </div>
