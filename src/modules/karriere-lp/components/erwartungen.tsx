@@ -11,7 +11,7 @@ interface BenefitCardProps {
   index: number;
 }
 
-const BenefitCard = ({ icon, title, description, index }: BenefitCardProps) => (
+const BenefitCard = ({ icon, title, description }: BenefitCardProps) => (
   <div
     className="benefit-card relative overflow-hidden rounded-xl p-7 bg-white backdrop-blur-sm border border-gray-100 transition-all text-center"
   >

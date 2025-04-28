@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import Formular from "./formular"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 
 const benefits = [
   "Endlose Möglichkeiten",
