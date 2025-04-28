@@ -51,9 +51,9 @@ export default function SellwellAboutUs() {
             />
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Was ist <span className="special-text">Sellwell Consulting</span>?</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-center">Was ist <span className="special-text">Sellwell Consulting</span>?</h2>
 
-          <div className="space-y-4 text-lg">
+          <div className="space-y-4 text-lg text-center">
             <p>
               Mit der SellWell-Consulting GmbH ist es einerseits unser Ziel, Verbrauchern dabei zu helfen, drastisch bei
               ihren Strom- und Gas-Rechnungen zu sparen, und andererseits unseren Mitarbeitern an diesem sehr lukrativen

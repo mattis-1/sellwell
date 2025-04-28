@@ -59,9 +59,9 @@ export default function SellwellHero() {
                 <Image 
                 src="/check-lp.svg"
                 alt="check"
-                width={25}
-                height={25}
-                className="pr-5"
+                width={35}
+                height={35}
+                className="pr-2.5 pl-1"
                 />
               </div>
             ))}
@@ -93,8 +93,8 @@ export default function SellwellHero() {
       </h1>
 
       {/* VSL Container */}
-      <div className="w-full max-w-[80%] mx-auto px-4 mb-12 border-4 border-green-700 rounded-lg p-4">
-        <div className="aspect-video relative bg-black rounded-lg overflow-hidden">
+      <div className="w-full max-w-[80%] mx-auto px-4 mb-12 border-1 border-black rounded-[30px] p-4">
+        <div className="aspect-video relative bg-black rounded-[30px] overflow-hidden drop-shadow-[0_0_20px_rgba(59,130,246,0.7)]">
           {/* Replace with actual VSL embed */}
           <div className="absolute inset-0 flex items-center justify-center text-white">
             <p className="text-center">Video Sales Letter</p>
