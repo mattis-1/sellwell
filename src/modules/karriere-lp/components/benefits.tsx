@@ -1,9 +1,9 @@
 "use client"
 
 import { useRef, useEffect, useState } from "react"
-import { Lightbulb, Users, TrendingUp } from "lucide-react"
 import Button from "@/modules/karriere-lp/components/button"
 import Subhead from "@/modules/karriere-lp/components/subhead"
+import Image from "next/image"
 
 export default function SellwellBenefits() {
   const [isIntersecting, setIsIntersecting] = useState(false)
@@ -41,7 +41,10 @@ export default function SellwellBenefits() {
           {/* Benefit 1 */}
           <div className="sellwell-benefit-container-alt-2">
             <div className="mb-4">
-              <TrendingUp className="sellwell-icon mx-auto" />
+              <Image 
+              src="/shx-icon1.svg"
+              alt="icon"
+              />
             </div>
             <h3 className="text-xl font-bold mb-3">Endlose Verdienstmöglichkeiten</h3>
             <p className="text-gray-600">
@@ -53,7 +56,10 @@ export default function SellwellBenefits() {
           {/* Benefit 2 */}
           <div className="sellwell-benefit-container-alt">
             <div className="mb-4">
-              <Users className="sellwell-icon mx-auto" />
+            <Image 
+              src="/shx-icon2.svg"
+              alt="icon"
+              />
             </div>
             <h3 className="text-xl font-bold mb-3">Individuelle Unterstützung, von 0 auf</h3>
             <p className="text-gray-600">
@@ -65,7 +71,10 @@ export default function SellwellBenefits() {
           {/* Benefit 3 */}
           <div className="sellwell-benefit-container-alt-3">
             <div className="mb-4">
-              <Lightbulb className="sellwell-icon mx-auto" />
+            <Image 
+              src="/shx-icon3.svg"
+              alt="icon"
+              />
             </div>
             <h3 className="text-xl font-bold mb-3">Ambitioniertes & spaßiges Umfeld</h3>
             <p className="text-gray-600">
