@@ -3,7 +3,6 @@
 import { useRef, useEffect, useState } from "react"
 import Image from "next/image"
 import Button from "@/modules/karriere-lp/components/button"
-import ApplyButton from "./applybutton"
 
 interface BenefitCardProps {
   icon: string;
@@ -13,7 +12,7 @@ interface BenefitCardProps {
 }
 
 // Benefit card with proper typing but no animations
-const BenefitCard = ({ icon, title, description, index }: BenefitCardProps) => (
+const BenefitCard = ({ icon, title, description }: BenefitCardProps) => (
   <div
     className="benefit-card relative overflow-hidden rounded-xl p-7 bg-white backdrop-blur-sm border border-gray-100 transition-all text-center"
   >
