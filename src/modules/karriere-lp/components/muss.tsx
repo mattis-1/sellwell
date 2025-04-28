@@ -40,8 +40,8 @@ export default function SellwellRequirements() {
       className={`sellwell-section bg-white transition-all duration-1000 ${isIntersecting ? "opacity-100" : "opacity-0"}`}
     >
       <div className="sellwell-container">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-          Bewirb dich bei uns, wenn du folgende Kriterien erfüllst
+        <h2 className="text-[30px] md:text-[35px] font-bold text-center mt-5 mb-12">
+          <span className="special-text">Bewirb dich bei uns,</span> wenn du folgende Kriterien erfüllst ...
         </h2>
 
         <div className="max-w-3xl mx-auto">
