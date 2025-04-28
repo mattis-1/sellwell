@@ -30,7 +30,12 @@
 .sellwell-btn-primary {
   position: relative;            /* for pseudo‐layers */
   overflow: hidden;              /* clip the SVG and gradient */
-  background-color: #205B49;     /* your base color */
+  background: linear-gradient(
+    to right,
+    #205B49 0%,
+    #2F8166 100%,
+  );
+       /* your base color */
   color: #fff;
   font-weight: 700;
   padding: 0.75rem 2rem;
