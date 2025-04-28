@@ -1,8 +1,8 @@
 "use client"
 
 import { useRef, useEffect, useState } from "react"
-import { BookOpen, Clock, TrendingUp } from "lucide-react"
 import Button from "@/modules/karriere-lp/components/button"
+import Image from "next/image"
 
 
 export default function SellwellExpectations() {
@@ -40,7 +40,12 @@ export default function SellwellExpectations() {
           {/* Expectation 1 */}
           <div className="sellwell-benefit-container">
             <div className="mb-4">
-              <BookOpen className="sellwell-icon mx-auto" />
+            <Image
+              src="/shx-icon4.webp"
+              alt="Icon"
+              width={100}
+              height={100}
+              />
             </div>
             <h3 className="text-xl font-bold mb-3">Regelmäßige Weiterbildungen</h3>
             <p className="text-gray-600">
@@ -51,7 +56,12 @@ export default function SellwellExpectations() {
           {/* Expectation 2 */}
           <div className="sellwell-benefit-container">
             <div className="mb-4">
-              <Clock className="sellwell-icon mx-auto" />
+              <Image
+              src="/shx-icon5.webp"
+              alt="Icon"
+              width={100}
+              height={100}
+              />
             </div>
             <h3 className="text-xl font-bold mb-3">Flexible Arbeitszeiten und Freiheit</h3>
             <p className="text-gray-600">
@@ -63,7 +73,12 @@ export default function SellwellExpectations() {
           {/* Expectation 3 */}
           <div className="sellwell-benefit-container">
             <div className="mb-4">
-              <TrendingUp className="sellwell-icon mx-auto" />
+            <Image
+              src="/shx-icon6.webp"
+              alt="Icon"
+              width={100}
+              height={100}
+              />
             </div>
             <h3 className="text-xl font-bold mb-3">Schneller Karriereaufstieg</h3>
             <p className="text-gray-600">
