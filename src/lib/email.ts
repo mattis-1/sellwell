@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer';
 import { JobApplication } from './bewerber';
 import { ContactRequest } from './firma';
-import { BewerberData, KampagneData } from './google-sheets';
+import { KampagneData } from './google-sheets';
 
 // Email configuration using environment variables with improved error handling
 const getEmailConfig = () => {
