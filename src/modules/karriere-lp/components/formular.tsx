@@ -117,7 +117,7 @@ const Formular = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [recentlyChanged, setRecentlyChanged] = useState<string | null>(null);
 
-  // Custom classes for the specific width values and improved animations
+  // Custom classes for the specific width values
   const tailwindStyles = `
     .w-3\\/10 {
       width: 30%;
@@ -131,6 +131,12 @@ const Formular = () => {
     }
     .animate-progress {
       animation: smoothProgress 0.3s ease-out;
+    }
+    .absolute-on-exit {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
     }
     @keyframes pulse-border {
       0% { box-shadow: 0 0 0 0 rgba(36, 101, 81, 0.15); }
@@ -166,15 +172,6 @@ const Formular = () => {
     }
     .bg-green-lightest {
       background-color: #f0f5f4;
-    }
-    /* For smoother height transitions */
-    .question-content-wrapper {
-      transition: min-height 0.3s ease-out;
-    }
-    /* Optimize animations */
-    * {
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
     }
   `;
 
@@ -220,9 +217,15 @@ const Formular = () => {
     setCurrentQuestion((prev) => Math.min(prev + 1, questions.length - 1));
   };
 
+  // Fix container height issue without breaking smooth animations
   const goToPreviousQuestion = () => {
     setDirection('backward');
     setCurrentQuestion((prev) => Math.max(prev - 1, 0));
+    
+    // Simple fix for container height: reset scroll and update layout after animation
+    setTimeout(() => {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }, 100);
   };
 
   // Bug fix: Fix the validation of jobPreferences
@@ -808,9 +811,9 @@ const Formular = () => {
         </div>
         
         <div className="bg-white rounded-xl border border-gray-100 px-3 py-4 sm:px-6 sm:py-8">
-          {/* Main content with improved dynamic height and smooth transitions */}
-          <div className="flex flex-col min-h-[300px]">
-            <div className="flex-grow">
+          {/* Main content with dynamic height and smooth transitions */}
+          <div className="flex flex-col justify-between min-h-[300px]">
+            <div className="relative" style={{ minHeight: '240px' }}>
               <AnimatePresence mode="wait" initial={false} custom={direction}>
                 <motion.div
                   key={currentQuestion}
@@ -823,11 +826,8 @@ const Formular = () => {
                     x: { type: "spring", stiffness: 300, damping: 30 },
                     opacity: { duration: 0.2 }
                   }}
-                  className="w-full"
-                  onAnimationComplete={() => {
-                    // Force layout recalculation after animation
-                    window.dispatchEvent(new Event('resize'));
-                  }}
+                  className="w-full absolute-on-exit"
+                  style={{ position: direction === 'forward' ? 'relative' : 'absolute', width: '100%' }}
                 >
                   {/* Question header */}
                   <div className="flex items-center mb-6">
@@ -845,7 +845,7 @@ const Formular = () => {
               </AnimatePresence>
             </div>
             
-            {/* Navigation buttons with automatic positioning */}
+            {/* Navigation buttons - always positioned correctly */}
             <div className="mt-8 flex w-full">
               {currentQuestion > 0 ? (
                 <button
