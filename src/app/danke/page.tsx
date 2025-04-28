@@ -1,7 +1,6 @@
 "use client"
 
 import { useRef, useEffect, useState } from "react"
-import Button from "@/modules/karriere-lp/components/button"
 import { Instagram, Youtube } from "lucide-react"
 import Link from "next/link"
 //import Image from "next/image"
@@ -58,41 +57,32 @@ export default function ThankYouPage() {
           </div>
         </div>
 
-        <h1 className="text-4xl font-bold mb-6">Vielen Dank für deine Bewerbung!</h1>
-        
-        <p className="text-gray-600 text-lg mb-8">
-          Wir haben deine Bewerbung erhalten und werden uns so schnell wie möglich bei dir melden. 
-          Unser Team prüft deine Angaben und meldet sich innerhalb der nächsten 48 Stunden bei dir.
-        </p>
+        <h1 className="text-4xl font-bold mb-6">Vielen Dank für <span className="special-text">deine Bewerbung!</span></h1>
 
         <div className="bg-white rounded-lg p-6 shadow-md mb-10">
           <h3 className="text-xl font-semibold mb-4">Was passiert als Nächstes?</h3>
           <ol className="text-left text-gray-600 space-y-3">
             <li className="flex items-start">
               <span className="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-2 shrink-0 mt-0.5">1</span>
-              <span>Wir prüfen deine Bewerbung (innerhalb von 48 Stunden)</span>
+              <span>Wir haben soeben deine Bewerbung erhalten und prüfen sie sobald wie möglich.</span>
             </li>
             <li className="flex items-start">
               <span className="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-2 shrink-0 mt-0.5">2</span>
-              <span>Du erhältst eine Einladung zu einem ersten Kennenlerngespräch</span>
+              <span>Darauf treten wir mit dir in Kontakt, für ein erstes kurzes Kennenlernen am Telefon</span>
             </li>
             <li className="flex items-start">
               <span className="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-2 shrink-0 mt-0.5">3</span>
-              <span>Bei gegenseitigem Interesse folgt ein zweites Gespräch mit unseren Teamleitern</span>
+              <span>Bei gegenseitigem Interesse vereinbaren wir ein persönliches Erstgespräch mit einem unserer Teamleiter.</span>
             </li>
           </ol>
         </div>
-
-        <p className="mb-8 text-gray-600">
-          Folge uns in der Zwischenzeit auf unseren sozialen Kanälen, um mehr über uns zu erfahren:
-        </p>
 
         <div className="flex justify-center gap-6 mb-10">
           <a 
             href="https://www.instagram.com/kress_maximilian/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
+            className="flex items-center gap-2 bg-black text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
           >
             <Instagram size={20} />
             <span>Instagram</span>
@@ -101,7 +91,7 @@ export default function ThankYouPage() {
             href="https://www.youtube.com/@SellwellConsulting" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
+            className="flex items-center gap-2 bg-black text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
           >
             <Youtube size={20} />
             <span>YouTube</span>
@@ -109,7 +99,7 @@ export default function ThankYouPage() {
         </div>
 
         <Link href="/">
-          <Button>ZURÜCK ZUR STARTSEITE</Button>
+          ZURÜCK ZUR STARTSEITE
         </Link>
       </div>
     </section>

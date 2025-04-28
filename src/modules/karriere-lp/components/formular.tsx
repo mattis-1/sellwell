@@ -124,6 +124,19 @@ const Formular = () => {
     .w-7\\/10 {
       width: 70%;
     }
+    @keyframes smoothProgress {
+      from { transform: translateX(-5px); opacity: 0.8; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    .animate-progress {
+      animation: smoothProgress 0.3s ease-out;
+    }
+    .absolute-on-exit {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+    }
   `;
 
   // Proper type-safe implementation of handleChange
@@ -301,7 +314,7 @@ const Formular = () => {
         { value: true, label: 'Ja' },
         { value: false, label: 'Nein' },
       ],
-      icon: <Briefcase className="h-6 w-6 text-[#1899C6]" />,
+      icon: <Briefcase className="h-6 w-6 text-gray-500" />,
     },
     {
       id: 'experienceLevel',
@@ -313,7 +326,7 @@ const Formular = () => {
         { value: '1to3', label: '1-3 Jahre' },
         { value: 'over3', label: '3+ Jahre' },
       ],
-      icon: <Clock className="h-6 w-6 text-[#1899C6]" />,
+      icon: <Clock className="h-6 w-6 text-gray-500" />,
       condition: () => formData.hasSalesExperience === true,
     },
     {
@@ -328,7 +341,7 @@ const Formular = () => {
         { value: 'teamSpirit', label: 'Teamspirit' },
         { value: 'responsibility', label: 'Eigenverantwortung' },
       ],
-      icon: <GraduationCap className="h-6 w-6 text-[#1899C6]" />,
+      icon: <GraduationCap className="h-6 w-6 text-gray-500" />,
     },
     {
       id: 'peopleContact',
@@ -339,14 +352,14 @@ const Formular = () => {
       max: 5,
       minLabel: 'Gar nicht',
       maxLabel: 'Sehr gerne',
-      icon: <Users className="h-6 w-6 text-[#1899C6]" />,
+      icon: <Users className="h-6 w-6 text-gray-500" />,
     },
     {
       id: 'greatestStrength',
       type: 'textarea',
       question: 'Was würdest du als deine größte Stärke für den Vertrieb bezeichnen?',
       field: 'greatestStrength',
-      icon: <Zap className="h-6 w-6 text-[#1899C6]" />,
+      icon: <Zap className="h-6 w-6 text-gray-500" />,
     },
     {
       id: 'driversLicense',
@@ -357,7 +370,7 @@ const Formular = () => {
         { value: true, label: 'Ja' },
         { value: false, label: 'Nein' },
       ],
-      icon: <Car className="h-6 w-6 text-[#1899C6]" />,
+      icon: <Car className="h-6 w-6 text-gray-500" />,
     },
     {
       id: 'name',
@@ -365,7 +378,7 @@ const Formular = () => {
       question: 'Wie heißt Du?',
       fields: ['firstName', 'lastName'],
       labels: ['Vorname', 'Nachname'],
-      icon: <User className="h-6 w-6 text-[#1899C6]" />,
+      icon: <User className="h-6 w-6 text-gray-500" />,
     },
     {
       id: 'contact',
@@ -374,10 +387,10 @@ const Formular = () => {
       fields: ['email', 'phone'],
       labels: ['E-Mail-Adresse', 'Telefonnummer'],
       icons: [
-        <Mail className="h-6 w-6 text-green-700" key="mail-icon" />,
-        <Phone className="h-6 w-6 text-green-700" key="phone-icon" />
+        <Mail className="h-6 w-6 text-gray-500" key="mail-icon" />,
+        <Phone className="h-6 w-6 text-gray-500" key="phone-icon" />
       ],
-      icon: <Mail className="h-6 w-6 text-[#1899C6]" />, // Required icon property
+      icon: <Mail className="h-6 w-6 text-gray-500" />, // Required icon property
     },
   ];
 
@@ -392,10 +405,10 @@ const Formular = () => {
   // Calculate progress
   const progress = ((currentQuestion + 1) / filteredQuestions.length) * 100;
 
-  // Optimized slide animation variants
+  // Improved slide animation variants for smoother transitions
   const variants = {
     enter: (direction: string) => ({
-      x: direction === 'forward' ? 250 : -250,
+      x: direction === 'forward' ? 20 : -20,
       opacity: 0,
     }),
     center: {
@@ -403,7 +416,7 @@ const Formular = () => {
       opacity: 1,
     },
     exit: (direction: string) => ({
-      x: direction === 'forward' ? -250 : 250,
+      x: direction === 'forward' ? -20 : 20,
       opacity: 0,
     }),
   };
@@ -434,9 +447,9 @@ const Formular = () => {
                     name={String(field)}
                     value={stringValue}
                     onChange={(e) => handleChange(String(field), e.target.value)}
-                    className={`pl-9 sm:pl-10 block w-full rounded-lg shadow-md ${
-                      errors[field] ? 'border border-red-500' : 'border-none'
-                    } py-3 sm:py-4 px-3 sm:px-4 text-gray-900 focus:outline-none focus:ring-2 focus:ring-green-500`}
+                    className={`pl-9 sm:pl-10 block w-full rounded-lg shadow-sm ${
+                      errors[field] ? 'border border-red-500' : 'border border-gray-200'
+                    } py-3 sm:py-4 px-3 sm:px-4 text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-400`}
                     placeholder={q.labels[index]}
                   />
                 </div>
@@ -458,10 +471,10 @@ const Formular = () => {
           <div
             key={`option-binary-${q.field}-${String(option.value)}`}
             onClick={() => handleChange(String(q.field), option.value)}
-            className={`flex items-center p-4 sm:p-5 rounded-lg shadow-md transition-all cursor-pointer ${
+            className={`flex items-center p-4 sm:p-5 rounded-lg shadow-sm transition-all duration-300 cursor-pointer ${
               formData[q.field] === option.value
-                ? 'bg-green-100 shadow-green-200'
-                : 'bg-white hover:bg-gray-50/70'
+                ? 'bg-gray-100 border border-gray-300'
+                : 'bg-white border border-gray-200 hover:bg-gray-50'
             }`}
           >
             <div className="mr-3 sm:mr-4">
@@ -486,10 +499,10 @@ const Formular = () => {
           <div
             key={`option-select-${q.field}-${option.value}`}
             onClick={() => handleChange(String(q.field), option.value)}
-            className={`flex items-center p-4 sm:p-5 rounded-lg shadow-md cursor-pointer transition-all ${
+            className={`flex items-center p-4 sm:p-5 rounded-lg shadow-sm cursor-pointer transition-all duration-300 ${
               formData[q.field] === option.value
-                ? 'bg-green-100 shadow-green-200'
-                : 'bg-white hover:bg-gray-50/70'
+                ? 'bg-gray-100 border border-gray-300'
+                : 'bg-white border border-gray-200 hover:bg-gray-50'
             }`}
           >
             <div className="mr-3 sm:mr-4">
@@ -517,18 +530,18 @@ const Formular = () => {
               const currentValue = formData.jobPreferences[option.value];
               handleChange(`jobPreferences.${String(option.value)}`, !currentValue);
             }}
-            className={`flex items-center p-4 sm:p-5 rounded-lg shadow-md cursor-pointer transition-all ${
+            className={`flex items-center p-4 sm:p-5 rounded-lg shadow-sm cursor-pointer transition-all duration-300 ${
               formData.jobPreferences[option.value]
-                ? 'bg-green-100 shadow-green-200'
-                : 'bg-white hover:bg-gray-50/70'
+                ? 'bg-gray-100 border border-gray-300'
+                : 'bg-white border border-gray-200 hover:bg-gray-50'
             }`}
           >
             <div className="mr-3 sm:mr-4">
-              {option.value === 'compensation' && <Star className="h-5 w-5 sm:h-6 sm:w-6 text-green-700" />}
-              {option.value === 'flexibleHours' && <Clock className="h-5 w-5 sm:h-6 sm:w-6 text-green-700" />}
-              {option.value === 'training' && <GraduationCap className="h-5 w-5 sm:h-6 sm:w-6 text-green-700" />}
-              {option.value === 'teamSpirit' && <Users className="h-5 w-5 sm:h-6 sm:w-6 text-green-700" />}
-              {option.value === 'responsibility' && <Zap className="h-5 w-5 sm:h-6 sm:w-6 text-green-700" />}
+              {option.value === 'compensation' && <Star className="h-5 w-5 sm:h-6 sm:w-6 text-gray-500" />}
+              {option.value === 'flexibleHours' && <Clock className="h-5 w-5 sm:h-6 sm:w-6 text-gray-500" />}
+              {option.value === 'training' && <GraduationCap className="h-5 w-5 sm:h-6 sm:w-6 text-gray-500" />}
+              {option.value === 'teamSpirit' && <Users className="h-5 w-5 sm:h-6 sm:w-6 text-gray-500" />}
+              {option.value === 'responsibility' && <Zap className="h-5 w-5 sm:h-6 sm:w-6 text-gray-500" />}
             </div>
             <div className="flex-grow">
               <p className="font-medium">{option.label}</p>
@@ -554,10 +567,10 @@ const Formular = () => {
             <div
               key={`rating-${q.field}-${rating}`}
               onClick={() => handleChange(String(q.field), rating)}
-              className={`flex-1 py-4 sm:py-5 rounded-lg shadow-md cursor-pointer text-center transition-all ${
+              className={`flex-1 py-4 sm:py-5 rounded-lg shadow-sm cursor-pointer text-center transition-all duration-300 ${
                 formData[q.field] === rating
-                  ? 'bg-green-100 shadow-green-200 text-green-700'
-                  : 'bg-white hover:bg-gray-50/70'
+                  ? 'bg-gray-100 border border-gray-300 text-gray-800'
+                  : 'bg-white border border-gray-200 hover:bg-gray-50'
               }`}
             >
               <span className="text-base sm:text-lg font-medium">{rating}</span>
@@ -580,9 +593,9 @@ const Formular = () => {
             value={formData[q.field] !== null ? String(formData[q.field]) : ''}
             onChange={(e) => handleChange(String(q.field), e.target.value)}
             rows={4}
-            className={`block w-full rounded-lg shadow-md ${
-              errors[q.field] ? 'border-red-500' : 'border-none'
-            } py-3 px-4 text-gray-900 focus:outline-none focus:ring-2 focus:ring-green-500`}
+            className={`block w-full rounded-lg shadow-sm ${
+              errors[q.field] ? 'border-red-500' : 'border border-gray-200'
+            } py-3 px-4 text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-400`}
             placeholder="Schreibe hier deine Antwort..."
           />
         </div>
@@ -612,8 +625,8 @@ const Formular = () => {
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   {/* Use the icon directly without cloning to avoid className typing issues */}
                   {field === 'email' ? 
-                    <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-green-700" /> :
-                    <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-green-700" />
+                    <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-gray-500" /> :
+                    <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-gray-500" />
                   }
                 </div>
                 <input
@@ -621,9 +634,9 @@ const Formular = () => {
                   name={String(field)}
                   value={stringValue}
                   onChange={(e) => handleChange(String(field), e.target.value)}
-                  className={`pl-9 sm:pl-10 block w-full rounded-lg shadow-md ${
-                    errors[field] ? 'border border-red-500' : 'border-none'
-                  } py-2.5 sm:py-3 px-3 sm:px-4 text-gray-900 focus:outline-none focus:ring-2 focus:ring-green-500`}
+                  className={`pl-9 sm:pl-10 block w-full rounded-lg shadow-sm ${
+                    errors[field] ? 'border border-red-500' : 'border border-gray-200'
+                  } py-2.5 sm:py-3 px-3 sm:px-4 text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-400`}
                   placeholder={q.labels[index]}
                 />
               </div>
@@ -662,7 +675,7 @@ const Formular = () => {
   };
 
   return (
-    <div className="w-full flex flex-col items-center">
+    <div className="w-full flex flex-col items-center bg-white">
       {/* Add custom styles */}
       <style>{tailwindStyles}</style>
       
@@ -671,49 +684,53 @@ const Formular = () => {
         {/* Improved Progress bar */}
         <div className="h-2 bg-gray-100 rounded-full overflow-hidden mb-4">
           <div 
-            className="h-full bg-gradient-to-r from-green-600 to-green-400 transition-all duration-300 ease-in-out"
+            className="h-full bg-gray-400 transition-all duration-500 ease-out animate-progress"
             style={{ width: `${progress}%` }}
           />
         </div>
         
-        <div className="bg-white rounded-xl shadow-lg px-3 py-4 sm:px-4 sm:py-6">
-          {/* Main content with dynamic height */}
-          <div className="flex flex-col justify-between">
-            <AnimatePresence mode="wait" initial={false} custom={direction}>
-              <motion.div
-                key={currentQuestion}
-                custom={direction}
-                variants={variants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{
-                  x: { type: "tween", duration: 0.25, ease: "easeInOut" },
-                  opacity: { duration: 0.2 }
-                }}
-              >
-                {/* Question header */}
-                <div className="flex items-center mb-6">
-                  <div className="mr-4 p-2 bg-green-50 rounded-lg">
-                    {currentQuestionData.icon}
+        <div className="bg-white rounded-xl border border-gray-100 px-3 py-4 sm:px-6 sm:py-8">
+          {/* Main content with dynamic height and smooth transitions */}
+          <div className="flex flex-col justify-between min-h-[300px]">
+            <div className="relative" style={{ minHeight: '240px' }}>
+              <AnimatePresence mode="wait" initial={false} custom={direction}>
+                <motion.div
+                  key={currentQuestion}
+                  custom={direction}
+                  variants={variants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{
+                    x: { type: "spring", stiffness: 300, damping: 30 },
+                    opacity: { duration: 0.2 }
+                  }}
+                  className="w-full absolute-on-exit"
+                  style={{ position: direction === 'forward' ? 'relative' : 'absolute', width: '100%' }}
+                >
+                  {/* Question header */}
+                  <div className="flex items-center mb-6">
+                    <div className="mr-4 p-2 bg-gray-100 rounded-lg">
+                      {currentQuestionData.icon}
+                    </div>
+                    <h2 className="text-lg sm:text-xl font-semibold text-gray-800">
+                      {currentQuestionData.question}
+                    </h2>
                   </div>
-                  <h2 className="text-lg sm:text-xl font-semibold text-gray-900">
-                    {currentQuestionData.question}
-                  </h2>
-                </div>
-                
-                {/* Question content */}
-                {renderQuestion()}
-              </motion.div>
-            </AnimatePresence>
+                  
+                  {/* Question content */}
+                  {renderQuestion()}
+                </motion.div>
+              </AnimatePresence>
+            </div>
             
             {/* Navigation buttons - always positioned correctly */}
-            <div className="mt-6 flex w-full">
+            <div className="mt-8 flex w-full">
               {currentQuestion > 0 ? (
                 <button
                   type="button"
                   onClick={goToPreviousQuestion}
-                  className="w-3/10 flex justify-center items-center py-2.5 rounded-lg text-gray-700 transition-all border border-gray-300 hover:bg-gray-50 mr-1.5"
+                  className="w-3/10 flex justify-center items-center py-2.5 rounded-lg text-gray-700 transition-all duration-300 border border-gray-300 hover:bg-gray-50 mr-1.5"
                 >
                   <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 mr-1" />
                   Zurück
@@ -724,7 +741,7 @@ const Formular = () => {
                 <button
                   type="button"
                   onClick={goToNextQuestion}
-                  className={`flex justify-center items-center py-2.5 bg-green-800 text-white rounded-lg hover:bg-green-700 transition-all focus:outline-none focus:ring-2 focus:ring-green-500 ${
+                  className={`flex justify-center items-center py-2.5 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400 ${
                     currentQuestion === 0 ? 'w-full' : 'w-7/10'
                   }`}
                 >
@@ -736,7 +753,7 @@ const Formular = () => {
                   type="button"
                   onClick={handleSubmit}
                   disabled={isSubmitting}
-                  className={`flex justify-center items-center py-2.5 bg-green-800 text-white rounded-lg hover:bg-green-700 transition-all focus:outline-none focus:ring-2 focus:ring-green-500 ${
+                  className={`flex justify-center items-center py-2.5 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400 ${
                     currentQuestion === 0 ? 'w-full' : 'w-7/10'
                   }`}
                 >

@@ -32,52 +32,58 @@ const generateKampagneConfirmationTemplate = (data: KampagneData): string => {
             color: #333; 
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
+            background-color: #ffffff;
           }
           .container { 
             width: 90%; 
-            max-width: 500px; 
+            max-width: 560px; 
             margin: 0 auto; 
-            padding: 20px 15px; 
+            padding: 30px 15px; 
+            background-color: #ffffff;
+          }
+          .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eaeaea;
+            padding-bottom: 20px;
+          }
+          .logo {
+            margin-bottom: 15px;
+            max-width: 180px;
           }
           @media (max-width: 480px) {
             .container {
-              width: 85%;
-              padding: 15px 10px;
+              width: 90%;
+              padding: 20px 10px;
             }
           }
           h1 { 
-            color: #2D7D63; 
+            color: #333333; 
             padding-bottom: 10px; 
             margin-bottom: 20px;
             font-weight: 800;
+            text-align: center;
             letter-spacing: -0.5px;
           }
           p { margin-bottom: 16px; }
-          .button {
-            display: inline-block;
-            background: linear-gradient(to right, #19483B, #2D7D63);
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            padding: 12px 24px;
-            border-radius: 25px;
-            margin: 15px 0;
-            text-align: center;
-          }
           .social-icons {
-            margin: 25px 0;
+            margin: 25px auto;
+            text-align: center;
           }
           .social-icon {
             display: inline-block;
-            margin-right: 15px;
-            color: #2D7D63;
+            margin: 0 10px;
             text-decoration: none;
+          }
+          .social-icon img {
+            width: 32px;
+            height: 32px;
           }
           .contact-info {
             margin-top: 30px;
             padding-top: 20px;
-            border-top: 1px solid #ddd;
+            border-top: 1px solid #eaeaea;
+            color: #555;
           }
           .contact-item {
             display: flex;
@@ -89,22 +95,33 @@ const generateKampagneConfirmationTemplate = (data: KampagneData): string => {
             width: 16px;
             height: 16px;
           }
+          .team-image {
+            width: 100%;
+            max-width: 500px;
+            margin: 20px auto;
+            display: block;
+            border-radius: 8px;
+          }
           .footer {
             text-align: center;
             font-size: 14px;
-            color: #666;
+            color: #777;
             margin-top: 30px;
             padding-top: 15px;
-            border-top: 1px solid #ddd;
+            border-top: 1px solid #eaeaea;
           }
           .footer a {
-            color: #2D7D63;
+            color: #555;
             text-decoration: none;
           }
         </style>
       </head>
       <body>
         <div class="container">
+          <div class="header">
+            <h1>Willkommen bei Sellwell!</h1>
+          </div>
+          
           <p>Hallo ${data.firstName},</p>
           
           <p>vielen Dank für deine Bewerbung bei Sellwell! Wir freuen uns sehr über dein Interesse, Teil unseres Teams zu werden.</p>
@@ -113,34 +130,35 @@ const generateKampagneConfirmationTemplate = (data: KampagneData): string => {
           
           <p>Falls du bis dahin Fragen hast oder weitere Informationen zu deiner Bewerbung benötigst, zögere nicht, uns zu kontaktieren.</p>
           
-          <p>Um mehr über uns zu erfahren und einen besseren Einblick in unsere Arbeit zu bekommen, besuche gerne unseren Persönlichkeitstest und folge uns auf Social Media:</p>
-          
-          <a href="https://sellwell-consulting.de/personality" class="button">ZUM PERSÖNLICHKEITSTEST</a>
+          <p>Um mehr über uns zu erfahren und einen besseren Einblick in unsere Arbeit zu bekommen, folge uns gerne auf Social Media:</p>
           
           <div class="social-icons">
             <a href="https://youtube.com/@SellwellConsulting" class="social-icon">
-              <img src="https://sellwell-consulting.de/email-youtube.png" alt="Youtube" width="24" height="24" style="vertical-align: middle;"> Youtube
+              <img src="https://sellwell-consulting.de/email-youtube.png" alt="Youtube" width="32" height="32">
             </a>
             
             <a href="https://www.instagram.com/kress_maximilian/" class="social-icon">
-              <img src="https://sellwell-consulting.de/email-insta.png" alt="Instagram" width="24" height="24" style="vertical-align: middle;"> Instagram
+              <img src="https://sellwell-consulting.de/email-insta.png" alt="Instagram" width="32" height="32">
             </a>
           </div>
           
           <p>Vielen Dank für dein Interesse!<br>
           Dein Sellwell Team</p>
           
+          <!-- Team Image -->
+          <img src="https://sellwell-consulting.de/ABOUT1.png" alt="Sellwell Team" class="team-image">
+          
           <div class="contact-info">
             <div class="contact-item">
-              <img src="https://sellwell-consulting.de/email-phone.png" alt="Telefon" class="icon" style="width: 16px; height: 16px;">
+              <img src="https://sellwell-consulting.de/email-phone.png" alt="Telefon" class="icon">
               +49 176 76869448
             </div>
             <div class="contact-item">
-              <img src="https://sellwell-consulting.de/email-email.png" alt="Email" class="icon" style="width: 16px; height: 16px;">
+              <img src="https://sellwell-consulting.de/email-email.png" alt="Email" class="icon">
               info@sell-well-consulting.de
             </div>
             <div class="contact-item">
-              <img src="https://sellwell-consulting.de/email-location.png" alt="Adresse" class="icon" style="width: 16px; height: 16px;">
+              <img src="https://sellwell-consulting.de/email-location.png" alt="Adresse" class="icon">
               Leiblstraße 26, 85567 Neubiberg
             </div>
           </div>
