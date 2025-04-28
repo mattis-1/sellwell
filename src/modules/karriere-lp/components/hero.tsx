@@ -50,7 +50,7 @@ export default function SellwellHero() {
       }`}
     >
       {/* Benefits Banner - Moved to top with full width */}
-      <div className="w-screen py-3 bg-[#1395C0] text-white overflow-hidden">
+      <div className="w-screen py-3 bg-[#388E3C] text-white overflow-hidden">
         <div className="sellwell-marquee">
           <div className="sellwell-marquee-content">
             {allBenefits.map((benefit, index) => (

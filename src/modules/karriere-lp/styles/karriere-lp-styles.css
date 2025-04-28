@@ -169,7 +169,7 @@
 
   /* Benefit containers */
   .sellwell-benefit-container {
-    border: 2px solid #60BDD8;
+    border: 2px solid #388E3C;
     background-color: #fff;
     border-radius: 2rem;
     padding: 1.5rem;
@@ -180,7 +180,7 @@
   }
 
   .special-text {
-    background: linear-gradient(90deg, #1AA3CC 0%, #25B9DD 100%);
+    background: linear-gradient(90deg, #388E3C 0%, #66b86a 100%);
     /* 2. Clip the gradient to the text */
     -webkit-background-clip: text;
     background-clip: text;
