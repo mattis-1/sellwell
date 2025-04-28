@@ -62,13 +62,13 @@ export default function SellwellRequirements() {
     >
       <div className="sellwell-container-2 max-w-4xl mx-auto">
         {/* Glassmorphic container with image */}
-        <div className="sellwell-benefit-container-alt mb-10 max-w-md mx-auto">
+        <div className="sellwell-benefit-container-alt rounded-[33px] p-3 mb-10 max-w-md mx-auto">
           <Image
             src="/sellwellteam.png" // Replace with your actual image path
             alt="Sellwell Team"
             width={300}
             height={200}
-            className="rounded-lg object-cover mb-2"
+            className="rounded-[33px] object-cover mb-2"
             onError={(e) => {
               // Fallback if image fails to load
               const target = e.target as HTMLImageElement;
@@ -119,7 +119,7 @@ export default function SellwellRequirements() {
 
           <div className="text-center mt-12">
             <a href="#formular">
-              <Button>Jetzt starten</Button>
+              <Button>Jetzt durchstarten</Button>
               <p className="text-sm text-gray-500 mt-2">In unter 60 Sekunden bewerben</p>
             </a>
           </div>

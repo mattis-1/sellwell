@@ -40,6 +40,49 @@ export default function SellwellAboutUs() {
             Was ist Sellwell Consulting?
           </h2>
 
+          {/* Stat containers */}
+          <div className="space-y-4 mb-8 w-full">
+            {/* Stat container 1 */}
+            <div className="bg-white rounded-[999px] p-4 flex items-center w-full">
+              <div className="flex-shrink-0 mr-4">
+                <Image 
+                 src="/greenstar.svg" 
+                 alt="icon"
+                 width={50}
+                 height={50}
+                />
+              </div>
+              <div>
+                <div className="font-inter text-[20px] text-left font-[600] text-[#111111] tracking-[-0.5px]">
+                  10.000+
+                </div>
+                <div className="font-inter tracking-[-0.3px] text-left text-[14px] text-[rgb(17, 17, 17)] ">
+                  Glückliche Kunden
+                </div>
+              </div>
+            </div>
+
+            {/* Stat container 2 */}
+            <div className="bg-white rounded-[999px] p-4 flex items-center w-full">
+              <div className="flex-shrink-0 mr-4">
+              <Image 
+                 src="/greenstar.svg" 
+                 alt="icon"
+                 width={50}
+                 height={50}
+                />
+              </div>
+              <div>
+              <div className="font-inter text-[20px] text-left font-[600] text-[#111111] tracking-[-0.5px]">
+              30
+                </div>
+                <div className="font-inter tracking-[-0.3px] text-left text-[14px] text-[rgb(17, 17, 17)] ">
+                  Jahre Erfahrung
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Text content */}
           <div className="mb-8 text-left">
             <p className="font-inter text-[16px] font-normal tracking-[-0.2px] leading-[20px] text-[#111111] mb-4">
@@ -55,57 +98,16 @@ export default function SellwellAboutUs() {
             </p>
           </div>
 
-          {/* Stat containers */}
-          <div className="space-y-4 mb-8 w-full">
-            {/* Stat container 1 */}
-            <div className="bg-white rounded-[999px] p-4 flex items-center w-full">
-              <div className="flex-shrink-0 mr-4">
-                <Image 
-                 src="/8.svg" 
-                 alt="icon"
-                 width={50}
-                 height={50}
-                />
-              </div>
-              <div>
-                <div className="font-inter text-[20px] font-[600] text-[#111111] tracking-[-0.5px]">
-                  10.000+
-                </div>
-                <div className="font-inter tracking-[-0.3px] text-[14px] text-[rgb(17, 17, 17)] ">
-                  Glückliche Kunden
-                </div>
-              </div>
-            </div>
-
-            {/* Stat container 2 */}
-            <div className="bg-white rounded-[999px] p-4 flex items-center w-full">
-              <div className="flex-shrink-0 mr-4">
-              <Image 
-                 src="/8.svg" 
-                 alt="icon"
-                 width={50}
-                 height={50}
-                />
-              </div>
-              <div>
-                <div className="font-inter text-[18px] font-bold text-[#111111]">
-                  30 Jahre Erfahrung
-                </div>
-                <div className="font-inter text-[12px] text-gray-600">
-                  Geballte Expertise im Vertrieb
-                </div>
-              </div>
-            </div>
-          </div>
+         
 
           {/* Image frame */}
-          <div className="bg-white p-3 rounded-2xl shadow-sm w-full max-w-xl mx-auto">
+          <div className="bg-white p-1 rounded-[30px] w-[100%] max-w-[100%] mx-auto">
             <Image
               src="/Unsere Mission 2.png"
               alt="Unsere Mission"
               width={1200}
               height={600}
-              className="w-full h-auto rounded-lg object-cover"
+              className="w-full h-auto rounded-[30px] object-cover"
               onError={(e) => {
                 // Fallback if image fails to load
                 const target = e.target as HTMLImageElement
@@ -116,14 +118,15 @@ export default function SellwellAboutUs() {
             />
           </div>
 
-          {/* CTA Button */}
-          <div className="text-center mt-8">
+         
+        </div>
+         {/* CTA Button */}
+         <div className="text-center mt-8">
             <a href="#formular">
               <Button>Jetzt bewerben</Button>
               <p className="text-sm text-gray-500 mt-2">Und Teil unseres Teams werden</p>
             </a>
           </div>
-        </div>
       </div>
 
       {/* Custom CSS for containers */}

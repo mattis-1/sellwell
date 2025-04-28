@@ -205,7 +205,7 @@ export default function SellwellTestimonials() {
   return (
     <section
       ref={sectionRef}
-      className={`sellwell-section py-16 relative transition-all duration-1000 ${
+      className={`sellwell-section-alt py-16 relative transition-all duration-1000 ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
@@ -220,12 +220,8 @@ export default function SellwellTestimonials() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="mb-12"
         >
-          <div className="flex justify-center mb-3">
-            <div className="bg-[#246551] text-white rounded-full px-5 py-1.5 inline-block">
-              <span className="font-medium text-sm tracking-wide">MEINUNG DES TEAMS</span>
-            </div>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-center">
+         
+          <h2 className="text-4xl md:text-5xl font-bold text-center mt-10">
             Das sagt <span className="special-text">unser Team</span>
           </h2>
           <div className="w-24 h-1 bg-[#246551]/30 mx-auto mt-6 rounded-full"></div>
@@ -338,8 +334,8 @@ export default function SellwellTestimonials() {
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
             <a href="#formular">
-              <Button>JETZT SCHNELL BEWERBEN</Button>
-              <p className="text-sm text-gray-500 mt-2">Ohne Lebenslauf und Anschreiben</p>
+              <Button>Jetzt durchstarten</Button>
+              <p className="text-sm text-gray-500 mt-2">In unter 60 Sekunden bewerben</p>
             </a>
           </motion.div>
         </motion.div>
