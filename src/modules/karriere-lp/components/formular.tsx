@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Check, ChevronRight, ChevronLeft, User, Briefcase, Clock, GraduationCap, Users, Zap, Car, Mail, Phone, Star } from 'lucide-react';
+import { ChevronRight, ChevronLeft, User, Briefcase, Clock, GraduationCap, Users, Zap, Car, Mail, Phone, Star } from 'lucide-react';
 
 // Define question types
 type QuestionType = 'text-dual' | 'binary' | 'select' | 'checkbox' | 'rating' | 'textarea' | 'contact';
@@ -127,7 +127,7 @@ const Formular = () => {
   `;
 
   // Proper type-safe implementation of handleChange
-  const handleChange = (field: string, value: any) => {
+  const handleChange = (field: string, value: string | boolean | number | null) => {
     setFormData((prev) => {
       // For nested objects like jobPreferences
       if (field.includes('.')) {
