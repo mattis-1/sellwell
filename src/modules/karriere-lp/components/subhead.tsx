@@ -6,12 +6,12 @@ interface SubheadProps extends HTMLAttributes<HTMLElement> {
 }
 
 export default function Subhead({
-  children,
-  ...props
-}: SubheadProps) {
-  return (
-    <Subhead className="sellwell-subhead" {...props}>
-      {children}
-    </Subhead>
-  );
-}
+    children,
+    ...props
+  }: SubheadProps) {
+    return (
+      <h2 className="sellwell-subhead" {...props}>
+        {children}
+      </h2>
+    );
+  }

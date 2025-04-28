@@ -1,4 +1,4 @@
-{/*import SellwellHero from "@/modules/karriere-lp/components/hero"*/}
+import SellwellHero from "@/modules/karriere-lp/components/hero"
 import SellwellAboutUs from "@/modules/karriere-lp/components/about"
 import SellwellBenefits from "@/modules/karriere-lp/components/benefits"
 import SellwellFaqSection from "@/modules/karriere-lp/components/faq"
