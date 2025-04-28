@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Inter, Montserrat } from 'next/font/google'
+import MetaPixel from "@/modules/karriere-lp/components/pixel";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,6 +52,7 @@ export default function RootLayout({
           "min-h-screen bg-background font-sans antialiased w-full overscroll-none"
         )}
       >
+        <MetaPixel />
         <div className="w-full">
           {children}
         </div>
