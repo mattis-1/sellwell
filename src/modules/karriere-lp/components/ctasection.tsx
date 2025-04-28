@@ -136,8 +136,7 @@ export default function SellwellCtaSection() {
         </motion.div>
       </div>
       
-      {/* Optional subtle diagonal shape at the bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-12 bg-white transform -skew-y-1"></div>
+      
     </section>
   )
 }
