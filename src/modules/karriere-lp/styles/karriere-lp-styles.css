@@ -173,6 +173,15 @@
     padding-right: 1rem;
   }
   
+  .sellwell-container-2 {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1rem;
+  }
+
   /* Benefit containers */
   .sellwell-benefit-container {
     border: 2px solid #60BDD8;

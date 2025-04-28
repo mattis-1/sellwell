@@ -38,7 +38,7 @@ export default function SellwellBenefits() {
             <span className="font-light text-sm tracking-wide">DEINE VORTEILE BEI SELLWELL</span>
           </div>
         </div>
-        <h2 className="text-[34px] md:text-[40px] font-bold text-center mb-12">Mit Sellwell <span className="special-text">grenzenlos wachsen</span></h2>
+        <h2 className="text-[36px] md:text-[43px] font-bold text-center mb-12">Visionen verwirklichen <span className="special-text">mit Sellwell</span></h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {/* Benefit 1 */}

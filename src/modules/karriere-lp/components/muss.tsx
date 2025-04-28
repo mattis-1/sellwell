@@ -40,7 +40,7 @@ export default function SellwellRequirements() {
       ref={sectionRef}
       className={`sellwell-section bg-white transition-all duration-1000 ${isIntersecting ? "opacity-100" : "opacity-0"}`}
     >
-      <div className="sellwell-container pl-6">
+      <div className="sellwell-container-2 ">
         <h2 className="text-[32px] md:text-[37px] font-bold text-left mt-5 mb-3">
           <span className="special-text leading-[1.2]">Wir suchen dich</span><br />als Vertriebler im Außendienst (m/w/d)
         </h2>
