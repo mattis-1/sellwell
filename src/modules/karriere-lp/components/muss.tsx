@@ -1,6 +1,7 @@
 "use client"
 
 import { useRef, useEffect, useState, ReactNode, MouseEventHandler } from "react"
+import Button from "@/modules/karriere-lp/components/button"
 import Image from "next/image"
 
 // Updated button component with proper TypeScript types
@@ -9,15 +10,6 @@ interface EnhancedButtonProps {
   onClick?: MouseEventHandler<HTMLButtonElement>;
   className?: string;
 }
-
-const EnhancedButton = ({ children, onClick, className = "" }: EnhancedButtonProps) => (
-  <button
-    onClick={onClick}
-    className={`px-8 py-4 bg-gradient-to-r from-[#246551] to-[#348b6e] text-white font-bold rounded-lg text-lg tracking-wide transition-all duration-300 ${className}`}
-  >
-    {children}
-  </button>
-)
 
 const requirements = [
   {
@@ -76,7 +68,7 @@ export default function SellwellRequirements() {
         {/* Glassmorphic container with image */}
         <div className="sellwell-benefit-container-alt mb-10 max-w-md mx-auto">
           <Image
-            src="/sellwell-team.jpg" // Replace with your actual image path
+            src="/sellwellteam.png" // Replace with your actual image path
             alt="Sellwell Team"
             width={300}
             height={200}
@@ -92,29 +84,29 @@ export default function SellwellRequirements() {
         </div>
 
         <div className="text-center mb-10">
-          <h2 className="font-inter text-[28px] tracking-[-1.4px] leading-[33px] text-[rgb(17,17,17)] font-semibold mb-8">
+          <h2 className="font-inter text-[28px] tracking-[-1.4px] leading-[37px] text-[rgb(17,17,17)] font-semibold mb-8">
             Wir suchen dich als Vertriebler im Außendienst (m/w/d)
           </h2>
-          <p className="font-inter text-[22px] font-semibold tracking-[-0.5px] text-[rgb(17,17,17)] mb-6">
+          <p className="font-inter text-[25px] font-semibold tracking-[-0.5px] text-[rgb(17,17,17)] mb-6">
             Bewirb dich wenn:
           </p>
         </div>
 
         <div className="max-w-2xl mx-auto mb-12">
-          <ul className="space-y-5">
+          <ul className="space-y-3">
             {requirements.map((requirement, index) => (
               <li 
                 key={index} 
                 className="flex items-start"
               >
-                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#e0f2ed] flex items-center justify-center mr-4 mt-[2px]">
+                <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mr-4 mt-[2px]">
                   {/* Green checkmark */}
                   <svg 
                     width="16" 
                     height="16" 
                     viewBox="0 0 24 24" 
                     fill="none" 
-                    stroke="#246551" 
+                    stroke="rgb(124, 242, 165)" 
                     strokeWidth="3" 
                     strokeLinecap="round" 
                     strokeLinejoin="round"
@@ -131,7 +123,7 @@ export default function SellwellRequirements() {
 
           <div className="text-center mt-12">
             <a href="#formular">
-              <EnhancedButton>JETZT STARTEN</EnhancedButton>
+              <Button>Jetzt starten</Button>
               <p className="text-sm text-gray-500 mt-2">In unter 60 Sekunden bewerben</p>
             </a>
           </div>

@@ -30,7 +30,7 @@ export default function SellwellBenefits() {
   return (
     <section
       ref={sectionRef}
-      className={`sellwell-section-alt transition-all duration-1000 ${isIntersecting ? "opacity-100" : "opacity-0"}`}
+      className={`sellwell-section bg-white transition-all duration-1000 ${isIntersecting ? "opacity-100" : "opacity-0"}`}
     >
       <div className="sellwell-container">
 
