@@ -19,7 +19,6 @@ const benefits = [
 
 export default function SellwellHero() {
   const [isIntersecting, setIsIntersecting] = useState(false)
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -40,11 +39,6 @@ export default function SellwellHero() {
       }
     }
   }, [])
-
-  // Handle video play click
-  const handlePlayVideo = () => {
-    setIsVideoPlaying(true)
-  }
 
   // Duplicate benefits for infinite scroll effect
   const allBenefits = [...benefits, ...benefits]
@@ -131,74 +125,31 @@ export default function SellwellHero() {
         {/* Headline with enhanced typography */}
         <motion.h1 
           variants={itemVariants}
-          className="font-montserrat text-3xl md:text-4xl lg:text-5xl text-center font-bold max-w-4xl mx-auto px-4 mb-8 leading-tight"
+          className="font-montserrat text-3xl md:text-4xl lg:text-5xl text-center tracking-[-1px] font-[600] max-w-4xl mx-auto px-4 mb-8 leading-tight"
         >
           <span className="relative inline-block">
-            <span className="relative z-10">Entfalte dein volles Potenzial</span>
+            <span className="relative z-10 ">Entfalte dein volles Potenzial</span>
           </span> als Vertriebler im Strom- & Gasvertrieb
         </motion.h1>
 
-        {/* Vimeo Video with normal thumbnail */}
+        {/* Vimeo Video with green border */}
         <motion.div 
           variants={itemVariants}
-          className="w-full max-w-4xl mx-auto px-4 mb-12"
+          className="w-full max-w-5xl mx-auto px-4 mb-12"
         >
-          <div className="video-container relative">
-            <div className="aspect-video bg-gray-900 rounded-lg overflow-hidden">
-              <AnimatePresence mode="wait">
-                {!isVideoPlaying ? (
-                  // Video Thumbnail
-                  <motion.div 
-                    key="thumbnail"
-                    initial={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    className="w-full h-full relative cursor-pointer"
-                    onClick={handlePlayVideo}
-                  >
-                    {/* Thumbnail image with play button overlay */}
-                    <div className="absolute inset-0 flex items-center justify-center z-10">
-                      <div className="w-20 h-20 rounded-full bg-black/40 flex items-center justify-center">
-                        <div className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-white border-b-[12px] border-b-transparent ml-1"></div>
-                      </div>
-                    </div>
-                    
-                    {/* This would ideally be the actual video thumbnail */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/50"></div>
-                    
-                    {/* You can replace this with an actual thumbnail image */}
-                    <Image 
-                      src="/vimeo-thumbnail.jpg" 
-                      alt="Video Thumbnail"
-                      layout="fill"
-                      objectFit="cover"
-                      onError={(e) => {
-                        // Fallback gradient if image fails to load
-                        const target = e.target as HTMLElement;
-                        if (target.parentElement) {
-                          target.parentElement.style.background = "linear-gradient(135deg, #246551, #348b6e)";
-                        }
-                      }}
-                    />
-                  </motion.div>
-                ) : (
-                  // Actual Vimeo Embed
-                  <motion.div
-                    key="video"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="w-full h-full"
-                  >
-                    <iframe
-                      src="https://player.vimeo.com/video/1079393532?h=ae44b49c5b&color=246551&title=0&byline=0&portrait=0&autoplay=1"
-                      className="absolute top-0 left-0 w-full h-full"
-                      frameBorder="0"
-                      allow="autoplay; fullscreen; picture-in-picture"
-                      allowFullScreen
-                      title="Sellwell Consulting Promotional Video"
-                    ></iframe>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+          <div className="video-wrapper p-3 rounded-lg" style={{ border: '3px solid #246551' }}>
+            <div className="video-container relative">
+              <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden">
+                <iframe
+                  src="https://player.vimeo.com/video/1079393532?h=ae44b49c5b&color=246551&title=0&byline=0&portrait=0&dnt=1"
+                  className="absolute top-0 left-0 w-full h-full"
+                  frameBorder="0"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                  title="Sellwell Consulting Promotional Video"
+                  loading="lazy"
+                ></iframe>
+              </div>
             </div>
           </div>
         </motion.div>
@@ -217,6 +168,12 @@ export default function SellwellHero() {
       <style jsx>{`
         .video-container {
           position: relative;
+          transition: all 0.3s ease;
+        }
+        
+        .video-wrapper {
+          background-color: transparent;
+          border-radius: 8px;
           transition: all 0.3s ease;
         }
         
