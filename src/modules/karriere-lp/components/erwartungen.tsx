@@ -42,18 +42,13 @@ export default function SellwellExpectations() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto relative z-10">
           {/* Expectation 1 */}
-          <div className="sellwell-benefit-container  relative
-                          overflow-hidden
-                          rounded-lg
-                          p-6             ">
-                            <Image
+          <div className="sellwell-benefit-container relative overflow-hidden rounded-lg p-6">
+            <Image
               src="/grid-shx.svg"
-              alt=""                  /* decorative */
-              fill                    /* this makes it position:absolute, inset:0 */
+              alt=""
+              fill
               style={{ objectFit: "contain" }}
-              className="-z-10
-                         pointer-events-none
-                         select-none"
+              className="-z-10 pointer-events-none select-none"
             />
             <div className="mb-4">
               <Image
@@ -70,7 +65,14 @@ export default function SellwellExpectations() {
           </div>
 
           {/* Expectation 2 */}
-          <div className="sellwell-benefit-container">
+          <div className="sellwell-benefit-container relative overflow-hidden rounded-lg p-6">
+            <Image
+              src="/grid-shx.svg"
+              alt=""
+              fill
+              style={{ objectFit: "contain" }}
+              className="-z-10 pointer-events-none select-none"
+            />
             <div className="mb-4">
               <Image
                 src="/shx-icon5.webp"
@@ -87,7 +89,14 @@ export default function SellwellExpectations() {
           </div>
 
           {/* Expectation 3 */}
-          <div className="sellwell-benefit-container">
+          <div className="sellwell-benefit-container relative overflow-hidden rounded-lg p-6">
+            <Image
+              src="/grid-shx.svg"
+              alt=""
+              fill
+              style={{ objectFit: "contain" }}
+              className="-z-10 pointer-events-none select-none"
+            />
             <div className="mb-4">
               <Image
                 src="/shx-icon6.webp"

@@ -93,8 +93,7 @@ export default function SellwellHero() {
       </h1>
 
       {/* VSL Container */}
-      <div className="w-full max-w-[80%] mx-auto px-4 mb-12 border-1 border-black rounded-[30px] p-4">
-        <div className="aspect-video relative bg-black rounded-[30px] overflow-hidden drop-shadow-[0_0_20px_rgba(59,130,246,0.7)]">
+        <div className="aspect-video relative bg-black rounded-[30px] overflow-hidden">
           {/* Replace with actual VSL embed */}
           <div className="absolute inset-0 flex items-center justify-center text-white">
             <p className="text-center">Video Sales Letter</p>
@@ -106,7 +105,7 @@ export default function SellwellHero() {
             </div>
           </div>
         </div>
-      </div>
+      
 
       {/* Application Form */}
       <div className="w-full max-w-2xl mx-auto px-4 mb-16">
