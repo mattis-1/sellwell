@@ -1,7 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { v4 as uuidv4 } from 'uuid';
+import { sendKampagneEmail } from '@/lib/email';
+import { sendKampagneConfirmationEmail } from '@/lib/user-email';
+import { appendToKampagneSheet } from '@/lib/google-sheets';
 
 // Define the expected form data structure
-interface BewerberFormData {
+interface KampagneFormData {
   firstName: string;
   lastName: string;
   hasSalesExperience: boolean | null;
@@ -24,14 +28,13 @@ interface BewerberFormData {
 export async function POST(request: NextRequest) {
   try {
     // Parse the incoming JSON
-    const data: BewerberFormData = await request.json();
+    const data: KampagneFormData = await request.json();
     
     // Validate required fields
     const requiredFields = [
       'firstName', 
       'lastName', 
       'hasSalesExperience',
-      'jobPreferences',
       'peopleContactRating',
       'greatestStrength',
       'hasDriversLicense',
@@ -40,19 +43,13 @@ export async function POST(request: NextRequest) {
     ] as const;
     
     const missingFields = requiredFields.filter(field => {
-      // Handle the nested jobPreferences object specially
-      if (field === 'jobPreferences') {
-        const preferences = data.jobPreferences;
-        // Check if at least one preference is selected
-        return !(
-          preferences.compensation || 
-          preferences.flexibleHours || 
-          preferences.training || 
-          preferences.teamSpirit || 
-          preferences.responsibility
-        );
+      if (field === 'hasSalesExperience' || field === 'hasDriversLicense') {
+        return data[field] === null;
       }
-      return data[field] === undefined || data[field] === null || data[field] === '';
+      if (field === 'peopleContactRating') {
+        return data[field] === null;
+      }
+      return !data[field];
     });
     
     if (missingFields.length > 0) {
@@ -80,26 +77,44 @@ export async function POST(request: NextRequest) {
       );
     }
     
-    // Create a record with an ID and timestamp
-    const application = {
-      id: crypto.randomUUID(),
-      ...data,
-      campaign: 'kampagne1',
+    // Format job preferences for sheets and emails
+    const jobPreferences = [];
+    if (data.jobPreferences.compensation) jobPreferences.push('Attraktive Vergütung');
+    if (data.jobPreferences.flexibleHours) jobPreferences.push('Flexible Arbeitszeiten');
+    if (data.jobPreferences.training) jobPreferences.push('Weiterbildungsmöglichkeiten');
+    if (data.jobPreferences.teamSpirit) jobPreferences.push('Teamspirit');
+    if (data.jobPreferences.responsibility) jobPreferences.push('Eigenverantwortung');
+    
+    // Create application object with ID and timestamp
+    const newApplication = {
+      id: uuidv4(),
+      firstName: data.firstName,
+      lastName: data.lastName,
+      salesExperience: data.hasSalesExperience ? 'Ja' : 'Nein',
+      experienceLevel: data.experienceLevel || 'Keine',
+      jobImportance: jobPreferences.join(', '),
+      peopleContact: data.peopleContactRating?.toString() || '',
+      driversLicense: data.hasDriversLicense ? 'Ja' : 'Nein',
+      fitReason: data.greatestStrength,
+      email: data.email,
+      phone: data.phone,
+      campaign: 'Kampagne 1',
       createdAt: new Date().toISOString()
     };
     
-    // Here you would typically:
-    // 1. Save to a database
-    // 2. Send email notifications
-    // 3. Perform any other processing
+    // Add to Google Sheet
+    await appendToKampagneSheet(newApplication);
     
-    console.log('Received application:', application);
+    // Send email notifications
+    await sendKampagneEmail(newApplication);
+    await sendKampagneConfirmationEmail(newApplication);
     
-    // Return success response
-    return NextResponse.json({
+    // Return success response with redirect URL
+    return NextResponse.json({ 
       success: true,
       message: 'Application submitted successfully',
-      applicationId: application.id
+      applicationId: newApplication.id,
+      redirectUrl: '/danke?lead=true'
     });
     
   } catch (error) {

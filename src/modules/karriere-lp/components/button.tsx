@@ -1,11 +1,12 @@
-import { ButtonHTMLAttributes, ReactNode } from 'react';
-import Image from 'next/image';
+import { ButtonHTMLAttributes, ReactNode } from "react";
+import Image from "next/image";
 
-interface PrimaryButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface PrimaryButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
 }
 
-export default function Button({
+export default function PrimaryButton({
   children,
   ...props
 }: PrimaryButtonProps) {
@@ -13,6 +14,7 @@ export default function Button({
     <button className="sellwell-btn-primary" {...props}>
       <span className="sellwell-btn-text">{children}</span>
 
+      {/* bigger, low-opacity grid */}
       <Image
         src="/button-grid.svg"
         alt=""

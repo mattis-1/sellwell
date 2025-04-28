@@ -1,6 +1,7 @@
 import nodemailer from 'nodemailer';
 import { JobApplication } from './bewerber';
 import { ContactRequest } from './firma';
+import { BewerberData, KampagneData } from './google-sheets';
 
 // Email configuration using environment variables with improved error handling
 const getEmailConfig = () => {
@@ -33,6 +34,26 @@ const createTransporter = () => {
     auth: { user: config.auth.user, pass: config.auth.pass ? '****' : 'NOT SET' }
   });
   return nodemailer.createTransport(config);
+
+};
+
+// Generate email template for Kampagne form submissions
+const generateKampagneEmailTemplate = (data: KampagneData): string => {
+  return `
+    <h1>Neue Kampagnen-Bewerbung erhalten</h1>
+    <p><strong>ID:</strong> ${data.id}</p>
+    <p><strong>Name:</strong> ${data.firstName} ${data.lastName}</p>
+    <p><strong>Email:</strong> ${data.email}</p>
+    <p><strong>Telefon:</strong> ${data.phone}</p>
+    <p><strong>Vertriebserfahrung:</strong> ${data.salesExperience}</p>
+    ${data.experienceLevel ? `<p><strong>Erfahrungslevel:</strong> ${data.experienceLevel}</p>` : ''}
+    <p><strong>Wichtig im Job:</strong> ${data.jobImportance}</p>
+    <p><strong>Kontaktfreude (1-5):</strong> ${data.peopleContact}</p>
+    <p><strong>Führerschein:</strong> ${data.driversLicense}</p>
+    <p><strong>Stärke im Vertrieb:</strong> ${data.fitReason}</p>
+    <p><strong>Kampagne:</strong> ${data.campaign}</p>
+    <p><strong>Eingetragen am:</strong> ${new Date().toLocaleString('de-DE')}</p>
+  `;
 };
 
 /**
@@ -302,6 +323,30 @@ export async function sendBewerberEmail(data: JobApplication): Promise<boolean> 
       console.error('Error name:', error.name);
       console.error('Error message:', error.message);
       console.error('Error stack:', error.stack);
+    }
+    return false;
+  }
+}
+
+export async function sendKampagneEmail(data: KampagneData): Promise<boolean> {
+  try {
+    const transporter = createTransporter();
+    
+    const mailOptions = {
+      from: `"Sellwell Kampagnen" <${process.env.EMAIL_USER}>`,
+      to: process.env.ADMIN_EMAIL || 'info@sell-well-consulting.de',
+      subject: `Neue Kampagnen-Bewerbung: ${data.firstName} ${data.lastName}`,
+      html: generateKampagneEmailTemplate(data),
+    };
+    
+    console.log('Sending kampagne notification email');
+    const info = await transporter.sendMail(mailOptions);
+    console.log('Message sent:', info.messageId);
+    return true;
+  } catch (error) {
+    console.error('Error sending kampagne email:', error);
+    if (error instanceof Error) {
+      console.error('Error details:', error.message);
     }
     return false;
   }

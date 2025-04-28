@@ -11,7 +11,7 @@ export interface BewerberData {
   lastName: string;
   email: string;
   phone: string;
-  salesExperience: string; // Change to boolean if appropriate
+  salesExperience: string; 
   jobImportance: string;
   peopleContact: string;
   driversLicense: string;
@@ -27,6 +27,22 @@ export interface FirmenData {
   email: string;
   phone: string;
   message: string;
+}
+
+// Define an interface for the Kampagne sheet data
+export interface KampagneData {
+  id: string | number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  salesExperience: string;
+  experienceLevel?: string;
+  jobImportance: string;
+  peopleContact: string;
+  driversLicense: string;
+  fitReason: string;
+  campaign: string;
 }
 
 // Create a JWT client using service account credentials
@@ -97,6 +113,48 @@ export async function appendToBewerberSheet(data: BewerberData) {
     return result.data;
   } catch (error) {
     console.error('Error appending to Bewerber sheet:', error);
+    throw error;
+  }
+}
+
+// Function to append data to the Kampagne sheet
+export async function appendToKampagneSheet(data: KampagneData) {
+  try {
+    const authClient = getAuthClient();
+    const sheets = google.sheets({ version: 'v4', auth: authClient });
+    
+    // Format the data according to your sheet headers
+    const rowData = [
+      data.id,                // ID
+      data.firstName,         // Vorname
+      data.lastName,          // Nachname
+      data.email,             // Email
+      data.phone,             // Telefonnummer
+      data.salesExperience,   // Vertriebserfahrung
+      data.experienceLevel || 'N/A', // Erfahrungslevel
+      data.jobImportance,     // Wichtig im Job
+      data.peopleContact,     // Kontaktfreude (1-5)
+      data.driversLicense,    // Führerschein
+      data.fitReason,         // Stärke im Vertrieb
+      data.campaign,          // Kampagne
+      getFormattedDateTime(), // Eingetragen am
+      '', // Status
+      ''  // Notizen
+    ];
+    
+    const result = await sheets.spreadsheets.values.append({
+      spreadsheetId: SPREADSHEET_ID,
+      range: 'Kampagne!A:O', // Use all columns
+      valueInputOption: 'USER_ENTERED',
+      insertDataOption: 'INSERT_ROWS',
+      requestBody: {
+        values: [rowData]
+      }
+    });
+    
+    return result.data;
+  } catch (error) {
+    console.error('Error appending to Kampagne sheet:', error);
     throw error;
   }
 }

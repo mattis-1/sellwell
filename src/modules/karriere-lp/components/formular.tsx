@@ -239,7 +239,7 @@ const Formular = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  // Submit handler with API integration
+  // Submit handler with API integration and redirect
   const handleSubmit = async () => {
     const isValid = validateCurrentQuestion();
     if (!isValid) return;
@@ -279,18 +279,26 @@ const Formular = () => {
         throw new Error(`Server responded with an error: ${response.status}`);
       }
       
-      // Process the response (not storing in unused variable)
-      await response.json();
+      // Get the response data
+      const result = await response.json();
       
-      // Handle success
+      // Display success message
       alert('Bewerbung erfolgreich eingereicht!');
+      
+      // Redirect to thank you page
+      if (result.redirectUrl) {
+        window.location.href = result.redirectUrl;
+      } else {
+        window.location.href = '/danke?lead=true';
+      }
+      
+      // Reset form (though not needed due to redirect)
       setFormData(initialFormData);
       setCurrentQuestion(0);
     } catch (error) {
       // Handle error
       console.error('Error submitting form:', error);
       alert('Es gab einen Fehler bei der Übermittlung. Bitte versuche es erneut.');
-    } finally {
       setIsSubmitting(false);
     }
   };

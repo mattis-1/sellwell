@@ -1,6 +1,7 @@
 import nodemailer from 'nodemailer';
 import { JobApplication } from './bewerber';
 import { ContactRequest } from './firma';
+import { KampagneData } from './google-sheets';
 
 // Reuse the email configuration from the main email.ts file
 // We could import it, but to avoid circular dependencies, we'll duplicate just this part
@@ -15,6 +16,145 @@ const createTransporter = () => {
     },
   });
 };
+
+/**
+ * Generate confirmation email template for Kampagne form submissions
+ */
+const generateKampagneConfirmationTemplate = (data: KampagneData): string => {
+  return `
+    <html>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+          body { 
+            font-family: Arial, sans-serif; 
+            line-height: 1.6; 
+            color: #333; 
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+          }
+          .container { 
+            width: 90%; 
+            max-width: 500px; 
+            margin: 0 auto; 
+            padding: 20px 15px; 
+          }
+          @media (max-width: 480px) {
+            .container {
+              width: 85%;
+              padding: 15px 10px;
+            }
+          }
+          h1 { 
+            color: #2D7D63; 
+            padding-bottom: 10px; 
+            margin-bottom: 20px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+          }
+          p { margin-bottom: 16px; }
+          .button {
+            display: inline-block;
+            background: linear-gradient(to right, #19483B, #2D7D63);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 12px 24px;
+            border-radius: 25px;
+            margin: 15px 0;
+            text-align: center;
+          }
+          .social-icons {
+            margin: 25px 0;
+          }
+          .social-icon {
+            display: inline-block;
+            margin-right: 15px;
+            color: #2D7D63;
+            text-decoration: none;
+          }
+          .contact-info {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+          }
+          .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+          }
+          .icon {
+            margin-right: 10px;
+            width: 16px;
+            height: 16px;
+          }
+          .footer {
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+          }
+          .footer a {
+            color: #2D7D63;
+            text-decoration: none;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <p>Hallo ${data.firstName},</p>
+          
+          <p>vielen Dank für deine Bewerbung bei Sellwell! Wir freuen uns sehr über dein Interesse, Teil unseres Teams zu werden.</p>
+          
+          <p>Wir haben deine Angaben erhalten und unser Team wird diese sorgfältig prüfen. In Kürze melden wir uns mit weiteren Informationen bei dir.</p>
+          
+          <p>Falls du bis dahin Fragen hast oder weitere Informationen zu deiner Bewerbung benötigst, zögere nicht, uns zu kontaktieren.</p>
+          
+          <p>Um mehr über uns zu erfahren und einen besseren Einblick in unsere Arbeit zu bekommen, besuche gerne unseren Persönlichkeitstest und folge uns auf Social Media:</p>
+          
+          <a href="https://sellwell-consulting.de/personality" class="button">ZUM PERSÖNLICHKEITSTEST</a>
+          
+          <div class="social-icons">
+            <a href="https://youtube.com/@SellwellConsulting" class="social-icon">
+              <img src="https://sellwell-consulting.de/email-youtube.png" alt="Youtube" width="24" height="24" style="vertical-align: middle;"> Youtube
+            </a>
+            
+            <a href="https://www.instagram.com/kress_maximilian/" class="social-icon">
+              <img src="https://sellwell-consulting.de/email-insta.png" alt="Instagram" width="24" height="24" style="vertical-align: middle;"> Instagram
+            </a>
+          </div>
+          
+          <p>Vielen Dank für dein Interesse!<br>
+          Dein Sellwell Team</p>
+          
+          <div class="contact-info">
+            <div class="contact-item">
+              <img src="https://sellwell-consulting.de/email-phone.png" alt="Telefon" class="icon" style="width: 16px; height: 16px;">
+              +49 176 76869448
+            </div>
+            <div class="contact-item">
+              <img src="https://sellwell-consulting.de/email-email.png" alt="Email" class="icon" style="width: 16px; height: 16px;">
+              info@sell-well-consulting.de
+            </div>
+            <div class="contact-item">
+              <img src="https://sellwell-consulting.de/email-location.png" alt="Adresse" class="icon" style="width: 16px; height: 16px;">
+              Leiblstraße 26, 85567 Neubiberg
+            </div>
+          </div>
+          
+          <div class="footer">
+            <a href="https://sellwell-consulting.de/impressum">Impressum</a> | 
+            <a href="https://sellwell-consulting.de/datenschutz">Datenschutz</a>
+          </div>
+        </div>
+      </body>
+    </html>
+  `;
+};
+
 
 /**
  * Generate confirmation email template for users who submit the Firma form
@@ -349,6 +489,38 @@ export async function sendBewerberConfirmationEmail(data: JobApplication): Promi
     return true;
   } catch (error) {
     console.error('Error sending bewerber confirmation email:', error);
+    if (error instanceof Error) {
+      console.error('Error details:', error.message);
+    }
+    return false;
+  }
+}
+
+/**
+ * Send confirmation email to kampagne form submitter
+ */
+export async function sendKampagneConfirmationEmail(data: KampagneData): Promise<boolean> {
+  try {
+    if (!data.email) {
+      console.error('Cannot send confirmation - no email address provided');
+      return false;
+    }
+    
+    const transporter = createTransporter();
+    
+    const mailOptions = {
+      from: `"Sellwell Karriere" <${process.env.EMAIL_USER}>`,
+      to: data.email,
+      subject: `Deine Bewerbung bei Sellwell`,
+      html: generateKampagneConfirmationTemplate(data),
+    };
+    
+    console.log(`Sending kampagne confirmation email to ${data.email}`);
+    const info = await transporter.sendMail(mailOptions);
+    console.log('Confirmation message sent:', info.messageId);
+    return true;
+  } catch (error) {
+    console.error('Error sending kampagne confirmation email:', error);
     if (error instanceof Error) {
       console.error('Error details:', error.message);
     }
