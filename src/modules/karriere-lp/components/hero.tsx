@@ -209,7 +209,7 @@ export default function SellwellHero() {
         <motion.div 
           variants={itemVariants}
           id="formular" 
-          className="w-full max-w-3xl mx-auto px-4 mb-16"
+          className="w-full max-w-[90%] mx-auto mb-16"
         >
           <Formular />
         </motion.div>
