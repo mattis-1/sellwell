@@ -9,7 +9,7 @@ export default function SellwellFooter() {
       <div className="sellwell-container">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
-            <p className="text-xl font-bold text-center">Sellwell Consulting GmbH</p>
+            <p className="text-[25px] font-bold text-center">Sellwell Consulting GmbH</p>
             <p className="text-gray-100 mt-1 text-center text-lg">Wo Visionen verwirklicht werden.</p>
           </div>
 

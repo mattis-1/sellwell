@@ -108,7 +108,7 @@ export default function SellwellHero() {
       
 
       {/* Application Form */}
-      <div className="w-full max-w-2xl mx-auto px-4 mb-16">
+      <div id="formular" className="w-full max-w-2xl mx-auto px-4 mb-16">
         <Formular />
       </div>
     </section>

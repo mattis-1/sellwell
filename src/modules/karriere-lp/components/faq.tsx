@@ -76,6 +76,9 @@ export default function SellwellFaqSection() {
       ref={sectionRef}
       className={`sellwell-section relative transition-all duration-1000 p-0 ${isIntersecting ? "opacity-100" : "opacity-0"}`}
     >
+      {/* Blue gradient from bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-[70vh] z-0 pointer-events-none bg-gradient-to-t from-blue-500/30 via-blue-400/10 to-transparent"></div>
+
       {/* Image Slider - Enhanced infinite version */}
       <div className="w-screen relative overflow-hidden bg-gray-50">
         {/* Left gradient */}

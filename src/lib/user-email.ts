@@ -134,11 +134,11 @@ const generateKampagneConfirmationTemplate = (data: KampagneData): string => {
           
           <div class="social-icons">
             <a href="https://youtube.com/@SellwellConsulting" class="social-icon">
-              <img src="https://sellwell-consulting.de/email-youtube.png" alt="Youtube" width="32" height="32">
+              <img src="https://sellwell-consulting.de/email-youtube.png" alt="Youtube" width="52" height="52">
             </a>
             
             <a href="https://www.instagram.com/kress_maximilian/" class="social-icon">
-              <img src="https://sellwell-consulting.de/email-insta.png" alt="Instagram" width="32" height="32">
+              <img src="https://sellwell-consulting.de/email-insta.png" alt="Instagram" width="52" height="52">
             </a>
           </div>
           
@@ -146,7 +146,7 @@ const generateKampagneConfirmationTemplate = (data: KampagneData): string => {
           Dein Sellwell Team</p>
           
           <!-- Team Image -->
-          <img src="https://sellwell-consulting.de/ABOUT1.png" alt="Sellwell Team" class="team-image">
+          <img src="https://sellwell-consulting.de/Unsere Mission 2.png" alt="Sellwell Team" class="team-image">
           
           <div class="contact-info">
             <div class="contact-item">
