@@ -33,16 +33,16 @@ export default function SellwellExpectations() {
       className={`sellwell-section-alt relative overflow-hidden transition-all duration-1000 ${isIntersecting ? "opacity-100" : "opacity-0"}`}
     >
       <div className="sellwell-container relative z-10">
-        <div className="flex justify-center mb-3">
-          <div className="bg-blue-100 text-blue-800 rounded-full px-4 py-1 inline-block">
-            <span className="font-light text-sm tracking-wide">DEINE VORTEILE BEI SELLWELL</span>
+      <div className="flex justify-center mb-3">
+          <div className="bg-[#78C07B] text-[#388E3C] rounded-full px-4 py-1 inline-block">
+            <span className="font-[500] text-sm tracking-wide">DEINE VORTEILE BEI SELLWELL</span>
           </div>
         </div>
         <h2 className="text-[40px] md:text-[45px] font-bold text-center mb-8 special-text">Was dich erwartet</h2>
 
         {/* Background glow */}
         <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <div className="w-[500px] h-[500px] bg-[#388E3C] rounded-full filter blur-3xl opacity-30" />
+          <div className="w-[500px] h-[500px] bg-[#388E3C] rounded-full filter blur-3xl opacity-20" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto relative z-10">

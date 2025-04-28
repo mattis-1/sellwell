@@ -139,8 +139,8 @@ export default function SellwellTestimonials() {
     >
       <div className="sellwell-container">
       <div className="flex justify-center mb-3">
-          <div className="bg-blue-100 text-blue-800 rounded-full px-4 py-1 inline-block">
-            <span className="font-light text-sm tracking-wide">TEAMKULTUR BEI SELLWELL</span>
+          <div className="bg-[#78C07B] text-[#388E3C] rounded-full px-4 py-1 inline-block">
+            <span className="font-[500] text-sm tracking-wide">DEINE VORTEILE BEI SELLWELL</span>
           </div>
         </div>
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">Das sagt <span className="special-text">unser Team</span></h2>
