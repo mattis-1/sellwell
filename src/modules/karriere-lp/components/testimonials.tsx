@@ -205,7 +205,7 @@ export default function SellwellTestimonials() {
   return (
     <section
       ref={sectionRef}
-      className={`sellwell-section-alt py-16 relative transition-all duration-1000 ${
+      className={`sellwell-section py-16 relative transition-all duration-1000 ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
@@ -221,10 +221,9 @@ export default function SellwellTestimonials() {
           className="mb-12"
         >
          
-          <h2 className="text-4xl md:text-5xl font-bold text-center mt-10">
-            Das sagt <span className="special-text">unser Team</span>
+          <h2 className="text-[30px] leading-[35px] tracking-[-1.4px] font-bold text-center mt-10">
+            Das sagt unser Team
           </h2>
-          <div className="w-24 h-1 bg-[#246551]/30 mx-auto mt-6 rounded-full"></div>
         </motion.div>
 
         <div className="relative max-w-4xl mx-auto">
@@ -250,9 +249,9 @@ export default function SellwellTestimonials() {
                         isActive={activeSlide === idx}
                       />
                       
-                      {/* Person info */}
+                      {/* Person info - removed background and shadow */}
                       <motion.div 
-                        className="flex items-center mt-4 p-3 bg-white rounded-lg shadow-sm"
+                        className="flex items-center mt-4 p-3"
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
@@ -335,7 +334,7 @@ export default function SellwellTestimonials() {
           >
             <a href="#formular">
               <Button>Jetzt durchstarten</Button>
-              <p className="text-sm text-gray-500 mt-2">In unter 60 Sekunden bewerben</p>
+              <p className="subbtnt mt-2">In unter 60 Sekunden bewerben</p>
             </a>
           </motion.div>
         </motion.div>

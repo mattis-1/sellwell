@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
 import { Instagram } from "lucide-react"
 
 export default function SellwellFooter() {
@@ -49,11 +48,7 @@ export default function SellwellFooter() {
           </div>
         </div>
 
-        {/* Divider with subtle design */}
-        <div className="my-6 relative">
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-transparent via-[#7CF2A5] to-transparent"></div>
-          <div className="border-t border-[#7CF2A580] w-full"></div>
-        </div>
+        
 
         {/* Copyright section */}
         <div className="text-center">
