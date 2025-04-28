@@ -5,11 +5,7 @@ import Button from "@/modules/karriere-lp/components/button"
 import Image from "next/image"
 
 // Updated button component with proper TypeScript types
-interface EnhancedButtonProps {
-  children: ReactNode;
-  onClick?: MouseEventHandler<HTMLButtonElement>;
-  className?: string;
-}
+
 
 const requirements = [
   {
