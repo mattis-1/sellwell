@@ -42,7 +42,7 @@ export default function SellwellExpectations() {
 
         {/* Background glow */}
         <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <div className="w-[500px] h-[500px] bg-[#388E3C] rounded-full filter blur-3xl opacity-20" />
+          <div className="w-[500px] h-[500px] bg-[#388E3C] rounded-full filter blur-3xl opacity-80" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto relative z-10">
