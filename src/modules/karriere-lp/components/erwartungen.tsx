@@ -38,7 +38,7 @@ export default function SellwellExpectations() {
             <span className="font-[500] text-sm tracking-wide">DEINE VORTEILE BEI SELLWELL</span>
           </div>
         </div>
-        <h2 className="text-[40px] md:text-[45px] font-bold text-center mb-8">Was dich erwartet</h2>
+        <h2 className="text-[40px] md:text-[46px] font-bold text-center mb-8">Was dich erwartet</h2>
 
         {/* Background glow */}
         <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
