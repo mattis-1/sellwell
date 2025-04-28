@@ -117,7 +117,7 @@ const Formular = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [recentlyChanged, setRecentlyChanged] = useState<string | null>(null);
 
-  // Custom classes for the specific width values
+  // Custom classes for the specific width values and improved animations
   const tailwindStyles = `
     .w-3\\/10 {
       width: 30%;
@@ -131,12 +131,6 @@ const Formular = () => {
     }
     .animate-progress {
       animation: smoothProgress 0.3s ease-out;
-    }
-    .absolute-on-exit {
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
     }
     @keyframes pulse-border {
       0% { box-shadow: 0 0 0 0 rgba(36, 101, 81, 0.15); }
@@ -172,6 +166,15 @@ const Formular = () => {
     }
     .bg-green-lightest {
       background-color: #f0f5f4;
+    }
+    /* For smoother height transitions */
+    .question-content-wrapper {
+      transition: min-height 0.3s ease-out;
+    }
+    /* Optimize animations */
+    * {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
     }
   `;
 
@@ -291,51 +294,70 @@ const Formular = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  // Submit handler with faster redirection
+  // Optimized submit handler with improved performance
   const handleSubmit = async () => {
     const isValid = validateCurrentQuestion();
     if (!isValid) return;
     
     setIsSubmitting(true);
     
+    // Prepare the form data for submission - optimized structure
+    const submissionData = {
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      hasSalesExperience: formData.hasSalesExperience,
+      experienceLevel: formData.experienceLevel,
+      jobPreferences: {
+        compensation: formData.jobPreferences.compensation,
+        flexibleHours: formData.jobPreferences.flexibleHours,
+        training: formData.jobPreferences.training,
+        teamSpirit: formData.jobPreferences.teamSpirit,
+        responsibility: formData.jobPreferences.responsibility
+      },
+      peopleContactRating: formData.peopleContactRating,
+      greatestStrength: formData.greatestStrength,
+      hasDriversLicense: formData.hasDriversLicense,
+      email: formData.email,
+      phone: formData.phone,
+      submittedAt: new Date().toISOString()
+    };
+    
+    // Implement optimistic UI - redirect immediately for better perceived performance
+    // We'll still make the API call but not wait for it to complete before redirecting
+    const redirectTimer = setTimeout(() => {
+      window.location.href = '/danke?lead=true';
+    }, 300); // Short delay for visual feedback that submission is happening
+    
     try {
-      // Prepare the form data for submission
-      const submissionData = {
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        hasSalesExperience: formData.hasSalesExperience,
-        experienceLevel: formData.experienceLevel,
-        jobPreferences: {
-          compensation: formData.jobPreferences.compensation,
-          flexibleHours: formData.jobPreferences.flexibleHours,
-          training: formData.jobPreferences.training,
-          teamSpirit: formData.jobPreferences.teamSpirit,
-          responsibility: formData.jobPreferences.responsibility
-        },
-        peopleContactRating: formData.peopleContactRating,
-        greatestStrength: formData.greatestStrength,
-        hasDriversLicense: formData.hasDriversLicense,
-        email: formData.email,
-        phone: formData.phone,
-        submittedAt: new Date().toISOString()
-      };
+      // Use faster fetch options
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 8000); // Set timeout to 8 seconds
       
-      // Make the API call
+      // Make the API call with improved performance settings
       const response = await fetch('/api/bewerber/kampagne1', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Cache-Control': 'no-cache', // Prevent caching
+          'Priority': 'high' // Signal high priority (supported in some browsers)
+        },
         body: JSON.stringify(submissionData),
+        signal: controller.signal,
+        // Use keepalive to allow request to complete even if page unloads
+        keepalive: true
       });
+      
+      clearTimeout(timeoutId);
       
       if (!response.ok) {
         throw new Error(`Server responded with an error: ${response.status}`);
       }
       
-      // Immediately redirect without showing any alerts
-      window.location.href = '/danke?lead=true';
+      // The redirect will already have happened due to the timer above
       
     } catch (error) {
-      // Only show error alerts
+      // Only show error alerts if we haven't redirected yet
+      clearTimeout(redirectTimer);
       console.error('Error submitting form:', error);
       alert('Es gab einen Fehler bei der Übermittlung. Bitte versuche es erneut.');
       setIsSubmitting(false);
@@ -786,9 +808,9 @@ const Formular = () => {
         </div>
         
         <div className="bg-white rounded-xl border border-gray-100 px-3 py-4 sm:px-6 sm:py-8">
-          {/* Main content with dynamic height and smooth transitions */}
-          <div className="flex flex-col justify-between min-h-[300px]">
-            <div className="relative" style={{ minHeight: '240px' }}>
+          {/* Main content with improved dynamic height and smooth transitions */}
+          <div className="flex flex-col min-h-[300px]">
+            <div className="flex-grow">
               <AnimatePresence mode="wait" initial={false} custom={direction}>
                 <motion.div
                   key={currentQuestion}
@@ -801,8 +823,11 @@ const Formular = () => {
                     x: { type: "spring", stiffness: 300, damping: 30 },
                     opacity: { duration: 0.2 }
                   }}
-                  className="w-full absolute-on-exit"
-                  style={{ position: direction === 'forward' ? 'relative' : 'absolute', width: '100%' }}
+                  className="w-full"
+                  onAnimationComplete={() => {
+                    // Force layout recalculation after animation
+                    window.dispatchEvent(new Event('resize'));
+                  }}
                 >
                   {/* Question header */}
                   <div className="flex items-center mb-6">
@@ -820,7 +845,7 @@ const Formular = () => {
               </AnimatePresence>
             </div>
             
-            {/* Navigation buttons - always positioned correctly */}
+            {/* Navigation buttons with automatic positioning */}
             <div className="mt-8 flex w-full">
               {currentQuestion > 0 ? (
                 <button
