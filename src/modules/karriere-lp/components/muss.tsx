@@ -40,9 +40,10 @@ export default function SellwellRequirements() {
       className={`sellwell-section bg-white transition-all duration-1000 ${isIntersecting ? "opacity-100" : "opacity-0"}`}
     >
       <div className="sellwell-container">
-        <h2 className="text-[30px] md:text-[35px] font-bold text-center mt-5 mb-12">
-          <span className="special-text">Bewirb dich bei uns,</span> wenn du folgende Kriterien erfüllst ...
+        <h2 className="text-[30px] md:text-[35px] font-bold text-left mt-5 mb-12">
+          <span className="special-text leading-[1.3]">Wir suchen dich</span>als Vertriebler im Außendienst (m/w/d)
         </h2>
+        <div className="text-[19px] md:text-[22px] font-bold text-left mt-2 mb-2">Bewirb dich wenn du:</div>
 
         <div className="max-w-3xl mx-auto">
           <ul className="space-y-6">
@@ -56,14 +57,14 @@ export default function SellwellRequirements() {
                   height={25}
                   />
                 </div>
-                <p className="text-lg pt-1">{requirement}</p>
+                <p className="text-[19px] pt-1">{requirement}</p>
               </li>
             ))}
           </ul>
 
           <div className="text-center mt-12">
             
-            <a href="#formular"><Button>IN DEINE NEUE ZUKUNFT</Button>
+            <a href="#formular"><Button>JETZT DURCHSTARTEN</Button>
           <p className="text-sm text-gray-500 mt-2">In unter 60 Sekunden bewerben</p></a>
           </div>
         </div>

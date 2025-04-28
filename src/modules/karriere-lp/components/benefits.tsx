@@ -38,7 +38,7 @@ export default function SellwellBenefits() {
             <span className="font-light text-sm tracking-wide">DEINE VORTEILE BEI SELLWELL</span>
           </div>
         </div>
-        <h2 className="text-[32px] md:text-[37px] font-bold text-center mb-12">Grenzenloses <span className="special-text">Wachstum</span> beginnt hier</h2>
+        <h2 className="text-[31px] md:text-[36px] font-bold text-center mb-12">Endloses <span className="special-text">Wachstum</span> beginnt hier</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {/* Benefit 1 */}
@@ -51,7 +51,7 @@ export default function SellwellBenefits() {
               height={75}
               />
             </div>
-            <h3 className="text-xl font-bold mb-3">Endlose Verdienstmöglichkeiten</h3>
+            <h3 className="text-xl font-bold mb-3">Grenzenlose Verdienstmöglichkeiten</h3>
             <p className="text-gray-600">
               Bei uns ist dein Gehalt so gut wie deine Leistung. Unsere Top-Vertriebler erzielen regelmäßig hohe 4- bis
               5-stellige Monatsgehälter.

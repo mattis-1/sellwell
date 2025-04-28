@@ -72,7 +72,7 @@ export default function SellwellHero() {
       {/* Logo */}
       <div className="mt-8 mb-4">
         <Image
-          src="/sellwell logo.png"
+          src="/sellwell-logo-black.svg"
           alt="Sellwell Consulting Logo"
           width={200}
           height={80}
@@ -89,7 +89,7 @@ export default function SellwellHero() {
 
       {/* Headline */}
       <h1 className="text-3xl md:text-4xl lg:text-5xl text-center font-bold max-w-4xl mx-auto px-4 mb-8">
-        Entfalte dein volles Potenzial als Vertriebler im Strom- und Gasvertrieb
+        Entfalte dein volles Potenzial als Vertriebler im Strom- & Gasvertrieb
       </h1>
 
       {/* Vimeo Video Placeholder with styled border and glow */}
