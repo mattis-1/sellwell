@@ -7,21 +7,6 @@
   }
   
   /* Font faces - these will be available globally, but that's usually fine for fonts */
-  @font-face {
-    font-family: "Mazard Bold";
-    src: url("/fonts/MazardBold.woff2") format("woff2");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: "Mazard Medium";
-    src: url("/fonts/MazardMedium.woff2") format("woff2");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
   
   /* Scoped component styles */
   .sellwell-landing h1,
