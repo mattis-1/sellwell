@@ -5,10 +5,11 @@ import Image from "next/image"
 import Button from "@/modules/karriere-lp/components/button"
 
 const requirements = [
-  "Du kommunizierst gerne mit anderen Menschen",
-  "Du bist bereit, richtig Gas zu geben und viel Geld zu verdienen",
-  "Du bist vor Ort in München oder Umland",
-  "Du bist jung, ambitioniert mit einer Vision und willst mehr als den normalen 9/5",
+  "Du bereit bist, richtig Gas zu geben und viel Geld zu verdienen",
+  "Du gerne mit anderen Menschen kommunizierst",
+  "Du vor Ort in München oder im Umland bist",
+  "Du gutes Deutsch sprichst",
+  "Du jung und ambitioniert bist, große Visionen hast und  mehr als den normalen 9/5 willst",
 ]
 
 export default function SellwellRequirements() {
@@ -39,11 +40,11 @@ export default function SellwellRequirements() {
       ref={sectionRef}
       className={`sellwell-section bg-white transition-all duration-1000 ${isIntersecting ? "opacity-100" : "opacity-0"}`}
     >
-      <div className="sellwell-container">
-        <h2 className="text-[30px] md:text-[35px] font-bold text-left mt-5 mb-12">
-          <span className="special-text leading-[1.3]">Wir suchen dich</span>als Vertriebler im Außendienst (m/w/d)
+      <div className="sellwell-container pl-3">
+        <h2 className="text-[32px] md:text-[37px] font-bold text-left mt-5 mb-3">
+          <span className="special-text leading-[1.2]">Wir suchen dich</span><br />als Vertriebler im Außendienst (m/w/d)
         </h2>
-        <div className="text-[19px] md:text-[22px] font-bold text-left mt-2 mb-2">Bewirb dich wenn du:</div>
+        <div className="text-[23px] md:text-[26px] font-bold text-left mt-2 mb-8">Bewirb dich wenn:</div>
 
         <div className="max-w-3xl mx-auto">
           <ul className="space-y-6">

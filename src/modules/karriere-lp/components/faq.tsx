@@ -129,13 +129,13 @@ export default function SellwellFaqSection() {
       {/* FAQ Container - Redesigned for elegance */}
       <div className="sellwell-container -mt-24 md:-mt-48 relative z-10">
         <div className="max-w-3xl mx-auto bg-white rounded-[33px] shadow-xl p-8 md:p-12">
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center mb-4">
             <div className="bg-blue-100 text-blue-800 rounded-full px-4 py-1 inline-block">
               <span className="font-light text-sm tracking-wide">HÄUFIG GESTELLTE FRAGEN</span>
             </div>
           </div>
           
-          <h2 className="text-5xl md:text-6xl font-bold mb-10 text-center">FAQ</h2>
+          <h2 className="text-6xl md:text-7xl font-bold mb-10 text-center">FAQ</h2>
 
           <div className="space-y-6">
             {faqs.map((faq, index) => (
