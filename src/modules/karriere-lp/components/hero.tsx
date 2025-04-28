@@ -59,8 +59,9 @@ export default function SellwellHero() {
                 <Image 
                 src="/check-lp.svg"
                 alt="check"
-                width={50}
-                height={50}
+                width={25}
+                height={25}
+                className="pr-5"
                 />
               </div>
             ))}

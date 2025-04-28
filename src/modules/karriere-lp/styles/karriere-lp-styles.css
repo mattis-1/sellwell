@@ -175,16 +175,26 @@
   /* Benefit containers */
   .sellwell-benefit-container {
     border: 2px solid #60BDD8;
-    border-radius: 0.5rem;
+    border-radius: 2rem;
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
+
+  .special-text {
+    background: linear-gradient(90deg, #1AA3CC 0%, #25B9DD 100%);
+    /* 2. Clip the gradient to the text */
+    -webkit-background-clip: text;
+    background-clip: text;
+    /* 3. Make the fill transparent so the gradient shows through */
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
   
   .sellwell-benefit-container-alt {
-    border-radius: 3rem;
+    border-radius: 2rem;
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
@@ -194,7 +204,7 @@
   }
 
   .sellwell-benefit-container-alt-2 {
-    border-radius: 3rem;
+    border-radius: 2rem;
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
@@ -208,7 +218,7 @@
   }
 
   .sellwell-benefit-container-alt-3 {
-    border-radius: 3rem;
+    border-radius: 2rem;
     padding: 1.5rem;
     display: flex;
     flex-direction: column;

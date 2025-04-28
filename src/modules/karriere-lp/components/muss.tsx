@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef, useEffect, useState } from "react"
-import { Check } from "lucide-react"
+import Image from "next/image"
 import Button from "@/modules/karriere-lp/components/button"
 
 const requirements = [
@@ -49,7 +49,12 @@ export default function SellwellRequirements() {
             {requirements.map((requirement, index) => (
               <li key={index} className="flex items-start">
                 <div className="flex-shrink-0 w-10 h-10 rounded-full bg-green-100 flex items-center justify-center mr-4">
-                  <Check className="w-6 h-6 text-green-700" />
+                  <Image
+                  src="/check-lp2.svg"
+                  alt="check"
+                  width={25}
+                  height={25}
+                  />
                 </div>
                 <p className="text-lg pt-1">{requirement}</p>
               </li>

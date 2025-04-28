@@ -36,7 +36,7 @@ export default function SellwellBenefits() {
       <div className="sellwell-container">
         <div className="mx-auto">
         <Subhead>Deine Vorteile bei Sellwell</Subhead></div>
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Grenzenloses Wachstum beginnt hier</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Grenzenloses <span className="special-text">Wachstum</span> beginnt hier</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {/* Benefit 1 */}
