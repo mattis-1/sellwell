@@ -77,7 +77,7 @@ export default function SellwellFaqSection() {
       className={`sellwell-section relative transition-all duration-1000 p-0 ${isIntersecting ? "opacity-100" : "opacity-0"}`}
     >
       {/* Blue gradient from bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-[70vh] z-0 pointer-events-none bg-gradient-to-t from-blue-500/30 via-blue-400/10 to-transparent"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-[70vh] z-0 pointer-events-none bg-gradient-to-t from-[#1395C0] to-transparent"></div>
 
       {/* Image Slider - Enhanced infinite version */}
       <div className="w-screen relative overflow-hidden bg-gray-50">
@@ -104,7 +104,7 @@ export default function SellwellFaqSection() {
                 key={index} 
                 className="w-[260px] h-[320px] md:w-[380px] md:h-[520px] flex-shrink-0 mx-3"
               >
-                <div className="w-full h-full overflow-hidden rounded-xl md:rounded-2xl shadow-lg transform transition-transform duration-300 hover:scale-[1.02] hover:-translate-y-1">
+                <div className="w-full h-full overflow-hidden rounded-[20px] md:rounded-[20px] shadow-lg transform transition-transform duration-300 hover:scale-[1.02] hover:-translate-y-1">
                   <Image
                     src={`/${image}`}
                     alt={`Team Image ${index % images.length + 1}`}
@@ -128,7 +128,7 @@ export default function SellwellFaqSection() {
 
       {/* FAQ Container - Redesigned for elegance */}
       <div className="sellwell-container -mt-24 md:-mt-48 relative z-10">
-        <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl p-8 md:p-12">
+        <div className="max-w-3xl mx-auto bg-white rounded-[33px] shadow-xl p-8 md:p-12">
           <div className="flex justify-center mb-8">
             <div className="bg-blue-100 text-blue-800 rounded-full px-4 py-1 inline-block">
               <span className="font-light text-sm tracking-wide">DEINE FRAGEN</span>
