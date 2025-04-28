@@ -68,8 +68,8 @@ export default function SellwellAboutUs() {
           </div>
 
           <div className="text-center mt-12">
-          <a href="#formular">  <Button>JETZT TEIL UNSERES TEAMS WERDEN</Button> 
-            <p className="text-sm text-gray-500 mt-2">Bewerbung in unter 60 Sekunden</p></a>
+          <a href="#formular">  <Button>JETZT SCHNELL BEWERBEN</Button> 
+            <p className="text-sm text-gray-500 mt-2">Und Teil unseres Teams werden</p></a>
           </div>
         </div>
       </div>

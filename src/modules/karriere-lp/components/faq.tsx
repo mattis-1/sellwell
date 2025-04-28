@@ -31,13 +31,12 @@ const images = ["ABOUT7.png", "ABOUT4.png", "ABOUT2.png", "ABOUT3.png", "ABOUT1.
 
 export default function SellwellFaqSection() {
   const [isIntersecting, setIsIntersecting] = useState(false)
-  const [openFaqs, setOpenFaqs] = useState<number[]>([0]) // Start with first FAQ open, now using array
+  const [openFaqs, setOpenFaqs] = useState<number[]>([0]) 
   const sectionRef = useRef<HTMLElement>(null)
   const sliderRef = useRef<HTMLDivElement>(null)
-  const [touchStart, setTouchStart] = useState<number | null>(null)
-  const [touchEnd, setTouchEnd] = useState<number | null>(null)
-  const [scrollPosition, setScrollPosition] = useState(0)
-
+  const [isAutoScrolling, setIsAutoScrolling] = useState(true)
+  const [animationPaused, setAnimationPaused] = useState(false)
+  
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -57,64 +56,27 @@ export default function SellwellFaqSection() {
     }
   }, [])
 
+  // Create an extended array of images for the infinite effect
+  // We duplicate images multiple times to ensure the slider has enough content
+  const extendedImages = [...images, ...images, ...images, ...images, ...images]
+
+  // Handle user interaction with slider
+  const pauseAutoScroll = () => {
+    setAnimationPaused(true)
+    // Resume auto-scrolling after 5 seconds of inactivity
+    setTimeout(() => {
+      setAnimationPaused(false)
+    }, 5000)
+  }
+
   // Updated toggle function to handle multiple open FAQs
   const toggleFaq = (index: number) => {
     setOpenFaqs(prev => {
-      // If already open, remove it from array
       if (prev.includes(index)) {
         return prev.filter(i => i !== index)
       } 
-      // Otherwise add it to array of open FAQs
       return [...prev, index]
     })
-  }
-
-  // Minimum distance required for swipe
-  const minSwipeDistance = 50
-
-  // Swipe handling for mobile
-  const onTouchStart = (e: React.TouchEvent) => {
-    setTouchEnd(null)
-    setTouchStart(e.targetTouches[0].clientX)
-    
-    // Store the current scroll position
-    if (sliderRef.current) {
-      setScrollPosition(sliderRef.current.scrollLeft)
-    }
-  }
-
-  const onTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientX)
-    
-    // Calculate and apply immediate scroll for a dragging effect
-    if (touchStart !== null && sliderRef.current) {
-      const xDiff = touchStart - e.targetTouches[0].clientX;
-      sliderRef.current.scrollLeft = scrollPosition + xDiff;
-    }
-  }
-
-  const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-    
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > minSwipeDistance;
-    const isRightSwipe = distance < -minSwipeDistance;
-    
-    if (sliderRef.current) {
-      if (isLeftSwipe) {
-        // Scroll right
-        sliderRef.current.scrollBy({
-          left: window.innerWidth / 2,
-          behavior: 'smooth'
-        });
-      } else if (isRightSwipe) {
-        // Scroll left
-        sliderRef.current.scrollBy({
-          left: -window.innerWidth / 2,
-          behavior: 'smooth'
-        });
-      }
-    }
   }
 
   return (
@@ -122,81 +84,104 @@ export default function SellwellFaqSection() {
       ref={sectionRef}
       className={`sellwell-section relative transition-all duration-1000 p-0 ${isIntersecting ? "opacity-100" : "opacity-0"}`}
     >
-      {/* Image Slider - Full width with fade gradients */}
-      <div className="w-screen relative overflow-hidden">
+      {/* Image Slider - Enhanced infinite version */}
+      <div className="w-screen relative overflow-hidden bg-gray-50">
         {/* Left gradient */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 z-10 bg-gradient-to-r from-white to-transparent"></div>
+        <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 z-10 bg-gradient-to-r from-gray-50 to-transparent"></div>
         
         {/* Right gradient */}
-        <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 z-10 bg-gradient-to-l from-white to-transparent"></div>
+        <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 z-10 bg-gradient-to-l from-gray-50 to-transparent"></div>
         
+        {/* Infinite slider with CSS animation */}
         <div 
           ref={sliderRef}
-          className="flex overflow-x-auto scrollbar-hide h-[300px] md:h-[500px] scroll-smooth"
-          style={{scrollbarWidth: 'none', msOverflowStyle: 'none'}}
-          onTouchStart={onTouchStart}
-          onTouchMove={onTouchMove}
-          onTouchEnd={onTouchEnd}
+          className="flex overflow-hidden h-[320px] md:h-[520px]"
+          onMouseEnter={pauseAutoScroll}
+          onTouchStart={pauseAutoScroll}
         >
-          {[...images, ...images, ...images].map((image, index) => (
-            <div key={index} className="w-[240px] h-[300px] md:w-[300px] md:h-[500px] flex-shrink-0 mx-2">
-              <Image
-                src={`/${image}`}
-                alt={`Team Image ${index + 1}`}
-                width={300}
-                height={500}
-                className="w-full h-full object-cover rounded-lg"
-                onError={(e) => {
-                  // Fallback if image fails to load
-                  const target = e.target as HTMLImageElement
-                  target.onerror = null
-                  target.src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='500' viewBox='0 0 300 500'%3E%3Crect width='300' height='500' fill='%23f9fafb'/%3E%3Ctext x='50%25' y='50%25' dominantBaseline='middle' textAnchor='middle' fontFamily='system-ui' fontSize='24' fill='%23166534'%3ETeam Bild ${(index % images.length) + 1}%3C/text%3E%3C/svg%3E`
-                }}
-              />
-            </div>
-          ))}
+          <div 
+            className="flex animate-marquee"
+            style={{ 
+              animationPlayState: animationPaused ? 'paused' : 'running',
+              animationDuration: '60s',
+              willChange: 'transform'
+            }}
+          >
+            {extendedImages.map((image, index) => (
+              <div 
+                key={index} 
+                className="w-[260px] h-[320px] md:w-[380px] md:h-[520px] flex-shrink-0 mx-3"
+              >
+                <div className="w-full h-full overflow-hidden rounded-xl md:rounded-2xl shadow-lg transform transition-transform duration-300 hover:scale-[1.02] hover:-translate-y-1">
+                  <Image
+                    src={`/${image}`}
+                    alt={`Team Image ${index % images.length + 1}`}
+                    width={500}
+                    height={700}
+                    priority={index < 5}
+                    quality={90}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement
+                      target.onerror = null
+                      target.src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='380' height='520' viewBox='0 0 380 520'%3E%3Crect width='380' height='520' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' dominantBaseline='middle' textAnchor='middle' fontFamily='system-ui' fontSize='24' fill='%23166534'%3ETeam Bild ${(index % images.length) + 1}%3C/text%3E%3C/svg%3E`
+                    }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* FAQ Container */}
-      <div className="sellwell-container -mt-20 md:-mt-40 relative z-10">
-        <div className="sellwell-card p-6 md:p-10 max-w-3xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-8">Häufig gestellte Fragen</h2>
+      {/* FAQ Container - Redesigned for elegance */}
+      <div className="sellwell-container -mt-24 md:-mt-48 relative z-10">
+        <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl p-8 md:p-12">
+          <div className="flex justify-center mb-8">
+            <div className="bg-blue-100 text-blue-800 rounded-full px-4 py-1 inline-block">
+              <span className="font-light text-sm tracking-wide">DEINE FRAGEN</span>
+            </div>
+          </div>
+          
+          <h2 className="text-2xl md:text-3xl font-bold mb-10 text-center">Häufig gestellte Fragen</h2>
 
-          <div className="space-y-4">
+          <div className="space-y-6">
             {faqs.map((faq, index) => (
               <div 
                 key={index} 
-                className="border-b border-gray-200 pb-4 transition-all duration-300"
+                className={`
+                  transition-all duration-300
+                  ${index < faqs.length - 1 ? 'border-b border-gray-100 pb-6' : ''}
+                `}
               >
                 <button
                   onClick={() => toggleFaq(index)}
-                  className="flex justify-between items-center w-full text-left py-2 focus:outline-none group"
+                  className="flex justify-between items-start w-full text-left py-2 focus:outline-none group"
                   aria-expanded={openFaqs.includes(index)}
                   aria-controls={`faq-answer-${index}`}
                 >
-                  <h3 className="text-lg font-semibold text-gray-800">
+                  <h3 className="text-lg font-semibold text-gray-800 pr-8">
                     {faq.question}
                   </h3>
-                  <span className="transition-all duration-300 ease-in-out">
+                  <span className="transition-all duration-300 ease-in-out bg-gray-50 rounded-full p-1 flex-shrink-0 mt-0.5">
                     {openFaqs.includes(index) ? (
-                      <Minus className="w-5 h-5 text-green-700" />
+                      <Minus className="w-5 h-5 text-blue-700" />
                     ) : (
-                      <Plus className="w-5 h-5 text-green-700" />
+                      <Plus className="w-5 h-5 text-blue-700" />
                     )}
                   </span>
                 </button>
                 <div
                   id={`faq-answer-${index}`}
-                  className="overflow-hidden transition-all duration-300 ease-in-out"
+                  className="overflow-hidden transition-all duration-500 ease-in-out"
                   style={{
-                    maxHeight: openFaqs.includes(index) ? "500px" : "0px",
+                    maxHeight: openFaqs.includes(index) ? "800px" : "0px",
                     opacity: openFaqs.includes(index) ? 1 : 0,
                     transform: openFaqs.includes(index) ? "translateY(0)" : "translateY(-8px)",
                   }}
                 >
-                  <div className="mt-2 pt-2">
-                    <p className="text-gray-600">{faq.answer}</p>
+                  <div className="mt-3 pt-2">
+                    <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
                   </div>
                 </div>
               </div>
@@ -204,6 +189,22 @@ export default function SellwellFaqSection() {
           </div>
         </div>
       </div>
+
+      {/* Add global styles for animation in the component */}
+      <style jsx global>{`
+        @keyframes marquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        
+        .animate-marquee {
+          animation: marquee 60s linear infinite;
+        }
+      `}</style>
     </section>
   )
 }

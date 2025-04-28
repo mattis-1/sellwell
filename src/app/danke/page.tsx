@@ -1,17 +1,117 @@
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+"use client"
 
-export default function KarrierePage() {
-    return (
-    <div className="flex min-h-screen flex-col w-full">
-      <Header />
-      <main className="min-h-screen p-4 md:p-8">
-        <h1 className="text-3xl font-bold mb-6">Danke Seite</h1>
-        <p>Das hier ist die Danke Seite von Sellwell: Vielleicht direkt IG einbinden</p>
-        {/* Danke */}
-      </main>
+import { useRef, useEffect, useState } from "react"
+import Button from "@/modules/karriere-lp/components/button"
+import { Instagram, Youtube } from "lucide-react"
+import Link from "next/link"
+//import Image from "next/image"
 
-      <Footer />
-    </div>
-    );
-  }
+export default function ThankYouPage() {
+  const [isIntersecting, setIsIntersecting] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsIntersecting(entry.isIntersecting)
+      },
+      { threshold: 0.1 },
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
+      }
+    }
+  }, [])
+
+  return (
+    <section
+      ref={sectionRef}
+      className={`min-h-screen flex items-center justify-center bg-gray-50 transition-all duration-1000 ${
+        isIntersecting ? "opacity-100" : "opacity-0"
+      }`}
+    >
+      <div className="max-w-3xl mx-auto px-6 py-16 text-center relative">
+        {/* Background glow */}
+        <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 -z-10">
+          <div className="w-[500px] h-[500px] bg-[#22d3ee] rounded-full filter blur-3xl opacity-20" />
+        </div>
+
+        {/* Success icon or checkmark */}
+        <div className="flex justify-center mb-8">
+          <div className="bg-green-100 text-green-600 rounded-full p-4 inline-flex">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+        </div>
+
+        {/* Badge */}
+        <div className="flex justify-center mb-4">
+          <div className="bg-blue-100 text-blue-800 rounded-full px-4 py-1 inline-block">
+            <span className="font-light text-sm tracking-wide">BEWERBUNG ERFOLGREICH</span>
+          </div>
+        </div>
+
+        <h1 className="text-4xl font-bold mb-6">Vielen Dank für deine Bewerbung!</h1>
+        
+        <p className="text-gray-600 text-lg mb-8">
+          Wir haben deine Bewerbung erhalten und werden uns so schnell wie möglich bei dir melden. 
+          Unser Team prüft deine Angaben und meldet sich innerhalb der nächsten 48 Stunden bei dir.
+        </p>
+
+        <div className="bg-white rounded-lg p-6 shadow-md mb-10">
+          <h3 className="text-xl font-semibold mb-4">Was passiert als Nächstes?</h3>
+          <ol className="text-left text-gray-600 space-y-3">
+            <li className="flex items-start">
+              <span className="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-2 shrink-0 mt-0.5">1</span>
+              <span>Wir prüfen deine Bewerbung (innerhalb von 48 Stunden)</span>
+            </li>
+            <li className="flex items-start">
+              <span className="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-2 shrink-0 mt-0.5">2</span>
+              <span>Du erhältst eine Einladung zu einem ersten Kennenlerngespräch</span>
+            </li>
+            <li className="flex items-start">
+              <span className="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-2 shrink-0 mt-0.5">3</span>
+              <span>Bei gegenseitigem Interesse folgt ein zweites Gespräch mit unseren Teamleitern</span>
+            </li>
+          </ol>
+        </div>
+
+        <p className="mb-8 text-gray-600">
+          Folge uns in der Zwischenzeit auf unseren sozialen Kanälen, um mehr über uns zu erfahren:
+        </p>
+
+        <div className="flex justify-center gap-6 mb-10">
+          <a 
+            href="https://www.instagram.com/kress_maximilian/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
+          >
+            <Instagram size={20} />
+            <span>Instagram</span>
+          </a>
+          <a 
+            href="https://www.youtube.com/@SellwellConsulting" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 bg-red-600 text-white px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
+          >
+            <Youtube size={20} />
+            <span>YouTube</span>
+          </a>
+        </div>
+
+        <Link href="/">
+          <Button>ZURÜCK ZUR STARTSEITE</Button>
+        </Link>
+      </div>
+    </section>
+  )
+}

@@ -2,7 +2,6 @@
 
 import { useRef, useEffect, useState } from "react"
 import Button from "@/modules/karriere-lp/components/button"
-import Subhead from "@/modules/karriere-lp/components/subhead"
 import Image from "next/image"
 
 export default function SellwellBenefits() {
