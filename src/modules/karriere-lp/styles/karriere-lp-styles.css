@@ -141,6 +141,16 @@
     padding: 4rem 0;
     background-color: #fff;
   }
+
+  .sellwell-section-green {
+    padding: 4rem 0;
+    background: linear-gradient(to bottom,
+    rgb(230, 244, 234, 0) 0%,
+    rgb(230, 244, 234, 1) 20%,
+    rgb(230, 244, 234, 1) 80%,
+    rgb(230, 244, 234, 0) 100%
+    );
+  }
   
   @media (min-width: 768px) {
     .sellwell-section-alt {

@@ -146,7 +146,7 @@ export default function SellwellTestimonials() {
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">Das sagt <span className="special-text">unser Team</span></h2>
 
         <div className="relative w-screen -mx-[calc(50vw-50%)]">
-          <div className="bg-gradient-to-r from-[#1395C0] to-[#53B2D8] py-12">
+          <div className="bg-gradient-to-r from-[#E6F4EA] to-[#F4FAF6] py-12">
             <div 
               className="max-w-4xl mx-auto px-4 relative"
               ref={sliderRef}
