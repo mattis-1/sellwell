@@ -70,7 +70,12 @@ export default function SellwellTestimonials() {
       className={`sellwell-section transition-all duration-1000 ${isIntersecting ? "opacity-100" : "opacity-0"}`}
     >
       <div className="sellwell-container">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Das sagt unser Team</h2>
+      <div className="flex justify-center mb-3">
+          <div className="bg-blue-100 text-blue-800 rounded-full px-4 py-1 inline-block">
+            <span className="font-light text-sm tracking-wide">TEAMKULTUR BEI SELLWELL</span>
+          </div>
+        </div>
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">Das sagt<span className="special-text">unser Team</span></h2>
 
         <div className="relative w-screen -mx-[calc(50vw-50%)]">
           <div className="bg-[#1395C0] py-12">
