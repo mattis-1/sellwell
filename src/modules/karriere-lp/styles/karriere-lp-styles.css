@@ -53,7 +53,7 @@
   transition: transform 150ms;
   font-size: 20px;
 
-  box-shadow: 0 0 10px rgba(107, 195, 220, 0.6);
+  box-shadow: 0 0 10px rgba(107, 220, 135, 0.6);
   transition: 
     box-shadow 300ms ease,
     transform 150ms ease;
@@ -211,7 +211,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background-color: rgb(150, 253, 169);
+    background-color: #E6F4EA;
   }
 
   .sellwell-benefit-container-alt-2 {
@@ -224,7 +224,7 @@
     background: linear-gradient(
     to bottom,
     rgb(102, 215, 109, 0) 0%,
-    rgb(150, 253, 169, 1) 100%
+    rgb(230, 244, 234, 1) 100%
   );
   }
 
@@ -238,7 +238,7 @@
     background: linear-gradient(
     to top,
     rgb(102, 215, 109, 0) 0%,
-    rgb(150, 253, 169, 1) 100%
+    rgb(230, 244, 234, 1) 100%
   );
   }
   
