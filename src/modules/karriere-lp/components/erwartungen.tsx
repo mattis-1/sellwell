@@ -26,7 +26,7 @@ const BenefitCard = ({ icon, title, description }: BenefitCardProps) => (
         height={60}
       />
     </div>
-    <h3 className="text-xl font-inter font-semibold mb-3 tracking-[-0.75px]">{title}</h3>
+    <h3 className="text-[25px] font-inter font-semibold mb-3 tracking-[-0.75px]">{title}</h3>
     <p className="text-[rgb(115, 115, 115)] font-[400] leading-relaxed leading-[22px] tracking-[-0.28px]">
       {description}
     </p>
@@ -73,7 +73,7 @@ export default function SellwellExpectations() {
     },
     {
       icon: "/shx-icon5.webp",
-      title: "Flexible Arbeitszeiten und Freiheit",
+      title: "Flexible Arbeitszeiten",
       description: "Bei uns genießt du die Freiheit, deine Arbeitszeit flexibel zu gestalten und eigenverantwortlich zu arbeiten."
     },
     {
@@ -92,7 +92,7 @@ export default function SellwellExpectations() {
     >
       <div className="sellwell-container relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-[28px] tracking-[-0.75px] text-center mb-2 font-inter font-[600]">Was dich bei<br />Sellwell erwartet</h2>
+          <h2 className="text-[34px] leading-[40px] tracking-[-0.75px] text-center mb-2 font-inter font-[600]">Was dich bei<br />Sellwell erwartet</h2>
           <div className="jajabing text-center">Finde heraus, was Sellwell zum Nummer 1 D2D Vertrieb in Bayern macht</div>
         </div>
 

@@ -1,12 +1,9 @@
 "use client"
 
-import { useRef, useEffect, useState } from "react"
+import { useRef, useEffect, useState, ReactNode, MouseEventHandler } from "react"
 import Image from "next/image"
-import { motion } from "framer-motion"
 
-// Properly typed button component
-import { ReactNode, MouseEventHandler } from "react"
-
+// Updated button component with proper TypeScript types
 interface EnhancedButtonProps {
   children: ReactNode;
   onClick?: MouseEventHandler<HTMLButtonElement>;
@@ -14,36 +11,29 @@ interface EnhancedButtonProps {
 }
 
 const EnhancedButton = ({ children, onClick, className = "" }: EnhancedButtonProps) => (
-  <motion.button
+  <button
     onClick={onClick}
-    className={`px-8 py-4 bg-gradient-to-r from-[#246551] to-[#348b6e] text-white font-bold rounded-lg text-lg tracking-wide shadow-lg transform transition-all duration-300 ${className}`}
-    whileHover={{ scale: 1.05, boxShadow: "0 10px 25px -5px rgba(36, 101, 81, 0.4)" }}
-    whileTap={{ scale: 0.98 }}
+    className={`px-8 py-4 bg-gradient-to-r from-[#246551] to-[#348b6e] text-white font-bold rounded-lg text-lg tracking-wide transition-all duration-300 ${className}`}
   >
     {children}
-  </motion.button>
+  </button>
 )
 
 const requirements = [
   {
     text: "Du bereit bist, richtig Gas zu geben und viel Geld zu verdienen",
-    icon: "/check-lp2.svg"
   },
   {
     text: "Du gerne mit anderen Menschen kommunizierst",
-    icon: "/check-lp2.svg"
   },
   {
     text: "Du vor Ort in München oder im Umland bist",
-    icon: "/check-lp2.svg"
   },
   {
     text: "Du gutes Deutsch sprichst",
-    icon: "/check-lp2.svg"
   },
   {
     text: "Du jung und ambitioniert bist, große Visionen hast und mehr als den normalen 9/5 willst",
-    icon: "/check-lp2.svg"
   },
 ]
 
@@ -75,84 +65,101 @@ export default function SellwellRequirements() {
     }
   }, [])
 
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  }
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 80,
-        damping: 12
-      }
-    }
-  }
-
   return (
     <section
       ref={sectionRef}
-      className="sellwell-section bg-white py-12 md:py-16"
+      className={`sellwell-section bg-white py-12 md:py-16 transition-opacity duration-700 ${
+        isVisible ? "opacity-100" : "opacity-0"
+      }`}
     >
-      <div className="sellwell-container-2">
-        <motion.div
-          initial="hidden"
-          animate={isVisible ? "visible" : "hidden"}
-          variants={containerVariants}
-        >
-          <motion.div variants={itemVariants} className="mb-10">
-            <h2 className="text-[32px] md:text-[37px] font-bold text-left mt-5 mb-3">
-              <span className="special-text leading-[1.2] text-[#246551]">Wir suchen dich</span><br />als Vertriebler im Außendienst (m/w/d)
-            </h2>
-            <div className="text-[26px] md:text-[30px] font-bold text-left mt-4 mb-6.5">
-              Bewirb dich wenn:
-            </div>
-          </motion.div>
+      <div className="sellwell-container-2 max-w-4xl mx-auto">
+        {/* Glassmorphic container with image */}
+        <div className="sellwell-benefit-container-alt mb-10 max-w-md mx-auto">
+          <Image
+            src="/sellwell-team.jpg" // Replace with your actual image path
+            alt="Sellwell Team"
+            width={300}
+            height={200}
+            className="rounded-lg object-cover mb-2"
+            onError={(e) => {
+              // Fallback if image fails to load
+              const target = e.target as HTMLImageElement;
+              if (target) {
+                target.style.display = 'none';
+              }
+            }}
+          />
+        </div>
 
-          <div className="max-w-3xl mx-auto">
-            <motion.ul variants={containerVariants} className="space-y-5">
-              {requirements.map((requirement, index) => (
-                <motion.li 
-                  key={index} 
-                  variants={itemVariants}
-                  className="flex items-start"
-                >
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#e0f2ed] flex items-center justify-center mr-4">
-                    <Image
-                      src={requirement.icon}
-                      alt="check"
-                      width={25}
-                      height={25}
-                    />
-                  </div>
-                  <p className="text-[19px] pt-1 text-gray-800">{requirement.text}</p>
-                </motion.li>
-              ))}
-            </motion.ul>
+        <div className="text-center mb-10">
+          <h2 className="font-inter text-[28px] tracking-[-1.4px] leading-[33px] text-[rgb(17,17,17)] font-semibold mb-8">
+            Wir suchen dich als Vertriebler im Außendienst (m/w/d)
+          </h2>
+          <p className="font-inter text-[22px] font-semibold tracking-[-0.5px] text-[rgb(17,17,17)] mb-6">
+            Bewirb dich wenn:
+          </p>
+        </div>
 
-            <motion.div 
-              variants={itemVariants}
-              className="text-center mt-12"
-            >
-              <a href="#formular">
-                <EnhancedButton>JETZT DURCHSTARTEN</EnhancedButton>
-                <p className="text-sm text-gray-500 mt-2">In unter 60 Sekunden bewerben</p>
-              </a>
-            </motion.div>
+        <div className="max-w-2xl mx-auto mb-12">
+          <ul className="space-y-5">
+            {requirements.map((requirement, index) => (
+              <li 
+                key={index} 
+                className="flex items-start"
+              >
+                <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#e0f2ed] flex items-center justify-center mr-4 mt-[2px]">
+                  {/* Green checkmark */}
+                  <svg 
+                    width="16" 
+                    height="16" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="#246551" 
+                    strokeWidth="3" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+                <p className="font-inter text-[16px] font-normal tracking-[-0.3px] leading-[22px] text-[rgb(17,17,17)]">
+                  {requirement.text}
+                </p>
+              </li>
+            ))}
+          </ul>
+
+          <div className="text-center mt-12">
+            <a href="#formular">
+              <EnhancedButton>JETZT STARTEN</EnhancedButton>
+              <p className="text-sm text-gray-500 mt-2">In unter 60 Sekunden bewerben</p>
+            </a>
           </div>
-        </motion.div>
+        </div>
       </div>
+
+      {/* Add custom CSS for the glassmorphic container */}
+      <style jsx global>{`
+        .sellwell-benefit-container-alt {
+          border-radius: 20px;
+          align-content: flex-start;
+          align-items: flex-start;
+          background-clip: border-box;
+          background-image: linear-gradient(132deg, rgba(235, 255, 225, 0.5) 0%, rgba(124, 242, 165, 0.5) 100%);
+          background-position-x: 0%;
+          background-position-y: 0%;
+          background-repeat: repeat;
+          background-size: auto;
+          background-origin: padding-box;
+          padding: 1.5rem;
+          display: flex;
+          border-width: 1px;
+          border-color: rgb(124, 242, 165);
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+      `}</style>
     </section>
   )
 }
