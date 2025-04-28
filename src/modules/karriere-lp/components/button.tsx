@@ -18,7 +18,8 @@ export default function PrimaryButton({
       <Image
         src="/button-grid.svg"
         alt=""
-        fill
+        width={250}
+        height={250}
         className="sellwell-btn-pattern"
         priority
       />

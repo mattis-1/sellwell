@@ -44,13 +44,18 @@
 /* core button */
 .sellwell-btn-primary {
   position: relative;            /* for pseudo‐layers */
-  overflow: hidden;              /* clip the SVG and gradient */
+  /*overflow: hidden;              /* clip the SVG and gradient */
   background-color: #1395C0;     /* your base color */
   color: #fff;
   font-weight: 700;
   padding: 0.75rem 2rem;
   border-radius: 9999px;
   transition: transform 150ms;
+
+  box-shadow: 0 0 10px rgba(107, 195, 220, 0.6);
+  transition: 
+    box-shadow 300ms ease,
+    transform 150ms ease;
 }
 
 /* radial “inner shadow” via a ::before pseudo‐element */
@@ -198,8 +203,8 @@
     text-align: center;
     background: linear-gradient(
     to bottom,
-    #CCF3FF 0%,
-    #CCF3FF 100%
+    rgb(204, 243, 255, 0) 0%,
+    rgb(204, 243, 255, 1) 100%
   );
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
@@ -213,8 +218,8 @@
     text-align: center;
     background: linear-gradient(
     to top,
-    #CCF3FF 0%,
-    #CCF3FF 100%
+    rgb(204, 243, 255, 0) 0%,
+    rgb(204, 243, 255, 1) 100%
   );
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
@@ -223,11 +228,11 @@
     display: inline-block;            /* wrap to content */
     background-color: #6BC3DC;        /* light blue */
     color: #0C3C66;                   /* dark blue */
-    padding: 0.25rem 0.5rem;          /* tweak as you like */
+    padding: 0.5rem 1rem;          /* tweak as you like */
     font-size: 0.75rem;               /* small text */
-    font-weight: 600;
+    font-weight: 400;
     text-transform: uppercase;        /* always caps */
-    border-radius: 0.25rem;
+    border-radius: 99px;
     line-height: 1;                   /* keep it tight */
   }
 
