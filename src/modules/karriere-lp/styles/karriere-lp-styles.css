@@ -45,7 +45,7 @@
 .sellwell-btn-primary {
   position: relative;            /* for pseudo‐layers */
   overflow: hidden;              /* clip the SVG and gradient */
-  background-color: rgb(105, 218, 126);     /* your base color */
+  background-color: #388E3C;     /* your base color */
   color: #fff;
   font-weight: 700;
   padding: 0.75rem 2rem;
@@ -68,7 +68,7 @@
   background: radial-gradient(
     circle at center,
     transparent 60%,
-    rgb(138, 255, 160) 100%
+    #81C784 100%
   );
   pointer-events: none;
   z-index: 0;
