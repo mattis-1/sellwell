@@ -72,7 +72,6 @@ export default function SellwellTestimonials() {
       <div className="sellwell-container">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Das sagt unser Team</h2>
 
-        {/* Full width green background */}
         <div className="relative w-screen -mx-[calc(50vw-50%)]">
           <div className="bg-[#1395C0] py-12">
             <div 
@@ -121,7 +120,7 @@ export default function SellwellTestimonials() {
                         </div>
                         <div className="text-white">
                           <h3 className="font-bold text-lg">{t.name}</h3>
-                          <p className="text-green-300">{t.role}</p>
+                          <p className="text-white">{t.role}</p>
                         </div>
                       </div>
                     </div>
@@ -135,7 +134,7 @@ export default function SellwellTestimonials() {
           <div className="bg-white py-6 flex justify-center items-center space-x-2 relative">
             <button
               onClick={prevSlide}
-              className="absolute left-1/4 bg-white/20 rounded-full p-2 text-green-700 hover:bg-green-50 transition-colors"
+              className="absolute left-1/4 bg-white/20 rounded-full p-2 text-black hover:bg-black transition-colors"
               aria-label="Vorheriges Testimonial"
             >
               <ChevronLeft className="w-6 h-6" />
@@ -146,7 +145,7 @@ export default function SellwellTestimonials() {
                 key={index}
                 onClick={() => setActiveSlide(index)}
                 className={`w-3 h-3 rounded-full transition-colors ${
-                  activeSlide === index ? "bg-green-700" : "bg-gray-300"
+                  activeSlide === index ? "bg-black" : "bg-gray-300"
                 }`}
                 aria-label={`Gehe zu Testimonial ${index + 1}`}
               />
@@ -154,7 +153,7 @@ export default function SellwellTestimonials() {
             
             <button
               onClick={nextSlide}
-              className="absolute right-1/4 bg-white/20 rounded-full p-2 text-green-700 hover:bg-green-50 transition-colors"
+              className="absolute right-1/4 bg-white/20 rounded-full p-2 text-black hover:bg-black transition-colors"
               aria-label="Nächstes Testimonial"
             >
               <ChevronRight className="w-6 h-6" />

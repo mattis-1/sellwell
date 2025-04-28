@@ -3,7 +3,7 @@
 import { useRef, useEffect, useState } from "react"
 import { Lightbulb, Users, TrendingUp } from "lucide-react"
 import Button from "@/modules/karriere-lp/components/button"
-import Subhead from "./subhead"
+import Subhead from "@/modules/karriere-lp/components/subhead"
 
 export default function SellwellBenefits() {
   const [isIntersecting, setIsIntersecting] = useState(false)
