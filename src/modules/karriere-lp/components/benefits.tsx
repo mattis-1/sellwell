@@ -40,7 +40,7 @@ export default function SellwellBenefits() {
           <div className="sellwell-benefit-container-alt">
             <div className="mb-3 mr-auto">
             <Image 
-              src="/shx-icon1.svg"
+              src="/green-shx-icon1.svg"
               alt="icon"
               width={75}
               height={75}
@@ -57,7 +57,7 @@ export default function SellwellBenefits() {
           <div className="sellwell-benefit-container-alt">
             <div className="mb-3 mr-auto">
             <Image 
-              src="/shx-icon2.svg"
+              src="/green-shx-icon2.svg"
               alt="icon"
               width={75}
               height={75}
@@ -74,7 +74,7 @@ export default function SellwellBenefits() {
           <div className="sellwell-benefit-container-alt">
             <div className="mb-3 mr-auto">
             <Image 
-              src="/shx-icon3.svg"
+              src="/green-shx-icon3.svg"
               alt="icon"
               width={75}
               height={75}
