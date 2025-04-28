@@ -92,25 +92,61 @@ export default function SellwellHero() {
         Entfalte dein volles Potenzial als Vertriebler im Strom- und Gasvertrieb
       </h1>
 
-      {/* VSL Container */}
-        <div className="aspect-video relative bg-black rounded-[30px] overflow-hidden">
-          {/* Replace with actual VSL embed */}
-          <div className="absolute inset-0 flex items-center justify-center bg-black text-white">
-            <p className="text-center">Video Sales Letter</p>
-            {/* Fallback image or video player would go here */}
-            <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-              <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center cursor-pointer">
-                <div className="w-0 h-0 border-t-8 border-t-transparent border-l-16 border-l-white border-b-8 border-b-transparent ml-1"></div>
+      {/* Vimeo Video Placeholder with styled border and glow */}
+      <div className="w-full max-w-4xl mx-auto px-4 mb-12">
+        <div className="video-container relative">
+          {/* Gradient border and glow effect */}
+          <div className="video-border-gradient rounded-[30px] overflow-hidden">
+            {/* Video placeholder */}
+            <div className="aspect-video bg-black rounded-[25px] flex items-center justify-center relative overflow-hidden">
+              {/* Placeholder content */}
+              <div className="text-white text-center z-10">
+                <div className="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center cursor-pointer mx-auto mb-4">
+                  <div className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-white border-b-[12px] border-b-transparent ml-1"></div>
+                </div>
+                <p className="text-lg font-medium">Vimeo Video wird hier eingebettet</p>
               </div>
+              
+              {/* Dark overlay */}
+              <div className="absolute inset-0 bg-black/70"></div>
             </div>
           </div>
         </div>
-      
+      </div>
 
       {/* Application Form */}
       <div id="formular" className="w-full max-w-2xl mx-auto px-4 mb-16">
         <Formular />
       </div>
+
+      {/* Custom CSS for the video border and glow effects */}
+      <style jsx>{`
+        .video-container {
+          position: relative;
+          filter: drop-shadow(0 0 15px rgba(19, 149, 192, 0.4));
+        }
+        
+        .video-border-gradient {
+          position: relative;
+          padding: 4px;
+          background: linear-gradient(90deg, #1395C0 0%, #62BED9 50%, #1395C0 100%);
+          border-radius: 30px;
+        }
+        
+        .video-border-gradient::before {
+          content: '';
+          position: absolute;
+          inset: 0;
+          border-radius: 30px;
+          padding: 4px;
+          background: linear-gradient(90deg, #1395C0 0%, #62BED9 50%, #1395C0 100%);
+          -webkit-mask: 
+            linear-gradient(#fff 0 0) content-box, 
+            linear-gradient(#fff 0 0);
+          -webkit-mask-composite: xor;
+          mask-composite: exclude;
+        }
+      `}</style>
     </section>
   )
 }
