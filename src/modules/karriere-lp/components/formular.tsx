@@ -279,7 +279,8 @@ const Formular = () => {
         throw new Error('Server responded with an error');
       }
       
-      const result = await response.json();
+      // Process the response (not storing in unused variable)
+      await response.json();
       
       // Handle success
       alert('Bewerbung erfolgreich eingereicht!');
