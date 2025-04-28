@@ -5,7 +5,7 @@ export default function SellwellFooter() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-green-900 text-white py-12">
+    <footer className="bg-[#1395C0] text-white py-12">
       <div className="sellwell-container">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">

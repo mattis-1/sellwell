@@ -322,9 +322,9 @@ const Formular = () => {
       question: 'Wie viel Erfahrung?',
       field: 'experienceLevel',
       options: [
-        { value: 'under1', label: 'Unter 1 Jahr' },
-        { value: '1to3', label: '1-3 Jahre' },
-        { value: 'over3', label: '3+ Jahre' },
+        { value: 'Unter_1_Jahr', label: 'Unter 1 Jahr' },
+        { value: '1-3_Jahre', label: '1-3 Jahre' },
+        { value: '3+_Jahre', label: '3+ Jahre' },
       ],
       icon: <Clock className="h-6 w-6 text-green-700" />,
       condition: () => formData.hasSalesExperience === true,

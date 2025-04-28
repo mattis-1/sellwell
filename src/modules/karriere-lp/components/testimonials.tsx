@@ -73,7 +73,7 @@ export default function SellwellTestimonials() {
 
         {/* Full width green background */}
         <div className="relative w-screen -mx-[calc(50vw-50%)]">
-          <div className="bg-green-700 py-12">
+          <div className="bg-[#1395C0] py-12">
             <div 
               className="max-w-4xl mx-auto px-4 relative"
               ref={sliderRef}
