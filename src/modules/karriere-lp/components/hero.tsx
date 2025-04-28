@@ -82,7 +82,7 @@ export default function SellwellHero() {
       }`}
     >
       {/* Benefits Banner with smoother animation */}
-      <div className="w-screen py-3 bg-gradient-to-r from-[#205B49] via-[#215F4C] to-[#205B49] text-white overflow-hidden">
+      <div className="w-screen py-3 bg-gradient-to-r from-[#205B49] via-[#2E8166] to-[#205B49] text-white overflow-hidden">
         <div className="sellwell-marquee">
           <div className="sellwell-marquee-content">
             {allBenefits.map((benefit, index) => (
@@ -136,176 +136,92 @@ export default function SellwellHero() {
           <span className="relative inline-block">
             <span className="relative z-10">Entfalte dein volles Potenzial</span>
             <span className="absolute bottom-2 left-0 w-full h-3 bg-[#246551]/10 -z-0 transform -rotate-1"></span>
-          </span> als Vertriebler im Strom- & Gasvertrieb
+          </span>{" "}
+          als Vertriebler im Strom- & Gasvertrieb
         </motion.h1>
 
-        {/* Vimeo Video with beautiful styling */}
+        {/* Vimeo Video with normal thumbnail */}
         <motion.div 
           variants={itemVariants}
           className="w-full max-w-4xl mx-auto px-4 mb-12"
         >
           <div className="video-container relative">
-            {/* Gradient border and glow effect */}
-            <div className="video-border-gradient rounded-[30px] overflow-hidden">
-              <div className="aspect-video bg-gray-900 rounded-[28px] relative overflow-hidden">
-                <AnimatePresence mode="wait">
-                  {!isVideoPlaying ? (
-                    // Video Thumbnail and Play Button
-                    <motion.div 
-                      key="thumbnail"
-                      initial={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      className="absolute inset-0 flex items-center justify-center"
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black/70"></div>
-                      
-                      {/* Play button with pulse effect */}
-                      <motion.button
-                        onClick={handlePlayVideo}
-                        className="play-button-wrapper z-10"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.98 }}
-                      >
-                        <div className="play-button-outer">
-                          <div className="play-button-inner">
-                            <div className="play-button-icon"></div>
-                          </div>
-                        </div>
-                        <div className="mt-4 text-white text-xl font-medium tracking-wide">Jetzt abspielen</div>
-                      </motion.button>
-                    </motion.div>
-                  ) : (
-                    // Actual Vimeo Embed
-                    <motion.div
-                      key="video"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      className="w-full h-full"
-                    >
-                      <iframe
-                        src="https://player.vimeo.com/video/1079393532?h=ae44b49c5b&color=246551&title=0&byline=0&portrait=0&autoplay=1"
-                        className="absolute top-0 left-0 w-full h-full"
-                        frameBorder="0"
-                        allow="autoplay; fullscreen; picture-in-picture"
-                        allowFullScreen
-                        title="Sellwell Consulting Promotional Video"
-                      ></iframe>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
+            <div className="aspect-video bg-gray-900 rounded-lg overflow-hidden">
+              <AnimatePresence mode="wait">
+                {!isVideoPlaying ? (
+                  // Video Thumbnail
+                  <motion.div 
+                    key="thumbnail"
+                    initial={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="w-full h-full relative cursor-pointer"
+                    onClick={handlePlayVideo}
+                  >
+                    {/* Thumbnail image with play button overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center z-10">
+                      <div className="w-20 h-20 rounded-full bg-black/40 flex items-center justify-center">
+                        <div className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-white border-b-[12px] border-b-transparent ml-1"></div>
+                      </div>
+                    </div>
+                    
+                    {/* This would ideally be the actual video thumbnail */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/50"></div>
+                    
+                    {/* You can replace this with an actual thumbnail image */}
+                    <Image 
+                      src="/vimeo-thumbnail.jpg" 
+                      alt="Video Thumbnail"
+                      layout="fill"
+                      objectFit="cover"
+                      onError={(e) => {
+                        // Fallback gradient if image fails to load
+                        const target = e.target as HTMLElement;
+                        if (target.parentElement) {
+                          target.parentElement.style.background = "linear-gradient(135deg, #246551, #348b6e)";
+                        }
+                      }}
+                    />
+                  </motion.div>
+                ) : (
+                  // Actual Vimeo Embed
+                  <motion.div
+                    key="video"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="w-full h-full"
+                  >
+                    <iframe
+                      src="https://player.vimeo.com/video/1079393532?h=ae44b49c5b&color=246551&title=0&byline=0&portrait=0&autoplay=1"
+                      className="absolute top-0 left-0 w-full h-full"
+                      frameBorder="0"
+                      allow="autoplay; fullscreen; picture-in-picture"
+                      allowFullScreen
+                      title="Sellwell Consulting Promotional Video"
+                    ></iframe>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </div>
         </motion.div>
 
-        {/* Application Form */}
+        {/* Application Form - Wider without border */}
         <motion.div 
           variants={itemVariants}
           id="formular" 
-          className="w-full max-w-[85%] mx-auto px-4 mb-16"
+          className="w-full max-w-3xl mx-auto px-4 mb-16"
         >
           <Formular />
         </motion.div>
       </motion.div>
 
-      {/* Custom CSS for the video border and modern styling */}
+      {/* Custom CSS for enhanced animations */}
       <style jsx>{`
         .video-container {
           position: relative;
-          filter: drop-shadow(0 5px 25px rgba(36, 101, 81, 0.3));
           transition: all 0.3s ease;
         }
         
-        .video-container:hover {
-          filter: drop-shadow(0 8px 35px rgba(36, 101, 81, 0.4));
-          transform: translateY(-3px);
-        }
-        
-        .video-border-gradient {
-          position: relative;
-          padding: 2px;
-          background: linear-gradient(90deg, #246551 0%, #348b6e 50%, #246551 100%);
-          border-radius: 30px;
-        }
-        
-        .video-border-gradient::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          border-radius: 30px;
-          padding: 2px;
-          background: linear-gradient(90deg, #246551 0%, #348b6e 50%, #246551 100%);
-          -webkit-mask: 
-            linear-gradient(#fff 0 0) content-box, 
-            linear-gradient(#fff 0 0);
-          -webkit-mask-composite: xor;
-          mask-composite: exclude;
-        }
-        
-        .play-button-wrapper {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          transition: all 0.3s ease;
-        }
-        
-        .play-button-outer {
-          width: 100px;
-          height: 100px;
-          border-radius: 50%;
-          background: rgba(255, 255, 255, 0.15);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          position: relative;
-        }
-        
-        .play-button-outer::after {
-          content: '';
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          border-radius: 50%;
-          background: rgba(255, 255, 255, 0.1);
-          z-index: -1;
-          animation: pulse 2s infinite;
-        }
-        
-        .play-button-inner {
-          width: 80px;
-          height: 80px;
-          border-radius: 50%;
-          background: rgba(36, 101, 81, 0.9);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          box-shadow: 0 0 20px rgba(36, 101, 81, 0.5);
-        }
-        
-        .play-button-icon {
-          width: 0;
-          height: 0;
-          border-style: solid;
-          border-width: 15px 0 15px 26px;
-          border-color: transparent transparent transparent #ffffff;
-          margin-left: 6px;
-        }
-        
-        @keyframes pulse {
-          0% {
-            transform: scale(1);
-            opacity: 0.8;
-          }
-          70% {
-            transform: scale(1.3);
-            opacity: 0;
-          }
-          100% {
-            transform: scale(1.3);
-            opacity: 0;
-          }
-        }
-
         /* Enhanced marquee animation */
         .sellwell-marquee {
           position: relative;
