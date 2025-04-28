@@ -30,19 +30,14 @@
 .sellwell-btn-primary {
   overflow: hidden;              /* clip the SVG and gradient */
   position: relative;            /* needed for proper gradient positioning */
-  border: none;                  /* ensure no border blocks gradient */
-  
-  background: linear-gradient(
-    to right,
-    rgb(32, 91, 73) 0%,
-    rgb(47, 129, 102) 100%
-  );
+  border: none; 
+  color: rgb(124, 242, 165);                 /* ensure no border blocks gradient */
   font-weight: 700;
   padding: 0.75rem 2rem;
-  border-radius: 9999px;
+  border-radius: 999px;
   transition: transform 150ms;
   font-size: 20px;
-  color: white;
+  color: black;
   box-shadow: 0 0 20px rgba(43, 137, 79, 0.432);
   transition: 
     box-shadow 300ms ease,
