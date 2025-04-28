@@ -12,7 +12,7 @@ import "@/modules/karriere-lp/styles/karriere-lp-styles.css"
 export default function SellwellLandingPage() {
     return (
       <div className="sellwell-landing">
-        {/*<SellwellHero />*/}
+        <SellwellHero />
         <SellwellBenefits />
         <SellwellRequirements />
         <SellwellExpectations />
