@@ -139,9 +139,9 @@ const Formular = () => {
       top: 0;
     }
     @keyframes pulse-border {
-      0% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.15); }
-      70% { box-shadow: 0 0 0 6px rgba(0, 0, 0, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }
+      0% { box-shadow: 0 0 0 0 rgba(36, 101, 81, 0.15); }
+      70% { box-shadow: 0 0 0 6px rgba(36, 101, 81, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(36, 101, 81, 0); }
     }
     .pulse-animation {
       animation: pulse-border 0.8s ease-out;
@@ -150,7 +150,28 @@ const Formular = () => {
       transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     input:focus, textarea:focus {
-      box-shadow: 0 0 0 3px rgba(209, 213, 219, 0.35); 
+      box-shadow: 0 0 0 3px rgba(36, 101, 81, 0.35); 
+    }
+    .bg-green-primary {
+      background-color: #246551;
+    }
+    .hover\\:bg-green-dark:hover {
+      background-color: #1a5040;
+    }
+    .bg-green-light {
+      background-color: #e6f0ed;
+    }
+    .border-green-primary {
+      border-color: #246551;
+    }
+    .text-green-primary {
+      color: #246551;
+    }
+    .focus\\:ring-green-primary:focus {
+      --tw-ring-color: rgba(36, 101, 81, 0.35);
+    }
+    .bg-green-lightest {
+      background-color: #f0f5f4;
     }
   `;
 
@@ -332,7 +353,7 @@ const Formular = () => {
         { value: true, label: 'Ja' },
         { value: false, label: 'Nein' },
       ],
-      icon: <Briefcase className="h-6 w-6 text-gray-500" />,
+      icon: <Briefcase className="h-6 w-6 text-green-primary" />,
     },
     {
       id: 'experienceLevel',
@@ -344,7 +365,7 @@ const Formular = () => {
         { value: '1to3', label: '1-3 Jahre' },
         { value: 'over3', label: '3+ Jahre' },
       ],
-      icon: <Clock className="h-6 w-6 text-gray-500" />,
+      icon: <Clock className="h-6 w-6 text-green-primary" />,
       condition: () => formData.hasSalesExperience === true,
     },
     {
@@ -359,7 +380,7 @@ const Formular = () => {
         { value: 'teamSpirit', label: 'Teamspirit' },
         { value: 'responsibility', label: 'Eigenverantwortung' },
       ],
-      icon: <GraduationCap className="h-6 w-6 text-gray-500" />,
+      icon: <GraduationCap className="h-6 w-6 text-green-primary" />,
     },
     {
       id: 'peopleContact',
@@ -370,14 +391,14 @@ const Formular = () => {
       max: 5,
       minLabel: 'Gar nicht',
       maxLabel: 'Sehr gerne',
-      icon: <Users className="h-6 w-6 text-gray-500" />,
+      icon: <Users className="h-6 w-6 text-green-primary" />,
     },
     {
       id: 'greatestStrength',
       type: 'textarea',
       question: 'Was würdest du als deine größte Stärke für den Vertrieb bezeichnen?',
       field: 'greatestStrength',
-      icon: <Zap className="h-6 w-6 text-gray-500" />,
+      icon: <Zap className="h-6 w-6 text-green-primary" />,
     },
     {
       id: 'driversLicense',
@@ -388,7 +409,7 @@ const Formular = () => {
         { value: true, label: 'Ja' },
         { value: false, label: 'Nein' },
       ],
-      icon: <Car className="h-6 w-6 text-gray-500" />,
+      icon: <Car className="h-6 w-6 text-green-primary" />,
     },
     {
       id: 'name',
@@ -396,7 +417,7 @@ const Formular = () => {
       question: 'Wie heißt Du?',
       fields: ['firstName', 'lastName'],
       labels: ['Vorname', 'Nachname'],
-      icon: <User className="h-6 w-6 text-gray-500" />,
+      icon: <User className="h-6 w-6 text-green-primary" />,
     },
     {
       id: 'contact',
@@ -405,10 +426,10 @@ const Formular = () => {
       fields: ['email', 'phone'],
       labels: ['E-Mail-Adresse', 'Telefonnummer'],
       icons: [
-        <Mail className="h-6 w-6 text-gray-500" key="mail-icon" />,
-        <Phone className="h-6 w-6 text-gray-500" key="phone-icon" />
+        <Mail className="h-6 w-6 text-green-primary" key="mail-icon" />,
+        <Phone className="h-6 w-6 text-green-primary" key="phone-icon" />
       ],
-      icon: <Mail className="h-6 w-6 text-gray-500" />, // Required icon property
+      icon: <Mail className="h-6 w-6 text-green-primary" />, // Required icon property
     },
   ];
 
@@ -460,7 +481,7 @@ const Formular = () => {
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <User className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
+                    <User className="h-4 w-4 sm:h-5 sm:w-5 text-green-primary" />
                   </div>
                   <input
                     type="text"
@@ -468,7 +489,7 @@ const Formular = () => {
                     value={stringValue}
                     onChange={(e) => handleChange(String(field), e.target.value)}
                     className={`pl-9 sm:pl-10 block w-full rounded-lg transition-all duration-300 ${
-                      errors[field] ? 'border border-red-500' : isRecentlyChanged ? 'border border-gray-400 pulse-animation' : 'border border-gray-200'
+                      errors[field] ? 'border border-red-500' : isRecentlyChanged ? 'border border-green-primary pulse-animation' : 'border border-gray-200'
                     } py-3 sm:py-4 px-3 sm:px-4 text-gray-900 focus:outline-none`}
                     placeholder={q.labels[index]}
                   />
@@ -498,8 +519,8 @@ const Formular = () => {
               className={`flex items-center p-4 sm:p-5 rounded-lg transition-all duration-300 cursor-pointer relative group ${
                 isSelected ? 
                   isRecentlyChanged ? 
-                    'bg-gray-200 border border-gray-400 pulse-animation' : 
-                    'bg-gray-200 border border-gray-400' 
+                    'bg-green-light border border-green-primary pulse-animation' : 
+                    'bg-green-light border border-green-primary' 
                 : 'bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:scale-[1.01] transform'
               }`}
             >
@@ -511,7 +532,7 @@ const Formular = () => {
               </div>
               {isSelected && (
                 <div className="absolute right-4 flex items-center justify-center check-mark-animation">
-                  <div className="w-6 h-6 rounded-full bg-gray-400 flex items-center justify-center">
+                  <div className="w-6 h-6 rounded-full bg-green-primary flex items-center justify-center">
                     <Check className="h-4 w-4 text-white" />
                   </div>
                 </div>
@@ -540,8 +561,8 @@ const Formular = () => {
               className={`flex items-center p-4 sm:p-5 rounded-lg cursor-pointer transition-all duration-300 relative group ${
                 isSelected ? 
                   isRecentlyChanged ? 
-                    'bg-gray-200 border border-gray-400 pulse-animation' : 
-                    'bg-gray-200 border border-gray-400' 
+                    'bg-green-light border border-green-primary pulse-animation' : 
+                    'bg-green-light border border-green-primary' 
                 : 'bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:scale-[1.01] transform'
               }`}
             >
@@ -553,7 +574,7 @@ const Formular = () => {
               </div>
               {isSelected && (
                 <div className="absolute right-4 flex items-center justify-center check-mark-animation">
-                  <div className="w-6 h-6 rounded-full bg-gray-400 flex items-center justify-center">
+                  <div className="w-6 h-6 rounded-full bg-green-primary flex items-center justify-center">
                     <Check className="h-4 w-4 text-white" />
                   </div>
                 </div>
@@ -586,24 +607,24 @@ const Formular = () => {
               className={`flex items-center p-4 sm:p-5 rounded-lg cursor-pointer transition-all duration-300 relative group ${
                 isSelected ? 
                   isRecentlyChanged ? 
-                    'bg-gray-200 border border-gray-400 pulse-animation' : 
-                    'bg-gray-200 border border-gray-400' 
+                    'bg-green-light border border-green-primary pulse-animation' : 
+                    'bg-green-light border border-green-primary' 
                 : 'bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:scale-[1.01] transform'
               }`}
             >
               <div className="mr-3 sm:mr-4">
-                {option.value === 'compensation' && <Star className="h-5 w-5 sm:h-6 sm:w-6 text-gray-500" />}
-                {option.value === 'flexibleHours' && <Clock className="h-5 w-5 sm:h-6 sm:w-6 text-gray-500" />}
-                {option.value === 'training' && <GraduationCap className="h-5 w-5 sm:h-6 sm:w-6 text-gray-500" />}
-                {option.value === 'teamSpirit' && <Users className="h-5 w-5 sm:h-6 sm:w-6 text-gray-500" />}
-                {option.value === 'responsibility' && <Zap className="h-5 w-5 sm:h-6 sm:w-6 text-gray-500" />}
+                {option.value === 'compensation' && <Star className="h-5 w-5 sm:h-6 sm:w-6 text-green-primary" />}
+                {option.value === 'flexibleHours' && <Clock className="h-5 w-5 sm:h-6 sm:w-6 text-green-primary" />}
+                {option.value === 'training' && <GraduationCap className="h-5 w-5 sm:h-6 sm:w-6 text-green-primary" />}
+                {option.value === 'teamSpirit' && <Users className="h-5 w-5 sm:h-6 sm:w-6 text-green-primary" />}
+                {option.value === 'responsibility' && <Zap className="h-5 w-5 sm:h-6 sm:w-6 text-green-primary" />}
               </div>
               <div className="flex-grow">
                 <p className="font-medium">{option.label}</p>
               </div>
               {isSelected && (
                 <div className="absolute right-4 flex items-center justify-center check-mark-animation">
-                  <div className="w-6 h-6 rounded-full bg-gray-400 flex items-center justify-center">
+                  <div className="w-6 h-6 rounded-full bg-green-primary flex items-center justify-center">
                     <Check className="h-4 w-4 text-white" />
                   </div>
                 </div>
@@ -637,8 +658,8 @@ const Formular = () => {
                 className={`flex-1 py-4 sm:py-5 rounded-lg cursor-pointer text-center transition-all duration-300 
                   ${isSelected ? 
                     isRecentlyChanged ? 
-                      'bg-gray-200 border border-gray-400 pulse-animation scale-110 transform' : 
-                      'bg-gray-200 border border-gray-400 scale-110 transform' 
+                      'bg-green-light border border-green-primary pulse-animation scale-110 transform' : 
+                      'bg-green-light border border-green-primary scale-110 transform' 
                     : 'bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:scale-105 transform'
                 }`}
               >
@@ -668,7 +689,7 @@ const Formular = () => {
             onChange={(e) => handleChange(String(q.field), e.target.value)}
             rows={4}
             className={`block w-full rounded-lg transition-all duration-300 ${
-              errors[q.field] ? 'border border-red-500' : isRecentlyChanged ? 'border border-gray-400 pulse-animation' : 'border border-gray-200'
+              errors[q.field] ? 'border border-red-500' : isRecentlyChanged ? 'border border-green-primary pulse-animation' : 'border border-gray-200'
             } py-3 px-4 text-gray-900 focus:outline-none`}
             placeholder="Schreibe hier deine Antwort..."
           />
@@ -700,8 +721,8 @@ const Formular = () => {
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   {field === 'email' ? 
-                    <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-gray-500" /> :
-                    <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-gray-500" />
+                    <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-green-primary" /> :
+                    <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-green-primary" />
                   }
                 </div>
                 <input
@@ -710,7 +731,7 @@ const Formular = () => {
                   value={stringValue}
                   onChange={(e) => handleChange(String(field), e.target.value)}
                   className={`pl-9 sm:pl-10 block w-full rounded-lg transition-all duration-300 ${
-                    errors[field] ? 'border border-red-500' : isRecentlyChanged ? 'border border-gray-400 pulse-animation' : 'border border-gray-200'
+                    errors[field] ? 'border border-red-500' : isRecentlyChanged ? 'border border-green-primary pulse-animation' : 'border border-gray-200'
                   } py-2.5 sm:py-3 px-3 sm:px-4 text-gray-900 focus:outline-none`}
                   placeholder={q.labels[index]}
                 />
@@ -759,7 +780,7 @@ const Formular = () => {
         {/* Improved Progress bar */}
         <div className="h-2 bg-gray-100 rounded-full overflow-hidden mb-4">
           <div 
-            className="h-full bg-gray-400 transition-all duration-500 ease-out animate-progress"
+            className="h-full bg-green-primary transition-all duration-500 ease-out animate-progress"
             style={{ width: `${progress}%` }}
           />
         </div>
@@ -785,7 +806,7 @@ const Formular = () => {
                 >
                   {/* Question header */}
                   <div className="flex items-center mb-6">
-                    <div className="mr-4 p-2 bg-gray-100 rounded-lg">
+                    <div className="mr-4 p-2 bg-green-lightest rounded-lg">
                       {currentQuestionData.icon}
                     </div>
                     <h2 className="text-lg sm:text-xl font-semibold text-gray-800">
@@ -805,7 +826,7 @@ const Formular = () => {
                 <button
                   type="button"
                   onClick={goToPreviousQuestion}
-                  className="w-3/10 flex justify-center items-center py-2.5 rounded-lg text-gray-700 transition-all duration-300 border border-gray-300 hover:bg-gray-50 hover:border-gray-400 mr-1.5 focus:outline-none focus:ring-2 focus:ring-gray-300"
+                  className="w-3/10 flex justify-center items-center py-2.5 rounded-lg text-gray-700 transition-all duration-300 border border-gray-300 hover:bg-gray-50 hover:border-gray-400 mr-1.5 focus:outline-none focus:ring-2 focus:ring-green-primary"
                 >
                   <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 mr-1" />
                   Zurück
@@ -816,7 +837,7 @@ const Formular = () => {
                 <button
                   type="button"
                   onClick={goToNextQuestion}
-                  className={`flex justify-center items-center py-2.5 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400 transform hover:scale-[1.02] ${
+                  className={`flex justify-center items-center py-2.5 bg-green-primary text-white rounded-lg hover:bg-green-dark transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-primary transform hover:scale-[1.02] ${
                     currentQuestion === 0 ? 'w-full' : 'w-7/10'
                   }`}
                 >
@@ -828,7 +849,7 @@ const Formular = () => {
                   type="button"
                   onClick={handleSubmit}
                   disabled={isSubmitting}
-                  className={`flex justify-center items-center py-2.5 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400 transform hover:scale-[1.02] ${
+                  className={`flex justify-center items-center py-2.5 bg-green-primary text-white rounded-lg hover:bg-green-dark transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-primary transform hover:scale-[1.02] ${
                     currentQuestion === 0 ? 'w-full' : 'w-7/10'
                   }`}
                 >
