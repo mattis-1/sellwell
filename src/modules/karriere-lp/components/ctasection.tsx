@@ -39,12 +39,12 @@ export default function SellwellCtaSection() {
     >
       
       {/* Dark overlay for better text readability */}
-      <div className="absolute inset-0 bg-white/80"></div>
+      <div className="absolute inset-0 bg-black/80"></div>
 
       <div className="sellwell-container relative z-10">
         <div className="max-w-3xl mx-auto text-center text-black">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="special-text">Bewirb dich noch heute</span> für deinen Traumjob im Strom- und Gasvertrieb
+           Bewirb dich noch heute für deinen Traumjob im Strom- und Gasvertrieb
           </h2>
           <p className="text-lg md:text-xl mb-8">
             Klicke jetzt hier unten auf den Button und bewirb dich in unter 60 Sekunden ohne Anschreiben und ohne

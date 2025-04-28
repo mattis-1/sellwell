@@ -49,34 +49,6 @@
     transform 150ms ease;
 }
 
-/* radial “inner shadow” via a ::before pseudo‐element */
-.sellwell-btn-primary::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: radial-gradient(
-    circle at center,
-    transparent 60%,
-    #2F8166 100%
-  );
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* grid SVG overlay — make it 150% size and center it */
-.sellwell-btn-pattern {
-  position: absolute;
-  top: -25%;
-  left: -25%;
-  width: 150%;
-  height: 150%;
-  object-fit: none;      /* preserve crisp SVG lines */
-  opacity: 0.1;
-  pointer-events: none;
-  z-index: 1;
-}
-
 /* ensure your text stays on top */
 .sellwell-btn-text {
   position: relative;
@@ -85,10 +57,10 @@
 
 /* simple hover/active feedback */
 .sellwell-btn-primary:hover {
-  transform: scale(1.05);
+  transform: scale(1.00);
 }
 .sellwell-btn-primary:active {
-  transform: scale(0.95);
+  transform: scale(1.00);
 }
   
   .sellwell-btn-secondary {
