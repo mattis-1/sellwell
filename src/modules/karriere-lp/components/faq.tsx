@@ -77,7 +77,7 @@ export default function SellwellFaqSection() {
       className={`sellwell-section relative transition-all duration-1000 p-0 ${isIntersecting ? "opacity-100" : "opacity-0"}`}
     >
       {/* Blue gradient from bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-[70vh] z-0 pointer-events-none bg-gradient-to-t from-[#388E3C] to-transparent"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-[70vh] z-0 pointer-events-none bg-gradient-to-t from-[#1E5645] to-transparent"></div>
 
       {/* Image Slider - Enhanced infinite version */}
       <div className="w-screen relative overflow-hidden bg-gray-50">
@@ -129,14 +129,10 @@ export default function SellwellFaqSection() {
       {/* FAQ Container - Redesigned for elegance */}
       <div className="sellwell-container -mt-24 md:-mt-48 relative z-10">
         <div className="max-w-3xl mx-auto bg-white rounded-[33px] shadow-xl p-8 md:p-12">
-        <div className="flex justify-center mb-3">
-          <div className="bg-[#18473A] text-[#fff] rounded-full px-4 py-1 inline-block">
-            <span className="font-[500] text-sm tracking-wide">HÄUFIG GESTELLTE FRAGEN</span>
-          </div>
-        </div>
+      
         
           
-          <h2 className="text-[75px] md:text-[80px] font-bold mb-10 text-center">FAQ</h2>
+          <h2 className="text-[85px] md:text-[90px] font-bold mb-10 special-text text-center">FAQ</h2>
 
           <div className="space-y-6">
             {faqs.map((faq, index) => (
