@@ -219,6 +219,18 @@
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
   
+  .sellwell-subhead {
+    display: inline-block;            /* wrap to content */
+    background-color: #6BC3DC;        /* light blue */
+    color: #0C3C66;                   /* dark blue */
+    padding: 0.25rem 0.5rem;          /* tweak as you like */
+    font-size: 0.75rem;               /* small text */
+    font-weight: 600;
+    text-transform: uppercase;        /* always caps */
+    border-radius: 0.25rem;
+    line-height: 1;                   /* keep it tight */
+  }
+
   /* Icon styles */
   .sellwell-icon {
     color: #15803d;

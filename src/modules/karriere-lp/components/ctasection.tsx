@@ -1,7 +1,6 @@
 "use client"
 
 import { useRef, useEffect, useState } from "react"
-import Link from "next/link"
 import Button from "@/modules/karriere-lp/components/button"
 
 

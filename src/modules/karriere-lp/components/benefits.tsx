@@ -2,8 +2,8 @@
 
 import { useRef, useEffect, useState } from "react"
 import { Lightbulb, Users, TrendingUp } from "lucide-react"
-import Link from "next/link"
 import Button from "@/modules/karriere-lp/components/button"
+import Subhead from "./subhead"
 
 export default function SellwellBenefits() {
   const [isIntersecting, setIsIntersecting] = useState(false)
@@ -34,6 +34,7 @@ export default function SellwellBenefits() {
       className={`sellwell-section-alt transition-all duration-1000 ${isIntersecting ? "opacity-100" : "opacity-0"}`}
     >
       <div className="sellwell-container">
+        <Subhead>Deine Vorteile bei Sellwell</Subhead>
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Grenzenloses Wachstum beginnt hier</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
