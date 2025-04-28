@@ -34,7 +34,7 @@ export default function SellwellBenefits() {
       className={`sellwell-section-alt transition-all duration-1000 ${isIntersecting ? "opacity-100" : "opacity-0"}`}
     >
       <div className="sellwell-container">
-        <Subhead className="text-center mx-auto">Deine Vorteile bei Sellwell</Subhead>
+        <Subhead>Deine Vorteile bei Sellwell</Subhead>
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Grenzenloses Wachstum beginnt hier</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">

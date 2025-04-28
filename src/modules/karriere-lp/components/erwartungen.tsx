@@ -43,8 +43,8 @@ export default function SellwellExpectations() {
             <Image
               src="/shx-icon4.webp"
               alt="Icon"
-              width={100}
-              height={100}
+              width={50}
+              height={50}
               />
             </div>
             <h3 className="text-xl font-bold mb-3">Regelmäßige Weiterbildungen</h3>
@@ -59,8 +59,8 @@ export default function SellwellExpectations() {
               <Image
               src="/shx-icon5.webp"
               alt="Icon"
-              width={100}
-              height={100}
+              width={50}
+              height={50}
               />
             </div>
             <h3 className="text-xl font-bold mb-3">Flexible Arbeitszeiten und Freiheit</h3>
@@ -76,8 +76,8 @@ export default function SellwellExpectations() {
             <Image
               src="/shx-icon6.webp"
               alt="Icon"
-              width={100}
-              height={100}
+              width={50}
+              height={50}
               />
             </div>
             <h3 className="text-xl font-bold mb-3">Schneller Karriereaufstieg</h3>

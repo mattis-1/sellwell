@@ -44,7 +44,7 @@
 /* core button */
 .sellwell-btn-primary {
   position: relative;            /* for pseudo‐layers */
-  /*overflow: hidden;              /* clip the SVG and gradient */
+  overflow: hidden;              /* clip the SVG and gradient */
   background-color: #1395C0;     /* your base color */
   color: #fff;
   font-weight: 700;
@@ -233,7 +233,8 @@
     font-weight: 400;
     text-transform: uppercase;        /* always caps */
     border-radius: 99px;
-    line-height: 1;                   /* keep it tight */
+    line-height: 1;    
+    text-align: center;               /* keep it tight */
   }
 
   /* Icon styles */

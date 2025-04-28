@@ -39,7 +39,7 @@ export default function SellwellCtaSection() {
     >
       
       {/* Dark overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/80"></div>
+      <div className="absolute inset-0 bg-black/70"></div>
 
       <div className="sellwell-container relative z-10">
         <div className="max-w-3xl mx-auto text-center text-white">
