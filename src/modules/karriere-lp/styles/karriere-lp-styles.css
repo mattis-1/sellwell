@@ -211,7 +211,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background-color: #CCF3FF;
+    background-color:  rgb(102, 215, 109, 1);
   }
 
   .sellwell-benefit-container-alt-2 {
@@ -223,8 +223,8 @@
     text-align: center;
     background: linear-gradient(
     to bottom,
-    rgb(204, 243, 255, 0) 0%,
-    rgb(204, 243, 255, 1) 100%
+    rgb(102, 215, 109, 0) 0%,
+    rgb(102, 215, 109, 1) 100%
   );
   }
 
@@ -237,8 +237,8 @@
     text-align: center;
     background: linear-gradient(
     to top,
-    rgb(204, 243, 255, 0) 0%,
-    rgb(204, 243, 255, 1) 100%
+    rgb(102, 215, 109, 0) 0%,
+    rgb(102, 215, 109, 1) 100%
   );
   }
   
