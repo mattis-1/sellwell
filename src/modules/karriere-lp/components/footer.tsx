@@ -5,12 +5,12 @@ export default function SellwellFooter() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-green-900 text-white py-12">
       <div className="sellwell-container">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
-            <p className="text-lg font-bold">Sellwell Consulting GmbH</p>
-            <p className="text-gray-400 mt-1">Dein Partner für Karriere im Vertrieb</p>
+            <p className="text-lg font-bold text-center">Sellwell Consulting GmbH</p>
+            <p className="text-gray-400 mt-1 text-center">Wo Visionen verwirklicht werden.</p>
           </div>
 
           <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
@@ -42,7 +42,7 @@ export default function SellwellFooter() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+        <div className="border-t border-white mt-8 pt-8 mx-10 text-center text-gray-400">
           <p>&copy; {currentYear} Sellwell Consulting GmbH. Alle Rechte vorbehalten.</p>
         </div>
       </div>

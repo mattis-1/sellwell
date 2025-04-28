@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
-import ApplicationForm from "./formular"
+import Formular from "./formular"
 
 const benefits = [
   "Endlose Möglichkeiten",
@@ -50,7 +50,7 @@ export default function SellwellHero() {
       }`}
     >
       {/* Benefits Banner - Moved to top with full width */}
-      <div className="w-screen bg-green-700 text-white overflow-hidden">
+      <div className="w-screen py-3 bg-green-700 text-white overflow-hidden">
         <div className="sellwell-marquee">
           <div className="sellwell-marquee-content">
             {allBenefits.map((benefit, index) => (
@@ -87,7 +87,7 @@ export default function SellwellHero() {
       </h1>
 
       {/* VSL Container */}
-      <div className="w-full max-w-3xl mx-auto px-4 mb-12 border-4 border-green-700 rounded-lg p-4">
+      <div className="w-full max-w-[80%] mx-auto px-4 mb-12 border-4 border-green-700 rounded-lg p-4">
         <div className="aspect-video relative bg-black rounded-lg overflow-hidden">
           {/* Replace with actual VSL embed */}
           <div className="absolute inset-0 flex items-center justify-center text-white">
@@ -104,7 +104,7 @@ export default function SellwellHero() {
 
       {/* Application Form */}
       <div className="w-full max-w-2xl mx-auto px-4 mb-16">
-        <ApplicationForm />
+        <Formular />
       </div>
     </section>
   )

@@ -7,21 +7,21 @@ import Link from "next/link"
 
 const testimonials = [
   {
-    name: "Max Mustermann",
-    role: "Senior Vertriebler",
-    avatar: "/ABOUT1.png",
+    name: "Marco Sandrisser",
+    role: "TEAMLEITER",
+    avatar: "/Marco-1x1.png",
     video: "/testimonial1.mp4",
   },
   {
-    name: "Anna Schmidt",
-    role: "Team Lead",
-    avatar: "/ABOUT2.png",
+    name: "Chris Marquardt",
+    role: "VERTRIEBLER",
+    avatar: "/Chris-1x1.png",
     video: "/testimonial2.mp4",
   },
   {
-    name: "Tom Weber",
-    role: "Vertriebler",
-    avatar: "/ABOUT3.png",
+    name: "Stefan Sonderholzer",
+    role: "VERTRIEBLER & AUSBILDENDER",
+    avatar: "/Stefan-1x1.png",
     video: "/testimonial3.mp4",
   },
 ]

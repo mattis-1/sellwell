@@ -37,7 +37,7 @@ export default function SellwellBenefits() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {/* Benefit 1 */}
-          <div className="sellwell-benefit-container-alt">
+          <div className="sellwell-benefit-container-alt-2">
             <div className="mb-4">
               <TrendingUp className="sellwell-icon mx-auto" />
             </div>
@@ -61,7 +61,7 @@ export default function SellwellBenefits() {
           </div>
 
           {/* Benefit 3 */}
-          <div className="sellwell-benefit-container-alt">
+          <div className="sellwell-benefit-container-alt-3">
             <div className="mb-4">
               <Lightbulb className="sellwell-icon mx-auto" />
             </div>

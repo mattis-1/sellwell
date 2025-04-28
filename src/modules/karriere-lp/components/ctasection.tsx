@@ -29,12 +29,18 @@ export default function SellwellCtaSection() {
   return (
     <section
       ref={sectionRef}
-      className={`py-20 md:py-32 bg-gradient-to-r from-green-800 to-green-600 relative transition-all duration-1000 ${
+      className={`py-20 md:py-32 relative transition-all duration-1000 bg-cover bg-center bg-no-repeat ${
         isIntersecting ? "opacity-100" : "opacity-0"
       }`}
+      style={{ 
+        backgroundImage: "url('/ABOUT1.png')" 
+      }}
     >
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/30"></div>
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-green-800/80 to-green-600/80"></div>
+      
+      {/* Dark overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/40"></div>
 
       <div className="sellwell-container relative z-10">
         <div className="max-w-3xl mx-auto text-center text-white">
