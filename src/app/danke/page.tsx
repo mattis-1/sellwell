@@ -41,8 +41,8 @@ export default function ThankYouPage() {
 
         {/* Badge */}
         <div className="flex justify-center mb-4">
-          <div className="bg-blue-100 text-blue-800 rounded-full px-4 py-1 inline-block">
-            <span className="font-light text-sm tracking-wide">BEWERBUNG ERFOLGREICH</span>
+          <div className="bg-green-100 text-green-800 rounded-full px-4 py-1 inline-block">
+            <span className="font-[600] text-sm tracking-wide">BEWERBUNG ERFOLGREICH</span>
           </div>
         </div>
 
@@ -52,15 +52,15 @@ export default function ThankYouPage() {
           <h3 className="text-xl font-semibold mb-4">Was passiert als Nächstes?</h3>
           <ol className="text-left text-gray-600 space-y-3">
             <li className="flex items-start">
-              <span className="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-2 shrink-0 mt-0.5">1</span>
+              <span className="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-2 shrink-0 mt-0.5">1</span>
               <span>Wir haben soeben deine Bewerbung erhalten und prüfen sie sobald wie möglich.</span>
             </li>
             <li className="flex items-start">
-              <span className="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-2 shrink-0 mt-0.5">2</span>
+              <span className="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-2 shrink-0 mt-0.5">2</span>
               <span>Darauf treten wir mit dir in Kontakt, für ein erstes kurzes Kennenlernen am Telefon</span>
             </li>
             <li className="flex items-start">
-              <span className="bg-blue-100 text-blue-800 rounded-full w-6 h-6 flex items-center justify-center mr-2 shrink-0 mt-0.5">3</span>
+              <span className="bg-green-100 text-green-800 rounded-full w-6 h-6 flex items-center justify-center mr-2 shrink-0 mt-0.5">3</span>
               <span>Bei gegenseitigem Interesse vereinbaren wir ein persönliches Erstgespräch mit einem unserer Teamleiter.</span>
             </li>
           </ol>
