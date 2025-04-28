@@ -11,28 +11,31 @@ interface BenefitCardProps {
   index: number;
 }
 
-// Benefit card with proper typing but no animations
-const BenefitCard = ({ icon, title, description }: BenefitCardProps) => (
+const BenefitCard = ({ icon, title, description, index }: BenefitCardProps) => (
   <div
     className="benefit-card relative overflow-hidden rounded-xl p-7 bg-white backdrop-blur-sm border border-gray-100 transition-all text-center"
   >
     <div className="absolute inset-0 -z-10">
     </div>
     <div className="mb-4 flex justify-center">
-      <Image
-        src={icon}
-        alt={title}
-        width={60}
-        height={60}
+      <div 
+        className="w-16 h-16 rounded-[15px]"
+        style={{ 
+          background: "linear-gradient(to right top, #EBFFE1, #7BF3A4)" 
+        }}
+      />
+      <Image 
+      src={icon}
+      alt="icon"
+      height={75}
+      width={75}
       />
     </div>
     <h3 className="text-[25px] font-inter font-semibold mb-3 tracking-[-0.75px]">{title}</h3>
     <p className="text-[rgb(115, 115, 115)] font-[400] leading-relaxed leading-[22px] tracking-[-0.28px]">
       {description}
     </p>
-    
-    {/* Decorative accent */}
-   
+       
   </div>
 );
 
@@ -67,17 +70,17 @@ export default function SellwellExpectations() {
   // Benefits data
   const benefits = [
     {
-      icon: "/shx-icon4.webp",
+      icon: "/lp-icon1.svg",
       title: "Regelmäßige Weiterbildungen",
       description: "Wir investieren in deine Entwicklung mit regelmäßigen Schulungen, Workshops und individuellen Coachings."
     },
     {
-      icon: "/shx-icon5.webp",
+      icon: "/lp-icon2.svg",
       title: "Flexible Arbeitszeiten",
       description: "Bei uns genießt du die Freiheit, deine Arbeitszeit flexibel zu gestalten und eigenverantwortlich zu arbeiten."
     },
     {
-      icon: "/shx-icon6.webp",
+      icon: "/lp-icon3.svg",
       title: "Schneller Karriereaufstieg",
       description: "Zeige Leistung und steige schnell auf. Bei uns kannst du in kurzer Zeit Führungsverantwortung übernehmen."
     }
