@@ -411,7 +411,7 @@ const Formular = () => {
   // Render functions for each question type
   const renderTextDual = (q: TextDualQuestion) => {
     return (
-      <div className="space-y-3">
+      <div className="space-y-13">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           {q.fields.map((field, index) => {
             // Safe conversion to string for input value

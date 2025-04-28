@@ -95,7 +95,7 @@ export default function SellwellHero() {
       {/* VSL Container */}
         <div className="aspect-video relative bg-black rounded-[30px] overflow-hidden">
           {/* Replace with actual VSL embed */}
-          <div className="absolute inset-0 flex items-center justify-center text-white">
+          <div className="absolute inset-0 flex items-center justify-center bg-black text-white">
             <p className="text-center">Video Sales Letter</p>
             {/* Fallback image or video player would go here */}
             <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
