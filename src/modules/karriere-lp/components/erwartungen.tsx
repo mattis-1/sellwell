@@ -1,3 +1,5 @@
+"use client"
+
 import { useRef, useEffect, useState } from "react"
 import Button from "@/modules/karriere-lp/components/button"
 import Image from "next/image"
