@@ -28,21 +28,21 @@
   
 /* core button */
 .sellwell-btn-primary {
-  position: relative;            /* for pseudo‐layers */
   overflow: hidden;              /* clip the SVG and gradient */
+  position: relative;            /* needed for proper gradient positioning */
+  border: none;                  /* ensure no border blocks gradient */
+  
   background: linear-gradient(
     to right,
-    #205B49 0%,
-    #2F8166 100%,
+    rgb(32, 91, 73) 0%,
+    rgb(47, 129, 102) 100%
   );
-       /* your base color */
-  color: #fff;
   font-weight: 700;
   padding: 0.75rem 2rem;
   border-radius: 9999px;
   transition: transform 150ms;
   font-size: 20px;
-
+  color: white;
   box-shadow: 0 0 20px rgba(43, 137, 79, 0.432);
   transition: 
     box-shadow 300ms ease,
@@ -52,15 +52,17 @@
 /* ensure your text stays on top */
 .sellwell-btn-text {
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 
 /* simple hover/active feedback */
 .sellwell-btn-primary:hover {
-  transform: scale(1.00);
+  transform: scale(1.02);
+  box-shadow: 0 0 25px rgba(43, 137, 79, 0.6);
 }
+
 .sellwell-btn-primary:active {
-  transform: scale(1.00);
+  transform: scale(0.98);
 }
   
   .sellwell-btn-secondary {
