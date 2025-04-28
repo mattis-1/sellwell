@@ -34,7 +34,6 @@ export default function SellwellFaqSection() {
   const [openFaqs, setOpenFaqs] = useState<number[]>([0]) 
   const sectionRef = useRef<HTMLElement>(null)
   const sliderRef = useRef<HTMLDivElement>(null)
-  const [isAutoScrolling, setIsAutoScrolling] = useState(true)
   // Animation will run continuously without pausing
   
   useEffect(() => {
