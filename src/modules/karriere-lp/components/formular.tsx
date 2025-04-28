@@ -269,14 +269,14 @@ const Formular = () => {
       };
       
       // Make the API call
-      const response = await fetch('/api/bewerber/kampagne1/route', {
+      const response = await fetch('/api/bewerber/kampagne1', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(submissionData),
       });
       
       if (!response.ok) {
-        throw new Error('Server responded with an error');
+        throw new Error(`Server responded with an error: ${response.status}`);
       }
       
       // Process the response (not storing in unused variable)

@@ -8,12 +8,14 @@ import SellwellRequirements from "@/modules/karriere-lp/components/muss"
 import SellwellExpectations from "@/modules/karriere-lp/components/erwartungen"
 import SellwellTestimonials from "@/modules/karriere-lp/components/testimonials"
 import "@/modules/karriere-lp/styles/karriere-lp-styles.css"
+import Button from "@/modules/karriere-lp/components/button"
 
 export default function SellwellLandingPage() {
     return (
       <div className="sellwell-landing">
         <SellwellHero />
         <SellwellBenefits />
+        <Button>Text</Button>
         <SellwellRequirements />
         <SellwellExpectations />
         <SellwellTestimonials />

@@ -41,18 +41,43 @@
     font-family: "Mazard Medium", system-ui, sans-serif;
   }
   
-  /* Button styles */
   .sellwell-btn-primary {
-    background-image: linear-gradient(to right, #16a34a, #166534);
-    color: white;
+    position: relative;           /* establish stacking context */
+    overflow: hidden;             /* clip the inner shadow & svg */
+    background-color: #1395C0;    /* your main button color */
+    color: #fff;                  /* white text */
     font-weight: 700;
     padding: 0.75rem 2rem;
     border-radius: 9999px;
-    transition: all 300ms;
+    transition: box-shadow 300ms, transform 150ms;
+    /* inset “border” shadow */
+    box-shadow: inset 0 0 0 2px #6BC3DC;
   }
   
+  /* the SVG pattern overlay */
+  .sellwell-btn-pattern {
+    position: absolute;
+    inset: 0;                     /* top:0; right:0; bottom:0; left:0 */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;            /* ensure it fills the button */
+    opacity: 0.1;                 /* low-opacity grid */
+    pointer-events: none;         /* don’t block clicks */
+    z-index: 0;                   /* behind the text */
+  }
+  
+  /* wrap your text so it sits above the SVG */
+  .sellwell-btn-text {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* hover / focus / active states */
   .sellwell-btn-primary:hover {
-    box-shadow: 0 10px 15px -3px rgba(134, 239, 172, 0.3);
+    /* keep your inset border, add a soft drop-shadow */
+    box-shadow:
+      inset 0 0 0 2px #6BC3DC,
+      0 6px 12px rgba(0, 0, 0, 0.15);
   }
   
   .sellwell-btn-primary:active {
@@ -61,7 +86,10 @@
   
   .sellwell-btn-primary:focus {
     outline: none;
-    box-shadow: 0 0 0 2px #22c55e, 0 0 0 4px white;
+    /* glow in your accent color, ringed by white */
+    box-shadow:
+      0 0 0 3px #6BC3DC,
+      0 0 0 6px white;
   }
   
   .sellwell-btn-secondary {
