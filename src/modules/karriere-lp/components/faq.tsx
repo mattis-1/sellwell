@@ -77,7 +77,7 @@ export default function SellwellFaqSection() {
       className={`sellwell-section relative transition-all duration-1000 p-0 ${isIntersecting ? "opacity-100" : "opacity-0"}`}
     >
       {/* Blue gradient from bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-[70vh] z-0 pointer-events-none bg-gradient-to-t from-[#51B1D7] to-transparent"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-[70vh] z-0 pointer-events-none bg-gradient-to-t from-[#388E3C] to-transparent"></div>
 
       {/* Image Slider - Enhanced infinite version */}
       <div className="w-screen relative overflow-hidden bg-gray-50">
@@ -157,9 +157,9 @@ export default function SellwellFaqSection() {
                   </h3>
                   <span className="transition-all duration-300 ease-in-out bg-gray-50 rounded-full p-1 flex-shrink-0 mt-0.5">
                     {openFaqs.includes(index) ? (
-                      <Minus className="w-5 h-5 text-blue-700" />
+                      <Minus className="w-5 h-5 text-green-700" />
                     ) : (
-                      <Plus className="w-5 h-5 text-blue-700" />
+                      <Plus className="w-5 h-5 text-green-700" />
                     )}
                   </span>
                 </button>

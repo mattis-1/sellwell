@@ -5,7 +5,7 @@ export default function SellwellFooter() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-gradient-to-t from-[#1395C0] to-[#53B2D8] text-white py-12">
+    <footer className="bg-gradient-to-t from-[#4B9D4F] to-[#388E3C] text-white py-12">
       <div className="sellwell-container">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
