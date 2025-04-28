@@ -139,14 +139,14 @@ export default function SellwellTestimonials() {
     >
       <div className="sellwell-container">
       <div className="flex justify-center mb-3">
-          <div className="bg-[#78C07B] text-[#388E3C] rounded-full px-4 py-1 inline-block">
-            <span className="font-[500] text-sm tracking-wide">DEINE VORTEILE BEI SELLWELL</span>
+          <div className="bg-[#18473A] text-[#fff] rounded-full px-4 py-1 inline-block">
+            <span className="font-[500] text-sm tracking-wide">MEINUNG DES TEAMS</span>
           </div>
         </div>
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">Das sagt <span className="special-text">unser Team</span></h2>
 
         <div className="relative w-screen -mx-[calc(50vw-50%)]">
-          <div className="bg-[#184639] py-12">
+          <div className="bg-[#205B49] py-12">
             <div 
               className="max-w-4xl mx-auto px-4 relative"
               ref={sliderRef}

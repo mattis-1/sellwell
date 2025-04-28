@@ -30,7 +30,7 @@
 .sellwell-btn-primary {
   position: relative;            /* for pseudo‐layers */
   overflow: hidden;              /* clip the SVG and gradient */
-  background-color: #18473A;     /* your base color */
+  background-color: #205B49;     /* your base color */
   color: #fff;
   font-weight: 700;
   padding: 0.75rem 2rem;
@@ -38,7 +38,7 @@
   transition: transform 150ms;
   font-size: 20px;
 
-  box-shadow: 0 0 10px rgba(86, 255, 151, 0.632);
+  box-shadow: 0 0 20px rgba(43, 137, 79, 0.432);
   transition: 
     box-shadow 300ms ease,
     transform 150ms ease;
@@ -190,7 +190,7 @@
   }
 
   .special-text {
-    background: linear-gradient(90deg, #184639 0%, #2F8166 100%);
+    background: linear-gradient(90deg, #1b5142 0%, #2F8166 100%);
     /* 2. Clip the gradient to the text */
     -webkit-background-clip: text;
     background-clip: text;
