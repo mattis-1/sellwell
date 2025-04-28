@@ -98,7 +98,7 @@ export default function SellwellHero() {
           {/* Gradient border and glow effect */}
           <div className="video-border-gradient rounded-[30px] overflow-hidden">
             {/* Video placeholder */}
-            <div className="aspect-video bg-black rounded-[25px] flex items-center justify-center relative overflow-hidden">
+            <div className="aspect-video bg-black rounded-[28px] flex items-center justify-center relative overflow-hidden">
               {/* Placeholder content */}
               <div className="text-white text-center z-10">
                 <div className="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center cursor-pointer mx-auto mb-4">
@@ -123,12 +123,12 @@ export default function SellwellHero() {
       <style jsx>{`
         .video-container {
           position: relative;
-          filter: drop-shadow(0 0 15px rgba(19, 149, 192, 0.4));
+          filter: drop-shadow(0 0 20px rgba(19, 149, 192, 0.8));
         }
         
         .video-border-gradient {
           position: relative;
-          padding: 4px;
+          padding: 2px;
           background: linear-gradient(90deg, #1395C0 0%, #62BED9 50%, #1395C0 100%);
           border-radius: 30px;
         }
@@ -138,7 +138,7 @@ export default function SellwellHero() {
           position: absolute;
           inset: 0;
           border-radius: 30px;
-          padding: 4px;
+          padding: 2px;
           background: linear-gradient(90deg, #1395C0 0%, #62BED9 50%, #1395C0 100%);
           -webkit-mask: 
             linear-gradient(#fff 0 0) content-box, 

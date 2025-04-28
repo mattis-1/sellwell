@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, ChevronLeft, User, Briefcase, Clock, GraduationCap, Users, Zap, Car, Mail, Phone, Star } from 'lucide-react';
+import { ChevronRight, ChevronLeft, User, Briefcase, Clock, GraduationCap, Users, Zap, Car, Mail, Phone, Star, Check } from 'lucide-react';
 
 // Define question types
 type QuestionType = 'text-dual' | 'binary' | 'select' | 'checkbox' | 'rating' | 'textarea' | 'contact';
@@ -115,6 +115,7 @@ const Formular = () => {
   const [direction, setDirection] = useState<'forward' | 'backward'>('forward');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [recentlyChanged, setRecentlyChanged] = useState<string | null>(null);
 
   // Custom classes for the specific width values
   const tailwindStyles = `
@@ -137,10 +138,27 @@ const Formular = () => {
       right: 0;
       top: 0;
     }
+    @keyframes pulse-border {
+      0% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.15); }
+      70% { box-shadow: 0 0 0 6px rgba(0, 0, 0, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }
+    }
+    .pulse-animation {
+      animation: pulse-border 0.8s ease-out;
+    }
+    .check-mark-animation {
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    input:focus, textarea:focus {
+      box-shadow: 0 0 0 3px rgba(209, 213, 219, 0.35); 
+    }
   `;
 
   // Proper type-safe implementation of handleChange
   const handleChange = (field: string, value: string | boolean | number | null) => {
+    setRecentlyChanged(field);
+    setTimeout(() => setRecentlyChanged(null), 800);
+    
     setFormData((prev) => {
       // For nested objects like jobPreferences
       if (field.includes('.')) {
@@ -433,6 +451,8 @@ const Formular = () => {
               ? String(inputValue) 
               : '';
             
+            const isRecentlyChanged = recentlyChanged === String(field);
+            
             return (
               <div key={`field-${String(field)}`} className="space-y-2">
                 <label className="block text-sm font-medium text-gray-700">
@@ -447,9 +467,9 @@ const Formular = () => {
                     name={String(field)}
                     value={stringValue}
                     onChange={(e) => handleChange(String(field), e.target.value)}
-                    className={`pl-9 sm:pl-10 block w-full rounded-lg shadow-sm ${
-                      errors[field] ? 'border border-red-500' : 'border border-gray-200'
-                    } py-3 sm:py-4 px-3 sm:px-4 text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-400`}
+                    className={`pl-9 sm:pl-10 block w-full rounded-lg transition-all duration-300 ${
+                      errors[field] ? 'border border-red-500' : isRecentlyChanged ? 'border border-gray-400 pulse-animation' : 'border border-gray-200'
+                    } py-3 sm:py-4 px-3 sm:px-4 text-gray-900 focus:outline-none`}
                     placeholder={q.labels[index]}
                   />
                 </div>
@@ -467,24 +487,38 @@ const Formular = () => {
   const renderBinary = (q: BinaryQuestion) => {
     return (
       <div className="space-y-3">
-        {q.options.map((option) => (
-          <div
-            key={`option-binary-${q.field}-${String(option.value)}`}
-            onClick={() => handleChange(String(q.field), option.value)}
-            className={`flex items-center p-4 sm:p-5 rounded-lg shadow-sm transition-all duration-300 cursor-pointer ${
-              formData[q.field] === option.value
-                ? 'bg-gray-100 border border-gray-300'
-                : 'bg-white border border-gray-200 hover:bg-gray-50'
-            }`}
-          >
-            <div className="mr-3 sm:mr-4">
-              {q.icon}
+        {q.options.map((option) => {
+          const isSelected = formData[q.field] === option.value;
+          const isRecentlyChanged = recentlyChanged === String(q.field) && isSelected;
+          
+          return (
+            <div
+              key={`option-binary-${q.field}-${String(option.value)}`}
+              onClick={() => handleChange(String(q.field), option.value)}
+              className={`flex items-center p-4 sm:p-5 rounded-lg transition-all duration-300 cursor-pointer relative group ${
+                isSelected ? 
+                  isRecentlyChanged ? 
+                    'bg-gray-200 border border-gray-400 pulse-animation' : 
+                    'bg-gray-200 border border-gray-400' 
+                : 'bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:scale-[1.01] transform'
+              }`}
+            >
+              <div className="mr-3 sm:mr-4">
+                {q.icon}
+              </div>
+              <div className="flex-grow">
+                <p className="font-medium">{option.label}</p>
+              </div>
+              {isSelected && (
+                <div className="absolute right-4 flex items-center justify-center check-mark-animation">
+                  <div className="w-6 h-6 rounded-full bg-gray-400 flex items-center justify-center">
+                    <Check className="h-4 w-4 text-white" />
+                  </div>
+                </div>
+              )}
             </div>
-            <div className="flex-grow">
-              <p className="font-medium">{option.label}</p>
-            </div>
-          </div>
-        ))}
+          );
+        })}
         {errors[q.field] && (
           <p className="text-red-500 text-sm mt-1">{errors[q.field]}</p>
         )}
@@ -495,24 +529,38 @@ const Formular = () => {
   const renderSelect = (q: SelectQuestion) => {
     return (
       <div className="space-y-3">
-        {q.options.map((option) => (
-          <div
-            key={`option-select-${q.field}-${option.value}`}
-            onClick={() => handleChange(String(q.field), option.value)}
-            className={`flex items-center p-4 sm:p-5 rounded-lg shadow-sm cursor-pointer transition-all duration-300 ${
-              formData[q.field] === option.value
-                ? 'bg-gray-100 border border-gray-300'
-                : 'bg-white border border-gray-200 hover:bg-gray-50'
-            }`}
-          >
-            <div className="mr-3 sm:mr-4">
-              {q.icon}
+        {q.options.map((option) => {
+          const isSelected = formData[q.field] === option.value;
+          const isRecentlyChanged = recentlyChanged === String(q.field) && isSelected;
+          
+          return (
+            <div
+              key={`option-select-${q.field}-${option.value}`}
+              onClick={() => handleChange(String(q.field), option.value)}
+              className={`flex items-center p-4 sm:p-5 rounded-lg cursor-pointer transition-all duration-300 relative group ${
+                isSelected ? 
+                  isRecentlyChanged ? 
+                    'bg-gray-200 border border-gray-400 pulse-animation' : 
+                    'bg-gray-200 border border-gray-400' 
+                : 'bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:scale-[1.01] transform'
+              }`}
+            >
+              <div className="mr-3 sm:mr-4">
+                {q.icon}
+              </div>
+              <div className="flex-grow">
+                <p className="font-medium">{option.label}</p>
+              </div>
+              {isSelected && (
+                <div className="absolute right-4 flex items-center justify-center check-mark-animation">
+                  <div className="w-6 h-6 rounded-full bg-gray-400 flex items-center justify-center">
+                    <Check className="h-4 w-4 text-white" />
+                  </div>
+                </div>
+              )}
             </div>
-            <div className="flex-grow">
-              <p className="font-medium">{option.label}</p>
-            </div>
-          </div>
-        ))}
+          );
+        })}
         {errors[q.field] && (
           <p className="text-red-500 text-sm mt-1">{errors[q.field]}</p>
         )}
@@ -523,31 +571,46 @@ const Formular = () => {
   const renderCheckbox = (q: CheckboxQuestion) => {
     return (
       <div className="space-y-3">
-        {q.options.map((option) => (
-          <div
-            key={`option-checkbox-${option.value}`}
-            onClick={() => {
-              const currentValue = formData.jobPreferences[option.value];
-              handleChange(`jobPreferences.${String(option.value)}`, !currentValue);
-            }}
-            className={`flex items-center p-4 sm:p-5 rounded-lg shadow-sm cursor-pointer transition-all duration-300 ${
-              formData.jobPreferences[option.value]
-                ? 'bg-gray-100 border border-gray-300'
-                : 'bg-white border border-gray-200 hover:bg-gray-50'
-            }`}
-          >
-            <div className="mr-3 sm:mr-4">
-              {option.value === 'compensation' && <Star className="h-5 w-5 sm:h-6 sm:w-6 text-gray-500" />}
-              {option.value === 'flexibleHours' && <Clock className="h-5 w-5 sm:h-6 sm:w-6 text-gray-500" />}
-              {option.value === 'training' && <GraduationCap className="h-5 w-5 sm:h-6 sm:w-6 text-gray-500" />}
-              {option.value === 'teamSpirit' && <Users className="h-5 w-5 sm:h-6 sm:w-6 text-gray-500" />}
-              {option.value === 'responsibility' && <Zap className="h-5 w-5 sm:h-6 sm:w-6 text-gray-500" />}
+        {q.options.map((option) => {
+          const isSelected = formData.jobPreferences[option.value];
+          const checkboxField = `jobPreferences.${String(option.value)}`;
+          const isRecentlyChanged = recentlyChanged === checkboxField;
+          
+          return (
+            <div
+              key={`option-checkbox-${option.value}`}
+              onClick={() => {
+                const currentValue = formData.jobPreferences[option.value];
+                handleChange(checkboxField, !currentValue);
+              }}
+              className={`flex items-center p-4 sm:p-5 rounded-lg cursor-pointer transition-all duration-300 relative group ${
+                isSelected ? 
+                  isRecentlyChanged ? 
+                    'bg-gray-200 border border-gray-400 pulse-animation' : 
+                    'bg-gray-200 border border-gray-400' 
+                : 'bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:scale-[1.01] transform'
+              }`}
+            >
+              <div className="mr-3 sm:mr-4">
+                {option.value === 'compensation' && <Star className="h-5 w-5 sm:h-6 sm:w-6 text-gray-500" />}
+                {option.value === 'flexibleHours' && <Clock className="h-5 w-5 sm:h-6 sm:w-6 text-gray-500" />}
+                {option.value === 'training' && <GraduationCap className="h-5 w-5 sm:h-6 sm:w-6 text-gray-500" />}
+                {option.value === 'teamSpirit' && <Users className="h-5 w-5 sm:h-6 sm:w-6 text-gray-500" />}
+                {option.value === 'responsibility' && <Zap className="h-5 w-5 sm:h-6 sm:w-6 text-gray-500" />}
+              </div>
+              <div className="flex-grow">
+                <p className="font-medium">{option.label}</p>
+              </div>
+              {isSelected && (
+                <div className="absolute right-4 flex items-center justify-center check-mark-animation">
+                  <div className="w-6 h-6 rounded-full bg-gray-400 flex items-center justify-center">
+                    <Check className="h-4 w-4 text-white" />
+                  </div>
+                </div>
+              )}
             </div>
-            <div className="flex-grow">
-              <p className="font-medium">{option.label}</p>
-            </div>
-          </div>
-        ))}
+          );
+        })}
         {errors['jobPreferences'] && (
           <p className="text-red-500 text-sm mt-1">{errors['jobPreferences']}</p>
         )}
@@ -563,19 +626,28 @@ const Formular = () => {
           <span>{q.maxLabel}</span>
         </div>
         <div className="flex justify-between gap-1 sm:gap-2">
-          {Array.from({ length: q.max - q.min + 1 }, (_, i) => i + q.min).map((rating) => (
-            <div
-              key={`rating-${q.field}-${rating}`}
-              onClick={() => handleChange(String(q.field), rating)}
-              className={`flex-1 py-4 sm:py-5 rounded-lg shadow-sm cursor-pointer text-center transition-all duration-300 ${
-                formData[q.field] === rating
-                  ? 'bg-gray-100 border border-gray-300 text-gray-800'
-                  : 'bg-white border border-gray-200 hover:bg-gray-50'
-              }`}
-            >
-              <span className="text-base sm:text-lg font-medium">{rating}</span>
-            </div>
-          ))}
+          {Array.from({ length: q.max - q.min + 1 }, (_, i) => i + q.min).map((rating) => {
+            const isSelected = formData[q.field] === rating;
+            const isRecentlyChanged = recentlyChanged === String(q.field) && isSelected;
+            
+            return (
+              <div
+                key={`rating-${q.field}-${rating}`}
+                onClick={() => handleChange(String(q.field), rating)}
+                className={`flex-1 py-4 sm:py-5 rounded-lg cursor-pointer text-center transition-all duration-300 
+                  ${isSelected ? 
+                    isRecentlyChanged ? 
+                      'bg-gray-200 border border-gray-400 pulse-animation scale-110 transform' : 
+                      'bg-gray-200 border border-gray-400 scale-110 transform' 
+                    : 'bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:scale-105 transform'
+                }`}
+              >
+                <span className={`text-base sm:text-lg font-medium ${isSelected ? 'text-gray-800' : 'text-gray-600'}`}>
+                  {rating}
+                </span>
+              </div>
+            );
+          })}
         </div>
         {errors[q.field] && (
           <p className="text-red-500 text-sm mt-1">{errors[q.field]}</p>
@@ -585,6 +657,8 @@ const Formular = () => {
   };
   
   const renderTextarea = (q: TextareaQuestion) => {
+    const isRecentlyChanged = recentlyChanged === String(q.field);
+    
     return (
       <div className="space-y-3">
         <div className="relative">
@@ -593,9 +667,9 @@ const Formular = () => {
             value={formData[q.field] !== null ? String(formData[q.field]) : ''}
             onChange={(e) => handleChange(String(q.field), e.target.value)}
             rows={4}
-            className={`block w-full rounded-lg shadow-sm ${
-              errors[q.field] ? 'border-red-500' : 'border border-gray-200'
-            } py-3 px-4 text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-400`}
+            className={`block w-full rounded-lg transition-all duration-300 ${
+              errors[q.field] ? 'border border-red-500' : isRecentlyChanged ? 'border border-gray-400 pulse-animation' : 'border border-gray-200'
+            } py-3 px-4 text-gray-900 focus:outline-none`}
             placeholder="Schreibe hier deine Antwort..."
           />
         </div>
@@ -616,6 +690,8 @@ const Formular = () => {
             ? String(inputValue) 
             : '';
           
+          const isRecentlyChanged = recentlyChanged === String(field);
+          
           return (
             <div key={`contact-${String(field)}`} className="space-y-2">
               <label className="block text-sm font-medium text-gray-700">
@@ -623,7 +699,6 @@ const Formular = () => {
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  {/* Use the icon directly without cloning to avoid className typing issues */}
                   {field === 'email' ? 
                     <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-gray-500" /> :
                     <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-gray-500" />
@@ -634,9 +709,9 @@ const Formular = () => {
                   name={String(field)}
                   value={stringValue}
                   onChange={(e) => handleChange(String(field), e.target.value)}
-                  className={`pl-9 sm:pl-10 block w-full rounded-lg shadow-sm ${
-                    errors[field] ? 'border border-red-500' : 'border border-gray-200'
-                  } py-2.5 sm:py-3 px-3 sm:px-4 text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-400`}
+                  className={`pl-9 sm:pl-10 block w-full rounded-lg transition-all duration-300 ${
+                    errors[field] ? 'border border-red-500' : isRecentlyChanged ? 'border border-gray-400 pulse-animation' : 'border border-gray-200'
+                  } py-2.5 sm:py-3 px-3 sm:px-4 text-gray-900 focus:outline-none`}
                   placeholder={q.labels[index]}
                 />
               </div>
@@ -730,7 +805,7 @@ const Formular = () => {
                 <button
                   type="button"
                   onClick={goToPreviousQuestion}
-                  className="w-3/10 flex justify-center items-center py-2.5 rounded-lg text-gray-700 transition-all duration-300 border border-gray-300 hover:bg-gray-50 mr-1.5"
+                  className="w-3/10 flex justify-center items-center py-2.5 rounded-lg text-gray-700 transition-all duration-300 border border-gray-300 hover:bg-gray-50 hover:border-gray-400 mr-1.5 focus:outline-none focus:ring-2 focus:ring-gray-300"
                 >
                   <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 mr-1" />
                   Zurück
@@ -741,7 +816,7 @@ const Formular = () => {
                 <button
                   type="button"
                   onClick={goToNextQuestion}
-                  className={`flex justify-center items-center py-2.5 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400 ${
+                  className={`flex justify-center items-center py-2.5 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400 transform hover:scale-[1.02] ${
                     currentQuestion === 0 ? 'w-full' : 'w-7/10'
                   }`}
                 >
@@ -753,7 +828,7 @@ const Formular = () => {
                   type="button"
                   onClick={handleSubmit}
                   disabled={isSubmitting}
-                  className={`flex justify-center items-center py-2.5 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400 ${
+                  className={`flex justify-center items-center py-2.5 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400 transform hover:scale-[1.02] ${
                     currentQuestion === 0 ? 'w-full' : 'w-7/10'
                   }`}
                 >
