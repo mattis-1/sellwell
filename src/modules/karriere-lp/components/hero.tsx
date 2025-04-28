@@ -131,7 +131,7 @@ export default function SellwellHero() {
         {/* Headline with enhanced typography */}
         <motion.h1 
           variants={itemVariants}
-          className="text-3xl md:text-4xl lg:text-5xl text-center font-bold max-w-4xl mx-auto px-4 mb-8 leading-tight"
+          className="font-montserrat text-3xl md:text-4xl lg:text-5xl text-center font-bold max-w-4xl mx-auto px-4 mb-8 leading-tight"
         >
           <span className="relative inline-block">
             <span className="relative z-10">Entfalte dein volles Potenzial</span>

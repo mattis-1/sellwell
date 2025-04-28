@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import { Inter } from 'next/font/google'
+import { Inter, Montserrat } from 'next/font/google'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,6 +18,14 @@ const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  
+});
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-montserrat',
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
 });
 
@@ -36,7 +44,7 @@ export default function RootLayout({
     <html 
       lang="de" 
       suppressHydrationWarning
-      className={cn(inter.variable, geistSans.variable, geistMono.variable)}
+      className={cn(inter.variable, geistSans.variable, geistMono.variable, montserrat.variable)}
     >
       <body
         className={cn(
