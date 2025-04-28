@@ -40,14 +40,14 @@ export default function SellwellRequirements() {
       ref={sectionRef}
       className={`sellwell-section bg-white transition-all duration-1000 ${isIntersecting ? "opacity-100" : "opacity-0"}`}
     >
-      <div className="sellwell-container pl-3">
+      <div className="sellwell-container pl-6">
         <h2 className="text-[32px] md:text-[37px] font-bold text-left mt-5 mb-3">
           <span className="special-text leading-[1.2]">Wir suchen dich</span><br />als Vertriebler im Außendienst (m/w/d)
         </h2>
-        <div className="text-[23px] md:text-[26px] font-bold text-left mt-2 mb-8">Bewirb dich wenn:</div>
+        <div className="text-[26px] md:text-[30px] font-bold text-left mt-4 mb-6.5">Bewirb dich wenn:</div>
 
         <div className="max-w-3xl mx-auto">
-          <ul className="space-y-6">
+          <ul className="space-y-5">
             {requirements.map((requirement, index) => (
               <li key={index} className="flex items-start">
                 <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#d2f4ff] flex items-center justify-center mr-4">
