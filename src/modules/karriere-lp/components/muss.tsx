@@ -48,7 +48,7 @@ export default function SellwellRequirements() {
           <ul className="space-y-6">
             {requirements.map((requirement, index) => (
               <li key={index} className="flex items-start">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-green-100 flex items-center justify-center mr-4">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#d2f4ff] flex items-center justify-center mr-4">
                   <Image
                   src="/check-lp2.svg"
                   alt="check"

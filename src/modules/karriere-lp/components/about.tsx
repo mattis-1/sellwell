@@ -51,7 +51,7 @@ export default function SellwellAboutUs() {
             />
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Was ist Sellwell Consulting?</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Was ist <span className="special-text">Sellwell Consulting</span>?</h2>
 
           <div className="space-y-4 text-lg">
             <p>
