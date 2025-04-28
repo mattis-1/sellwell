@@ -1,28 +1,29 @@
-"use client"
+"use client";
 
 import { useRef, useEffect, useState } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import Link from "next/link"
 
+// Update testimonials to reference YouTube video IDs instead of local MP4s
 const testimonials = [
   {
     name: "Marco Sandrisser",
     role: "TEAMLEITER",
     avatar: "/Marco-1x1.png",
-    video: "/testimonial1.mp4",
+    videoId: "Jua9evvcsdE",
   },
   {
     name: "Chris Marquardt",
     role: "VERTRIEBLER",
     avatar: "/Chris-1x1.png",
-    video: "/testimonial2.mp4",
+    videoId: "tUgM4kCF7rU",
   },
   {
     name: "Stefan Sonderholzer",
     role: "VERTRIEBLER & AUSBILDENDER",
     avatar: "/Stefan-1x1.png",
-    video: "/testimonial3.mp4",
+    videoId: "o01oAhTevzM",
   },
 ]
 
@@ -36,54 +37,30 @@ export default function SellwellTestimonials() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsIntersecting(entry.isIntersecting)
-      },
-      { threshold: 0.1 },
+      ([entry]) => setIsIntersecting(entry.isIntersecting),
+      { threshold: 0.1 }
     )
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current)
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
-      }
+      if (sectionRef.current) observer.unobserve(sectionRef.current)
     }
   }, [])
 
-  const nextSlide = () => {
-    setActiveSlide((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1))
-  }
+  const nextSlide = () => setActiveSlide(prev => prev === testimonials.length - 1 ? 0 : prev + 1)
+  const prevSlide = () => setActiveSlide(prev => prev === 0 ? testimonials.length - 1 : prev - 1)
 
-  const prevSlide = () => {
-    setActiveSlide((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1))
-  }
-
-  // Minimum distance required for swipe
   const minSwipeDistance = 50
-
   const onTouchStart = (e: React.TouchEvent) => {
     setTouchEnd(null)
     setTouchStart(e.targetTouches[0].clientX)
   }
-
-  const onTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientX)
-  }
-
+  const onTouchMove = (e: React.TouchEvent) => setTouchEnd(e.targetTouches[0].clientX)
   const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return
+    if (touchStart === null || touchEnd === null) return
     const distance = touchStart - touchEnd
-    const isLeftSwipe = distance > minSwipeDistance
-    const isRightSwipe = distance < -minSwipeDistance
-
-    if (isLeftSwipe) {
-      nextSlide()
-    } else if (isRightSwipe) {
-      prevSlide()
-    }
+    if (distance > minSwipeDistance) nextSlide()
+    else if (distance < -minSwipeDistance) prevSlide()
   }
 
   return (
@@ -109,41 +86,41 @@ export default function SellwellTestimonials() {
                   className="flex transition-transform duration-500 ease-in-out"
                   style={{ transform: `translateX(-${activeSlide * 100}%)` }}
                 >
-                  {testimonials.map((testimonial, index) => (
-                    <div key={index} className="w-full flex-shrink-0 px-4">
+                  {testimonials.map((t, idx) => (
+                    <div key={idx} className="w-full flex-shrink-0 px-4">
                       <div className="bg-black rounded-lg overflow-hidden aspect-video mb-6">
-                        {/* Video placeholder */}
-                        <div className="w-full h-full flex items-center justify-center text-white">
-                          <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                            <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center cursor-pointer">
-                              <div className="w-0 h-0 border-t-8 border-t-transparent border-l-16 border-l-white border-b-8 border-b-transparent ml-1"></div>
-                            </div>
-                          </div>
-                        </div>
+                        {/* YouTube embed */}
+                        <iframe
+                          src={`https://www.youtube.com/embed/${t.videoId}?modestbranding=1&rel=0`}
+                          title={`${t.name} Testimonial`}
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                          loading="lazy"
+                          className="w-full h-full"
+                        />
                       </div>
 
                       <div className="flex items-center">
                         <div className="w-16 h-16 rounded-full overflow-hidden mr-4 bg-gray-200">
                           <Image
-                            src={testimonial.avatar || "/placeholder.svg"}
-                            alt={testimonial.name}
+                            src={t.avatar || "/placeholder.svg"}
+                            alt={t.name}
                             width={64}
                             height={64}
                             className="object-cover w-full h-full"
                             onError={(e) => {
-                              // Fallback if image fails to load
                               const target = e.target as HTMLImageElement
                               target.onerror = null
                               target.src =
                                 "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23f9fafb'/%3E%3Ctext x='50%25' y='50%25' dominantBaseline='middle' textAnchor='middle' fontFamily='system-ui' fontSize='24' fill='%23166534'%3E" +
-                                testimonial.name.charAt(0) +
+                                t.name.charAt(0) +
                                 "%3C/text%3E%3C/svg%3E"
                             }}
                           />
                         </div>
                         <div className="text-white">
-                          <h3 className="font-bold text-lg">{testimonial.name}</h3>
-                          <p className="text-green-300">{testimonial.role}</p>
+                          <h3 className="font-bold text-lg">{t.name}</h3>
+                          <p className="text-green-300">{t.role}</p>
                         </div>
                       </div>
                     </div>

@@ -36,8 +36,6 @@ export default function SellwellCtaSection() {
         backgroundImage: "url('/ABOUT1.png')" 
       }}
     >
-      {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-green-800/80 to-green-600/80"></div>
       
       {/* Dark overlay for better text readability */}
       <div className="absolute inset-0 bg-black/40"></div>

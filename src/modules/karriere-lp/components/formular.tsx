@@ -170,10 +170,10 @@ const Formular = () => {
     setCurrentQuestion((prev) => Math.max(prev - 1, 0));
   };
 
-  // Validate the current question before proceeding
+  // Bug fix: Fix the validation of jobPreferences
   const validateCurrentQuestion = (): boolean => {
     const newErrors: Record<string, string> = {};
-    const q = questions[currentQuestion];
+    const q = filteredQuestions[currentQuestion];
     
     if (q.type === 'text-dual') {
       const textDualQ = q as TextDualQuestion;
@@ -192,13 +192,17 @@ const Formular = () => {
       newErrors['experienceLevel'] = 'Bitte wähle eine Option';
     }
     
-    if (q.type === 'checkbox' && 
+    if (q.type === 'checkbox') {
+      // Only require selection if this is the current displayed question
+      if (
         !formData.jobPreferences.compensation && 
         !formData.jobPreferences.flexibleHours && 
         !formData.jobPreferences.training && 
         !formData.jobPreferences.teamSpirit && 
-        !formData.jobPreferences.responsibility) {
-      newErrors['jobPreferences'] = 'Bitte wähle mindestens eine Option';
+        !formData.jobPreferences.responsibility
+      ) {
+        newErrors['jobPreferences'] = 'Bitte wähle mindestens eine Option';
+      }
     }
     
     if (q.type === 'rating' && formData.peopleContactRating === null) {
@@ -235,7 +239,7 @@ const Formular = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  // Submit handler
+  // Submit handler with API integration
   const handleSubmit = async () => {
     const isValid = validateCurrentQuestion();
     if (!isValid) return;
@@ -243,15 +247,39 @@ const Formular = () => {
     setIsSubmitting(true);
     
     try {
-      // This would be your API call
-      // const response = await fetch('/api/submit-application', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(formData),
-      // });
+      // Prepare the form data for submission
+      const submissionData = {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        hasSalesExperience: formData.hasSalesExperience,
+        experienceLevel: formData.experienceLevel,
+        jobPreferences: {
+          compensation: formData.jobPreferences.compensation,
+          flexibleHours: formData.jobPreferences.flexibleHours,
+          training: formData.jobPreferences.training,
+          teamSpirit: formData.jobPreferences.teamSpirit,
+          responsibility: formData.jobPreferences.responsibility
+        },
+        peopleContactRating: formData.peopleContactRating,
+        greatestStrength: formData.greatestStrength,
+        hasDriversLicense: formData.hasDriversLicense,
+        email: formData.email,
+        phone: formData.phone,
+        submittedAt: new Date().toISOString()
+      };
       
-      // For now, just simulate an API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Make the API call
+      const response = await fetch('/api/bewerber/kampagne1/route', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(submissionData),
+      });
+      
+      if (!response.ok) {
+        throw new Error('Server responded with an error');
+      }
+      
+      const result = await response.json();
       
       // Handle success
       alert('Bewerbung erfolgreich eingereicht!');
@@ -412,7 +440,7 @@ const Formular = () => {
                     onChange={(e) => handleChange(String(field), e.target.value)}
                     className={`pl-9 sm:pl-10 block w-full rounded-lg shadow-md ${
                       errors[field] ? 'border border-red-500' : 'border-none'
-                    } py-2.5 sm:py-3 px-3 sm:px-4 text-gray-900 focus:outline-none focus:ring-2 focus:ring-green-500`}
+                    } py-3 sm:py-4 px-3 sm:px-4 text-gray-900 focus:outline-none focus:ring-2 focus:ring-green-500`}
                     placeholder={q.labels[index]}
                   />
                 </div>
@@ -434,9 +462,9 @@ const Formular = () => {
           <div
             key={`option-binary-${q.field}-${String(option.value)}`}
             onClick={() => handleChange(String(q.field), option.value)}
-            className={`flex items-center p-3 sm:p-4 rounded-lg shadow-md transition-all ${
+            className={`flex items-center p-4 sm:p-5 rounded-lg shadow-md transition-all cursor-pointer ${
               formData[q.field] === option.value
-                ? 'bg-green-50/50 shadow-green-100/70'
+                ? 'bg-green-100 shadow-green-200'
                 : 'bg-white hover:bg-gray-50/70'
             }`}
           >
@@ -462,9 +490,9 @@ const Formular = () => {
           <div
             key={`option-select-${q.field}-${option.value}`}
             onClick={() => handleChange(String(q.field), option.value)}
-            className={`flex items-center p-3 sm:p-4 rounded-lg shadow-md cursor-pointer transition-all ${
+            className={`flex items-center p-4 sm:p-5 rounded-lg shadow-md cursor-pointer transition-all ${
               formData[q.field] === option.value
-                ? 'bg-green-50/50 shadow-green-100/70'
+                ? 'bg-green-100 shadow-green-200'
                 : 'bg-white hover:bg-gray-50/70'
             }`}
           >
@@ -493,9 +521,9 @@ const Formular = () => {
               const currentValue = formData.jobPreferences[option.value];
               handleChange(`jobPreferences.${String(option.value)}`, !currentValue);
             }}
-            className={`flex items-center p-3 sm:p-4 rounded-lg shadow-md cursor-pointer transition-all ${
+            className={`flex items-center p-4 sm:p-5 rounded-lg shadow-md cursor-pointer transition-all ${
               formData.jobPreferences[option.value]
-                ? 'bg-green-50/50 shadow-green-100/70'
+                ? 'bg-green-100 shadow-green-200'
                 : 'bg-white hover:bg-gray-50/70'
             }`}
           >
@@ -530,9 +558,9 @@ const Formular = () => {
             <div
               key={`rating-${q.field}-${rating}`}
               onClick={() => handleChange(String(q.field), rating)}
-              className={`flex-1 py-3 sm:py-4 rounded-lg shadow-md cursor-pointer text-center transition-all ${
+              className={`flex-1 py-4 sm:py-5 rounded-lg shadow-md cursor-pointer text-center transition-all ${
                 formData[q.field] === rating
-                  ? 'bg-green-50/50 shadow-green-100/70 text-green-700'
+                  ? 'bg-green-100 shadow-green-200 text-green-700'
                   : 'bg-white hover:bg-gray-50/70'
               }`}
             >
@@ -652,8 +680,8 @@ const Formular = () => {
         </div>
         
         <div className="px-3 py-4 sm:px-4 sm:py-6">
-          {/* Main content */}
-          <div className="min-h-[480px] flex flex-col">
+          {/* Main content with dynamic height */}
+          <div className="flex flex-col justify-between">
             <AnimatePresence mode="wait" initial={false} custom={direction}>
               <motion.div
                 key={currentQuestion}
@@ -666,7 +694,6 @@ const Formular = () => {
                   x: { type: "tween", duration: 0.25, ease: "easeInOut" },
                   opacity: { duration: 0.2 }
                 }}
-                className="flex-grow"
               >
                 {/* Question header */}
                 <div className="flex items-center mb-6">
@@ -683,8 +710,8 @@ const Formular = () => {
               </motion.div>
             </AnimatePresence>
             
-            {/* Navigation buttons */}
-            <div className="mt-8 flex w-full">
+            {/* Navigation buttons - always positioned correctly */}
+            <div className="mt-6 flex w-full">
               {currentQuestion > 0 ? (
                 <button
                   type="button"
