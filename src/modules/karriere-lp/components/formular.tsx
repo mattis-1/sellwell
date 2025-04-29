@@ -1,6 +1,6 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, ChevronLeft, User, Briefcase, Clock, GraduationCap, Users, Zap, Car, Mail, Phone, Check } from 'lucide-react';
+import { ChevronRight, ChevronLeft, User, Briefcase, Clock, GraduationCap, Users, Zap, Car, Mail, Phone, Star } from 'lucide-react';
 
 // Define question types
 type QuestionType = 'text-dual' | 'binary' | 'select' | 'checkbox' | 'rating' | 'textarea' | 'contact';
@@ -115,10 +115,15 @@ const Formular = () => {
   const [direction, setDirection] = useState<'forward' | 'backward'>('forward');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [recentlyChanged, setRecentlyChanged] = useState<string | null>(null);
 
-  // Custom classes with optimized styles
+  // Custom classes for the specific width values
   const tailwindStyles = `
+    .w-3\\/10 {
+      width: 30%;
+    }
+    .w-7\\/10 {
+      width: 70%;
+    }
     @keyframes smoothProgress {
       from { transform: translateX(-5px); opacity: 0.8; }
       to { transform: translateX(0); opacity: 1; }
@@ -132,158 +137,10 @@ const Formular = () => {
       right: 0;
       top: 0;
     }
-    @keyframes pulse-border {
-      0% { box-shadow: 0 0 0 0 rgba(123, 242, 165, 0.15); }
-      70% { box-shadow: 0 0 0 6px rgba(123, 242, 165, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(123, 242, 165, 0); }
-    }
-    .pulse-animation {
-      animation: pulse-border 0.8s ease-out;
-    }
-    .check-mark-animation {
-      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    input:focus, textarea:focus {
-      box-shadow: 0 0 0 3px rgba(123, 242, 165, 0.35); 
-    }
-    .bg-green-primary {
-      background-color: #7BF2A5;
-    }
-    .hover\\:bg-green-dark:hover {
-      background-color: #5AC27F;
-    }
-    .bg-green-light {
-      background-color: #EBFFE1;
-    }
-    .border-green-primary {
-      border-color: #7BF2A5;
-    }
-    .text-green-primary {
-      color: #7BF2A5;
-    }
-    .focus\\:ring-green-primary:focus {
-      --tw-ring-color: rgba(123, 242, 165, 0.35);
-    }
-    .bg-green-lightest {
-      background-color: #F5FFF0;
-    }
   `;
 
-  // Define all questions with proper typing
-  const questions: Question[] = [
-    {
-      id: 'salesExperience',
-      type: 'binary',
-      question: 'Hast du bereits Erfahrung im Direktvertrieb?',
-      field: 'hasSalesExperience',
-      options: [
-        { value: true, label: 'Ja' },
-        { value: false, label: 'Nein' },
-      ],
-      icon: <Briefcase className="h-6 w-6 text-green-primary" />,
-    },
-    {
-      id: 'experienceLevel',
-      type: 'select',
-      question: 'Wie viel Erfahrung?',
-      field: 'experienceLevel',
-      options: [
-        { value: 'under1', label: 'Unter 1 Jahr' },
-        { value: '1to3', label: '1-3 Jahre' },
-        { value: 'over3', label: '3+ Jahre' },
-      ],
-      icon: <Clock className="h-6 w-6 text-green-primary" />,
-      condition: () => formData.hasSalesExperience === true,
-    },
-    {
-      id: 'jobPreferences',
-      type: 'checkbox',
-      question: 'Was ist dir bei deinem neuen Job besonders wichtig?',
-      field: 'jobPreferences',
-      options: [
-        { value: 'compensation', label: 'Attraktive Vergütung' },
-        { value: 'flexibleHours', label: 'Flexible Arbeitszeiten' },
-        { value: 'training', label: 'Weiterbildungsmöglichkeiten' },
-        { value: 'teamSpirit', label: 'Teamspirit' },
-        { value: 'responsibility', label: 'Eigenverantwortung' },
-      ],
-      icon: <GraduationCap className="h-6 w-6 text-green-primary" />,
-    },
-    {
-      id: 'peopleContact',
-      type: 'rating',
-      question: 'Bist du gern unterwegs und im direkten Kontakt mit Menschen?',
-      field: 'peopleContactRating',
-      min: 1,
-      max: 5,
-      minLabel: 'Gar nicht',
-      maxLabel: 'Sehr gerne',
-      icon: <Users className="h-6 w-6 text-green-primary" />,
-    },
-    {
-      id: 'greatestStrength',
-      type: 'textarea',
-      question: 'Was würdest du als deine größte Stärke für den Vertrieb bezeichnen?',
-      field: 'greatestStrength',
-      icon: <Zap className="h-6 w-6 text-green-primary" />,
-    },
-    {
-      id: 'driversLicense',
-      type: 'binary',
-      question: 'Hast du einen Führerschein?',
-      field: 'hasDriversLicense',
-      options: [
-        { value: true, label: 'Ja' },
-        { value: false, label: 'Nein' },
-      ],
-      icon: <Car className="h-6 w-6 text-green-primary" />,
-    },
-    {
-      id: 'name',
-      type: 'text-dual',
-      question: 'Wie heißt Du?',
-      fields: ['firstName', 'lastName'],
-      labels: ['Vorname', 'Nachname'],
-      icon: <User className="h-6 w-6 text-green-primary" />,
-    },
-    {
-      id: 'contact',
-      type: 'contact',
-      question: 'Wie erreichen wir dich?',
-      fields: ['email', 'phone'],
-      labels: ['E-Mail-Adresse', 'Telefonnummer'],
-      icons: [
-        <Mail className="h-6 w-6 text-green-primary" key="mail-icon" />,
-        <Phone className="h-6 w-6 text-green-primary" key="phone-icon" />
-      ],
-      icon: <Mail className="h-6 w-6 text-green-primary" />,
-    },
-  ];
-
-  // Filter questions based on conditions - memoized to prevent re-computation
-  // FIXED: Moved this declaration before any usage
-  const filteredQuestions = useMemo(() => 
-    questions.filter(q => !q.condition || q.condition()), 
-    [formData.hasSalesExperience] // Only recalculate when condition dependencies change
-  );
-
-  // Get the current question - memoized
-  const currentQuestionData = useMemo(() => 
-    filteredQuestions[currentQuestion], 
-    [filteredQuestions, currentQuestion]
-  );
-  
-  // Calculate progress - memoized
-  const progress = useMemo(() => 
-    ((currentQuestion + 1) / filteredQuestions.length) * 100,
-    [currentQuestion, filteredQuestions.length]
-  );
-
-  // Optimized handleChange with useCallback to prevent unnecessary re-renders
-  const handleChange = useCallback((field: string, value: string | boolean | number | null) => {
-    setRecentlyChanged(field);
-    setTimeout(() => setRecentlyChanged(null), 800);
-    
+  // Proper type-safe implementation of handleChange
+  const handleChange = (field: string, value: string | boolean | number | null) => {
     setFormData((prev) => {
       // For nested objects like jobPreferences
       if (field.includes('.')) {
@@ -310,10 +167,24 @@ const Formular = () => {
         [field]: value,
       } as FormData;
     });
-  }, []);
+  };
 
-  // Optimized validation function
-  const validateCurrentQuestion = useCallback((): boolean => {
+  // Navigation handlers
+  const goToNextQuestion = () => {
+    const isValid = validateCurrentQuestion();
+    if (!isValid) return;
+    
+    setDirection('forward');
+    setCurrentQuestion((prev) => Math.min(prev + 1, questions.length - 1));
+  };
+
+  const goToPreviousQuestion = () => {
+    setDirection('backward');
+    setCurrentQuestion((prev) => Math.max(prev - 1, 0));
+  };
+
+  // Bug fix: Fix the validation of jobPreferences
+  const validateCurrentQuestion = (): boolean => {
     const newErrors: Record<string, string> = {};
     const q = filteredQuestions[currentQuestion];
     
@@ -379,94 +250,162 @@ const Formular = () => {
     
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
-  }, [currentQuestion, formData, filteredQuestions]);
+  };
 
-  // Navigation handlers with useCallback
-  const goToNextQuestion = useCallback(() => {
-    const isValid = validateCurrentQuestion();
-    if (!isValid) return;
-    
-    setDirection('forward');
-    setCurrentQuestion((prev) => Math.min(prev + 1, filteredQuestions.length - 1));
-    
-    // Performance optimization: reset scroll position
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [filteredQuestions, validateCurrentQuestion]);
-
-  const goToPreviousQuestion = useCallback(() => {
-    setDirection('backward');
-    setCurrentQuestion((prev) => Math.max(prev - 1, 0));
-    
-    // Reset scroll position for better UX
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
-
-  // Optimized submit handler
-  const handleSubmit = useCallback(async () => {
+  // Submit handler with faster redirection
+  const handleSubmit = async () => {
     const isValid = validateCurrentQuestion();
     if (!isValid) return;
     
     setIsSubmitting(true);
     
-    // Prepare the form data for submission
-    const submissionData = {
-      firstName: formData.firstName,
-      lastName: formData.lastName,
-      hasSalesExperience: formData.hasSalesExperience,
-      experienceLevel: formData.experienceLevel,
-      jobPreferences: {
-        compensation: formData.jobPreferences.compensation,
-        flexibleHours: formData.jobPreferences.flexibleHours,
-        training: formData.jobPreferences.training,
-        teamSpirit: formData.jobPreferences.teamSpirit,
-        responsibility: formData.jobPreferences.responsibility
-      },
-      peopleContactRating: formData.peopleContactRating,
-      greatestStrength: formData.greatestStrength,
-      hasDriversLicense: formData.hasDriversLicense,
-      email: formData.email,
-      phone: formData.phone,
-      submittedAt: new Date().toISOString()
-    };
-    
-    // Optimistic UI approach - redirect quickly for better UX
-    const redirectTimer = setTimeout(() => {
-      window.location.href = '/danke?lead=true';
-    }, 300);
-    
     try {
-      // Use beacon API for more reliable submission during page navigation
-      if (navigator.sendBeacon) {
-        const blob = new Blob([JSON.stringify(submissionData)], { type: 'application/json' });
-        navigator.sendBeacon('/api/bewerber/kampagne1', blob);
-      } else {
-        // Fallback to fetch with keepalive
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 8000);
-        
-        await fetch('/api/bewerber/kampagne1', {
-          method: 'POST',
-          headers: { 
-            'Content-Type': 'application/json',
-            'Cache-Control': 'no-cache',
-          },
-          body: JSON.stringify(submissionData),
-          signal: controller.signal,
-          keepalive: true
-        });
-        
-        clearTimeout(timeoutId);
+      // Prepare the form data for submission
+      const submissionData = {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        hasSalesExperience: formData.hasSalesExperience,
+        experienceLevel: formData.experienceLevel,
+        jobPreferences: {
+          compensation: formData.jobPreferences.compensation,
+          flexibleHours: formData.jobPreferences.flexibleHours,
+          training: formData.jobPreferences.training,
+          teamSpirit: formData.jobPreferences.teamSpirit,
+          responsibility: formData.jobPreferences.responsibility
+        },
+        peopleContactRating: formData.peopleContactRating,
+        greatestStrength: formData.greatestStrength,
+        hasDriversLicense: formData.hasDriversLicense,
+        email: formData.email,
+        phone: formData.phone,
+        submittedAt: new Date().toISOString()
+      };
+      
+      // Make the API call
+      const response = await fetch('/api/bewerber/kampagne1', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(submissionData),
+      });
+      
+      if (!response.ok) {
+        throw new Error(`Server responded with an error: ${response.status}`);
       }
+      
+      // Immediately redirect without showing any alerts
+      window.location.href = '/danke?lead=true';
+      
     } catch (error) {
-      // Only show error alerts if we haven't redirected yet
-      clearTimeout(redirectTimer);
+      // Only show error alerts
       console.error('Error submitting form:', error);
       alert('Es gab einen Fehler bei der Übermittlung. Bitte versuche es erneut.');
       setIsSubmitting(false);
     }
-  }, [formData, validateCurrentQuestion]);
+  };
 
-  // Optimized animation variants
+  // Define all questions with proper typing
+  const questions: Question[] = [
+    {
+      id: 'salesExperience',
+      type: 'binary',
+      question: 'Hast du bereits Erfahrung im Direktvertrieb?',
+      field: 'hasSalesExperience',
+      options: [
+        { value: true, label: 'Ja' },
+        { value: false, label: 'Nein' },
+      ],
+      icon: <Briefcase className="h-6 w-6 text-gray-500" />,
+    },
+    {
+      id: 'experienceLevel',
+      type: 'select',
+      question: 'Wie viel Erfahrung?',
+      field: 'experienceLevel',
+      options: [
+        { value: 'under1', label: 'Unter 1 Jahr' },
+        { value: '1to3', label: '1-3 Jahre' },
+        { value: 'over3', label: '3+ Jahre' },
+      ],
+      icon: <Clock className="h-6 w-6 text-gray-500" />,
+      condition: () => formData.hasSalesExperience === true,
+    },
+    {
+      id: 'jobPreferences',
+      type: 'checkbox',
+      question: 'Was ist dir bei deinem neuen Job besonders wichtig?',
+      field: 'jobPreferences',
+      options: [
+        { value: 'compensation', label: 'Attraktive Vergütung' },
+        { value: 'flexibleHours', label: 'Flexible Arbeitszeiten' },
+        { value: 'training', label: 'Weiterbildungsmöglichkeiten' },
+        { value: 'teamSpirit', label: 'Teamspirit' },
+        { value: 'responsibility', label: 'Eigenverantwortung' },
+      ],
+      icon: <GraduationCap className="h-6 w-6 text-gray-500" />,
+    },
+    {
+      id: 'peopleContact',
+      type: 'rating',
+      question: 'Bist du gern unterwegs und im direkten Kontakt mit Menschen?',
+      field: 'peopleContactRating',
+      min: 1,
+      max: 5,
+      minLabel: 'Gar nicht',
+      maxLabel: 'Sehr gerne',
+      icon: <Users className="h-6 w-6 text-gray-500" />,
+    },
+    {
+      id: 'greatestStrength',
+      type: 'textarea',
+      question: 'Was würdest du als deine größte Stärke für den Vertrieb bezeichnen?',
+      field: 'greatestStrength',
+      icon: <Zap className="h-6 w-6 text-gray-500" />,
+    },
+    {
+      id: 'driversLicense',
+      type: 'binary',
+      question: 'Hast du einen Führerschein?',
+      field: 'hasDriversLicense',
+      options: [
+        { value: true, label: 'Ja' },
+        { value: false, label: 'Nein' },
+      ],
+      icon: <Car className="h-6 w-6 text-gray-500" />,
+    },
+    {
+      id: 'name',
+      type: 'text-dual',
+      question: 'Wie heißt Du?',
+      fields: ['firstName', 'lastName'],
+      labels: ['Vorname', 'Nachname'],
+      icon: <User className="h-6 w-6 text-gray-500" />,
+    },
+    {
+      id: 'contact',
+      type: 'contact',
+      question: 'Wie erreichen wir dich?',
+      fields: ['email', 'phone'],
+      labels: ['E-Mail-Adresse', 'Telefonnummer'],
+      icons: [
+        <Mail className="h-6 w-6 text-gray-500" key="mail-icon" />,
+        <Phone className="h-6 w-6 text-gray-500" key="phone-icon" />
+      ],
+      icon: <Mail className="h-6 w-6 text-gray-500" />, // Required icon property
+    },
+  ];
+
+  // Filter questions based on conditions
+  const filteredQuestions = questions.filter(q => 
+    !q.condition || q.condition()
+  );
+
+  // Get the current question
+  const currentQuestionData = filteredQuestions[currentQuestion];
+  
+  // Calculate progress
+  const progress = ((currentQuestion + 1) / filteredQuestions.length) * 100;
+
+  // Improved slide animation variants for smoother transitions
   const variants = {
     enter: (direction: string) => ({
       x: direction === 'forward' ? 20 : -20,
@@ -482,18 +421,17 @@ const Formular = () => {
     }),
   };
 
-  // Render functions for each question type - optimized with useCallback
-  const renderTextDual = useCallback((q: TextDualQuestion) => {
+  // Render functions for each question type
+  const renderTextDual = (q: TextDualQuestion) => {
     return (
-      <div className="space-y-4">
+      <div className="space-y-13">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           {q.fields.map((field, index) => {
+            // Safe conversion to string for input value
             const inputValue = formData[field];
             const stringValue = inputValue !== null && inputValue !== undefined 
               ? String(inputValue) 
               : '';
-            
-            const isRecentlyChanged = recentlyChanged === String(field);
             
             return (
               <div key={`field-${String(field)}`} className="space-y-2">
@@ -502,16 +440,16 @@ const Formular = () => {
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <User className="h-4 w-4 sm:h-5 sm:w-5 text-green-primary" />
+                    <User className="h-4 w-4 sm:h-5 sm:w-5 text-gray-400" />
                   </div>
                   <input
                     type="text"
                     name={String(field)}
                     value={stringValue}
                     onChange={(e) => handleChange(String(field), e.target.value)}
-                    className={`pl-9 sm:pl-10 block w-full rounded-2xl transition-all duration-300 ${
-                      errors[field] ? 'border border-red-500' : isRecentlyChanged ? 'border border-green-primary pulse-animation' : 'border border-gray-200'
-                    } py-3 sm:py-4 px-3 sm:px-4 text-gray-900 focus:outline-none`}
+                    className={`pl-9 sm:pl-10 block w-full rounded-lg shadow-sm ${
+                      errors[field] ? 'border border-red-500' : 'border border-gray-200'
+                    } py-3 sm:py-4 px-3 sm:px-4 text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-400`}
                     placeholder={q.labels[index]}
                   />
                 </div>
@@ -524,130 +462,100 @@ const Formular = () => {
         </div>
       </div>
     );
-  }, [formData, errors, recentlyChanged, handleChange]);
+  };
   
-  const renderBinary = useCallback((q: BinaryQuestion) => {
+  const renderBinary = (q: BinaryQuestion) => {
     return (
       <div className="space-y-3">
-        {q.options.map((option) => {
-          const isSelected = formData[q.field] === option.value;
-          const isRecentlyChanged = recentlyChanged === String(q.field) && isSelected;
-          
-          return (
-            <div
-              key={`option-binary-${q.field}-${String(option.value)}`}
-              onClick={() => handleChange(String(q.field), option.value)}
-              className={`flex items-center p-4 sm:p-5 rounded-2xl transition-all duration-300 cursor-pointer relative group ${
-                isSelected ? 
-                  isRecentlyChanged ? 
-                    'bg-green-light border border-green-primary pulse-animation' : 
-                    'bg-green-light border border-green-primary' 
-                : 'bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:scale-[1.01] transform'
-              }`}
-            >
-              <div className="flex-grow">
-                <p className="font-medium">{option.label}</p>
-              </div>
-              {isSelected && (
-                <div className="absolute right-4 flex items-center justify-center check-mark-animation">
-                  <div className="w-6 h-6 rounded-full bg-green-primary flex items-center justify-center">
-                    <Check className="h-4 w-4 text-white" />
-                  </div>
-                </div>
-              )}
+        {q.options.map((option) => (
+          <div
+            key={`option-binary-${q.field}-${String(option.value)}`}
+            onClick={() => handleChange(String(q.field), option.value)}
+            className={`flex items-center p-4 sm:p-5 rounded-lg shadow-sm transition-all duration-300 cursor-pointer ${
+              formData[q.field] === option.value
+                ? 'bg-gray-100 border border-gray-300'
+                : 'bg-white border border-gray-200 hover:bg-gray-50'
+            }`}
+          >
+            <div className="mr-3 sm:mr-4">
+              {q.icon}
             </div>
-          );
-        })}
+            <div className="flex-grow">
+              <p className="font-medium">{option.label}</p>
+            </div>
+          </div>
+        ))}
         {errors[q.field] && (
           <p className="text-red-500 text-sm mt-1">{errors[q.field]}</p>
         )}
       </div>
     );
-  }, [formData, errors, recentlyChanged, handleChange]);
+  };
   
-  const renderSelect = useCallback((q: SelectQuestion) => {
+  const renderSelect = (q: SelectQuestion) => {
     return (
       <div className="space-y-3">
-        {q.options.map((option) => {
-          const isSelected = formData[q.field] === option.value;
-          const isRecentlyChanged = recentlyChanged === String(q.field) && isSelected;
-          
-          return (
-            <div
-              key={`option-select-${q.field}-${option.value}`}
-              onClick={() => handleChange(String(q.field), option.value)}
-              className={`flex items-center p-4 sm:p-5 rounded-2xl cursor-pointer transition-all duration-300 relative group ${
-                isSelected ? 
-                  isRecentlyChanged ? 
-                    'bg-green-light border border-green-primary pulse-animation' : 
-                    'bg-green-light border border-green-primary' 
-                : 'bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:scale-[1.01] transform'
-              }`}
-            >
-              <div className="flex-grow">
-                <p className="font-medium">{option.label}</p>
-              </div>
-              {isSelected && (
-                <div className="absolute right-4 flex items-center justify-center check-mark-animation">
-                  <div className="w-6 h-6 rounded-full bg-green-primary flex items-center justify-center">
-                    <Check className="h-4 w-4 text-white" />
-                  </div>
-                </div>
-              )}
+        {q.options.map((option) => (
+          <div
+            key={`option-select-${q.field}-${option.value}`}
+            onClick={() => handleChange(String(q.field), option.value)}
+            className={`flex items-center p-4 sm:p-5 rounded-lg shadow-sm cursor-pointer transition-all duration-300 ${
+              formData[q.field] === option.value
+                ? 'bg-gray-100 border border-gray-300'
+                : 'bg-white border border-gray-200 hover:bg-gray-50'
+            }`}
+          >
+            <div className="mr-3 sm:mr-4">
+              {q.icon}
             </div>
-          );
-        })}
+            <div className="flex-grow">
+              <p className="font-medium">{option.label}</p>
+            </div>
+          </div>
+        ))}
         {errors[q.field] && (
           <p className="text-red-500 text-sm mt-1">{errors[q.field]}</p>
         )}
       </div>
     );
-  }, [formData, errors, recentlyChanged, handleChange]);
+  };
   
-  const renderCheckbox = useCallback((q: CheckboxQuestion) => {
+  const renderCheckbox = (q: CheckboxQuestion) => {
     return (
       <div className="space-y-3">
-        {q.options.map((option) => {
-          const isSelected = formData.jobPreferences[option.value];
-          const checkboxField = `jobPreferences.${String(option.value)}`;
-          const isRecentlyChanged = recentlyChanged === checkboxField;
-          
-          return (
-            <div
-              key={`option-checkbox-${option.value}`}
-              onClick={() => {
-                const currentValue = formData.jobPreferences[option.value];
-                handleChange(checkboxField, !currentValue);
-              }}
-              className={`flex items-center p-4 sm:p-5 rounded-2xl cursor-pointer transition-all duration-300 relative group ${
-                isSelected ? 
-                  isRecentlyChanged ? 
-                    'bg-green-light border border-green-primary pulse-animation' : 
-                    'bg-green-light border border-green-primary' 
-                : 'bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:scale-[1.01] transform'
-              }`}
-            >
-              <div className="flex-grow">
-                <p className="font-medium">{option.label}</p>
-              </div>
-              {isSelected && (
-                <div className="absolute right-4 flex items-center justify-center check-mark-animation">
-                  <div className="w-6 h-6 rounded-full bg-green-primary flex items-center justify-center">
-                    <Check className="h-4 w-4 text-white" />
-                  </div>
-                </div>
-              )}
+        {q.options.map((option) => (
+          <div
+            key={`option-checkbox-${option.value}`}
+            onClick={() => {
+              const currentValue = formData.jobPreferences[option.value];
+              handleChange(`jobPreferences.${String(option.value)}`, !currentValue);
+            }}
+            className={`flex items-center p-4 sm:p-5 rounded-lg shadow-sm cursor-pointer transition-all duration-300 ${
+              formData.jobPreferences[option.value]
+                ? 'bg-gray-100 border border-gray-300'
+                : 'bg-white border border-gray-200 hover:bg-gray-50'
+            }`}
+          >
+            <div className="mr-3 sm:mr-4">
+              {option.value === 'compensation' && <Star className="h-5 w-5 sm:h-6 sm:w-6 text-gray-500" />}
+              {option.value === 'flexibleHours' && <Clock className="h-5 w-5 sm:h-6 sm:w-6 text-gray-500" />}
+              {option.value === 'training' && <GraduationCap className="h-5 w-5 sm:h-6 sm:w-6 text-gray-500" />}
+              {option.value === 'teamSpirit' && <Users className="h-5 w-5 sm:h-6 sm:w-6 text-gray-500" />}
+              {option.value === 'responsibility' && <Zap className="h-5 w-5 sm:h-6 sm:w-6 text-gray-500" />}
             </div>
-          );
-        })}
+            <div className="flex-grow">
+              <p className="font-medium">{option.label}</p>
+            </div>
+          </div>
+        ))}
         {errors['jobPreferences'] && (
           <p className="text-red-500 text-sm mt-1">{errors['jobPreferences']}</p>
         )}
       </div>
     );
-  }, [formData, errors, recentlyChanged, handleChange]);
+  };
   
-  const renderRating = useCallback((q: RatingQuestion) => {
+  const renderRating = (q: RatingQuestion) => {
     return (
       <div className="space-y-4 sm:space-y-6">
         <div className="flex justify-between text-sm text-gray-500">
@@ -655,39 +563,28 @@ const Formular = () => {
           <span>{q.maxLabel}</span>
         </div>
         <div className="flex justify-between gap-1 sm:gap-2">
-          {Array.from({ length: q.max - q.min + 1 }, (_, i) => i + q.min).map((rating) => {
-            const isSelected = formData[q.field] === rating;
-            const isRecentlyChanged = recentlyChanged === String(q.field) && isSelected;
-            
-            return (
-              <div
-                key={`rating-${q.field}-${rating}`}
-                onClick={() => handleChange(String(q.field), rating)}
-                className={`flex-1 py-4 sm:py-5 rounded-2xl cursor-pointer text-center transition-all duration-300 
-                  ${isSelected ? 
-                    isRecentlyChanged ? 
-                      'bg-green-light border border-green-primary pulse-animation scale-105 transform' : 
-                      'bg-green-light border border-green-primary scale-105 transform' 
-                    : 'bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:scale-[1.02] transform'
-                }`}
-              >
-                <span className={`text-base sm:text-lg font-medium ${isSelected ? 'text-gray-800' : 'text-gray-600'}`}>
-                  {rating}
-                </span>
-              </div>
-            );
-          })}
+          {Array.from({ length: q.max - q.min + 1 }, (_, i) => i + q.min).map((rating) => (
+            <div
+              key={`rating-${q.field}-${rating}`}
+              onClick={() => handleChange(String(q.field), rating)}
+              className={`flex-1 py-4 sm:py-5 rounded-lg shadow-sm cursor-pointer text-center transition-all duration-300 ${
+                formData[q.field] === rating
+                  ? 'bg-gray-100 border border-gray-300 text-gray-800'
+                  : 'bg-white border border-gray-200 hover:bg-gray-50'
+              }`}
+            >
+              <span className="text-base sm:text-lg font-medium">{rating}</span>
+            </div>
+          ))}
         </div>
         {errors[q.field] && (
           <p className="text-red-500 text-sm mt-1">{errors[q.field]}</p>
         )}
       </div>
     );
-  }, [formData, errors, recentlyChanged, handleChange]);
+  };
   
-  const renderTextarea = useCallback((q: TextareaQuestion) => {
-    const isRecentlyChanged = recentlyChanged === String(q.field);
-    
+  const renderTextarea = (q: TextareaQuestion) => {
     return (
       <div className="space-y-3">
         <div className="relative">
@@ -696,9 +593,9 @@ const Formular = () => {
             value={formData[q.field] !== null ? String(formData[q.field]) : ''}
             onChange={(e) => handleChange(String(q.field), e.target.value)}
             rows={4}
-            className={`block w-full rounded-2xl transition-all duration-300 ${
-              errors[q.field] ? 'border border-red-500' : isRecentlyChanged ? 'border border-green-primary pulse-animation' : 'border border-gray-200'
-            } py-3 px-4 text-gray-900 focus:outline-none`}
+            className={`block w-full rounded-lg shadow-sm ${
+              errors[q.field] ? 'border-red-500' : 'border border-gray-200'
+            } py-3 px-4 text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-400`}
             placeholder="Schreibe hier deine Antwort..."
           />
         </div>
@@ -707,18 +604,17 @@ const Formular = () => {
         )}
       </div>
     );
-  }, [formData, errors, recentlyChanged, handleChange]);
+  };
   
-  const renderContact = useCallback((q: ContactQuestion) => {
+  const renderContact = (q: ContactQuestion) => {
     return (
       <div className="space-y-3 sm:space-y-4">
         {q.fields.map((field, index) => {
+          // Safe conversion of form values to string for input fields
           const inputValue = formData[field];
           const stringValue = inputValue !== null && inputValue !== undefined 
             ? String(inputValue) 
             : '';
-          
-          const isRecentlyChanged = recentlyChanged === String(field);
           
           return (
             <div key={`contact-${String(field)}`} className="space-y-2">
@@ -727,9 +623,10 @@ const Formular = () => {
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                  {/* Use the icon directly without cloning to avoid className typing issues */}
                   {field === 'email' ? 
-                    <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-green-primary" /> :
-                    <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-green-primary" />
+                    <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-gray-500" /> :
+                    <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-gray-500" />
                   }
                 </div>
                 <input
@@ -737,9 +634,9 @@ const Formular = () => {
                   name={String(field)}
                   value={stringValue}
                   onChange={(e) => handleChange(String(field), e.target.value)}
-                  className={`pl-9 sm:pl-10 block w-full rounded-2xl transition-all duration-300 ${
-                    errors[field] ? 'border border-red-500' : isRecentlyChanged ? 'border border-green-primary pulse-animation' : 'border border-gray-200'
-                  } py-2.5 sm:py-3 px-3 sm:px-4 text-gray-900 focus:outline-none`}
+                  className={`pl-9 sm:pl-10 block w-full rounded-lg shadow-sm ${
+                    errors[field] ? 'border border-red-500' : 'border border-gray-200'
+                  } py-2.5 sm:py-3 px-3 sm:px-4 text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-400`}
                   placeholder={q.labels[index]}
                 />
               </div>
@@ -751,10 +648,10 @@ const Formular = () => {
         })}
       </div>
     );
-  }, [formData, errors, recentlyChanged, handleChange]);
+  };
 
   // Main render function for current question
-  const renderQuestion = useCallback(() => {
+  const renderQuestion = () => {
     const q = currentQuestionData;
     
     switch (q.type) {
@@ -775,38 +672,26 @@ const Formular = () => {
       default:
         return null;
     }
-  }, [
-    currentQuestionData,
-    renderTextDual,
-    renderBinary,
-    renderSelect,
-    renderCheckbox,
-    renderRating,
-    renderTextarea,
-    renderContact
-  ]);
+  };
 
   return (
-    // Container with fixed max-width that properly centers the form
-    <div className="w-full mx-auto max-w-screen-xl flex justify-center items-start py-4 px-4 bg-white overflow-x-hidden">
-      {/* Custom styles scoped to this component */}
+    <div className="w-full flex flex-col items-center bg-white">
+      {/* Add custom styles */}
       <style>{tailwindStyles}</style>
       
-      {/* Main form container with controlled width */}
-      <div className="w-full max-w-lg">
-        {/* Progress bar */}
+      {/* Wrap the form in a div with auto height instead of min-h-screen */}
+      <div className="w-full max-w-xl px-3 sm:px-4 my-4">
+        {/* Improved Progress bar */}
         <div className="h-2 bg-gray-100 rounded-full overflow-hidden mb-4">
           <div 
-            className="h-full bg-green-primary transition-all duration-500 ease-out animate-progress"
+            className="h-full bg-gray-400 transition-all duration-500 ease-out animate-progress"
             style={{ width: `${progress}%` }}
           />
         </div>
         
-        {/* Form card with proper padding and shadow for better visibility */}
-        <div className="bg-white rounded-3xl border border-gray-100 shadow-sm px-4 py-5 sm:px-6 sm:py-6">
-          {/* Content container with minimum height to prevent layout shifts */}
-          <div className="flex flex-col justify-between min-h-[320px]">
-            {/* Question container with fixed minimum height */}
+        <div className="bg-white rounded-xl border border-gray-100 px-3 py-4 sm:px-6 sm:py-8">
+          {/* Main content with dynamic height and smooth transitions */}
+          <div className="flex flex-col justify-between min-h-[300px]">
             <div className="relative" style={{ minHeight: '240px' }}>
               <AnimatePresence mode="wait" initial={false} custom={direction}>
                 <motion.div
@@ -820,14 +705,14 @@ const Formular = () => {
                     x: { type: "spring", stiffness: 300, damping: 30 },
                     opacity: { duration: 0.2 }
                   }}
-                  className="w-full"
-                  style={{ 
-                    position: 'relative',
-                    width: '100%' 
-                  }}
+                  className="w-full absolute-on-exit"
+                  style={{ position: direction === 'forward' ? 'relative' : 'absolute', width: '100%' }}
                 >
                   {/* Question header */}
-                  <div className="mb-6">
+                  <div className="flex items-center mb-6">
+                    <div className="mr-4 p-2 bg-gray-100 rounded-lg">
+                      {currentQuestionData.icon}
+                    </div>
                     <h2 className="text-lg sm:text-xl font-semibold text-gray-800">
                       {currentQuestionData.question}
                     </h2>
@@ -839,30 +724,41 @@ const Formular = () => {
               </AnimatePresence>
             </div>
             
-            {/* Navigation buttons - vertical stack layout */}
-            <div className="mt-6 flex flex-col space-y-3">
-              {/* Main action button - full width */}
-              <button
-                type="button"
-                onClick={currentQuestion < filteredQuestions.length - 1 ? goToNextQuestion : handleSubmit}
-                disabled={isSubmitting}
-                className="w-full flex justify-center items-center py-3 bg-green-primary text-black rounded-3xl hover:bg-green-dark transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-primary transform hover:scale-[1.01]"
-              >
-                {currentQuestion < filteredQuestions.length - 1 
-                  ? <>Weiter<ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 ml-1" /></>
-                  : isSubmitting ? 'Wird gesendet...' : <>Absenden<ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 ml-1" /></>
-                }
-              </button>
-              
-              {/* Only show back button if not on the first question */}
-              {currentQuestion > 0 && (
+            {/* Navigation buttons - always positioned correctly */}
+            <div className="mt-8 flex w-full">
+              {currentQuestion > 0 ? (
                 <button
                   type="button"
                   onClick={goToPreviousQuestion}
-                  className="self-center flex justify-center items-center py-2 px-4 rounded-lg text-gray-700 transition-all duration-300 border border-gray-300 hover:bg-gray-50 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-green-primary"
+                  className="w-3/10 flex justify-center items-center py-2.5 rounded-lg text-gray-700 transition-all duration-300 border border-gray-300 hover:bg-gray-50 mr-1.5"
                 >
                   <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 mr-1" />
                   Zurück
+                </button>
+              ) : null }
+              
+              {currentQuestion < filteredQuestions.length - 1 ? (
+                <button
+                  type="button"
+                  onClick={goToNextQuestion}
+                  className={`flex justify-center items-center py-2.5 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400 ${
+                    currentQuestion === 0 ? 'w-full' : 'w-7/10'
+                  }`}
+                >
+                  Weiter
+                  <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 ml-1" />
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={handleSubmit}
+                  disabled={isSubmitting}
+                  className={`flex justify-center items-center py-2.5 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gray-400 ${
+                    currentQuestion === 0 ? 'w-full' : 'w-7/10'
+                  }`}
+                >
+                  {isSubmitting ? 'Wird gesendet...' : 'Absenden'}
+                  <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 ml-1" />
                 </button>
               )}
             </div>
