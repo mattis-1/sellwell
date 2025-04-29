@@ -1,6 +1,6 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, ChevronLeft, User, Briefcase, Clock, GraduationCap, Users, Zap, Car, Mail, Phone, Check } from 'lucide-react';
+import { ChevronRight, ChevronLeft, User, Briefcase, Clock, GraduationCap, Users, Zap, Car, Mail, Phone, Star, Check } from 'lucide-react';
 
 // Define question types
 type QuestionType = 'text-dual' | 'binary' | 'select' | 'checkbox' | 'rating' | 'textarea' | 'contact';
@@ -117,8 +117,14 @@ const Formular = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [recentlyChanged, setRecentlyChanged] = useState<string | null>(null);
 
-  // Custom classes with optimized styles
+  // Custom classes for the specific width values with updated colors
   const tailwindStyles = `
+    .w-3\\/10 {
+      width: 30%;
+    }
+    .w-7\\/10 {
+      width: 70%;
+    }
     @keyframes smoothProgress {
       from { transform: translateX(-5px); opacity: 0.8; }
       to { transform: translateX(0); opacity: 1; }
@@ -168,6 +174,198 @@ const Formular = () => {
       background-color: #F5FFF0;
     }
   `;
+
+  // Proper type-safe implementation of handleChange
+  const handleChange = (field: string, value: string | boolean | number | null) => {
+    setRecentlyChanged(field);
+    setTimeout(() => setRecentlyChanged(null), 800);
+    
+    setFormData((prev) => {
+      // For nested objects like jobPreferences
+      if (field.includes('.')) {
+        const [parent, child] = field.split('.');
+        
+        // TypeScript needs help to understand that this is an object
+        const parentObj = prev[parent as keyof FormData];
+        
+        // Make sure we're only spreading objects
+        if (parentObj && typeof parentObj === 'object' && !Array.isArray(parentObj)) {
+          return {
+            ...prev,
+            [parent]: {
+              ...parentObj,
+              [child]: value,
+            },
+          } as FormData;
+        }
+        return prev; // Return unchanged if the structure doesn't match
+      }
+      
+      return {
+        ...prev,
+        [field]: value,
+      } as FormData;
+    });
+  };
+
+  // Navigation handlers
+  const goToNextQuestion = () => {
+    const isValid = validateCurrentQuestion();
+    if (!isValid) return;
+    
+    setDirection('forward');
+    setCurrentQuestion((prev) => Math.min(prev + 1, questions.length - 1));
+  };
+
+  // Fix container height issue without breaking smooth animations
+  const goToPreviousQuestion = () => {
+    setDirection('backward');
+    setCurrentQuestion((prev) => Math.max(prev - 1, 0));
+    
+    // Simple fix for container height: reset scroll and update layout after animation
+    setTimeout(() => {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }, 100);
+  };
+
+  // Bug fix: Fix the validation of jobPreferences
+  const validateCurrentQuestion = (): boolean => {
+    const newErrors: Record<string, string> = {};
+    const q = filteredQuestions[currentQuestion];
+    
+    if (q.type === 'text-dual') {
+      const textDualQ = q as TextDualQuestion;
+      textDualQ.fields.forEach(field => {
+        if (!formData[field]?.toString().trim()) {
+          newErrors[String(field)] = 'Dieses Feld ist erforderlich';
+        }
+      });
+    }
+    
+    if (q.type === 'binary' && q.field === 'hasSalesExperience' && formData.hasSalesExperience === null) {
+      newErrors['hasSalesExperience'] = 'Bitte wähle eine Option';
+    }
+    
+    if (q.type === 'select' && q.field === 'experienceLevel' && formData.experienceLevel === null) {
+      newErrors['experienceLevel'] = 'Bitte wähle eine Option';
+    }
+    
+    if (q.type === 'checkbox') {
+      // Only require selection if this is the current displayed question
+      if (
+        !formData.jobPreferences.compensation && 
+        !formData.jobPreferences.flexibleHours && 
+        !formData.jobPreferences.training && 
+        !formData.jobPreferences.teamSpirit && 
+        !formData.jobPreferences.responsibility
+      ) {
+        newErrors['jobPreferences'] = 'Bitte wähle mindestens eine Option';
+      }
+    }
+    
+    if (q.type === 'rating' && formData.peopleContactRating === null) {
+      newErrors['peopleContactRating'] = 'Bitte wähle eine Option';
+    }
+    
+    if (q.type === 'textarea' && !formData.greatestStrength.trim()) {
+      newErrors['greatestStrength'] = 'Bitte gib deine Antwort ein';
+    }
+    
+    if (q.type === 'binary' && q.field === 'hasDriversLicense' && formData.hasDriversLicense === null) {
+      newErrors['hasDriversLicense'] = 'Bitte wähle eine Option';
+    }
+    
+    if (q.type === 'contact') {
+      const contactQ = q as ContactQuestion;
+      contactQ.fields.forEach(field => {
+        if (field === 'email') {
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(formData.email)) {
+            newErrors['email'] = 'Bitte gib eine gültige E-Mail-Adresse ein';
+          }
+        }
+        if (field === 'phone') {
+          const phoneRegex = /^[0-9+\s()-]{8,}$/;
+          if (!phoneRegex.test(formData.phone)) {
+            newErrors['phone'] = 'Bitte gib eine gültige Telefonnummer ein';
+          }
+        }
+      });
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  // Optimized submit handler with improved performance
+  const handleSubmit = async () => {
+    const isValid = validateCurrentQuestion();
+    if (!isValid) return;
+    
+    setIsSubmitting(true);
+    
+    // Prepare the form data for submission - optimized structure
+    const submissionData = {
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      hasSalesExperience: formData.hasSalesExperience,
+      experienceLevel: formData.experienceLevel,
+      jobPreferences: {
+        compensation: formData.jobPreferences.compensation,
+        flexibleHours: formData.jobPreferences.flexibleHours,
+        training: formData.jobPreferences.training,
+        teamSpirit: formData.jobPreferences.teamSpirit,
+        responsibility: formData.jobPreferences.responsibility
+      },
+      peopleContactRating: formData.peopleContactRating,
+      greatestStrength: formData.greatestStrength,
+      hasDriversLicense: formData.hasDriversLicense,
+      email: formData.email,
+      phone: formData.phone,
+      submittedAt: new Date().toISOString()
+    };
+    
+    // Implement optimistic UI - redirect immediately for better perceived performance
+    // We'll still make the API call but not wait for it to complete before redirecting
+    const redirectTimer = setTimeout(() => {
+      window.location.href = '/danke?lead=true';
+    }, 300); // Short delay for visual feedback that submission is happening
+    
+    try {
+      // Use faster fetch options
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 8000); // Set timeout to 8 seconds
+      
+      // Make the API call with improved performance settings
+      const response = await fetch('/api/bewerber/kampagne1', {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json',
+          'Cache-Control': 'no-cache', // Prevent caching
+          'Priority': 'high' // Signal high priority (supported in some browsers)
+        },
+        body: JSON.stringify(submissionData),
+        signal: controller.signal,
+        // Use keepalive to allow request to complete even if page unloads
+        keepalive: true
+      });
+      
+      clearTimeout(timeoutId);
+      
+      if (!response.ok) {
+        throw new Error(`Server responded with an error: ${response.status}`);
+      }
+      
+      // The redirect will already have happened due to the timer above
+      
+    } catch (error) {
+      // Only show error alerts if we haven't redirected yet
+      clearTimeout(redirectTimer);
+      console.error('Error submitting form:', error);
+      alert('Es gab einen Fehler bei der Übermittlung. Bitte versuche es erneut.');
+      setIsSubmitting(false);
+    }
+  };
 
   // Define all questions with proper typing
   const questions: Question[] = [
@@ -256,217 +454,22 @@ const Formular = () => {
         <Mail className="h-6 w-6 text-green-primary" key="mail-icon" />,
         <Phone className="h-6 w-6 text-green-primary" key="phone-icon" />
       ],
-      icon: <Mail className="h-6 w-6 text-green-primary" />,
+      icon: <Mail className="h-6 w-6 text-green-primary" />, // Required icon property
     },
   ];
 
-  // Filter questions based on conditions - memoized to prevent re-computation
-  // FIXED: Moved this declaration before any usage
-  const filteredQuestions = useMemo(() => 
-    questions.filter(q => !q.condition || q.condition()), 
-    [formData.hasSalesExperience] // Only recalculate when condition dependencies change
+  // Filter questions based on conditions
+  const filteredQuestions = questions.filter(q => 
+    !q.condition || q.condition()
   );
 
-  // Get the current question - memoized
-  const currentQuestionData = useMemo(() => 
-    filteredQuestions[currentQuestion], 
-    [filteredQuestions, currentQuestion]
-  );
+  // Get the current question
+  const currentQuestionData = filteredQuestions[currentQuestion];
   
-  // Calculate progress - memoized
-  const progress = useMemo(() => 
-    ((currentQuestion + 1) / filteredQuestions.length) * 100,
-    [currentQuestion, filteredQuestions.length]
-  );
+  // Calculate progress
+  const progress = ((currentQuestion + 1) / filteredQuestions.length) * 100;
 
-  // Optimized handleChange with useCallback to prevent unnecessary re-renders
-  const handleChange = useCallback((field: string, value: string | boolean | number | null) => {
-    setRecentlyChanged(field);
-    setTimeout(() => setRecentlyChanged(null), 800);
-    
-    setFormData((prev) => {
-      // For nested objects like jobPreferences
-      if (field.includes('.')) {
-        const [parent, child] = field.split('.');
-        
-        // TypeScript needs help to understand that this is an object
-        const parentObj = prev[parent as keyof FormData];
-        
-        // Make sure we're only spreading objects
-        if (parentObj && typeof parentObj === 'object' && !Array.isArray(parentObj)) {
-          return {
-            ...prev,
-            [parent]: {
-              ...parentObj,
-              [child]: value,
-            },
-          } as FormData;
-        }
-        return prev; // Return unchanged if the structure doesn't match
-      }
-      
-      return {
-        ...prev,
-        [field]: value,
-      } as FormData;
-    });
-  }, []);
-
-  // Optimized validation function
-  const validateCurrentQuestion = useCallback((): boolean => {
-    const newErrors: Record<string, string> = {};
-    const q = filteredQuestions[currentQuestion];
-    
-    if (q.type === 'text-dual') {
-      const textDualQ = q as TextDualQuestion;
-      textDualQ.fields.forEach(field => {
-        if (!formData[field]?.toString().trim()) {
-          newErrors[String(field)] = 'Dieses Feld ist erforderlich';
-        }
-      });
-    }
-    
-    if (q.type === 'binary' && q.field === 'hasSalesExperience' && formData.hasSalesExperience === null) {
-      newErrors['hasSalesExperience'] = 'Bitte wähle eine Option';
-    }
-    
-    if (q.type === 'select' && q.field === 'experienceLevel' && formData.experienceLevel === null) {
-      newErrors['experienceLevel'] = 'Bitte wähle eine Option';
-    }
-    
-    if (q.type === 'checkbox') {
-      // Only require selection if this is the current displayed question
-      if (
-        !formData.jobPreferences.compensation && 
-        !formData.jobPreferences.flexibleHours && 
-        !formData.jobPreferences.training && 
-        !formData.jobPreferences.teamSpirit && 
-        !formData.jobPreferences.responsibility
-      ) {
-        newErrors['jobPreferences'] = 'Bitte wähle mindestens eine Option';
-      }
-    }
-    
-    if (q.type === 'rating' && formData.peopleContactRating === null) {
-      newErrors['peopleContactRating'] = 'Bitte wähle eine Option';
-    }
-    
-    if (q.type === 'textarea' && !formData.greatestStrength.trim()) {
-      newErrors['greatestStrength'] = 'Bitte gib deine Antwort ein';
-    }
-    
-    if (q.type === 'binary' && q.field === 'hasDriversLicense' && formData.hasDriversLicense === null) {
-      newErrors['hasDriversLicense'] = 'Bitte wähle eine Option';
-    }
-    
-    if (q.type === 'contact') {
-      const contactQ = q as ContactQuestion;
-      contactQ.fields.forEach(field => {
-        if (field === 'email') {
-          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (!emailRegex.test(formData.email)) {
-            newErrors['email'] = 'Bitte gib eine gültige E-Mail-Adresse ein';
-          }
-        }
-        if (field === 'phone') {
-          const phoneRegex = /^[0-9+\s()-]{8,}$/;
-          if (!phoneRegex.test(formData.phone)) {
-            newErrors['phone'] = 'Bitte gib eine gültige Telefonnummer ein';
-          }
-        }
-      });
-    }
-    
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  }, [currentQuestion, formData, filteredQuestions]);
-
-  // Navigation handlers with useCallback
-  const goToNextQuestion = useCallback(() => {
-    const isValid = validateCurrentQuestion();
-    if (!isValid) return;
-    
-    setDirection('forward');
-    setCurrentQuestion((prev) => Math.min(prev + 1, filteredQuestions.length - 1));
-    
-    // Performance optimization: reset scroll position
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [filteredQuestions, validateCurrentQuestion]);
-
-  const goToPreviousQuestion = useCallback(() => {
-    setDirection('backward');
-    setCurrentQuestion((prev) => Math.max(prev - 1, 0));
-    
-    // Reset scroll position for better UX
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
-
-  // Optimized submit handler
-  const handleSubmit = useCallback(async () => {
-    const isValid = validateCurrentQuestion();
-    if (!isValid) return;
-    
-    setIsSubmitting(true);
-    
-    // Prepare the form data for submission
-    const submissionData = {
-      firstName: formData.firstName,
-      lastName: formData.lastName,
-      hasSalesExperience: formData.hasSalesExperience,
-      experienceLevel: formData.experienceLevel,
-      jobPreferences: {
-        compensation: formData.jobPreferences.compensation,
-        flexibleHours: formData.jobPreferences.flexibleHours,
-        training: formData.jobPreferences.training,
-        teamSpirit: formData.jobPreferences.teamSpirit,
-        responsibility: formData.jobPreferences.responsibility
-      },
-      peopleContactRating: formData.peopleContactRating,
-      greatestStrength: formData.greatestStrength,
-      hasDriversLicense: formData.hasDriversLicense,
-      email: formData.email,
-      phone: formData.phone,
-      submittedAt: new Date().toISOString()
-    };
-    
-    // Optimistic UI approach - redirect quickly for better UX
-    const redirectTimer = setTimeout(() => {
-      window.location.href = '/danke?lead=true';
-    }, 300);
-    
-    try {
-      // Use beacon API for more reliable submission during page navigation
-      if (navigator.sendBeacon) {
-        const blob = new Blob([JSON.stringify(submissionData)], { type: 'application/json' });
-        navigator.sendBeacon('/api/bewerber/kampagne1', blob);
-      } else {
-        // Fallback to fetch with keepalive
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 8000);
-        
-        await fetch('/api/bewerber/kampagne1', {
-          method: 'POST',
-          headers: { 
-            'Content-Type': 'application/json',
-            'Cache-Control': 'no-cache',
-          },
-          body: JSON.stringify(submissionData),
-          signal: controller.signal,
-          keepalive: true
-        });
-        
-        clearTimeout(timeoutId);
-      }
-    } catch (error) {
-      // Only show error alerts if we haven't redirected yet
-      clearTimeout(redirectTimer);
-      console.error('Error submitting form:', error);
-      alert('Es gab einen Fehler bei der Übermittlung. Bitte versuche es erneut.');
-      setIsSubmitting(false);
-    }
-  }, [formData, validateCurrentQuestion]);
-
-  // Optimized animation variants
+  // Improved slide animation variants for smoother transitions
   const variants = {
     enter: (direction: string) => ({
       x: direction === 'forward' ? 20 : -20,
@@ -482,12 +485,13 @@ const Formular = () => {
     }),
   };
 
-  // Render functions for each question type - optimized with useCallback
-  const renderTextDual = useCallback((q: TextDualQuestion) => {
+  // Render functions for each question type
+  const renderTextDual = (q: TextDualQuestion) => {
     return (
-      <div className="space-y-4">
+      <div className="space-y-13">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           {q.fields.map((field, index) => {
+            // Safe conversion to string for input value
             const inputValue = formData[field];
             const stringValue = inputValue !== null && inputValue !== undefined 
               ? String(inputValue) 
@@ -524,9 +528,9 @@ const Formular = () => {
         </div>
       </div>
     );
-  }, [formData, errors, recentlyChanged, handleChange]);
+  };
   
-  const renderBinary = useCallback((q: BinaryQuestion) => {
+  const renderBinary = (q: BinaryQuestion) => {
     return (
       <div className="space-y-3">
         {q.options.map((option) => {
@@ -563,9 +567,9 @@ const Formular = () => {
         )}
       </div>
     );
-  }, [formData, errors, recentlyChanged, handleChange]);
+  };
   
-  const renderSelect = useCallback((q: SelectQuestion) => {
+  const renderSelect = (q: SelectQuestion) => {
     return (
       <div className="space-y-3">
         {q.options.map((option) => {
@@ -602,9 +606,9 @@ const Formular = () => {
         )}
       </div>
     );
-  }, [formData, errors, recentlyChanged, handleChange]);
+  };
   
-  const renderCheckbox = useCallback((q: CheckboxQuestion) => {
+  const renderCheckbox = (q: CheckboxQuestion) => {
     return (
       <div className="space-y-3">
         {q.options.map((option) => {
@@ -645,9 +649,9 @@ const Formular = () => {
         )}
       </div>
     );
-  }, [formData, errors, recentlyChanged, handleChange]);
+  };
   
-  const renderRating = useCallback((q: RatingQuestion) => {
+  const renderRating = (q: RatingQuestion) => {
     return (
       <div className="space-y-4 sm:space-y-6">
         <div className="flex justify-between text-sm text-gray-500">
@@ -666,9 +670,9 @@ const Formular = () => {
                 className={`flex-1 py-4 sm:py-5 rounded-2xl cursor-pointer text-center transition-all duration-300 
                   ${isSelected ? 
                     isRecentlyChanged ? 
-                      'bg-green-light border border-green-primary pulse-animation scale-105 transform' : 
-                      'bg-green-light border border-green-primary scale-105 transform' 
-                    : 'bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:scale-[1.02] transform'
+                      'bg-green-light border border-green-primary pulse-animation scale-110 transform' : 
+                      'bg-green-light border border-green-primary scale-110 transform' 
+                    : 'bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:scale-105 transform'
                 }`}
               >
                 <span className={`text-base sm:text-lg font-medium ${isSelected ? 'text-gray-800' : 'text-gray-600'}`}>
@@ -683,9 +687,9 @@ const Formular = () => {
         )}
       </div>
     );
-  }, [formData, errors, recentlyChanged, handleChange]);
+  };
   
-  const renderTextarea = useCallback((q: TextareaQuestion) => {
+  const renderTextarea = (q: TextareaQuestion) => {
     const isRecentlyChanged = recentlyChanged === String(q.field);
     
     return (
@@ -707,12 +711,13 @@ const Formular = () => {
         )}
       </div>
     );
-  }, [formData, errors, recentlyChanged, handleChange]);
+  };
   
-  const renderContact = useCallback((q: ContactQuestion) => {
+  const renderContact = (q: ContactQuestion) => {
     return (
       <div className="space-y-3 sm:space-y-4">
         {q.fields.map((field, index) => {
+          // Safe conversion of form values to string for input fields
           const inputValue = formData[field];
           const stringValue = inputValue !== null && inputValue !== undefined 
             ? String(inputValue) 
@@ -751,10 +756,10 @@ const Formular = () => {
         })}
       </div>
     );
-  }, [formData, errors, recentlyChanged, handleChange]);
+  };
 
   // Main render function for current question
-  const renderQuestion = useCallback(() => {
+  const renderQuestion = () => {
     const q = currentQuestionData;
     
     switch (q.type) {
@@ -775,26 +780,16 @@ const Formular = () => {
       default:
         return null;
     }
-  }, [
-    currentQuestionData,
-    renderTextDual,
-    renderBinary,
-    renderSelect,
-    renderCheckbox,
-    renderRating,
-    renderTextarea,
-    renderContact
-  ]);
+  };
 
   return (
-    // Container with fixed max-width that properly centers the form
-    <div className="w-full mx-auto max-w-screen-xl flex justify-center items-start py-4 px-4 bg-white overflow-x-hidden">
-      {/* Custom styles scoped to this component */}
+    <div className="w-full flex flex-col items-center bg-white">
+      {/* Add custom styles */}
       <style>{tailwindStyles}</style>
       
-      {/* Main form container with controlled width */}
-      <div className="w-full max-w-lg">
-        {/* Progress bar */}
+      {/* Wrap the form in a div with auto height instead of min-h-screen */}
+      <div className="w-full max-w-xl px-3 sm:px-4 my-4">
+        {/* Improved Progress bar */}
         <div className="h-2 bg-gray-100 rounded-full overflow-hidden mb-4">
           <div 
             className="h-full bg-green-primary transition-all duration-500 ease-out animate-progress"
@@ -802,11 +797,9 @@ const Formular = () => {
           />
         </div>
         
-        {/* Form card with proper padding and shadow for better visibility */}
-        <div className="bg-white rounded-3xl border border-gray-100 shadow-sm px-4 py-5 sm:px-6 sm:py-6">
-          {/* Content container with minimum height to prevent layout shifts */}
-          <div className="flex flex-col justify-between min-h-[320px]">
-            {/* Question container with fixed minimum height */}
+        <div className="bg-white rounded-3xl border border-gray-100 px-3 py-4 sm:px-6 sm:py-8">
+          {/* Main content with dynamic height and smooth transitions */}
+          <div className="flex flex-col justify-between min-h-[300px]">
             <div className="relative" style={{ minHeight: '240px' }}>
               <AnimatePresence mode="wait" initial={false} custom={direction}>
                 <motion.div
@@ -820,13 +813,10 @@ const Formular = () => {
                     x: { type: "spring", stiffness: 300, damping: 30 },
                     opacity: { duration: 0.2 }
                   }}
-                  className="w-full"
-                  style={{ 
-                    position: 'relative',
-                    width: '100%' 
-                  }}
+                  className="w-full absolute-on-exit"
+                  style={{ position: direction === 'forward' ? 'relative' : 'absolute', width: '100%' }}
                 >
-                  {/* Question header */}
+                  {/* Question header - removed icon */}
                   <div className="mb-6">
                     <h2 className="text-lg sm:text-xl font-semibold text-gray-800">
                       {currentQuestionData.question}
@@ -839,30 +829,41 @@ const Formular = () => {
               </AnimatePresence>
             </div>
             
-            {/* Navigation buttons - vertical stack layout */}
-            <div className="mt-6 flex flex-col space-y-3">
-              {/* Main action button - full width */}
-              <button
-                type="button"
-                onClick={currentQuestion < filteredQuestions.length - 1 ? goToNextQuestion : handleSubmit}
-                disabled={isSubmitting}
-                className="w-full flex justify-center items-center py-3 bg-green-primary text-black rounded-3xl hover:bg-green-dark transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-primary transform hover:scale-[1.01]"
-              >
-                {currentQuestion < filteredQuestions.length - 1 
-                  ? <>Weiter<ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 ml-1" /></>
-                  : isSubmitting ? 'Wird gesendet...' : <>Absenden<ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 ml-1" /></>
-                }
-              </button>
-              
-              {/* Only show back button if not on the first question */}
-              {currentQuestion > 0 && (
+            {/* Navigation buttons - always positioned correctly */}
+            <div className="mt-8 flex w-full">
+              {currentQuestion > 0 ? (
                 <button
                   type="button"
                   onClick={goToPreviousQuestion}
-                  className="self-center flex justify-center items-center py-2 px-4 rounded-lg text-gray-700 transition-all duration-300 border border-gray-300 hover:bg-gray-50 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-green-primary"
+                  className="w-3/10 flex justify-center items-center py-2.5 rounded-3xl text-gray-700 transition-all duration-300 border border-gray-300 hover:bg-gray-50 hover:border-gray-400 mr-1.5 focus:outline-none focus:ring-2 focus:ring-green-primary"
                 >
                   <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 mr-1" />
                   Zurück
+                </button>
+              ) : null }
+              
+              {currentQuestion < filteredQuestions.length - 1 ? (
+                <button
+                  type="button"
+                  onClick={goToNextQuestion}
+                  className={`flex justify-center items-center py-2.5 bg-green-primary text-black rounded-3xl hover:bg-green-dark transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-primary transform hover:scale-[1.02] ${
+                    currentQuestion === 0 ? 'w-full' : 'w-7/10'
+                  }`}
+                >
+                  Weiter
+                  <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 ml-1" />
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={handleSubmit}
+                  disabled={isSubmitting}
+                  className={`flex justify-center items-center py-2.5 bg-green-primary text-black rounded-3xl hover:bg-green-dark transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-primary transform hover:scale-[1.02] ${
+                    currentQuestion === 0 ? 'w-full' : 'w-7/10'
+                  }`}
+                >
+                  {isSubmitting ? 'Wird gesendet...' : 'Absenden'}
+                  <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 ml-1" />
                 </button>
               )}
             </div>
