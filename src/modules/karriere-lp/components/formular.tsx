@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, ChevronLeft, User, Briefcase, Clock, GraduationCap, Users, Zap, Car, Mail, Phone, Check } from 'lucide-react';
+import { ChevronRight, ChevronLeft, User, Briefcase, Clock, GraduationCap, Users, Zap, Car, Mail, Phone, Star, Check } from 'lucide-react';
 
 // Define question types
 type QuestionType = 'text-dual' | 'binary' | 'select' | 'checkbox' | 'rating' | 'textarea' | 'contact';
@@ -829,44 +829,32 @@ const Formular = () => {
               </AnimatePresence>
             </div>
             
-            {/* Navigation buttons - always positioned correctly */}
-            <div className="mt-8 flex w-full">
-              {currentQuestion > 0 ? (
-                <button
-                  type="button"
-                  onClick={goToPreviousQuestion}
-                  className="w-3/10 flex justify-center items-center py-2.5 rounded-3xl text-gray-700 transition-all duration-300 border border-gray-300 hover:bg-gray-50 hover:border-gray-400 mr-1.5 focus:outline-none focus:ring-2 focus:ring-green-primary"
-                >
-                  <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 mr-1" />
-                  Zurück
-                </button>
-              ) : null }
-              
-              {currentQuestion < filteredQuestions.length - 1 ? (
-                <button
-                  type="button"
-                  onClick={goToNextQuestion}
-                  className={`flex justify-center items-center py-2.5 bg-green-primary text-black rounded-3xl hover:bg-green-dark transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-primary transform hover:scale-[1.02] ${
-                    currentQuestion === 0 ? 'w-full' : 'w-7/10'
-                  }`}
-                >
-                  Weiter
-                  <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 ml-1" />
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  onClick={handleSubmit}
-                  disabled={isSubmitting}
-                  className={`flex justify-center items-center py-2.5 bg-green-primary text-black rounded-3xl hover:bg-green-dark transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-primary transform hover:scale-[1.02] ${
-                    currentQuestion === 0 ? 'w-full' : 'w-7/10'
-                  }`}
-                >
-                  {isSubmitting ? 'Wird gesendet...' : 'Absenden'}
-                  <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 ml-1" />
-                </button>
-              )}
-            </div>
+<div className="mt-8 flex w-full justify-between">
+  {currentQuestion > 0 ? (
+    <button
+      type="button"
+      onClick={goToPreviousQuestion}
+      className="flex-none w-[30%] flex justify-center items-center py-2.5 rounded-3xl text-gray-700 transition-all duration-300 border border-gray-300 hover:bg-gray-50 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-green-primary"
+    >
+      <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 mr-1" />
+      Zurück
+    </button>
+  ) : (
+    <div className="flex-none w-[30%]"></div>
+  )}
+  
+  <button
+    type="button"
+    onClick={currentQuestion < filteredQuestions.length - 1 ? goToNextQuestion : handleSubmit}
+    disabled={isSubmitting}
+    className="flex-none w-[65%] flex justify-center items-center py-2.5 bg-green-primary text-black rounded-3xl hover:bg-green-dark transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-primary transform hover:scale-[1.02]"
+  >
+    {currentQuestion < filteredQuestions.length - 1 
+      ? <>Weiter<ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 ml-1" /></>
+      : isSubmitting ? 'Wird gesendet...' : <>Absenden<ChevronRight className="h-4 w-4 sm:h-5 sm:w-5 ml-1" /></>
+    }
+  </button>
+</div>
           </div>
         </div>
       </div>

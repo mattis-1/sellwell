@@ -78,8 +78,7 @@ export default function SellwellFaqSection() {
       {/* Image Slider - Enhanced infinite version */}
       <div className="w-screen relative overflow-hidden bg-white">
         {/* Adjusted side gradients - more intense but less blurry */}
-        <div className="absolute left-0 top-0 bottom-0 w-8 md:w-16 z-10 bg-gradient-to-r from-white via-white to-transparent"></div>
-        <div className="absolute right-0 top-0 bottom-0 w-8 md:w-16 z-10 bg-gradient-to-l from-white via-white to-transparent"></div>
+        
         
         {/* Infinite slider with CSS animation */}
         <div 
