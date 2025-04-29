@@ -125,11 +125,7 @@ export default function SellwellRequirements() {
             style={{ objectFit: 'cover', objectPosition: 'center' }}
             className="rounded-[33px]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[rgba(0,0,0,0.6)] to-transparent"></div>
-          <div className="absolute bottom-6 left-0 w-full text-center">
-            <p className="text-white font-semibold text-xl mb-2">Werde Teil unseres Teams</p>
-            <p className="text-white text-sm max-w-md mx-auto">Gemeinsam erfolgreich im Vertrieb</p>
-          </div>
+         
         </div>
       </div>
 
