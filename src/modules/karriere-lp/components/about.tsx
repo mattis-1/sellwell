@@ -32,18 +32,46 @@ export default function SellwellAboutUs() {
       ref={sectionRef}
       className={`sellwell-section bg-white transition-all duration-1000 ${isIntersecting ? "opacity-100" : "opacity-0"}`}
     >
-      <div className="sellwell-container max-w-5xl mx-auto">
+      <div className="sellwell-container max-w-5xl mx-auto relative pb-16">
+        {/* Image moved above the container */}
+        <div className="rounded-[30px] w-[100%] max-w-[100%] mx-auto mb-8">
+          <Image
+            src="/Unsere Mission 2.png"
+            alt="Unsere Mission"
+            width={1200}
+            height={600}
+            className="w-full h-auto rounded-[30px] object-cover"
+            onError={(e) => {
+              // Fallback if image fails to load
+              const target = e.target as HTMLImageElement
+              target.onerror = null
+              target.src =
+                "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='600' viewBox='0 0 1200 600'%3E%3Crect width='1200' height='600' fill='%23f9fafb'/%3E%3Ctext x='50%25' y='50%25' dominantBaseline='middle' textAnchor='middle' fontFamily='system-ui' fontSize='48' fill='%23166534'%3EUnsere Mission%3C/text%3E%3C/svg%3E"
+            }}
+          />
+        </div>
+
         {/* Main gradient container */}
         <div className="sellwell-about-container">
           {/* Headline */}
-          <h2 className="font-inter text-[30px] font-[600] tracking-[-0.75px] leading-[35px] text-[rgb(17,17,17)] mb-6 text-left">
+          <h2 className="font-inter text-[30px] font-[600] tracking-[-0.75px] leading-[35px] text-[rgb(17,17,17)] mb-6 text-left w-full">
             Was ist Sellwell Consulting?
           </h2>
 
-          {/* Stat containers */}
+          {/* Text content - shortened and improved */}
+          <div className="mb-8 text-left w-full">
+            <p className="font-inter text-[16px] font-normal tracking-[-0.2px] leading-[22px] text-[#111111] mb-4">
+              Bei SellWell-Consulting verbinden wir zwei wichtige Ziele: Verbrauchern zu helfen, ihre Energiekosten deutlich zu senken, und unseren Mitarbeitern attraktive Verdienstmöglichkeiten in diesem lukrativen Markt zu bieten.
+            </p>
+            <p className="font-inter text-[16px] font-normal tracking-[-0.2px] leading-[22px] text-[#111111]">
+              Als Vertriebler ist dein Gehalt direkt an deine Leistung gekoppelt. Wir stellen dir ein bewährtes System zur Verfügung, mit dem du 100-200 Verträge monatlich abschließen und dir ein überdurchschnittliches Einkommen sichern kannst.
+            </p>
+          </div>
+
+          {/* Stat containers - moved below text and redesigned */}
           <div className="space-y-4 mb-8 w-full">
             {/* Stat container 1 */}
-            <div className="bg-white rounded-[999px] p-4 flex items-center w-full">
+            <div className="bg-white rounded-[20px] p-4 flex items-center w-full shadow-sm">
               <div className="flex-shrink-0 mr-4">
                 <Image 
                  src="/greenstar.svg" 
@@ -53,17 +81,17 @@ export default function SellwellAboutUs() {
                 />
               </div>
               <div>
-                <div className="font-inter text-[20px] text-left font-[600] text-[#111111] tracking-[-0.5px]">
+                <div className="font-inter text-[24px] text-left font-[600] text-[#111111] tracking-[-0.5px]">
                   10.000+
                 </div>
-                <div className="font-inter tracking-[-0.3px] text-left text-[14px] text-[rgb(17, 17, 17)] ">
+                <div className="font-inter tracking-[-0.3px] text-left text-[14px] text-[rgb(17, 17, 17)]">
                   Glückliche Kunden
                 </div>
               </div>
             </div>
 
             {/* Stat container 2 */}
-            <div className="bg-white rounded-[999px] p-4 flex items-center w-full">
+            <div className="bg-white rounded-[20px] p-4 flex items-center w-full shadow-sm">
               <div className="flex-shrink-0 mr-4">
               <Image 
                  src="/greenstar.svg" 
@@ -73,60 +101,24 @@ export default function SellwellAboutUs() {
                 />
               </div>
               <div>
-              <div className="font-inter text-[20px] text-left font-[600] text-[#111111] tracking-[-0.5px]">
-              30
+                <div className="font-inter text-[24px] text-left font-[600] text-[#111111] tracking-[-0.5px]">
+                  30
                 </div>
-                <div className="font-inter tracking-[-0.3px] text-left text-[14px] text-[rgb(17, 17, 17)] ">
+                <div className="font-inter tracking-[-0.3px] text-left text-[14px] text-[rgb(17, 17, 17)]">
                   Jahre Erfahrung
                 </div>
               </div>
             </div>
           </div>
-
-          {/* Text content */}
-          <div className="mb-8 text-left">
-            <p className="font-inter text-[16px] font-normal tracking-[-0.2px] leading-[20px] text-[#111111] mb-4">
-              Mit der SellWell-Consulting GmbH ist es einerseits unser Ziel, Verbrauchern dabei zu helfen, drastisch bei
-              ihren Strom- und Gas-Rechnungen zu sparen, und andererseits unseren Mitarbeitern an diesem sehr lukrativen
-              Markt teilhaben zu lassen.
-            </p>
-            <p className="font-inter text-[16px] font-normal tracking-[-0.2px] leading-[20px] text-[#111111]">
-              Denn als Vertriebler ist dein Gehalt so gut wie deine Leistung. Wir haben uns vor mehreren Jahren selbst
-              durchkämpfen müssen. Mittlerweile geben wir unseren festangestellten Mitarbeitern ein funktionierendes
-              System an die Hand, mit dem sie 100-200 Verträge im Monat abschließen und sich dadurch ein
-              leistungsgerechtes Gehalt erarbeiten können.
-            </p>
-          </div>
-
-         
-
-          {/* Image frame */}
-          <div className="rounded-[30px] w-[100%] max-w-[100%] mx-auto">
-            <Image
-              src="/Unsere Mission 2.png"
-              alt="Unsere Mission"
-              width={1200}
-              height={600}
-              className="w-full h-auto rounded-[30px] object-cover"
-              onError={(e) => {
-                // Fallback if image fails to load
-                const target = e.target as HTMLImageElement
-                target.onerror = null
-                target.src =
-                  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='600' viewBox='0 0 1200 600'%3E%3Crect width='1200' height='600' fill='%23f9fafb'/%3E%3Ctext x='50%25' y='50%25' dominantBaseline='middle' textAnchor='middle' fontFamily='system-ui' fontSize='48' fill='%23166534'%3EUnsere Mission%3C/text%3E%3C/svg%3E"
-              }}
-            />
-          </div>
-
-         
         </div>
-         {/* CTA Button */}
-         <div className="text-center mt-8">
-            <a href="#formular">
-              <Button>Jetzt bewerben</Button>
-              <p className="text-sm text-gray-500 mt-2">Und Teil des Teams werden</p>
-            </a>
-          </div>
+        
+        {/* CTA Button - positioned to hover over the container */}
+        <div className="text-center absolute left-1/2 transform -translate-x-1/2 bottom-8">
+          <a href="#formular">
+            <button className="black-button">Jetzt bewerben</button>
+            <p className="subbtnt mt-2">Und Teil des Teams werden</p>
+          </a>
+        </div>
       </div>
 
       {/* Custom CSS for containers */}
@@ -147,8 +139,34 @@ export default function SellwellAboutUs() {
           border-width: 1px;
           border-color: rgb(124, 242, 165);
           flex-direction: column;
-          align-items: center;
-          text-align: center;
+          align-items: flex-start;
+          text-align: left;
+          margin-bottom: 4rem;
+        }
+        
+        .black-button {
+          background-color: #000;
+          color: white;
+          border-radius: 9999px;
+          font-weight: 600;
+          padding: 0.75rem 2rem;
+          transition: all 0.3s ease;
+          border: none;
+          font-size: 1rem;
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .black-button:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Ensuring the subbtnt style is consistently applied */
+        .subbtnt {
+          font-size: 14px;
+          color: #111;
+          font-weight: 600;
+          letter-spacing: -0.3px;
         }
       `}</style>
     </section>

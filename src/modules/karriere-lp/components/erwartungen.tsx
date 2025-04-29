@@ -13,7 +13,7 @@ interface BenefitCardProps {
 
 const BenefitCard = ({ icon, title, description }: BenefitCardProps) => (
   <div
-    className="benefit-card relative overflow-hidden rounded-xl p-7 bg-white backdrop-blur-sm transition-all text-center shadow-sm"
+    className="benefit-card relative overflow-hidden rounded-xl p-7 bg-white backdrop-blur-sm transition-all text-center"
   >
     <div className="absolute inset-0 -z-10">
     </div>

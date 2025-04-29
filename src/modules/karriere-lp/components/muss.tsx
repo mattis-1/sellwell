@@ -70,7 +70,7 @@ export default function SellwellRequirements() {
         
         <div className="text-center mb-8">
           <h2 className="font-inter text-[32px] tracking-[-1.4px] leading-[40px] text-[rgb(17,17,17)] font-semibold mb-4">
-            Wir suchen dich als Vertriebler im Außendienst <span className="text-[24px]">(m/w/d)</span>
+            Wir suchen dich<br />als Vertriebler im Außendienst <span className="text-[24px]">(m/w/d)</span>
           </h2>
           
           <p className="font-inter text-[25px] font-semibold tracking-[-0.5px] text-[rgb(17,17,17)] mb-6">
@@ -83,13 +83,13 @@ export default function SellwellRequirements() {
             {requirements.map((requirement, index) => (
               <li 
                 key={index} 
-                className="flex items-start bg-white rounded-full py-2 px-4"
+                className="flex items-start bg-white rounded-full py-1 px-4"
               >
                 <div className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mr-3 mt-[2px]">
                   {/* Green checkmark */}
                   <svg 
-                    width="16" 
-                    height="16" 
+                    width="22" 
+                    height="22" 
                     viewBox="0 0 24 24" 
                     fill="none" 
                     stroke="rgb(124, 242, 165)" 

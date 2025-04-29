@@ -3,18 +3,19 @@
 /* core button */
 .sellwell-btn-primary {
   overflow: hidden;              /* clip the SVG and gradient */
-  border: none; 
-  background-color: rgb(124, 242, 165);                 /* ensure no border blocks gradient */
+  border: 1px solid rgb(124, 242, 165);  /* Very thin border */
+  background-image: linear-gradient(132deg, rgba(235, 255, 225, 0.5) 0%, rgba(124, 242, 165, 0.5) 100%);
   font-weight: 600;
   padding: 0.75rem 2rem;
   border-radius: 999px;
-  transition: transform 150ms;
   font-size: 20px;
   color: black;
   letter-spacing: -0.32px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08), 0 6px 12px rgba(124, 242, 165, 0.12);
   transition: 
     box-shadow 300ms ease,
-    transform 150ms ease;
+    transform 150ms ease,
+    background-image 300ms ease;
 }
 
 /* ensure your text stays on top */
@@ -23,9 +24,16 @@
   z-index: 1;
 }
 
-/* simple hover/active feedback */
+/* enhanced hover/active feedback */
 .sellwell-btn-primary:hover {
-  background-color: #4EFF8D;
+  background-image: linear-gradient(132deg, rgba(235, 255, 225, 0.7) 0%, rgba(124, 242, 165, 0.7) 100%);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(124, 242, 165, 0.15);
+  transform: translateY(-2px);
+}
+
+.sellwell-btn-primary:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(124, 242, 165, 0.1);
 }
   
   .sellwell-btn-secondary {
@@ -156,7 +164,7 @@
   }
 
   .subutton {
-    font-size: 14px;
+    font-size: 16px;
     color: #111;
     font-weight: 600;
     letter-spacing: -0.3px;

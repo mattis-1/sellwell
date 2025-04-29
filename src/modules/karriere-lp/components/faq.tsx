@@ -34,7 +34,6 @@ export default function SellwellFaqSection() {
   const [openFaqs, setOpenFaqs] = useState<number[]>([0]) 
   const sectionRef = useRef<HTMLElement>(null)
   const sliderRef = useRef<HTMLDivElement>(null)
-  // Animation will run continuously without pausing
   
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -56,10 +55,7 @@ export default function SellwellFaqSection() {
   }, [])
 
   // Create an extended array of images for the infinite effect
-  // We duplicate images multiple times to ensure the slider has enough content
   const extendedImages = [...images, ...images, ...images, ...images, ...images]
-
-  // No longer needed - continuous animation without pause
 
   // Updated toggle function to handle multiple open FAQs
   const toggleFaq = (index: number) => {
@@ -76,18 +72,16 @@ export default function SellwellFaqSection() {
       ref={sectionRef}
       className={`sellwell-section relative transition-all duration-1000 p-0 ${isIntersecting ? "opacity-100" : "opacity-0"}`}
     >
-      {/* Blue gradient from bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-[70vh] z-0 pointer-events-none bg-gradient-to-t from-[#1E5645] to-transparent"></div>
+      {/* Updated gradient with new color scheme */}
+      <div className="absolute bottom-0 left-0 right-0 h-[70vh] z-0 pointer-events-none bg-gradient-to-t from-[#7BF2A5] to-transparent"></div>
 
       {/* Image Slider - Enhanced infinite version */}
       <div className="w-screen relative overflow-hidden bg-white">
-        {/* Left gradient */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 z-10 bg-gradient-to-r from-gray-50 to-transparent"></div>
+        {/* Adjusted side gradients - more intense but less blurry */}
+        <div className="absolute left-0 top-0 bottom-0 w-8 md:w-16 z-10 bg-gradient-to-r from-white via-white to-transparent"></div>
+        <div className="absolute right-0 top-0 bottom-0 w-8 md:w-16 z-10 bg-gradient-to-l from-white via-white to-transparent"></div>
         
-        {/* Right gradient */}
-        <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 z-10 bg-gradient-to-l from-gray-50 to-transparent"></div>
-        
-        {/* Infinite slider with CSS animation - always running */}
+        {/* Infinite slider with CSS animation */}
         <div 
           ref={sliderRef}
           className="flex overflow-hidden h-[320px] md:h-[520px]"
@@ -102,21 +96,21 @@ export default function SellwellFaqSection() {
             {extendedImages.map((image, index) => (
               <div 
                 key={index} 
-                className="w-[260px] h-[320px] md:w-[380px] md:h-[520px] flex-shrink-0 mx-3"
+                className="w-[320px] h-[320px] md:w-[380px] md:h-[520px] flex-shrink-0 mx-3"
               >
-                <div className="w-full h-full overflow-hidden rounded-[20px] md:rounded-[20px] shadow-lg transform transition-transform duration-300 hover:scale-[1.02] hover:-translate-y-1">
+                <div className="w-full h-full overflow-hidden rounded-[20px] shadow-lg transform transition-transform duration-300 hover:scale-[1.02] hover:-translate-y-1">
                   <Image
                     src={`/${image}`}
                     alt={`Team Image ${index % images.length + 1}`}
                     width={500}
-                    height={700}
+                    height={500}
                     priority={index < 5}
                     quality={90}
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement
                       target.onerror = null
-                      target.src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='380' height='520' viewBox='0 0 380 520'%3E%3Crect width='380' height='520' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' dominantBaseline='middle' textAnchor='middle' fontFamily='system-ui' fontSize='24' fill='%23166534'%3ETeam Bild ${(index % images.length) + 1}%3C/text%3E%3C/svg%3E`
+                      target.src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='380' height='380' viewBox='0 0 380 380'%3E%3Crect width='380' height='380' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' dominantBaseline='middle' textAnchor='middle' fontFamily='system-ui' fontSize='24' fill='%237BF2A5'%3ETeam Bild ${(index % images.length) + 1}%3C/text%3E%3C/svg%3E`
                     }}
                   />
                 </div>
@@ -126,13 +120,10 @@ export default function SellwellFaqSection() {
         </div>
       </div>
 
-      {/* FAQ Container - Redesigned for elegance */}
+      {/* FAQ Container */}
       <div className="sellwell-container -mt-24 md:-mt-48 relative z-10">
         <div className="max-w-3xl mx-auto bg-white rounded-[33px] shadow-xl p-8 md:p-12">
-      
-        
-          
-          <h2 className="text-[85px] md:text-[90px] font-bold mb-10 special-text text-center">FAQ</h2>
+          <h2 className="text-[85px] md:text-[90px] font-bold mb-10 text-center" style={{ background: "linear-gradient(132deg, #EBFFE1, #7BF2A5)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>FAQ</h2>
 
           <div className="space-y-6">
             {faqs.map((faq, index) => (
@@ -154,9 +145,9 @@ export default function SellwellFaqSection() {
                   </h3>
                   <span className="transition-all duration-300 ease-in-out bg-gray-50 rounded-full p-1 flex-shrink-0 mt-0.5">
                     {openFaqs.includes(index) ? (
-                      <Minus className="w-5 h-5 text-green-700" />
+                      <Minus className="w-5 h-5 text-[#7BF2A5]" />
                     ) : (
-                      <Plus className="w-5 h-5 text-green-700" />
+                      <Plus className="w-5 h-5 text-[#7BF2A5]" />
                     )}
                   </span>
                 </button>

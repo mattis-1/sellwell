@@ -19,7 +19,7 @@ export default function SellwellFooter() {
           </div>
 
           {/* Links section */}
-          <div className="flex flex-wrap justify-center gap-6 md:gap-8">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-8 mb-10">
             <Link
               href="https://sellwell-consulting.de/impressum"
               target="_blank"

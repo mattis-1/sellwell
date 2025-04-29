@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import Formular from "./formular"
 import { motion } from "framer-motion"
+import { Check } from "lucide-react"
 
 const benefits = [
   "Endlose Möglichkeiten",
@@ -75,20 +76,16 @@ export default function SellwellHero() {
         isIntersecting ? "opacity-100" : "opacity-0"
       }`}
     >
-      {/* Benefits Banner with smoother animation - UPDATED GRADIENT AND TEXT COLOR */}
-      <div className="w-screen py-3 bg-gradient-to-r from-[#C8F9D7] to-[#EDFEEB] text-black overflow-hidden">
+      {/* Benefits Banner with darker colors and border */}
+      <div className="w-screen py-3 bg-gradient-to-r from-[#89E5B0] to-[#C8F9D7] text-white overflow-hidden border-b-2 border-[#5AC27F]">
         <div className="sellwell-marquee">
           <div className="sellwell-marquee-content">
             {allBenefits.map((benefit, index) => (
               <div key={index} className="flex items-center mx-4">
                 <span className="font-medium">{benefit}</span>
-                <Image 
-                src="/check-lp.svg"
-                alt="check"
-                width={35}
-                height={35}
-                className="pr-2.5 pl-2"
-                />
+                <div className="mx-2 text-white">
+                  <Check className="w-5 h-5 stroke-[3] text-white" />
+                </div>
               </div>
             ))}
           </div>
@@ -122,39 +119,42 @@ export default function SellwellHero() {
           />
         </motion.div>
 
-        {/* Headline with enhanced typography - ADDED SILVER GRADIENT */}
+        {/* Headline with gradient removed */}
         <motion.h1 
           variants={itemVariants}
           className="font-montserrat text-3xl md:text-4xl lg:text-5xl text-center tracking-[-1px] font-[600] max-w-4xl mx-auto px-4 mb-8 leading-tight"
         >
           <span className="relative inline-block">
-            <span className="relative z-10 bg-clip-text text-transparent bg-gradient-to-r from-gray-600 via-gray-300 to-gray-500">Entfalte dein volles Potenzial</span>
+            <span className="relative z-10">Entfalte dein volles Potenzial</span>
           </span> als Vertriebler im Strom- & Gasvertrieb
         </motion.h1>
 
-        {/* Vimeo Video with updated border styles */}
-        <motion.div 
-          variants={itemVariants}
-          className="w-full max-w-[95%] mx-auto px-4 mb-12"
-        >
-          <div className="video-wrapper p-1 rounded-2xl" style={{ border: '1px solid #246551' }}>
-            <div className="video-container relative">
-              <div className="aspect-video bg-gray-100 rounded-xl overflow-hidden">
-                <iframe
-                  src="https://player.vimeo.com/video/1079393532?h=ae44b49c5b&color=246551&title=0&byline=0&portrait=0&dnt=1"
-                  className="absolute top-0 left-0 w-full h-full"
-                  frameBorder="0"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  allowFullScreen
-                  title="Sellwell Consulting Promotional Video"
-                  loading="lazy"
-                ></iframe>
+        {/* Container specifically for video with full width */}
+        <div className="w-full mx-auto mb-12">
+          {/* Vimeo Video - larger with thicker border */}
+          <motion.div 
+            variants={itemVariants}
+            className="w-full max-w-[100%] mx-auto"
+          >
+            <div className="video-wrapper p-1.5 rounded-2xl" style={{ border: '3px solid #246551' }}>
+              <div className="video-container relative">
+                <div className="aspect-video bg-gray-100 rounded-xl overflow-hidden">
+                  <iframe
+                    src="https://player.vimeo.com/video/1079393532?h=ae44b49c5b&color=246551&title=0&byline=0&portrait=0&dnt=1"
+                    className="absolute top-0 left-0 w-full h-full"
+                    frameBorder="0"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowFullScreen
+                    title="Sellwell Consulting Promotional Video"
+                    loading="lazy"
+                  ></iframe>
+                </div>
               </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
 
-        {/* Application Form - Wider without border */}
+        {/* Application Form - adjusted width to match new layout */}
         <motion.div 
           variants={itemVariants}
           id="formular" 
