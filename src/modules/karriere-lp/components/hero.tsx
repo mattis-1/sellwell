@@ -101,7 +101,7 @@ export default function SellwellHero() {
         {/* Logo with subtle animation */}
         <motion.div 
           variants={itemVariants}
-          className="flex justify-center mt-8 mb-4"
+          className="flex justify-center mt-6 mb-4"
         >
           <Image
             src="/sellwell-logo-black.svg"
@@ -130,12 +130,12 @@ export default function SellwellHero() {
 
         {/* Container specifically for video with full width */}
         <div className="w-full mx-auto mb-12">
-          {/* Vimeo Video - larger with thicker border */}
+          {/* Vimeo Video - with thinner, lighter border and glow effect */}
           <motion.div 
             variants={itemVariants}
             className="w-full max-w-[100%] mx-auto"
           >
-            <div className="video-wrapper p-1.5 rounded-2xl" style={{ border: '3px solid #246551' }}>
+            <div className="video-wrapper p-1.5 rounded-2xl video-glow" style={{ border: '1.5px solid #7cf2a5' }}>
               <div className="video-container relative">
                 <div className="aspect-video bg-gray-100 rounded-xl overflow-hidden">
                   <iframe
@@ -174,6 +174,12 @@ export default function SellwellHero() {
           background-color: transparent;
           border-radius: 20px;
           transition: all 0.3s ease;
+        }
+        
+        /* Added glow effect with site's gradient colors */
+        .video-glow {
+          box-shadow: 0 0 20px 0 rgba(180, 253, 207, 0.6);
+          background: linear-gradient(132deg, rgba(235, 255, 225, 0.1) 0%, rgba(124, 242, 165, 0.1) 100%);
         }
         
         /* Enhanced marquee animation */
