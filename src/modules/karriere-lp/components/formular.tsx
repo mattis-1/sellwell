@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, ChevronLeft, User, Briefcase, Clock, GraduationCap, Users, Zap, Car, Mail, Phone, Star, Check } from 'lucide-react';
+import { ChevronRight, ChevronLeft, User, Briefcase, Clock, GraduationCap, Users, Zap, Car, Mail, Phone, Check } from 'lucide-react';
 
 // Define question types
 type QuestionType = 'text-dual' | 'binary' | 'select' | 'checkbox' | 'rating' | 'textarea' | 'contact';
