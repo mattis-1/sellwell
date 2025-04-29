@@ -124,9 +124,8 @@ export default function SellwellHero() {
           variants={itemVariants}
           className="font-montserrat text-3xl md:text-4xl lg:text-5xl text-center tracking-[-1px] font-[600] max-w-4xl mx-auto px-4 mb-8 leading-tight"
         >
-          <span className="relative inline-block">
-            <span className="relative z-10">Entfalte dein volles Potenzial</span>
-          </span> als Vertriebler im Strom- & Gasvertrieb
+          
+            Entfalte dein volles Potenzial als Vertriebler im Strom- & Gasvertrieb
         </motion.h1>
 
         {/* Container specifically for video with full width */}
