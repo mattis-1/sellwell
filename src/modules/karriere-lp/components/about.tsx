@@ -2,7 +2,6 @@
 
 import { useRef, useEffect, useState } from "react"
 import Image from "next/image"
-import Button from "@/modules/karriere-lp/components/button"
 
 export default function SellwellAboutUs() {
   const [isIntersecting, setIsIntersecting] = useState(false)
