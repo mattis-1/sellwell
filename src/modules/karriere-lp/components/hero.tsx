@@ -159,9 +159,7 @@ export default function SellwellHero() {
           id="formular" 
           className="w-full max-w-[90%] mx-auto mb-16"
         >
-          <div className="w-screen px-5">
           <Formular />
-          </div>
         </motion.div>
       </motion.div>
 
