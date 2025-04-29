@@ -117,7 +117,7 @@ const Formular = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [recentlyChanged, setRecentlyChanged] = useState<string | null>(null);
 
-  // Custom classes for the specific width values
+  // Custom classes for the specific width values with updated colors
   const tailwindStyles = `
     .w-3\\/10 {
       width: 30%;
@@ -139,9 +139,9 @@ const Formular = () => {
       top: 0;
     }
     @keyframes pulse-border {
-      0% { box-shadow: 0 0 0 0 rgba(36, 101, 81, 0.15); }
-      70% { box-shadow: 0 0 0 6px rgba(36, 101, 81, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(36, 101, 81, 0); }
+      0% { box-shadow: 0 0 0 0 rgba(123, 242, 165, 0.15); }
+      70% { box-shadow: 0 0 0 6px rgba(123, 242, 165, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(123, 242, 165, 0); }
     }
     .pulse-animation {
       animation: pulse-border 0.8s ease-out;
@@ -150,28 +150,28 @@ const Formular = () => {
       transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     input:focus, textarea:focus {
-      box-shadow: 0 0 0 3px rgba(36, 101, 81, 0.35); 
+      box-shadow: 0 0 0 3px rgba(123, 242, 165, 0.35); 
     }
     .bg-green-primary {
-      background-color: #246551;
+      background-color: #7BF2A5;
     }
     .hover\\:bg-green-dark:hover {
-      background-color: #1a5040;
+      background-color: #5AC27F;
     }
     .bg-green-light {
-      background-color: #e6f0ed;
+      background-color: #EBFFE1;
     }
     .border-green-primary {
-      border-color: #246551;
+      border-color: #7BF2A5;
     }
     .text-green-primary {
-      color: #246551;
+      color: #7BF2A5;
     }
     .focus\\:ring-green-primary:focus {
-      --tw-ring-color: rgba(36, 101, 81, 0.35);
+      --tw-ring-color: rgba(123, 242, 165, 0.35);
     }
     .bg-green-lightest {
-      background-color: #f0f5f4;
+      background-color: #F5FFF0;
     }
   `;
 
@@ -513,7 +513,7 @@ const Formular = () => {
                     name={String(field)}
                     value={stringValue}
                     onChange={(e) => handleChange(String(field), e.target.value)}
-                    className={`pl-9 sm:pl-10 block w-full rounded-lg transition-all duration-300 ${
+                    className={`pl-9 sm:pl-10 block w-full rounded-2xl transition-all duration-300 ${
                       errors[field] ? 'border border-red-500' : isRecentlyChanged ? 'border border-green-primary pulse-animation' : 'border border-gray-200'
                     } py-3 sm:py-4 px-3 sm:px-4 text-gray-900 focus:outline-none`}
                     placeholder={q.labels[index]}
@@ -541,7 +541,7 @@ const Formular = () => {
             <div
               key={`option-binary-${q.field}-${String(option.value)}`}
               onClick={() => handleChange(String(q.field), option.value)}
-              className={`flex items-center p-4 sm:p-5 rounded-lg transition-all duration-300 cursor-pointer relative group ${
+              className={`flex items-center p-4 sm:p-5 rounded-2xl transition-all duration-300 cursor-pointer relative group ${
                 isSelected ? 
                   isRecentlyChanged ? 
                     'bg-green-light border border-green-primary pulse-animation' : 
@@ -549,9 +549,6 @@ const Formular = () => {
                 : 'bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:scale-[1.01] transform'
               }`}
             >
-              <div className="mr-3 sm:mr-4">
-                {q.icon}
-              </div>
               <div className="flex-grow">
                 <p className="font-medium">{option.label}</p>
               </div>
@@ -583,7 +580,7 @@ const Formular = () => {
             <div
               key={`option-select-${q.field}-${option.value}`}
               onClick={() => handleChange(String(q.field), option.value)}
-              className={`flex items-center p-4 sm:p-5 rounded-lg cursor-pointer transition-all duration-300 relative group ${
+              className={`flex items-center p-4 sm:p-5 rounded-2xl cursor-pointer transition-all duration-300 relative group ${
                 isSelected ? 
                   isRecentlyChanged ? 
                     'bg-green-light border border-green-primary pulse-animation' : 
@@ -591,9 +588,6 @@ const Formular = () => {
                 : 'bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:scale-[1.01] transform'
               }`}
             >
-              <div className="mr-3 sm:mr-4">
-                {q.icon}
-              </div>
               <div className="flex-grow">
                 <p className="font-medium">{option.label}</p>
               </div>
@@ -629,7 +623,7 @@ const Formular = () => {
                 const currentValue = formData.jobPreferences[option.value];
                 handleChange(checkboxField, !currentValue);
               }}
-              className={`flex items-center p-4 sm:p-5 rounded-lg cursor-pointer transition-all duration-300 relative group ${
+              className={`flex items-center p-4 sm:p-5 rounded-2xl cursor-pointer transition-all duration-300 relative group ${
                 isSelected ? 
                   isRecentlyChanged ? 
                     'bg-green-light border border-green-primary pulse-animation' : 
@@ -637,13 +631,6 @@ const Formular = () => {
                 : 'bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 hover:scale-[1.01] transform'
               }`}
             >
-              <div className="mr-3 sm:mr-4">
-                {option.value === 'compensation' && <Star className="h-5 w-5 sm:h-6 sm:w-6 text-green-primary" />}
-                {option.value === 'flexibleHours' && <Clock className="h-5 w-5 sm:h-6 sm:w-6 text-green-primary" />}
-                {option.value === 'training' && <GraduationCap className="h-5 w-5 sm:h-6 sm:w-6 text-green-primary" />}
-                {option.value === 'teamSpirit' && <Users className="h-5 w-5 sm:h-6 sm:w-6 text-green-primary" />}
-                {option.value === 'responsibility' && <Zap className="h-5 w-5 sm:h-6 sm:w-6 text-green-primary" />}
-              </div>
               <div className="flex-grow">
                 <p className="font-medium">{option.label}</p>
               </div>
@@ -680,7 +667,7 @@ const Formular = () => {
               <div
                 key={`rating-${q.field}-${rating}`}
                 onClick={() => handleChange(String(q.field), rating)}
-                className={`flex-1 py-4 sm:py-5 rounded-lg cursor-pointer text-center transition-all duration-300 
+                className={`flex-1 py-4 sm:py-5 rounded-2xl cursor-pointer text-center transition-all duration-300 
                   ${isSelected ? 
                     isRecentlyChanged ? 
                       'bg-green-light border border-green-primary pulse-animation scale-110 transform' : 
@@ -713,7 +700,7 @@ const Formular = () => {
             value={formData[q.field] !== null ? String(formData[q.field]) : ''}
             onChange={(e) => handleChange(String(q.field), e.target.value)}
             rows={4}
-            className={`block w-full rounded-lg transition-all duration-300 ${
+            className={`block w-full rounded-2xl transition-all duration-300 ${
               errors[q.field] ? 'border border-red-500' : isRecentlyChanged ? 'border border-green-primary pulse-animation' : 'border border-gray-200'
             } py-3 px-4 text-gray-900 focus:outline-none`}
             placeholder="Schreibe hier deine Antwort..."
@@ -755,7 +742,7 @@ const Formular = () => {
                   name={String(field)}
                   value={stringValue}
                   onChange={(e) => handleChange(String(field), e.target.value)}
-                  className={`pl-9 sm:pl-10 block w-full rounded-lg transition-all duration-300 ${
+                  className={`pl-9 sm:pl-10 block w-full rounded-2xl transition-all duration-300 ${
                     errors[field] ? 'border border-red-500' : isRecentlyChanged ? 'border border-green-primary pulse-animation' : 'border border-gray-200'
                   } py-2.5 sm:py-3 px-3 sm:px-4 text-gray-900 focus:outline-none`}
                   placeholder={q.labels[index]}
@@ -810,7 +797,7 @@ const Formular = () => {
           />
         </div>
         
-        <div className="bg-white rounded-xl border border-gray-100 px-3 py-4 sm:px-6 sm:py-8">
+        <div className="bg-white rounded-3xl border border-gray-100 px-3 py-4 sm:px-6 sm:py-8">
           {/* Main content with dynamic height and smooth transitions */}
           <div className="flex flex-col justify-between min-h-[300px]">
             <div className="relative" style={{ minHeight: '240px' }}>
@@ -829,11 +816,8 @@ const Formular = () => {
                   className="w-full absolute-on-exit"
                   style={{ position: direction === 'forward' ? 'relative' : 'absolute', width: '100%' }}
                 >
-                  {/* Question header */}
-                  <div className="flex items-center mb-6">
-                    <div className="mr-4 p-2 bg-green-lightest rounded-lg">
-                      {currentQuestionData.icon}
-                    </div>
+                  {/* Question header - removed icon */}
+                  <div className="mb-6">
                     <h2 className="text-lg sm:text-xl font-semibold text-gray-800">
                       {currentQuestionData.question}
                     </h2>
@@ -851,7 +835,7 @@ const Formular = () => {
                 <button
                   type="button"
                   onClick={goToPreviousQuestion}
-                  className="w-3/10 flex justify-center items-center py-2.5 rounded-lg text-gray-700 transition-all duration-300 border border-gray-300 hover:bg-gray-50 hover:border-gray-400 mr-1.5 focus:outline-none focus:ring-2 focus:ring-green-primary"
+                  className="w-3/10 flex justify-center items-center py-2.5 rounded-3xl text-gray-700 transition-all duration-300 border border-gray-300 hover:bg-gray-50 hover:border-gray-400 mr-1.5 focus:outline-none focus:ring-2 focus:ring-green-primary"
                 >
                   <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 mr-1" />
                   Zurück
@@ -862,7 +846,7 @@ const Formular = () => {
                 <button
                   type="button"
                   onClick={goToNextQuestion}
-                  className={`flex justify-center items-center py-2.5 bg-green-primary text-white rounded-lg hover:bg-green-dark transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-primary transform hover:scale-[1.02] ${
+                  className={`flex justify-center items-center py-2.5 bg-green-primary text-black rounded-3xl hover:bg-green-dark transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-primary transform hover:scale-[1.02] ${
                     currentQuestion === 0 ? 'w-full' : 'w-7/10'
                   }`}
                 >
@@ -874,7 +858,7 @@ const Formular = () => {
                   type="button"
                   onClick={handleSubmit}
                   disabled={isSubmitting}
-                  className={`flex justify-center items-center py-2.5 bg-green-primary text-white rounded-lg hover:bg-green-dark transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-primary transform hover:scale-[1.02] ${
+                  className={`flex justify-center items-center py-2.5 bg-green-primary text-black rounded-3xl hover:bg-green-dark transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-primary transform hover:scale-[1.02] ${
                     currentQuestion === 0 ? 'w-full' : 'w-7/10'
                   }`}
                 >

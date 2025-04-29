@@ -77,7 +77,7 @@ export default function SellwellHero() {
       }`}
     >
       {/* Benefits Banner with darker colors and border */}
-      <div className="w-screen py-3 bg-gradient-to-r from-[#89E5B0] to-[#C8F9D7] text-white overflow-hidden border-b-2 border-[#5AC27F]">
+      <div className="w-screen py-3 bg-gradient-to-r from-[#7CF2A5] to-[#C8F9D7] text-white overflow-hidden border-b-2 border-[#5AC27F]">
         <div className="sellwell-marquee">
           <div className="sellwell-marquee-content">
             {allBenefits.map((benefit, index) => (
@@ -160,7 +160,9 @@ export default function SellwellHero() {
           id="formular" 
           className="w-full max-w-[90%] mx-auto mb-16"
         >
+          <div className="w-screen px-5">
           <Formular />
+          </div>
         </motion.div>
       </motion.div>
 
