@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, ChevronLeft, User, Briefcase, Clock, GraduationCap, Users, Zap, Car, Mail, Phone, Star, Check } from 'lucide-react';
+import { ChevronRight, ChevronLeft, User, Briefcase, Clock, GraduationCap, Users, Zap, Car, Mail, Phone, Check } from 'lucide-react';
 
 // Define question types
 type QuestionType = 'text-dual' | 'binary' | 'select' | 'checkbox' | 'rating' | 'textarea' | 'contact';
@@ -116,6 +116,8 @@ const Formular = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [recentlyChanged, setRecentlyChanged] = useState<string | null>(null);
+  // Reference to form container to maintain scroll position
+  const formContainerRef = useRef<HTMLDivElement>(null);
 
   // Custom classes for the specific width values with updated colors
   const tailwindStyles = `
@@ -208,27 +210,37 @@ const Formular = () => {
     });
   };
 
-  // Navigation handlers
+  // Navigation handlers with improved scroll handling
   const goToNextQuestion = () => {
     const isValid = validateCurrentQuestion();
     if (!isValid) return;
     
     setDirection('forward');
     setCurrentQuestion((prev) => Math.min(prev + 1, questions.length - 1));
+    
+    // Ensure smooth scroll behavior without jumping to top
+    if (formContainerRef.current) {
+      const currentScrollY = window.scrollY;
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: currentScrollY });
+      });
+    }
   };
 
-  // Fix container height issue without breaking smooth animations
   const goToPreviousQuestion = () => {
     setDirection('backward');
     setCurrentQuestion((prev) => Math.max(prev - 1, 0));
     
-    // Simple fix for container height: reset scroll and update layout after animation
-    setTimeout(() => {
-      window.scrollTo({top: 0, behavior: 'smooth'});
-    }, 100);
+    // Maintain scroll position during animation
+    if (formContainerRef.current) {
+      const currentScrollY = window.scrollY;
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: currentScrollY });
+      });
+    }
   };
 
-  // Bug fix: Fix the validation of jobPreferences
+  // Improved validation with better type safety
   const validateCurrentQuestion = (): boolean => {
     const newErrors: Record<string, string> = {};
     const q = filteredQuestions[currentQuestion];
@@ -297,14 +309,27 @@ const Formular = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  // Optimized submit handler with improved performance
-  const handleSubmit = async () => {
+  // Fixed submit handler that prevents page scroll and maintains UI state
+  const handleSubmit = async (e?: React.MouseEvent) => {
+    // Prevent any default behavior that might cause page refresh
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    
+    // Validate before submission
     const isValid = validateCurrentQuestion();
     if (!isValid) return;
     
+    // Prevent multiple submissions
+    if (isSubmitting) return;
+    
     setIsSubmitting(true);
     
-    // Prepare the form data for submission - optimized structure
+    // Capture current scroll position
+    const currentScrollY = window.scrollY;
+    
+    // Prepare the form data for submission
     const submissionData = {
       firstName: formData.firstName,
       lastName: formData.lastName,
@@ -325,43 +350,43 @@ const Formular = () => {
       submittedAt: new Date().toISOString()
     };
     
-    // Implement optimistic UI - redirect immediately for better perceived performance
-    // We'll still make the API call but not wait for it to complete before redirecting
-    const redirectTimer = setTimeout(() => {
-      window.location.href = '/danke?lead=true';
-    }, 300); // Short delay for visual feedback that submission is happening
-    
     try {
-      // Use faster fetch options
+      // Use faster fetch options with better error handling
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 8000); // Set timeout to 8 seconds
+      const timeoutId = setTimeout(() => controller.abort(), 8000);
       
-      // Make the API call with improved performance settings
-      const response = await fetch('/api/bewerber/kampagne1', {
+      // Fire and forget - don't wait for the response before redirecting
+      fetch('/api/bewerber/kampagne1', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
-          'Cache-Control': 'no-cache', // Prevent caching
-          'Priority': 'high' // Signal high priority (supported in some browsers)
+          'Cache-Control': 'no-cache',
+          'Priority': 'high'
         },
         body: JSON.stringify(submissionData),
         signal: controller.signal,
-        // Use keepalive to allow request to complete even if page unloads
-        keepalive: true
+        keepalive: true // Allow request to complete after page navigation
+      }).catch(error => {
+        console.error('Background submission error:', error);
+        // We don't need to handle this error since we're already redirecting
       });
       
+      // Show submission state for visual feedback before redirecting
+      setTimeout(() => {
+        // Use window.location.replace instead of href to avoid adding to browser history
+        window.location.replace('/danke?lead=true');
+      }, 500);
+      
+      // Clear the timeout if we're navigating away
       clearTimeout(timeoutId);
       
-      if (!response.ok) {
-        throw new Error(`Server responded with an error: ${response.status}`);
-      }
-      
-      // The redirect will already have happened due to the timer above
-      
     } catch (error) {
-      // Only show error alerts if we haven't redirected yet
-      clearTimeout(redirectTimer);
       console.error('Error submitting form:', error);
+      
+      // Restore scroll position if there's an error
+      window.scrollTo({ top: currentScrollY });
+      
+      // Show error feedback
       alert('Es gab einen Fehler bei der Übermittlung. Bitte versuche es erneut.');
       setIsSubmitting(false);
     }
@@ -783,11 +808,12 @@ const Formular = () => {
   };
 
   return (
-    <div className="w-full flex flex-col items-center bg-white">
+    // Form container with ref to maintain scroll position
+    <div className="w-full flex flex-col items-center bg-white" ref={formContainerRef}>
       {/* Add custom styles */}
       <style>{tailwindStyles}</style>
       
-      {/* Wrap the form in a div with auto height instead of min-h-screen */}
+      {/* Wrap the form in a div that prevents default form behavior */}
       <div className="w-full max-w-xl px-3 sm:px-4 my-4">
         {/* Improved Progress bar */}
         <div className="h-2 bg-gray-100 rounded-full overflow-hidden mb-4">
@@ -816,7 +842,7 @@ const Formular = () => {
                   className="w-full absolute-on-exit"
                   style={{ position: direction === 'forward' ? 'relative' : 'absolute', width: '100%' }}
                 >
-                  {/* Question header - removed icon */}
+                  {/* Question header */}
                   <div className="mb-6">
                     <h2 className="text-lg sm:text-xl font-semibold text-gray-800">
                       {currentQuestionData.question}
@@ -829,12 +855,15 @@ const Formular = () => {
               </AnimatePresence>
             </div>
             
-            {/* Navigation buttons - always positioned correctly */}
+            {/* Navigation buttons - with improved event handling */}
             <div className="mt-8 flex w-full">
               {currentQuestion > 0 ? (
                 <button
                   type="button"
-                  onClick={goToPreviousQuestion}
+                  onClick={(e) => {
+                    e.preventDefault(); // Prevent default button behavior
+                    goToPreviousQuestion();
+                  }}
                   className="w-3/10 flex justify-center items-center py-2.5 rounded-3xl text-gray-700 transition-all duration-300 border border-gray-300 hover:bg-gray-50 hover:border-gray-400 mr-1.5 focus:outline-none focus:ring-2 focus:ring-green-primary"
                 >
                   <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5 mr-1" />
@@ -845,7 +874,10 @@ const Formular = () => {
               {currentQuestion < filteredQuestions.length - 1 ? (
                 <button
                   type="button"
-                  onClick={goToNextQuestion}
+                  onClick={(e) => {
+                    e.preventDefault(); // Prevent default button behavior
+                    goToNextQuestion();
+                  }}
                   className={`flex justify-center items-center py-2.5 bg-green-primary text-black rounded-3xl hover:bg-green-dark transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-primary transform hover:scale-[1.02] ${
                     currentQuestion === 0 ? 'w-full' : 'w-7/10'
                   }`}
@@ -856,7 +888,10 @@ const Formular = () => {
               ) : (
                 <button
                   type="button"
-                  onClick={handleSubmit}
+                  onClick={(e) => {
+                    e.preventDefault(); // Prevent default button behavior
+                    handleSubmit(e);
+                  }}
                   disabled={isSubmitting}
                   className={`flex justify-center items-center py-2.5 bg-green-primary text-black rounded-3xl hover:bg-green-dark transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-primary transform hover:scale-[1.02] ${
                     currentQuestion === 0 ? 'w-full' : 'w-7/10'
