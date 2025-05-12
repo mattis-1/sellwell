@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "@/components/ui/button";
+import Button from "@/modules/karriere-lp/components/button"
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import MissionSection from "@/components/ui/MissionSection";
@@ -16,7 +16,11 @@ import AnimatedStats from "@/components/ui/stats"
 import { useState } from 'react';
 import SimpleModal from "@/components/SimpleModal";
 import FadeIn from '@/components/fadein';
-import CookieBanner from '@/components/cookiebanner'
+import CookieBanner from '@/components/cookiebanner';
+import "@/modules/karriere-lp/styles/karriere-lp-styles.css"
+import SellwellBenefits from "@/modules/karriere-lp/components/benefits"
+import SellwellExpectations2 from "@/modules/karriere-lp/components/erwartungen2"
+
 
 
 const videoIds = [
@@ -172,22 +176,20 @@ export default function Home() {
         
 
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-3xl sm:text-[15px] md:text-[50px] lg:text-[65px] inter800 tracking-[-1px] sm:tracking-[-1.5px] md:tracking-[-2px] leading-[1.2] sm:leading-[1.3] font-bold mb-3 sm:mb-5">
+            <h1 className="font-montserrat text-[57.5px] md:text-[61.5px] text-center tracking-[-1.5px] font-[700] max-w-4xl mx-auto px-4 mb-8 leading-tight">
               Mit Sellwell als Partner{" "}
-              <span className="bg-gradient-to-r from-[#184639] to-[#2F8267] bg-clip-text text-transparent"><br />neue Türen öffnen.</span>
+              <span className=""><br />neue Türen öffnen.</span>
             </h1>
             <p className="font-[500] inter500 text-base sm:text-lg md:text-[20px] mx-auto mb-6 sm:mb-8 text-[#171717] max-w-180">
               Ob du als Vertriebstalent richtig Karriere machen willst, oder nach optimalen Vertriebslösungen für deine Unternehmung suchst - Sellwell ist der perfekter Partner für dich. 
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-10 sm:mb-20">
               <Button 
-              onClick={openBewerberModal}
-              className="text-base sm:text-lg md:text-[20px] py-2 rounded-[99px] inter500" variant="default">
+              onClick={openBewerberModal}>
                 Für Vertriebstalente
               </Button>
               <Button 
-              onClick={openFirmaModal}
-              className="inter500 bg-gradient-to-r from-[#184639] to-[#2F8267] bg-clip-text text-transparent text-base sm:text-lg md:text-[20px] rounded-[99px] mt-2 sm:mt-0" variant="outline">
+              onClick={openFirmaModal}>
                 Für Unternehmen
               </Button>
             </div>
@@ -331,8 +333,7 @@ export default function Home() {
           Als schnellstwachsender Door-to-Door Vertrieb Bayerns übernehmen wir für führende Unternehmen in der Energiebranche den Außendienst. Mit hocheffektiven Vertriebslösungen und einem ambitionierten Team setzen wir regelmäßig neue Maßstäbe im Markt der erneuerbaren Energie.
         </p>
         <a href="#about">
-        <Button 
-        variant="default" className="self-start text-lg sm:text-[22px] rounded-[99px]">
+        <Button>
           Mehr erfahren
         </Button>
         </a>
@@ -344,7 +345,7 @@ export default function Home() {
 
 {/* Karriereerfolg Section */}
 <section className="relative w-full py-10 px-4 sm:pl-10 sm:pr-8 overflow-hidden">
-  <div className="absolute inset-0 bg-[#184639] z-0"></div>
+  <div className="absolute inset-0 bg-gradient-to-r from-[#E9FEE6] to-[#A4F6C0] z-0"></div>
         
   {/* Texture background */}
         
@@ -356,107 +357,61 @@ export default function Home() {
         <span className="mb-3 inline-block bg-gradient-to-r from-[#ffffff] to-[#a9aaac] text-[#0B3E27] text-[14px] sm:text-[16px] font-[700] rounded-[99px] px-4 py-1">
           KARRIEREERFOLG MIT SELLWELL
         </span>
-        <h2 className="inter800 mb-4 text-3xl tracking-[-1.2px] sm:text-[35px] md:text-[40px] lg:text-[42px] bg-gradient-to-r from-[#ffffff] to-[#A9AAAC] bg-clip-text text-transparent">
+        <h2 className="text-[38px] font-[600] text-left tracking-[-0.72px] leading-[40.4px] mb-5 ml-[-5px] text-[#111]">
           Entfalte dein volles<br />Potenzial im Direktvertrieb
         </h2>
                 
         <ul className="space-y-3 mb-6 sm:mb-8 w-full">
           <li className="flex items-start gap-3">
-            <div
-              className="flex-shrink-0 flex items-center justify-center rounded-[8px]"
-              style={{
-                width: "25px",
-                height: "25px",
-                minWidth: "25px",
-                background: "linear-gradient(to bottom, #4b4b4b, #141414)",
-                border: "2.5px #0C462B",
-              }}
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="#ffffff">
+          
+               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary flex-shrink-0 mt-0.1" viewBox="0 0 20 20" fill="#111">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
-            </div>
-            <span className="text-[16px] sm:text-[18px]">Konstante Weiterbildung und individualisierte Unterstützung</span>
+           
+            <span className="text-[17px] sm:text-[17px] text-[#222]">Konstante Weiterbildung und individualisierte Unterstützung</span>
           </li>
           <li className="flex items-start gap-3">
-            <div
-              className="flex-shrink-0 flex items-center justify-center rounded-[8px]"
-              style={{
-                width: "25px",
-                height: "25px",
-                minWidth: "25px",
-                background: "linear-gradient(to bottom, #4b4b4b, #141414)",
-                border: "2.5px #0C462B",
-              }}
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="#ffffff">
+           
+               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary flex-shrink-0 mt-0.1" viewBox="0 0 20 20" fill="#111">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
-            </div>
-            <span className="text-[16px] sm:text-[18px]">Schneller Aufstieg & Top Gehalt - 5-stellig verdienen machbar</span>
+            
+            <span className="text-[17px] sm:text-[17px] text-[#222]">Schneller Aufstieg & 1A Gehalt: 5-stellig verdienen machbar</span>
           </li>
           <li className="flex items-start gap-3">
-            <div
-              className="flex-shrink-0 flex items-center justify-center rounded-[8px]"
-              style={{
-                width: "25px",
-                height: "25px",
-                minWidth: "25px",
-                background: "linear-gradient(to bottom, #4b4b4b, #141414)",
-                border: "2.5px #0C462B",
-              }}
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="#ffffff">
+          
+               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary flex-shrink-0 mt-0.1" viewBox="0 0 20 20" fill="#111">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
-            </div>
-            <span className="text-[16px] sm:text-[18px]">Arbeite mit einem ambitionierten, familiären Team</span>
+            
+            <span className="text-[17px] sm:text-[17px] text-[#222]">Arbeite mit einem ambitionierten, familiären Team</span>
           </li>
           <li className="flex items-start gap-3">
-            <div
-              className="flex-shrink-0 flex items-center justify-center rounded-[8px]"
-              style={{
-                width: "25px",
-                height: "25px",
-                minWidth: "25px",
-                background: "linear-gradient(to bottom, #4b4b4b, #141414)",
-                border: "2.5px #0C462B",
-              }}
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="#ffffff">
+           
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary flex-shrink-0 mt-0.1" viewBox="0 0 20 20" fill="#111">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
-            </div>
-            <span className="text-[16px] sm:text-[18px]">Effiziente Prozesse & Strategien - direkt umsetzbar</span>
+            
+            <span className="text-[17px] sm:text-[17px] text-[#222]">Effiziente Prozesse & Strategien - direkt umsetzbar</span>
           </li>
           <li className="flex items-start gap-3 mb-2 sm:mb-[-9px]">
-            <div
-              className="flex-shrink-0 flex items-center justify-center rounded-[8px]"
-              style={{
-                width: "25px",
-                height: "25px",
-                minWidth: "25px",
-                background: "linear-gradient(to bottom, #4b4b4b, #141414)",
-                border: "2.5px #0C462B",
-              }}
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="#ffffff">
+           
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-primary flex-shrink-0 mt-0.1" viewBox="0 0 20 20" fill="#111">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
               </svg>
-            </div>
-            <span className="text-[16px] sm:text-[18px]">Renommierte Partner mit gutem Ruf und etablierten Marken</span>
+            
+            <span className="text-[17px] sm:text-[17px] text-[#222]">Renommierte Partner mit gutem Ruf und etablierten Marken</span>
           </li>
         </ul>
                 
-        <button    
-        onClick={openBewerberModal}
-        className="inline-flex bg-gradient-to-r from-[#D8D8D9] to-[#AFB0B2] items-center px-5 py-2.5 text-[#0B3E27] font-[700] text-[16px] sm:text-[19px] rounded-full transition shadow-[0_2px_3px_rgba(0,0,0,0.5)] self-start">
+        <Button   
+        onClick={openBewerberModal}>
           MEHR ERFAHREN
-        </button>
+        </Button>
       </div>
       </FadeIn>      
       {/* Right column - Image */}
-      <div className="mt-8 md:mt-7 shadow-[0_0_60px_0_rgba(5,46,22,0.55)] relative h-64 sm:h-80 md:h-[350px] lg:h-[400px] rounded-[25px] overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10">
+      <div className="mt-8 md:mt-7 relative h-64 sm:h-80 md:h-[350px] lg:h-[400px] rounded-[25px] overflow-hidden border border-white/10">
         <div className="absolute inset-0 flex items-center justify-center">
           <Image 
             src="/Potenzial.png" 
@@ -477,7 +432,7 @@ export default function Home() {
 
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
       {/* Left column - Image with reduced height */}
-      <div className="z-[10] relative h-64 sm:h-80 md:h-[320px] lg:h-[360px] xl:h-[400px] max-h-[450px] rounded-[25px] overflow-hidden shadow-[0_0_60px_0_rgba(63,98,18,0.5)] backdrop-blur-sm border border-white/10">
+      <div className="z-[10] relative h-64 sm:h-80 md:h-[320px] lg:h-[360px] xl:h-[400px] max-h-[450px] rounded-[25px] overflow-hidden">
         <div className="absolute inset-0 bg-gray-300 flex items-center justify-center">
           <Image 
             src="/Projekterfolg.png" 
@@ -491,19 +446,17 @@ export default function Home() {
       {/* Right column - Content */}
       <div className="flex flex-col start-items items-start z-[125] mt-6 md:mt-0">
         <span className="mb-3 inline-block bg-gradient-to-r from-[#184639] to-[#2F8267] text-white text-[14px] sm:text-[16px] font-[600] rounded-[99px] px-4 py-1">PROJEKTERFOLG MIT SELLWELL</span>
-        <h2 className=" mb-2 text-[#000000] inter800 tracking-[-1.3px] text-3xl sm:text-[35px] md:text-[40px] lg:text-[45px]">Produkt erfolgreich<br /><span className="bg-gradient-to-r from-[#184639] to-[#2F8267] bg-clip-text text-transparent">mit Sellwell vermarkten</span></h2>
-        <p className="text-[#000000] mb-6 text-lg sm:text-xl">
+        <h2 className=" text-[38px] font-[600] text-left tracking-[-0.72px] leading-[40.4px] mb-5 ml-[-5px]">Produkt erfolgreich<br />mit Sellwell vermarkten</h2>
+        <p className="font-inter text-[#111111] text-left text-[17px] tracking-[-0.22px] leading-[26.4px] mr-10 ml-[-5px] mb-5">
           Wir vermarkten Ihr Produkt effizient, verlässlich und mit messbaren ErgebnissenEffizient. Konstante Weiterbildung unseres Teams und bewährte Vertriebsprozesse, die kontinuierlich optimiert werden, machen uns zum optimalen Partner für Ihr Unternehmen.
         </p>
+        <div className="ml-[-5px]">
         <Button 
             onClick={openFirmaModal}
-            variant="default" 
-            className="self-start text-lg sm:text-[22px] rounded-[99px]"
-            
           >
             Jetzt Projekt anfragen
           </Button>
-      
+      </div>
       
     
       </div></FadeIn>     
@@ -511,7 +464,10 @@ export default function Home() {
   </div>
 </section>
 
-{/* Three Column Section */}
+<div className="pt-10 pb-2">
+<SellwellBenefits />
+</div>
+{/* Three Column Section 
 <section className="bg-[#184639] py-18">
   <div className="container mx-auto px-6 sm:px-12 md:px-24 lg:px-32">
     <div className="mb-10">
@@ -526,7 +482,7 @@ export default function Home() {
                   />
  </div>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Column 1 */}
+            {/* Column 1 
       <FadeIn direction="up" delay={100}>
       <div className="flex flex-col items-center text-center">
         <div className="mb-[-2.5px]">
@@ -546,7 +502,7 @@ export default function Home() {
         </p>
       </div>
 </FadeIn>
-      {/* Column 2 */}
+      {/* Column 2 
 <FadeIn direction="up" delay={200}>
       <div className="flex flex-col items-center text-center">
         <div className="mb-[-2.5px]">
@@ -566,7 +522,7 @@ export default function Home() {
         </p>
       </div>
       </FadeIn>
-      {/* Column 3 */}
+      {/* Column 3
       <FadeIn direction="up" delay={300}>
       <div className="flex flex-col items-center text-center">
         <div className="mb-[-2.5px]">
@@ -590,7 +546,7 @@ export default function Home() {
     </div>
   </div>
 </section>
-
+*/}
 <section id="about">
    <VerticalGallerySection />
 </section>
@@ -607,17 +563,17 @@ export default function Home() {
       {/*Karriere-Split Screen*/}
       <SplitSection />
 
-{/* Three Column Section */}
+{/* Three Column Section 
 <section className="bg-[#EBE9E8] pb-10">
   <div className="bg-[#ffffff] pb-14 pt-5 rounded-b-[70px] shadow-[0px_6px_10px_0px_rgba(0,0,0,0.15)]">
-    {/* Added a max-width container to limit width on larger screens */}
+    {/* Added a max-width container to limit width on larger screens 
     <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div className="bg-[#184639] py-14 rounded-[70px]">
-        {/* Adjusted padding to be more consistent */}
+        {/* Adjusted padding to be more consistent 
         <div className="container mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <FadeIn direction="none" delay={100}>
-              {/* Column 1 */}
+              {/* Column 1 
               <div className="flex flex-col items-center text-center">
                 <div className="mb-[-2.5px]">
                   <Image 
@@ -638,7 +594,7 @@ export default function Home() {
             </FadeIn>
             
             <FadeIn direction="none" delay={200}>
-              {/* Column 2 */}
+              {/* Column 2 
               <div className="flex flex-col items-center text-center">
                 <div className="mb-[-2.5px]">
                   <Image 
@@ -659,7 +615,7 @@ export default function Home() {
             </FadeIn>
             
             <FadeIn direction="none" delay={300}>
-              {/* Column 3 */}
+              {/* Column 3 
               <div className="flex flex-col items-center text-center">
                 <div className="mb-[-2.5px]">
                   <Image 
@@ -684,6 +640,9 @@ export default function Home() {
     </div>
   </div>
 </section>
+*/}
+
+<SellwellExpectations2 />
 
 <section id="leistungen" className="py-8 sm:py-10 md:pb-12 md:pt-15 bg-[#EBE9E8] w-full">
   <div className="container mx-auto px-4 sm:px-6">
@@ -860,8 +819,7 @@ export default function Home() {
               {/* Green gradient CTA button */}
               <Button 
                 onClick={openFirmaModal}
-                variant="default" 
-                className="self-start text-base sm:text-lg md:text-[22px] rounded-[99px] py-2 md:pb-3"
+                
               >
                 Beratungsgespräch vereinbaren
               </Button>

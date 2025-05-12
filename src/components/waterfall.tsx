@@ -45,30 +45,75 @@ const VerticalGallerySection = () => {
   ];
 
   return (
-    <section className="relative py-10 sm:py-16 md:py-20 pt-16 sm:pt-20 md:pt-30 px-4 bg-[#EBE9E8] w-full overflow-hidden">
+    <section className="relative py-15 sm:py-15 md:py-20 pt-20 sm:pt-20 md:pt-20 px-4 bg-[#F9F9F9] w-full overflow-hidden">
       {/* Texture overlay properly implemented */}    
       <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-24 xl:px-32 relative z-[2]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start">
           {/* Left Column - Text and Features */}
           <FadeIn delay={100} direction="none">
-          <div className="flex flex-col mt-0 sm:mt-1 pl-0 sm:pl-5 items-start text-white">
-            <span className="mb-2 sm:mb-3 inline-block bg-gradient-to-r from-[#184639] to-[#2F8267] text-white text-[14px] sm:text-[16px] font-[600] rounded-[99px] px-3 sm:px-4 py-1">ÜBER SELLWELL</span>
-            <h2 className="inter800 tracking-[-1.3px] text-3xl sm:text-[35px] md:text-[40px] lg:text-[50px] mt-1 leading-[1.2] sm:leading-[1.3] mb-3 sm:mb-5 text-black">
-              Vertriebsexzellenz<br /><span className="bg-gradient-to-r from-[#184639] to-[#2F8267] bg-clip-text text-transparent">komplett neu definiert</span>
-            </h2>
-            <p className="text-black mb-4 sm:mb-6 md:mb-8 text-base sm:text-lg md:text-[19px]">
-              Wir sind eine spezialisierte Vertriebsagentur aus München in Bayern, die Unternehmen hilft, ihr volles Vertriebspotenzial auszuschöpfen und gleichzeitig ambitionierten Vertriebstalenten eine erfolgsorientierte Karrierechance bietet. Mit unserer langjährigen Expertise und einer starken Teamkultur liefern wir unseren Partnern herausragende Ergebnisse.
-            </p>
-    
-            <p className="text-black mb-4 sm:mb-6 md:mb-8 text-base sm:text-lg md:text-[19px]">
-              Unseren Vertriebstalenten helfen wir durch individuelle Unterstützung, ihr volles Potenzial zu entfalten. Wir setzen konsequent auf Weiterbildung und kontinuierliche Optimierung, um innovative Maßstäbe zu setzen und unsere Unternehmenskultur zu stärken.
-            </p>
-    
-            <p className="text-black mb-4 sm:mb-6 md:mb-8 text-base sm:text-lg md:text-[19px]">
-              Die Kombination aus strukturierter Einarbeitung, stetiger Verbesserung, persönlicher Fortbildung und außergewöhnlich attraktiver Vergütung macht uns zum Arbeitgeber der Wahl für junge, ambitionierte Vertriebstalente.
-            </p>
-          </div>
+          <div className=" sellwell-about-container">
+            
+                    {/* Headline */}
+                    <h2 className="font-inter text-[35px] font-[600] tracking-[-0.8px] leading-[40px] text-[rgb(17,17,17)] mb-6 text-left w-full">
+                      Vertriebsexzellenz, <br /> komplett neu definiert.
+                    </h2>
+          
+                    {/* Text content - shortened and improved */}
+                    <div className="mb-8 text-left w-full">
+                      <p className="font-inter text-[17px] font-normal tracking-[-0.2px] leading-[22px] text-[#111111] mb-4">
+                        Wir sind eine spezialisierte Vertriebsagentur aus München in Bayern, die Unternehmen hilft, ihr volles Vertriebspotenzial auszuschöpfen und gleichzeitig ambitionierten Vertriebstalenten eine erfolgsorientierte Karrierechance bietet. Mit unserer langjährigen Expertise und einer starken Teamkultur liefern wir unseren Partnern herausragende Ergebnisse.
+                      </p>
+                      <p className="font-inter text-[17px] font-normal tracking-[-0.2px] leading-[22px] text-[#111111] mb-4">
+Unseren Vertriebstalenten helfen wir durch individuelle Unterstützung, ihr volles Potenzial zu entfalten. Wir setzen konsequent auf Weiterbildung und kontinuierliche Optimierung, um innovative Maßstäbe zu setzen und unsere Unternehmenskultur zu stärken.                      </p>
+                   
+                     <p className="font-inter text-[17px] font-normal tracking-[-0.2px] leading-[22px] text-[#111111]">  Die Kombination aus strukturierter Einarbeitung, stetiger Verbesserung, persönlicher Fortbildung und außergewöhnlich attraktiver Vergütung macht uns zum Arbeitgeber der Wahl für junge, ambitionierte Vertriebstalente.
+</p>
+</div>
+                    {/* Stat containers - moved below text and redesigned */}
+                    <div className="space-y-4 mb-2 w-full">
+                      {/* Stat container 1 */}
+                      <div className="bg-white rounded-[20px] p-4 flex items-center w-full shadow-sm">
+                        <div className="flex-shrink-0 mr-4">
+                          <Image 
+                           src="/greenstar.svg" 
+                           alt="icon"
+                           width={50}
+                           height={50}
+                          />
+                        </div>
+                        <div>
+                          <div className="font-inter text-[24px] text-left font-[600] text-[#111111] tracking-[-0.5px]">
+                            10.000+
+                          </div>
+                          <div className="font-inter tracking-[-0.3px] text-left text-black text-[14px] text-[rgb(17, 17, 17)]">
+                            Glückliche Kunden
+                          </div>
+                        </div>
+                      </div>
+          
+                      {/* Stat container 2 */}
+                      <div className="bg-white rounded-[20px] p-4   flex items-center w-full shadow-sm">
+                        <div className="flex-shrink-0 mr-4">
+                        <Image 
+                           src="/greenstar.svg" 
+                           alt="icon"
+                           width={50}
+                           height={50}
+                          />
+                        </div>
+                        <div>
+                          <div className="font-inter text-[24px] text-left font-[600] text-[#111111] tracking-[-0.5px]">
+                            30
+                          </div>
+                          <div className="font-inter tracking-[-0.3px] text-left text-[14px]  text-black text-[rgb(17, 17, 17)]">
+                            Jahre Erfahrung
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
           </FadeIn>
+          
           {/* Gallery - Vertical on desktop, Horizontal on mobile */}
           <div className="gallery-container">
             {/* Desktop Vertical Scrolling Gallery (hidden on mobile) */}
@@ -239,6 +284,28 @@ const VerticalGallerySection = () => {
           display: flex;
           gap: 16px;
           padding: 0 16px;
+        }
+
+         .sellwell-about-container {
+          border-radius: 40px;
+          align-content: flex-start;
+          align-items: flex-start;
+          background-clip: border-box;
+          background-image: linear-gradient(119deg, rgba(235, 255, 225, 0.7) 0%, rgba(124, 242, 165, 0.7) 100%);
+          background-position-x: 0%;
+          background-position-y: 0%;
+          background-repeat: repeat;
+          background-size: auto;
+          background-origin: padding-box;
+          padding: 2.5rem;
+          margin-right: -1.5rem;
+          display: flex;
+          border-width: 1px;
+          border-color: rgb(124, 242, 165);
+          flex-direction: column;
+          align-items: flex-start;
+          text-align: left;
+          margin-bottom: 4rem;
         }
         
         .desktop-scroll-column {
