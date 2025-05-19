@@ -13,34 +13,21 @@ const MissionSection = () => {
   }, []);
 
   return (
-    <section className="relative w-full pt-12 sm:pt-20 mt-[-2px] px-4 bg-[#EBE9E8] overflow-hidden">
+    <section className="relative w-full pt-12 sm:pt-20 mt-[-2px] px-4 bg-[#fff] overflow-hidden">
       {/* Smooth transition gradient at top */}
       <FadeIn direction="none" delay={100}>
       
       <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-24 xl:px-32">
         {/* Mission Statement */} 
         <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-20">
-          <div className="mt-[-10px] sm:mt-[-20px] flex justify-center mb-4 sm:mb-5">
-            <div className="inline-flex items-center backdrop-blur-sm rounded-[14px] px-3 sm:px-4 py-1.5 sm:py-2 border-[1.5px] sm:border-[1.7px] border-[#C8C7C6] shadow-[1px_1px_12px_0px_rgba(0,0,0,0.2)] sm:shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
-              <Image 
-                src="/Green Star.svg" 
-                alt="Green Star" 
-                width={18}
-                height={18}
-                className="mr-2"
-              />
-              <p className="text-center text-sm sm:text-base font-medium text-[#000] mb-[2px]">
-                Wachstum & Leistung
-              </p>
-            </div>
-          </div>
-          <h2 className="inter800 tracking-[-1.3px] text-3xl sm:text-[35px] md:text-[40px] lg:text-[50px] text-black mb-4 leading-[1.3] sm:leading-[1.5] z-[15]">
+         
+          <h2 className="text-[55px] font-[600] tracking-[-0.72px] leading-[65.4px] mb-5 ml-[-5px] text-[#111] mx-auto text-center">
             Unsere Mission
           </h2>
-          <div className="px-0 sm:px-6 md:px-10 lg:px-30 mb-40">
+          <div className="px-0 sm:px-6 md:px-10 lg:px-30 mb-40 font-[400]">
             <AnimatedText
               text="Unsere Mission bei Sellwell ist es, erstklassige Vertriebslösungen zu liefern und ambitionierten Talenten ein Umfeld zu schaffen, in dem sie gefördert werden und ihr volles Potenzial entfalten können. Täglich arbeiten wir daran, unser Team zu stärken und unseren Partnern bessere Ergebnisse zu liefern."
-              className="text-base sm:text-lg mb-[-50px] sm:mb-[-80px] text-[#000] font-[600]"
+              className="text-base w-140 mx-auto sm:text-lg mb-[-50px] sm:mb-[-80px] text-[#111] font-[400]"
             />
           </div>
         </div>

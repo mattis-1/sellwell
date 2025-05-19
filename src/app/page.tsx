@@ -109,7 +109,7 @@ export default function Home() {
       {/* Background layers start */}
       <div className="absolute inset-0 bg-[#FFFFFF] z-0"></div>
       
-      {/* Left abstract elements - adjusted positioning for mobile */}
+      {/* Left abstract elements - adjusted positioning for mobile 
       <div className="absolute top-[-20%] sm:top-[-10%] left-[-60%] sm:left-[-40%] w-[100%] sm:w-[95%] h-[100%] sm:h-[120%] z-[1] opacity-25 sm:opacity-35">
       <div className="relative w-full h-full">
     <div className="absolute w-[80%] h-[80%] rounded-full bg-[radial-gradient(circle,rgba(22,163,74,0.4)_0%,rgba(12,70,43,0.15)_70%)] top-[10%] left-[10%] blur-[50px]"></div>
@@ -122,9 +122,9 @@ export default function Home() {
     <div className="absolute w-[50%] h-[50%] rounded-full bg-[radial-gradient(circle,rgba(22,163,74,0.45)_0%,rgba(12,70,43,0.2)_70%)] top-[25%] left-[25%] blur-[35px]"></div>
     <div className="absolute w-[30%] h-[30%] rounded-full bg-[radial-gradient(circle,rgba(22,163,74,0.5)_0%,rgba(12,70,43,0.25)_70%)] top-[35%] left-[35%] blur-[25px]"></div>
   </div>
-</div>
+</div>*/}
 
-{/* Right abstract elements - adjusted for darker green */}
+{/* Right abstract elements - adjusted for darker green 
 <div className="absolute top-[-20%] sm:top-[-10%] right-[-60%] sm:right-[-40%] w-[100%] sm:w-[95%] h-[100%] sm:h-[120%] z-[1] opacity-25 sm:opacity-35 rotate-180">
   <div className="relative w-full h-full">
     <div className="absolute w-[80%] h-[80%] rounded-full bg-[radial-gradient(circle,rgba(22,163,74,0.4)_0%,rgba(12,70,43,0.15)_70%)] top-[10%] left-[10%] blur-[50px]"></div>
@@ -137,7 +137,7 @@ export default function Home() {
     <div className="absolute w-[50%] h-[50%] rounded-full bg-[radial-gradient(circle,rgba(22,163,74,0.45)_0%,rgba(12,70,43,0.2)_70%)] top-[25%] left-[25%] blur-[35px]"></div>
     <div className="absolute w-[30%] h-[30%] rounded-full bg-[radial-gradient(circle,rgba(22,163,74,0.5)_0%,rgba(12,70,43,0.25)_70%)] top-[35%] left-[35%] blur-[25px]"></div>
   </div>
-</div>
+</div>*/}
       
           
       {/* Vertical blocks grid - reduced number for mobile */}
@@ -286,32 +286,11 @@ export default function Home() {
        {/* Welcome Section */}
 <section className="relative px-4 sm:pl-8 sm:pr-10 py-12 sm:py-16 pb-12 sm:pb-15 bg-background w-full overflow-hidden">
   {/* Background layers start */}
-  <div className="absolute inset-0 bg-[#FFFFFF] dark:from-[#0A0A0A] dark:to-[#0A0A0A] z-0"></div>
-          
-  {/* Left abstract elements - fully contained */}
-  <div className="absolute top-[-20%] left-[-15%] w-[80%] h-[110%] z-[1] opacity-80">
-    <div className="relative w-full h-full">
-      <div className="absolute w-[80%] h-[80%] rounded-[20px] bg-[radial-gradient(circle,rgba(134,239,172,0.4)_0%,rgba(217,249,157,0.15)_70%)] top-[10%] left-[10%] blur-[50px]"></div>
-      <div className="absolute w-[60%] h-[60%] rounded-[20px] bg-[radial-gradient(circle,rgba(134,239,172,0.45)_0%,rgba(217,249,157,0.2)_70%)] top-[20%] left-[20%] blur-[40px]"></div>
-      <div className="absolute w-[40%] h-[40%] rounded-[20px] bg-[radial-gradient(circle,rgba(134,239,172,0.5)_0%,rgba(217,249,157,0.25)_70%)] top-[30%] left-[30%] blur-[30px]"></div>
-      <div className="absolute w-[25%] h-[25%] rounded-[20px] bg-[radial-gradient(circle,rgba(134,239,172,0.55)_0%,rgba(217,249,157,0.3)_70%)] top-[38%] left-[38%] blur-[20px]"></div>
-    </div>
-    <div className="relative w-full h-full -rotate-25">
-      <div className="absolute w-[70%] h-[70%] rounded-[20px] bg-[radial-gradient(circle,rgba(217,249,157,0.4)_0%,rgba(134,239,172,0.15)_70%)] top-[15%] left-[15%] blur-[45px]"></div>
-      <div className="absolute w-[50%] h-[50%] rounded-[20px] bg-[radial-gradient(circle,rgba(217,249,157,0.45)_0%,rgba(134,239,172,0.2)_70%)] top-[25%] left-[25%] blur-[35px]"></div>
-      <div className="absolute w-[30%] h-[30%] rounded-[20px] bg-[radial-gradient(circle,rgba(217,249,157,0.5)_0%,rgba(134,239,172,0.25)_70%)] top-[35%] left-[35%] blur-[25px]"></div>
-    </div>
-  </div>
-          
-  {/* Texture background */}
-  
-  {/* Top gradient overlay */}
-  <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#F4F2F1] to-transparent z-1"></div>
   
   <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-24 xl:px-32 relative z-10">
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center">
       {/* Left column - Image with reduced height */}
-      <div className="relative h-64 sm:h-80 md:h-[320px] lg:h-[360px] xl:h-[500px] max-h-[450px] rounded-[25px] overflow-hidden shadow-[0_0_60px_0_rgba(5,46,22,0.55)] backdrop-blur-sm border border-white/10">
+      <div className="relative h-64 sm:h-80 md:h-[320px] lg:h-[360px] xl:h-[500px] max-h-[450px] rounded-[25px] overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center">
           <Image 
             src="/WILLKOMMEN.png" 
@@ -325,11 +304,9 @@ export default function Home() {
       {/* Right column - Content */}
       <FadeIn direction="none" delay={200}>
       <div className="flex flex-col items-start mt-6 md:mt-0">
-        <span className="mb-3 inline-block bg-gradient-to-r from-[#184639] to-[#2F8267] text-white text-[14px] sm:text-[16px] font-[600] rounded-[99px] px-4 py-1">
-          WILLKOMMEN BEI SELLWELL
-        </span>
-        <h2 className="text-[#000000] inter800 text-3xl sm:text-[35px] md:text-[45px] lg:text-[50px] mb-3">Der Partner<br /><span className="bg-gradient-to-r from-[#184639] to-[#2F8267] bg-clip-text text-transparent">im D2D in Bayern</span></h2>
-        <p className="text-lg sm:text-xl text-[#000000] mb-6 pr-0 sm:pr-8 md:pr-12 lg:pr-20">
+  
+        <h2 className="text-[43px] font-[600] text-left tracking-[-0.72px] leading-[40.4px] mb-3 ml-[-5px] text-[#111]">Der Partner<br />im D2D in Bayern</h2>
+        <p className="text-[17px] sm:text-[17px] text-[#222] ml-[-5px] mb-4 pr-0 sm:pr-8 md:pr-12 lg:pr-20">
           Als schnellstwachsender Door-to-Door Vertrieb Bayerns übernehmen wir für führende Unternehmen in der Energiebranche den Außendienst. Mit hocheffektiven Vertriebslösungen und einem ambitionierten Team setzen wir regelmäßig neue Maßstäbe im Markt der erneuerbaren Energie.
         </p>
         <a href="#about">
@@ -354,9 +331,7 @@ export default function Home() {
       {/* Left column - Content with checklist */}
       <FadeIn direction="none" delay={200}>
       <div className="flex flex-col text-white mt-6 md:mt-10 items-start">
-        <span className="mb-3 inline-block bg-gradient-to-r from-[#ffffff] to-[#a9aaac] text-[#0B3E27] text-[14px] sm:text-[16px] font-[700] rounded-[99px] px-4 py-1">
-          KARRIEREERFOLG MIT SELLWELL
-        </span>
+       
         <h2 className="text-[38px] font-[600] text-left tracking-[-0.72px] leading-[40.4px] mb-5 ml-[-5px] text-[#111]">
           Entfalte dein volles<br />Potenzial im Direktvertrieb
         </h2>
@@ -445,7 +420,6 @@ export default function Home() {
       <FadeIn direction="none" delay={200}>   
       {/* Right column - Content */}
       <div className="flex flex-col start-items items-start z-[125] mt-6 md:mt-0">
-        <span className="mb-3 inline-block bg-gradient-to-r from-[#184639] to-[#2F8267] text-white text-[14px] sm:text-[16px] font-[600] rounded-[99px] px-4 py-1">PROJEKTERFOLG MIT SELLWELL</span>
         <h2 className=" text-[38px] font-[600] text-left tracking-[-0.72px] leading-[40.4px] mb-5 ml-[-5px]">Produkt erfolgreich<br />mit Sellwell vermarkten</h2>
         <p className="font-inter text-[#111111] text-left text-[17px] tracking-[-0.22px] leading-[26.4px] mr-10 ml-[-5px] mb-5">
           Wir vermarkten Ihr Produkt effizient, verlässlich und mit messbaren ErgebnissenEffizient. Konstante Weiterbildung unseres Teams und bewährte Vertriebsprozesse, die kontinuierlich optimiert werden, machen uns zum optimalen Partner für Ihr Unternehmen.
@@ -547,18 +521,14 @@ export default function Home() {
   </div>
 </section>
 */}
-<section id="about">
+<section id="about" className="mb-[-8px]">
    <VerticalGallerySection />
 </section>
 
       {/* Header spans full width */}
       <MissionSection />
 
-<div className="bg-[#ECE9E8]">
-<div className="rounded-t-[70px] bg-white">
-      <AnimatedStats />
-</div>
-</div>
+
 
       {/*Karriere-Split Screen*/}
       <SplitSection />
@@ -644,28 +614,13 @@ export default function Home() {
 
 <SellwellExpectations2 />
 
-<section id="leistungen" className="py-8 sm:py-10 md:pb-12 md:pt-15 bg-[#EBE9E8] w-full">
+<section id="leistungen" className="py-8 sm:py-10 md:pb-0 md:pt-15 bg-white w-full">
   <div className="container mx-auto px-4 sm:px-6">
     {/* Mission Statement */}
-    <FadeIn delay={100}>
-    <div className="max-w-4xl mx-auto text-center mb-4 sm:mb-7">
-      <div className="mt-[-10px] sm:mt-[-20px] flex justify-center mb-1">
-        <div className="inline-flex items-center backdrop-blur-sm rounded-[10px] sm:rounded-[14px] px-3 sm:px-4 py-1.5 sm:py-2 border-[1.5px] sm:border-[1.7px] border-[#C8C7C6] shadow-[1px_1px_10px_0px_rgba(0,0,0,0.15)] sm:shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
-          <Image 
-            src="/Green Star.svg" 
-            alt="Green Star" 
-            width={18}
-            height={18}
-            className="mr-1.5 sm:mr-2"
-          />
-          <p className="text-center text-sm sm:text-base font-medium text-[#000000] mb-[2px]">
-            Sellwell für Unternehmen
-          </p>
-        </div>
-      </div>
-    </div>
+   
+    <FadeIn delay={200}>
+      <h2 className="text-[50px] leading-[50px] tracking-[-0.75px] text-center mb-7 font-inter font-[600] text-[#000000]">Unsere Leistungen</h2>
     </FadeIn>
-    <FadeIn delay={200}><h2 className="text-center text-[#000000] inter800 text-3xl sm:text-4xl md:text-5xl lg:headr mb-4 sm:mb-[30px]">Unsere Leistungen</h2></FadeIn>
     
     <div className="mb-8 sm:mb-12 md:mb-16">
       <Tabs
@@ -677,7 +632,7 @@ export default function Home() {
           {
             title: "Vertriebsberatung",
             value: "b2b",
-            image: "/Leistung1.png", // Replace with your actual image path
+            image: "/Leistung1.png",
             imageAlt: "Vertriebsberatung und Optimierung",
             heading: "Vertriebsberatung und Optimierung",
             text: "Wir analysieren Ihre bestehenden Vertriebsprozesse und entwickeln maßgeschneiderte Strategien für den Door-to-Door Bereich. Mit datenbasierter Optimierung und praxiserprobten Methoden steigern wir Ihre Conversion Rates und maximieren den ROI Ihrer Vertriebsaktivitäten.",
@@ -687,7 +642,7 @@ export default function Home() {
           {
             title: "Neukundengewinnung",
             value: "b2c",
-            image: "/Leistung2.png", // Replace with your actual image path
+            image: "/Leistung2.png",
             imageAlt: "Neukundengewinnung und Lead Generation",
             heading: "Neukundengewinnung und Lead Generierung",
             text: "Wir bringen Ihr Produkt direkt zu den relevanten Kunden und übernehmen den gesamten Akquiseprozess im Door-to-Door Bereich. Mit gezielter Ansprache und bewährten Verkaufstechniken überzeugen wir potenzielle Kunden und generieren qualifizierte Abschlüsse für Ihr Unternehmen.",
@@ -697,7 +652,7 @@ export default function Home() {
           {
             title: "Vertriebsprozesse",
             value: "online",
-            image: "/Leistung3.png", // Replace with your actual image path
+            image: "/Leistung3.png",
             imageAlt: "Vertriebsprozesse und Strategien",
             heading: "Vertriebsprozesse und strategische Planung",
             text: "Wir entwickeln passgenaue Vertriebsprozesse und maßgeschneiderte Strategien für Ihre Produkte im Energiesektor. Von der ersten Kundenansprache bis zum erfolgreichen Abschluss implementieren wir durchdachte Verkaufsabläufe und setzen sie mit unserem erfahrenen Team direkt im Door-to-Door Bereich um.",
@@ -707,15 +662,14 @@ export default function Home() {
         ]}
       />
     </div>
-    
   </div>
 </section>
 
-<section className="bg-[#EBE9E8] pb-10">
+<section className="bg-white mt-[-10px] pb-10">
   {/* Add container to control max width */}
   <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    {/* Removed redundant white box container */}
-    <div className="pt-8 sm:pt-10 md:pt-14 pb-10 sm:pb-12 md:pb-16 bg-[#ffffff] rounded-[30px] sm:rounded-[55px] md:rounded-[75px] shadow-[1px_1px_10px_0px_rgba(0,0,0,0.15)] sm:shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
+    {/* Removed background and shadow */}
+    <div className="pt-8 sm:pt-10 md:pt-14 pb-10 sm:pb-12 md:pb-16 rounded-[30px] sm:rounded-[55px] md:rounded-[75px]">
       {/* Simplified width-controlled container */}
       <div className="mx-auto px-7 sm:px-6 lg:px-1 max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 lg:gap-16 items-center">
@@ -734,14 +688,10 @@ export default function Home() {
           {/* Right column - Content with benefits */}
           <FadeIn delay={200}>
             <div className="flex flex-col items-start">
-              <span className="mb-2 sm:mb-3 inline-block bg-gradient-to-r from-[#184639] to-[#2F8267] text-white text-[14px] sm:text-[16px] font-[600] rounded-[99px] px-3 sm:px-4 py-1">
-                DER PERFEKTE PARTNER
-              </span>
-              <h2 className="text-2xl sm:text-3xl md:text-[42px] lg:headr inter800 text-[#000000] mb-4 sm:mb-6">
+
+              <h2 className="text-[40px] leading-[45px] tracking-[-0.75px] text-left mb-5 font-inter font-[600] text-[#000000]">
                 Projekterfolg -<br />
-                <span className="bg-gradient-to-r from-[#184639] to-[#2F8267] bg-clip-text text-transparent">
                   verlässlich & stressfrei
-                </span>
               </h2>
               
               {/* Benefits with checkmarks - optimized for mobile */}
@@ -819,7 +769,6 @@ export default function Home() {
               {/* Green gradient CTA button */}
               <Button 
                 onClick={openFirmaModal}
-                
               >
                 Beratungsgespräch vereinbaren
               </Button>

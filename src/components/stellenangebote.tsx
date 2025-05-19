@@ -40,7 +40,7 @@ const Stellen = () => {
   };
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalMode, setModalMode] = useState<'Firma' | 'Bewerber'>('Firma');
+  const [modalMode, setModalMode] = useState<'Firma' | 'Bewerber'>('Bewerber');
   
   const openBewerberModal = () => {
     setModalMode('Bewerber');
@@ -93,11 +93,11 @@ const Stellen = () => {
 
   return (
     <section className="bg-[#fff]">
-      <div className="pt-0 pb-10 mb-10 w-full bg-[#EBE9E8] rounded-b-[70px] shadow-[0px_10px_9px_-4px_rgba(0,0,0,0.15)]">
+      <div className="pt-0 pb-10 mb-10 w-full bg-[#fff] rounded-b-[70px] shadow-[0px_10px_9px_-4px_rgba(0,0,0,0.15)]">
         <div className="container mx-auto px-6">
           {/* Centered Headline */}
-          <h2 className="tracking-[-1.3px] text-3xl sm:text-[35px] md:text-[40px] lg:text-[50px] text-[#000] text-center pt-16 mb-16 inter800">
-            Aktuelle <span className="bg-gradient-to-r from-[#184639] to-[#2F8267] bg-clip-text text-transparent">Stellenangebote</span>
+          <h2 className="text-[50px] pt-10 pb-5 leading-[55px] tracking-[-0.75px] text-center mt-10 mb-5 font-inter font-[600] text-[#000000]">
+            Aktuelle Stellenangebote
           </h2>
           
           {/* Job cards grid */}
@@ -130,7 +130,7 @@ const Stellen = () => {
                             <span className="flex-shrink-0 h-5 w-5 rounded-full bg-gradient-to-r from-[#184639] to-[#2F8267] flex items-center justify-center mr-3 mt-1">
                               <Check size={12} className="text-white" />
                             </span>
-                            <span className="text-black text-sm">{benefit}</span>
+                            <span className="text-[rgb(115, 115, 115)] font-[400] leading-relaxed leading-[22px] tracking-[-0.28px]">{benefit}</span>
                           </li>
                         ))}
                       </ul>

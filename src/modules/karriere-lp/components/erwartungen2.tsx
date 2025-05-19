@@ -97,8 +97,8 @@ export default function SellwellExpectations2() {
     >
       <div className="sellwell-container relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-[34px] leading-[40px] tracking-[-0.75px] text-center mb-2 font-inter font-[600]">Was dich bei<br />Sellwell erwartet</h2>
-          <div className="text-center text-[#111111] font-[500] text-[18px]">Finde heraus, was Sellwell zum Nummer 1 D2D Vertrieb in Bayern macht</div>
+          <h2 className="text-[40px] leading-[45px] tracking-[-0.75px] text-center mb-2 font-inter font-[600]">Was dich bei<br />Sellwell erwartet</h2>
+          <div className="text-center text-black/90 w-90 mx-auto font-[500] text-[20px]">Finde heraus, was Sellwell zum Nummer 1 D2D Vertrieb in Bayern macht</div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto relative z-10">

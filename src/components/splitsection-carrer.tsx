@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { Button } from '@/components/ui/button'
+import Button from "@/modules/karriere-lp/components/button"
 import Proof from "@/components/socialproof"
 import { useState } from 'react';
 import SimpleModal from "@/components/SimpleModal";
@@ -29,18 +29,14 @@ const SplitSection = () => {
             {/* Left side: Content */}
             <div className="w-full md:w-1/2 bg-background flex items-center">
               <div className="w-full max-w-xl mx-auto py-8 sm:py-12 md:py-12 pr-4 sm:pr-6 md:pr-8">
-                <span className="mb-2 sm:mb-3 inline-block bg-gradient-to-r from-[#184639] to-[#2F8267] text-white text-[14px] sm:text-[16px] font-[600] rounded-[99px] px-3 sm:px-4 py-1">
-                  KARRIEREMÖGLICHKEITEN
-                </span>
-                <h2 className="tracking-[-1.3px] text-3xl sm:text-[35px] md:text-[40px] lg:text-[50px] inter800 mb-3 sm:mb-5 leading-tight">
-                  <span className="bg-gradient-to-r from-[#184639] to-[#2F8267] bg-clip-text text-transparent ">
-                    Warum
-                  </span> bei<br />Sellwell arbeiten?
+                
+                <h2 className="text-[40px] font-[600] tracking-[-0.72px] leading-[49.4px] mb-5 ml-[-5px] text-[#111] mx-auto text-left">
+                    Warum bei<br />Sellwell arbeiten?
                 </h2>
-                <p className="text-foreground/80 mb-6 sm:mb-8 text-base font-[400] sm:text-lg md:text-[19px] w-full md:w-120">
+                <p className="font-inter text-[17px] font-normal tracking-[-0.2px] leading-[28px] text-[#111111] mb-6">
                   Du bist motiviert und suchst nach einer Möglichkeit, in einem ambitionierten Umfeld große Dinge zu erreichen und dich finanziell sowie persönlich weiterzuentwickeln? Dann gibt es für dich keinen besseren Ort als Sellwell. Bei uns erwarten dich konstante Weiterbildung und sympathische, erfolgsgetriebene Kollegen, die dich vorantreiben und motivieren, besser zu werden.
                 </p>
-                <Button onClick={openBewerberModal} variant="default" className="self-start text-base sm:text-lg md:text-[22px] rounded-[99px] py-2 px-5">
+                <Button onClick={openBewerberModal} >
                   JETZT BEWERBEN
                 </Button>
                 
