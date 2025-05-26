@@ -1,11 +1,13 @@
+"use client"
+
 import React from 'react';
 import FadeIn from '@/components/fadein';
 import SimpleModal from "@/components/SimpleModal";
 import { useState } from 'react';
-import { Check } from 'lucide-react'; // Import the Check icon from lucide-react
+import { Check } from 'lucide-react';
+import Button from "@/modules/karriere-lp/components/button"; // Import the Button component
 
 const Stellen = () => {
-  // Common card style for the container
   const cardStyle: React.CSSProperties = {
     backgroundColor: 'white',
     boxShadow: '0px 0px 12px rgba(0, 0, 0, 0.25)',
@@ -13,7 +15,6 @@ const Stellen = () => {
     borderRadius: '45px',
   };
 
-  // Background image style with opacity
   const backgroundImageStyle: React.CSSProperties = {
     position: 'absolute',
     top: 0,
@@ -27,7 +28,6 @@ const Stellen = () => {
     pointerEvents: 'none',
   };
 
-  // Gradient overlay style
   const gradientOverlayStyle: React.CSSProperties = {
     position: 'absolute',
     top: 0,
@@ -49,7 +49,6 @@ const Stellen = () => {
   
   const closeModal = () => setIsModalOpen(false);
 
-  // Job data with bullet points
   const jobs = [
     {
       id: 1,
@@ -65,7 +64,7 @@ const Stellen = () => {
     },
     {
       id: 2,
-      title: "Teamleiter im Vertrieb",
+      title: "Teamleiter eines Vertriebteams",
       benefits: [
         "Exklusiver Vertrieb von Strom-, Gas- und Glasfaserverträgen",
         "Hohes Gehalt plus attraktive Provisionen",
@@ -92,15 +91,13 @@ const Stellen = () => {
   ];
 
   return (
-    <section className="bg-[#fff]">
-      <div className="pt-0 pb-10 mb-10 w-full bg-[#fff] rounded-b-[70px] shadow-[0px_10px_9px_-4px_rgba(0,0,0,0.15)]">
+    <section className="bg-white">
+      <div className="pt-0 pb-10 mb-10 w-full bg-white rounded-b-[70px] shadow-[0px_10px_9px_-4px_rgba(0,0,0,0.15)]">
         <div className="container mx-auto px-6">
-          {/* Centered Headline */}
-          <h2 className="text-[50px] pt-10 pb-5 leading-[55px] tracking-[-0.75px] text-center mt-10 mb-5 font-inter font-[600] text-[#000000]">
+          <h2 className="text-[50px] pt-10 pb-5 leading-[55px] tracking-[-0.75px] text-center mt-10 mb-5 font-inter font-semibold text-[#111111]">
             Aktuelle Stellenangebote
           </h2>
           
-          {/* Job cards grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {jobs.map((job) => (
               <FadeIn key={job.id}>
@@ -109,34 +106,33 @@ const Stellen = () => {
                     className="rounded-3xl p-7 h-full flex flex-col" 
                     style={cardStyle}
                   >
-                    {/* Background image with opacity */}
                     <div style={backgroundImageStyle}></div>
-                    
-                    {/* Gradient overlay */}
                     <div style={gradientOverlayStyle}></div>
                     
-                    <h3 className="inter700 text-xl tracking-[-0.35] mb-4 text-primary text-black relative z-10">
-                      <span className="bg-gradient-to-r from-[#184639] to-[#2F8267] bg-clip-text text-transparent text-[26px]">
-                        {job.title}
-                      </span>
-                      <br />(m/w/d)
+                    {/* Job Title - increased font size, solid black color */}
+                    <h3 className="font-inter font-semibold text-[28px] text-[#111111] leading-[36px] tracking-[-0.84px] mb-4 relative z-10">
+                      {job.title}
+                      <br />
+                      <span className="font-normal text-[14px] text-[#111111] tracking-[-0.22px] leading-[22.4px]">(m/w/d)</span>
                     </h3>
                     
-                    {/* Checkmark list instead of paragraph */}
                     <div className="mb-4 flex-grow relative z-10">
                       <ul className="space-y-3">
                         {job.benefits.map((benefit, i) => (
                           <li key={i} className="flex items-start">
-                            <span className="flex-shrink-0 h-5 w-5 rounded-full bg-gradient-to-r from-[#184639] to-[#2F8267] flex items-center justify-center mr-3 mt-1">
-                              <Check size={12} className="text-white" />
+                            {/* Checkbox gradient updated, icon color changed */}
+                            <span className="flex-shrink-0 h-5 w-5 rounded-full bg-gradient-to-r from-[#C1F9D4] to-[#EBFEE7] flex items-center justify-center mr-3 mt-1">
+                              <Check size={12} className="text-[#111111]" /> {/* Icon color to black/dark */}
                             </span>
-                            <span className="text-[rgb(115, 115, 115)] font-[400] leading-relaxed leading-[22px] tracking-[-0.28px]">{benefit}</span>
+                            <span className="font-inter text-[#111111] text-[14px] tracking-[-0.22px] leading-[22.4px]">
+                              {benefit}
+                            </span>
                           </li>
                         ))}
                       </ul>
                     </div>
                     
-                    <div className="flex items-center mb-6 text-sm text-black relative z-10">
+                    <div className="flex items-center mb-6 text-sm text-[#111111] font-inter relative z-10">
                       <div className="flex items-center mr-4">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -152,28 +148,26 @@ const Stellen = () => {
                       </div>
                     </div>
                     
-                    <button 
+                    {/* Using the imported Button component */}
+                    <Button 
                       onClick={openBewerberModal}
-                      className="inline-flex items-center inter700 px-4 py-2 text-white font-semibold rounded-full hover:opacity-90 transition w-full justify-center relative z-10"
-                      style={{ background: 'linear-gradient(to right, #184639 0%, #2F8267 100%)' }}
+                      className="w-full justify-center relative z-10" // Added w-full for layout, assuming Button merges classes
                     >
                       JETZT BEWERBEN
-                    </button>
+                    </Button>
                   </div>
                 </div>
               </FadeIn>
             ))}
           </div>
           
-          {/* View All Jobs Button (Optional) */}
-          <div className="mt-15 pb-5 text-center">
-            <button 
-              onClick={openBewerberModal}
-              className="inter700 inline-flex items-center px-6 py-3 text-white font-semibold rounded-full text-[20px] hover:opacity-90 transition"
-              style={{ background: 'linear-gradient(to right, #184639 0%, #2F8267 100%' }}
-            >
+          <div className="mt-12 pb-5 text-center">
+            {/* Using the imported Button component */}
+            <Button onClick={openBewerberModal}>
               INTERESSE GEWECKT? JETZT BEWERBEN →
-            </button>
+            </Button>
+            {/* You can add the sub-button text here if needed, styled like the new component */}
+            {/* <p className="font-inter text-[#111111] text-[14px] mt-2">Ohne Lebenslauf und Anschreiben</p> */}
           </div>
         </div>
       </div>

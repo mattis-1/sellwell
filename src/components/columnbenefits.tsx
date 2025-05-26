@@ -34,22 +34,11 @@ const Somebenefits: React.FC = () => {
   return (
     <section className="bg-white pt-20">
       <div className="container mx-auto px-4">
-        {/* Headline with SVG Underline */}
+        {/* Headline */}
         <div className="text-center mb-16">
-          <h2 className="inter800 text-[#000000] tracking-[-1.3px] text-3xl sm:text-[35px] md:text-[40px] lg:text-[50px]">
-            Bei uns <span className="bg-gradient-to-r from-[#184639] to-[#2F8267] bg-clip-text text-transparent">im Vertrieb</span> ...
+          <h2 className="font-inter font-semibold text-[#111111] tracking-[-1.3px] text-3xl sm:text-[35px] md:text-[40px] lg:text-[50px]">
+            Bei uns im Vertrieb ...
           </h2>
-          {/*
-          <div className="relative w-127 h-1 mb-5 mx-auto">
-            <Image 
-              src="/Underline2.svg"
-              alt="Textunderline"
-              width={1050}
-              height={1050}
-              className="object-contain"
-            />
-          </div>
-          */}
         </div>
 
         {/* Three Column Layout */}
@@ -57,14 +46,14 @@ const Somebenefits: React.FC = () => {
           {benefits.map((benefit) => (
             <div 
               key={benefit.id} 
-              className="flex flex-col items-center text-center bg-white rounded-[35px] shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 sm:p-8"
+              className="flex flex-col items-center bg-white rounded-[35px] shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 sm:p-8"
               data-aos="fade-up"
               data-aos-delay={benefit.id * 100}
               style={{
                 boxShadow: "0 0 30px rgba(0, 0, 0, 0.25)"
               }}
             >
-              {/* Icon */}
+              {/* Icon - remains centered due to parent's items-center */}
               <div className="w-20 h-20 mb-6">
                 <div className="relative w-full h-full">
                   <Image 
@@ -77,13 +66,18 @@ const Somebenefits: React.FC = () => {
                 </div>
               </div>
               
-              {/* Header */}
-              <h3 className="text-xl sm:text-2xl md:text-[30.5px] inter700 px-2 mb-4 bg-gradient-to-r from-[#184639] to-[#2F8267] bg-clip-text text-transparent">
-                {benefit.header}
-              </h3>
-              
-              {/* Description */}
-              <p className="text-gray-900 text-base">{benefit.description}</p>
+              {/* Text Content Wrapper for alignment control */}
+              <div className="w-full"> 
+                {/* Header - Updated styles, now text-center */}
+                <h3 className="font-inter text-[24px] font-semibold text-[#111111] text-center tracking-[-0.72px] leading-[30.4px] mb-3">
+                  {benefit.header}
+                </h3>
+                
+                {/* Description - Remains text-left */}
+                <p className="font-inter text-[#111111] text-center text-[14px] tracking-[-0.22px] leading-[22.4px]">
+                  {benefit.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>

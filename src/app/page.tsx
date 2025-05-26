@@ -787,25 +787,10 @@ export default function Home() {
 <FadeIn delay={100}>
   <div className="mx-auto px-4 sm:px-6 md:px-8" style={{ maxWidth: '1200px' }}>
     {/* Mission Statement */}
-    <div className="max-w-4xl mx-auto text-center mb-1">
-      <div className="mt-[-10px] sm:mt-[-20px] flex justify-center mb-1">
-        <div className="inline-flex items-center backdrop-blur-sm rounded-[10px] sm:rounded-[14px] px-3 sm:px-4 py-1.5 sm:py-2 border-[1.5px] sm:border-[1.7px] border-[#C8C7C6] shadow-[1px_1px_10px_0px_rgba(0,0,0,0.15)] sm:shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
-          <Image 
-            src="/Green Star.svg" 
-            alt="Green Star" 
-            width={18}
-            height={18}
-            className="mr-1.5 sm:mr-2"
-          />
-          <p className="text-center text-sm sm:text-base font-medium text-primary mb-[2px]">
-            Das sagen unsere Mitarbeiter
-          </p>
-        </div>
-      </div>
-    </div>
     
-    <h1 className="inter800 tracking-[-0.75px] sm:tracking-[-1.2px] md:tracking-[-1.6px] text-2xl sm:text-4xl md:text-5xl lg:text-[55px] text-[#000000] mt-2 sm:mt-4 text-center mb-8 sm:mb-10 md:mb-16">
-      Einblicke aus <span className="bg-gradient-to-r from-[#184639] to-[#2F8267] bg-clip-text text-transparent">dem Team</span>
+    
+      <h1 className="text-[43px] font-[600] text-center tracking-[-0.75px] sm:tracking-[-1.2px] md:tracking-[-1.6px] leading-[40.4px] text-2xl sm:text-4xl md:text-5xl lg:text-[55px] text-[#000000] mb-10 sm:mb-12 md:mb-18 ">
+      Einblicke aus dem Team
     </h1>
     
     {/* YouTubeGrid with updated props - no longer needed as we're handling these with Tailwind classes */}
@@ -819,31 +804,14 @@ export default function Home() {
   {/* Background gradient overlay */}
   <div className="bg-gradient-to-t absolute from-[#fff] to-[#fff] inset-0 w-full h-full pointer-events-none"></div>
   <div className="container relative px-4 sm:px-6">
-    {/* Mission Statement */}
-    <div className="max-w-4xl mt-10 sm:mt-20 md:mt-30 mx-auto text-center mb-0">
-      <div className="mt-[-10px] sm:mt-[-20px] flex justify-center mb-1">
-        <div className="inline-flex items-center backdrop-blur-sm rounded-[10px] sm:rounded-[14px] px-3 sm:px-4 py-1.5 sm:py-2 border-[1.5px] sm:border-[1.7px] border-[#C8C7C6] shadow-[1px_1px_10px_0px_rgba(0,0,0,0.15)] sm:shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
-          <Image 
-            src="/Green Star.svg" 
-            alt="Green Star" 
-            width={18}
-            height={18}
-            className="mr-1.5 sm:mr-2"
-          />
-          <p className="text-center text-sm sm:text-base font-medium text-primary">
-            Das Sellwell Team
-          </p>
-        </div>
-      </div>
-    </div>
+    
     
     {/* Heading */}
     <div className="richtext prose-h2:text-white mb-2 sm:mb-3">
-      <h2 className="text-center inter800 text-3xl sm:text-4xl md:text-5xl lg:text-[55px] text-black tracking-[-0.75px] sm:tracking-[-1px] md:tracking-[-1.5px] pt-3 sm:pt-5 md:pt-7 mb-6 sm:mb-10 md:mb-15 leading-[1.2]">
+      <h2 className="mt-20 text-[43px] font-[600] text-center tracking-[-0.75px] sm:tracking-[-1.2px] md:tracking-[-1.6px] leading-[62.4px] text-2xl sm:text-4xl md:text-5xl lg:text-[55px] text-[#000000] mb-8 sm:mb-10 md:mb-16">
+
         Echter Vertrieb.<br />
-        <span className="bg-gradient-to-r from-[#184639] to-[#2F8267] bg-clip-text text-transparent">
           Echte Ergebnisse.
-        </span>
       </h2>
     </div>
     
