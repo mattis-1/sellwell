@@ -1,9 +1,10 @@
 // components/process.tsx
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import Button2 from "@/modules/karriere-lp/components/button2";
 import FadeIn from "@/components/fadein"
 import SimpleModal from '@/components/SimpleModal'
+import { Check } from "lucide-react";
 
 interface RowContent {
   id: number;
@@ -138,24 +139,9 @@ const Process: React.FC<ProcessProps> = ({
 
   return (
     <section className="container mx-auto px-4 pt-12 sm:pt-20 md:pt-30 py-20 sm:py-26 md:py-30">
-      <div className="max-w-4xl mx-auto text-center mb-1">
-        <div className="mt-[-10px] sm:mt-[-20px] flex justify-center mb-3">
-          <div className="inline-flex items-center backdrop-blur-sm rounded-[10px] sm:rounded-[14px] px-3 sm:px-4 py-1.5 sm:py-2 border-[1.5px] sm:border-[1.7px] border-[#C8C7C6] shadow-[1px_1px_10px_0px_rgba(0,0,0,0.15)] sm:shadow-[2px_2px_19px_0px_rgba(0,0,0,0.25)]">
-            <Image 
-              src="/Green Star.svg" 
-              alt="Green Star" 
-              width={18}
-              height={18}
-              className="mr-1.5 sm:mr-2"
-            />
-            <p className="text-center text-sm sm:text-base font-medium text-primary mb-[2px]">
-              Unser Bewerbungsprozess
-            </p>
-          </div>
-        </div>
-      </div>
       
-      <div className="inter800 mt-10 text-3xl sm:text-4xl md:text-5xl lg:text-[65px] tracking-[-1px] sm:tracking-[-1.5px] md:tracking-[-2px] text-center pb-2 text-[#000000] mb-10 sm:mb-12 md:mb-15">So leicht ist es</div>
+      
+      <div className="font-inter font-semibold text-[#111111] mx-auto text-center tracking-[-1.5px] text-3xl sm:text-[45px] md:text-[50px] lg:text-[55px] mb-10">So leicht ist es</div>
       
       {rows.map((row) => (
         <div 
@@ -247,13 +233,13 @@ const Process: React.FC<ProcessProps> = ({
      <FadeIn delay={300}>
     
         <div className="text-center">
-          <Button 
+          <Button2 
           onClick={openBewerberModal}
-          className="py-1.5 sm:py-2 text-base sm:text-xl md:text-[28px] mt-4 sm:mt-6 mb-2 sm:mb-3 rounded-[99px]" variant="default">
+         >
             Jetzt schnell bewerben
-          </Button>
+          </Button2>
         </div>
-        <div className="inter700 text-sm sm:text-base md:text-[19px] text-center bg-gradient-to-r from-[#184639] to-[#2F8267] bg-clip-text text-transparent mb-10">
+        <div className="inter700 text-sm sm:text-base md:text-[19px] text-center text-[#111] mb-10">
           Ohne Lebenslauf & Anschreiben
         </div>
  
@@ -282,13 +268,11 @@ const Process: React.FC<ProcessProps> = ({
               {/* First set of benefits */}
               {benefits.map((benefit, index) => (
                 <div key={`benefit-1-${index}`} className="flex items-center mx-4 md:mx-6">
-                  <div 
-                    className="w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center rounded-full bg-gradient-to-r from-[#184639] to-[#2F8267] mr-2 sm:mr-3 flex-shrink-0"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 text-white" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                  </div>
+                  
+                    <span className="flex-shrink-0 h-5 w-5 rounded-full bg-gradient-to-r from-[#C1F9D4] to-[#EBFEE7] flex items-center justify-center mr-3 mt-1">
+                              <Check size={12} className="text-[#111111]" /> {/* Icon color to black/dark */}
+                            </span>
+                  
                   <span className="font-medium text-sm sm:text-base">{benefit}</span>
                 </div>
               ))}
@@ -296,13 +280,10 @@ const Process: React.FC<ProcessProps> = ({
               {/* Duplicate benefits for seamless looping */}
               {benefits.map((benefit, index) => (
                 <div key={`benefit-2-${index}`} className="flex items-center mx-4 md:mx-6">
-                  <div 
-                    className="w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center rounded-full bg-gradient-to-r from-[#0C462B] to-[#057741] mr-2 sm:mr-3 flex-shrink-0"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 sm:h-4 sm:w-4 text-white" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                  </div>
+                
+                     <span className="flex-shrink-0 h-5 w-5 rounded-full bg-gradient-to-r from-[#C1F9D4] to-[#EBFEE7] flex items-center justify-center mr-3 mt-1">
+                              <Check size={12} className="text-[#111111]" /> {/* Icon color to black/dark */}
+                            </span>
                   <span className="font-medium text-sm sm:text-base">{benefit}</span>
                 </div>
               ))}

@@ -12,7 +12,6 @@ import YouTubeGrid from "@/components/youtube"
 import Slider from "@/components/slider"
 import Process from "@/components/process"
 import Somebenefits from "@/components/columnbenefits"
-import AnimatedStats from "@/components/ui/stats"
 import { useState } from 'react';
 import SimpleModal from "@/components/SimpleModal";
 import FadeIn from '@/components/fadein';

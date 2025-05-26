@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
 import AnimatedText from '@/components/ui/missiontext';
 import FadeIn from '@/components/fadein';
 
