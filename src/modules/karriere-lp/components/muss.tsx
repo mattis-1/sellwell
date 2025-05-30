@@ -60,7 +60,7 @@ export default function SellwellRequirements() {
         {/* Added image at the top of the section */}
         <div className="mb-8 flex justify-center">
           <Image
-            src="/WarumBei.png"
+            src="/Projekterfolg.png"
             alt="Warum bei Sellwell"
             width={800}
             height={400}
