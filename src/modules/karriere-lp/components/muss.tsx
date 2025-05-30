@@ -115,7 +115,7 @@ export default function SellwellRequirements() {
           </div>
         </div>
 
-        {/* Full-width image container at the bottom */}
+        {/* Full-width image container at the bottom 
         <div className="sellwell-benefit-container-alt relative w-full h-[300px] overflow-hidden rounded-[33px] mt-12 mb-0 p-0">
           <Image
             src="/sellwellteam.png"
@@ -126,7 +126,7 @@ export default function SellwellRequirements() {
             className="rounded-[33px]"
           />
          
-        </div>
+        </div>*/}
       </div>
 
       {/* Custom CSS for the glassmorphic container */}

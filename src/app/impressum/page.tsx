@@ -46,8 +46,8 @@ export default function ImpressumPage() {
                 <div>
                   <p className="font-medium">Sellwell GmbH</p>
                   <p className="text-muted-foreground">
-                    Musterstraße 123<br />
-                    12345 Musterstadt<br />
+                   Leiblstraße 26,<br />
+                    85579 Neubiberg<br />
                     Deutschland
                   </p>
                 </div>
@@ -57,7 +57,7 @@ export default function ImpressumPage() {
                 <Phone className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                 <div>
                   <p className="font-medium text-muted-foreground">Telefon</p>
-                  <p>+49 123 456789-0</p>
+                  <p>+49 176 48732077</p>
                 </div>
               </div>
               
