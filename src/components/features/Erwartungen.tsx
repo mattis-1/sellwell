@@ -98,7 +98,7 @@ export default function Erwartungen() {
     >
       <div className="sellwell-container relative z-10">
         <div className="text-center mb-16">
-        <h2 className="text-[40px] md:text-[45px] font-bold leading-[1.2] text-gray-900 dark:text-white">Was dich bei<br />Sellwell erwartet</h2>
+        <h2 className="text-[36px] md:text-[45px] font-bold leading-[1.2] text-gray-900 dark:text-white">Was dich bei<br />Sellwell erwartet</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto relative z-10">

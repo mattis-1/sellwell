@@ -11,7 +11,7 @@ export default function CtaSection() {
         <p className="mt-6 text-lg md:text-xl text-gray-700 leading-relaxed">
         Starte in deine neue Zukunft mit Sellwell. Auch als Quereinsteiger kannst du bei uns dank individueller Unterstützung und einem positiven Arbeitsumfeld in Kürze aufsteigen und richtig Karriere machen.
         </p>
-        <div className="mt-8 flex flex-col items-center justify-center gap-y-3 md:gap-y-6 sm:flex-row sm:gap-x-6 sm:gap-y-0">
+        <div className="mt-8 flex flex-col items-center justify-center gap-y-3 md:gap-y-6 sm:flex-row sm:gap-x-6 sm:gap-y-0 w-full sm:w-auto">
           <Link href="/karriere">
           <button
             className="sellwell-btn-primary w-full sm:w-auto justify-center flex flex-row items-center gap-2"
