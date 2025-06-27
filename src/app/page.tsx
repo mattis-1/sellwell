@@ -15,6 +15,7 @@ import Stellenangebote from "@/components/features/Stellenangebote";
 import ImageFlow from "@/components/features/ImageFlow";
 import YouTubeGrid from "@/components/features/youtube";
 import Team from "@/components/features/team";
+import Link from "next/link";
 
 const videoIds = [
   "tUgM4kCF7rU", // New IDs
@@ -53,19 +54,19 @@ export default function Home() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href="/karriere">
+                <Link href="/karriere">
                 <button  className="sellwell-btn-primary">
                   Schnell Bewerben
                 </button>
-                </a>
-                <a href="/kontakt">
+                </Link>
+                <Link href="/kontakt">
                 <button className="sellwell-btn-secondary flex items-center justify-center space-x-2">
                   <span>Projekt anfragen</span>
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </button>
-                </a>
+                </Link>
               </div>
 
               {/* Mobile Image - Show only on mobile */}

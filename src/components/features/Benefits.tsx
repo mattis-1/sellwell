@@ -69,12 +69,12 @@ className={`sellwell-section bg-[#F9FAFB] transition-all duration-1000`}
 </div>
 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full pt-12">
       <Link href="/karriere">
-      <button className="sellwell-btn-primary w-[80%] sm:w-auto">
+      <button className="sellwell-btn-primary sm:w-auto">
         Jetzt schnell bewerben
       </button>
       </Link>
       <Link href="#team">
-      <button className="sellwell-btn-secondary flex items-center justify-center space-x-2 w-[80%] sm:w-auto">
+      <button className="sellwell-btn-secondary flex items-center justify-center space-x-2 sm:w-auto">
             <span>Einblick ins Team</span>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

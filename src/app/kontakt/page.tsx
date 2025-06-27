@@ -3,6 +3,7 @@
 import Header from "@/components/features/Header";
 import Footer from "@/components/features/Footer";
 import { Mail, Phone, MapPin } from "lucide-react";
+import Link from "next/link";
 
 export default function Kontakt() {
   return (
@@ -33,12 +34,12 @@ export default function Kontakt() {
                 </div>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">E-Mail</h3>
-              <a 
+              <Link
                 href="mailto:info@sell-well-consulting.de" 
                 className="text-2xl md:text-3xl font-semibold text-gray-800 hover:text-gray-600 transition-colors"
               >
                 info@sell-well-consulting.de
-              </a>
+              </Link>
             </div>
 
             {/* Phone Card */}
@@ -51,12 +52,12 @@ export default function Kontakt() {
                 </div>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Telefon</h3>
-              <a 
+              <Link 
                 href="tel:+4991158084499" 
                 className="text-2xl md:text-3xl font-semibold text-gray-800 hover:text-gray-600 transition-colors"
               >
                 +49 911 58084499
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -75,24 +76,24 @@ export default function Kontakt() {
           </div>
 
           {/* CTA Section */}
-          <div className="text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-              Bereit für Vertriebserfolg?
-            </h2>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="mailto:info@sell-well-consulting.de">
-                <button className="sellwell-btn-primary">
-                  E-Mail senden
-                </button>
-              </a>
-              <a href="tel:+4991158084499">
-                <button className="sellwell-btn-secondary flex items-center justify-center space-x-2">
-                  <span>Anrufen</span>
-                  <Phone className="w-4 h-4" />
-                </button>
-              </a>
+                      <div className="text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+                Bereit für Vertriebserfolg?
+              </h2>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center px-6 sm:px-0">
+                <Link href="mailto:info@sell-well-consulting.de" className="w-full sm:w-auto">
+                  <button className="sellwell-btn-primary w-full sm:w-auto">
+                    E-Mail senden
+                  </button>
+                </Link>
+                <Link href="tel:+4991158084499" className="w-full sm:w-auto">
+                  <button className="sellwell-btn-secondary flex items-center justify-center space-x-2 w-full sm:w-auto">
+                    <span>Anrufen</span>
+                    <Phone className="w-4 h-4" />
+                  </button>
+                </Link>
+              </div>
             </div>
-          </div>
 
         </div>
       </main>
