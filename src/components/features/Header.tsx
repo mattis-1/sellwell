@@ -166,6 +166,7 @@ export default function Header() {
 
                             {/* Mobile Buttons */}
                             <div className="p-6 border-t border-gray-200 space-y-4">
+                                <Link href="#b2b">
                                 <button 
                                     className="w-full header-btn-secondary flex flex-row items-center justify-center gap-2"
                                     onClick={closeMobileMenu}
@@ -173,12 +174,15 @@ export default function Header() {
                                     <div>Unternehmen</div>
                                     <ArrowRight className="h-4 w-4"/>
                                 </button>
+                                </Link>
+                                <Link href="/karriere">
                                 <button 
                                     className="w-full header-btn"
                                     onClick={closeMobileMenu}
                                 >
                                     Bewerben
                                 </button>
+                                </Link>
                             </div>
                         </div>
                     </div>

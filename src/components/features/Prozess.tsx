@@ -47,7 +47,7 @@ export default function Prozess() {
       <div className="absolute bottom-1/4 -left-64 w-96 h-96 bg-gradient-to-r from-green-100/30 to-transparent rounded-full blur-3xl"></div>
       
       <div className="sellwell-container relative z-10">
-        <div className="text-center mb-20">
+        <div className="text-center mb-20 mt-8 md:mt-0">
           <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-[1.3]">
             Bei Sellwell<br />durchstarten
           </h2>

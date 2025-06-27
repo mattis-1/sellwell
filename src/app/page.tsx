@@ -53,14 +53,14 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
                 <Link href="/karriere">
-                <button  className="sellwell-btn-primary">
+                <button  className="sellwell-btn-primary w-full sm:w-auto">
                   Schnell Bewerben
                 </button>
                 </Link>
                 <Link href="/kontakt">
-                <button className="sellwell-btn-secondary flex items-center justify-center space-x-2">
+                <button className="sellwell-btn-secondary flex items-center justify-center space-x-2 w-full sm:w-auto">
                   <span>Projekt anfragen</span>
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
