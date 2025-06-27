@@ -5,6 +5,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { useSwipeable } from "react-swipeable";
 import Image from "next/image";
 import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 interface Card {
   id: number;
@@ -91,9 +92,9 @@ const Slider: React.FC<SliderProps> = ({ cards }) => {
                       <div className="bg-[#7BF3A4] text-black text-xs font-medium py-1 px-2 rounded-full shadow-md inline-block">
                         {card.role}
                       </div>
-                      <a href={card.video} target="_blank" rel="noopener noreferrer">
+                      <Link href={card.video} target="_blank" rel="noopener noreferrer">
                         <ArrowUpRight className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 text-white transform transition-transform duration-300 group-hover:-translate-y-1.5" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>

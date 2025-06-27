@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
  
  export default function LinksRechts() {
  return (
@@ -17,11 +18,11 @@ import Image from "next/image";
        <p className="text-lg md:text-xl text-gray-600 leading-relaxed pr-10 mb-5">
        Als schnellstwachsender Door-to-Door Vertrieb Bayerns übernehmen wir für führende Unternehmen in der Energiebranche den Außendienst. Mit hocheffektiven Vertriebslösungen und einem ambitionierten Team setzen wir regelmäßig neue Maßstäbe im Markt der erneuerbaren Energie.
        </p>
-       <a href="/kontakt">
+       <Link href="/kontakt">
        <button className="sellwell-btn-secondary">
          Jetzt Erstgespräch sichern
        </button>
-       </a>
+       </Link>
      </div>
      <div className="lg:order-1 flex justify-left items-left">
        <Image 
@@ -72,11 +73,11 @@ import Image from "next/image";
            <span className="text-gray-600">Schneller Aufstieg & 1A Gehalt</span>
          </li>
        </ul>
-       <a href="/karriere">
+       <Link href="/karriere">
        <button className="sellwell-btn-secondary">
          Bei Sellwell durchstarten
        </button>
-       </a>
+       </Link>
      </div>
      <div className="lg:justify-self-end flex justify-right items-center">
      <Image 

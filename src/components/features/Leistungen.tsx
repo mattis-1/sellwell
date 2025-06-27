@@ -3,6 +3,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { TrendingUp, Users, ClipboardList, type LucideIcon } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 
 interface Service {
   id: string
@@ -154,11 +155,11 @@ export default function Leistungen() {
         </Tabs>
         
         <div className="text-center mt-12">
-          <a href="/kontakt">
+          <Link href="/kontakt">
           <button className="sellwell-btn-primary">
             Jetzt Projekt Anfragen
           </button>
-          </a>
+          </Link>
           <div className="text-[18px] font-semibold text-gray-900 mt-3">& Strategiegespräch sichern</div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function BenefitsV2() {
   return (
@@ -11,11 +12,11 @@ export default function BenefitsV2() {
        <p className="text-lg md:text-xl text-gray-600 leading-relaxed pr-10">
        Du bist motiviert und suchst nach einer Möglichkeit, in einem ambitionierten Umfeld große Dinge zu erreichen und dich finanziell sowie persönlich weiterzuentwickeln? Dann gibt es für dich keinen besseren Ort als Sellwell. Bei uns erwarten dich konstante Weiterbildung und sympathische, erfolgsgetriebene Kollegen, die dich vorantreiben und motivieren, besser zu werden.
        </p>
-       <a href="/karriere">
+       <Link href="/karriere">
        <button className="sellwell-btn-primary mt-2 md:mt-0">
          Jetzt Bewerben
        </button>
-       </a>
+       </Link>
      </div>
      <div className="lg:order-1 hidden lg:flex justify-center items-center ">
        <Image 

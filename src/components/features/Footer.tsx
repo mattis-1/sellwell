@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react"
+import { Instagram } from "lucide-react"
 import Image from "next/image"
 
 // Placeholder Logo component (same as before)
@@ -46,9 +46,9 @@ export default function Footer() {
                 Nr. 1 D2D Vertrieb in Bayern
             </p>
             <div className="flex space-x-4 mb-6">
-              <a href="/karriere">
+              <Link href="/karriere">
               <button className="header-btn">Jetzt bewerben</button>
-              </a>
+              </Link>
             </div>
             <p className="text-xs text-muted-foreground mt-auto">
               &copy; {currentYear} Sellwell Consulting GmbH. Alle Rechte vorbehalten.

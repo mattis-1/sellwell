@@ -1,5 +1,6 @@
 import React from 'react';
 import { Check, MapPin, Briefcase } from 'lucide-react';
+import Link from 'next/link';
 
 const Stellenangebote = () => {
   const cardStyle: React.CSSProperties = {
@@ -124,11 +125,11 @@ const Stellenangebote = () => {
                     {job.type}
                   </div>
                 </div>
-                <a href="/karriere">
+                <Link href="/karriere">
                 <button className="sellwell-btn-secondary w-full relative z-10">
                   JETZT BEWERBEN
                 </button>
-                </a>
+                </Link>
               </div>
             </div>
           ))}

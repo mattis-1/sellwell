@@ -3,6 +3,7 @@
 import { useRef, useEffect, useState } from "react"
 import Image from "next/image"
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 interface BenefitCardProps {
   icon: string;
@@ -114,12 +115,12 @@ export default function Erwartungen() {
 
         <div className="text-center mt-16 relative z-10">
           <div>
-            <a href="/karriere" className="inline-block">
+            <Link href="/karriere" className="inline-block">
               <button className="sellwell-btn-primary flex flex-row gap-2 items-center">
                 <div>Jetzt Bewerben</div>
                 <div><ArrowRight className="h-5 w-5"/></div>
             </button>
-            </a>
+            </Link>
           </div>
           <p className="subbtnt mt-2">Ohne Lebenslauf & Anschreiben</p>
         </div>

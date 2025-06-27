@@ -2,25 +2,10 @@
 
 import { Shield, Palette, Globe, Users, BookOpen, Zap } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 import { useState } from "react"
 
 export default function Projekterfolg() {
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalMode, setModalMode] = useState<'Firma' | 'Bewerber'>('Firma');
-  
-  // Functions to handle modal
-  const openFirmaModal = () => {
-    setModalMode('Firma');
-    setIsModalOpen(true);
-  };
-  
-  const openBewerberModal = () => {
-    setModalMode('Bewerber');
-    setIsModalOpen(true);
-  };
-  
-  const closeModal = () => setIsModalOpen(false);
 
   const features = [
     {
@@ -103,11 +88,11 @@ export default function Projekterfolg() {
         </div>
 
         <div className="text-center mt-16">
-          <a href="/kontakt">
+          <Link href="/kontakt">
           <button className="sellwell-btn-primary">
             Jetzt Erstgespräch vereinbaren
           </button>
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Image - Below Button */}

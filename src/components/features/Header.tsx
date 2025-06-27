@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ArrowRight, Menu, X } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -54,37 +55,37 @@ export default function Header() {
 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex items-center space-x-8 ml-40">
-                    <a href="/" className="text-gray-600 hover:text-gray-900 transition-colors">Home</a>
-                    <a 
+                    <Link href="/" className="text-gray-600 hover:text-gray-900 transition-colors">Home</Link>
+                    <Link 
                         href="#about" 
                         className="text-gray-600 hover:text-gray-900 transition-colors"
                         onClick={(e) => handleSmoothScroll(e, '#about')}
                     >
                         Über uns
-                    </a>
-                    <a href="/karriere" className="text-gray-600 hover:text-gray-900 transition-colors">Karriere</a>
-                    <a 
+                    </Link>
+                    <Link href="/karriere" className="text-gray-600 hover:text-gray-900 transition-colors">Karriere</Link>
+                    <Link 
                         href="#b2b" 
                         className="text-gray-600 hover:text-gray-900 transition-colors"
                         onClick={(e) => handleSmoothScroll(e, '#b2b')}
                     >
                         Produktpartner
-                    </a>
+                    </Link>
                 </nav>
 
                 {/* Desktop Buttons */}
                 <div className="hidden md:flex items-center space-x-4">
-                    <a href="#about">
+                    <Link href="#about">
                     <button className="header-btn-secondary flex flex-row items-center gap-2">
                         <div>Unternehmen</div>
                         <ArrowRight className="h-4 w-4"/>
                     </button>
-                    </a>
-                    <a href="/karriere">
+                    </Link>
+                    <Link href="/karriere">
                     <button className="header-btn">
                         Bewerben
                     </button>
-                    </a>
+                    </Link>
                 </div>
 
                 {/* Mobile Menu Button */}
@@ -132,34 +133,34 @@ export default function Header() {
                             {/* Mobile Navigation */}
                             <nav className="flex-1 px-6 py-8">
                                 <div className="space-y-6">
-                                    <a 
+                                    <Link 
                                         href="/" 
                                         className="block text-lg font-medium text-gray-900 hover:text-blue-600 transition-colors py-2"
                                         onClick={closeMobileMenu}
                                     >
                                         Home
-                                    </a>
-                                    <a 
+                                    </Link>
+                                    <Link 
                                         href="#about" 
                                         className="block text-lg font-medium text-gray-900 hover:text-blue-600 transition-colors py-2"
                                         onClick={(e) => handleSmoothScroll(e, '#about')}
                                     >
                                         Über uns
-                                    </a>
-                                    <a 
+                                    </Link>
+                                    <Link 
                                         href="/karriere" 
                                         className="block text-lg font-medium text-gray-900 hover:text-blue-600 transition-colors py-2"
                                         onClick={closeMobileMenu}
                                     >
                                         Karriere
-                                    </a>
-                                    <a 
+                                    </Link>
+                                    <Link 
                                         href="#b2b" 
                                         className="block text-lg font-medium text-gray-900 hover:text-blue-600 transition-colors py-2"
                                         onClick={(e) => handleSmoothScroll(e, '#b2b')}
                                     >
                                         Produktpartner
-                                    </a>
+                                    </Link>
                                 </div>
                             </nav>
 
