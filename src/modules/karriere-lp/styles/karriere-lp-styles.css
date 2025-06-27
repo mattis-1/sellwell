@@ -130,6 +130,7 @@
   .sellwell-section {
     padding: 0 0 4rem 0;
   }
+  /*This*/
   
   @media (min-width: 768px) {
     .sellwell-section {
@@ -181,6 +182,7 @@
     padding-left: 1rem;
     padding-right: 1rem;
   }
+  /*This*/
   
   .sellwell-container-2 {
     width: 100%;
@@ -239,6 +241,7 @@
     align-items: center;
     text-align: center;
   }
+  /*This*/
   
   .sellwell-benefit-container-alt-2 {
     border-radius: 2rem;
