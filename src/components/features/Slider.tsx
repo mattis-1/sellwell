@@ -1,7 +1,10 @@
 // components/Slider.tsx
+"use client"
+
 import React, { useState, useRef, useEffect } from "react";
 import { useSwipeable } from "react-swipeable";
 import Image from "next/image";
+import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface Card {
   id: number;
@@ -83,17 +86,13 @@ const Slider: React.FC<SliderProps> = ({ cards }) => {
                 <div className="relative h-[60px] bg-black">
                   {/* Text overlay in the black area with z-index to ensure it's on top */}
                   <div className="absolute bottom-0 left-0 w-full p-2 pl-4 sm:pl-6 pb-3 sm:pb-4 z-20">
-                    <p className="text-base sm:text-lg md:text-[20px] inter700 text-white">{card.name}</p>
+                    <p className="text-base sm:text-lg md:text-xl font-bold text-white">{card.name}</p>
                     <div className="flex justify-between items-center">
-                      <div className="bg-gradient-to-r from-[#184639] to-[#2F8267] text-white text-xs font-semibold py-1 px-2 rounded-full shadow-md inline-block">
+                      <div className="bg-[#7BF3A4] text-black text-xs font-medium py-1 px-2 rounded-full shadow-md inline-block">
                         {card.role}
                       </div>
                       <a href={card.video} target="_blank" rel="noopener noreferrer">
-                        <img
-                          src="/Arrow Diagonal White.svg"
-                          alt="Arrow Icon"
-                          className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 transform transition-transform duration-300 group-hover:-translate-y-1.5"
-                        />
+                        <ArrowUpRight className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 text-white transform transition-transform duration-300 group-hover:-translate-y-1.5" />
                       </a>
                     </div>
                   </div>
@@ -109,7 +108,7 @@ const Slider: React.FC<SliderProps> = ({ cards }) => {
         <div className="w-full sm:w-[50%] md:w-[30rem] lg:w-[36.75rem]">
           <div className="h-2 sm:h-3 bg-[#2D2D2D] rounded-full">
             <div
-              className="h-2 sm:h-3 bg-gradient-to-r from-[#0B4028] to-[#2B543F] rounded-full transition-all duration-300 ease-linear"
+              className="h-2 sm:h-3 bg-[#7BF3A4] rounded-full transition-all duration-300 ease-linear"
               style={{ width: `${progressPercentage}%` }}
             ></div>
           </div>
@@ -120,22 +119,14 @@ const Slider: React.FC<SliderProps> = ({ cards }) => {
             disabled={currentIndex === 0}
             className="bg-[#505050] rounded-lg p-2 sm:p-3 md:p-4 cursor-pointer disabled:opacity-50"
           >
-            <img
-              src="/Arrow.svg"
-              alt="Prev"
-              className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rotate-180 pointer-events-none select-none"
-            />
+            <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white pointer-events-none select-none" />
           </button>
           <button
             onClick={handleNext}
             disabled={currentIndex === cards.length - 1}
             className="bg-[#505050] rounded-lg p-2 sm:p-3 md:p-4 cursor-pointer disabled:opacity-50"
           >
-            <img
-              src="Arrow.svg"
-              alt="Next"
-              className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 pointer-events-none select-none"
-            />
+            <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white pointer-events-none select-none" />
           </button>
         </div>
       </div>

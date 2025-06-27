@@ -1,31 +1,103 @@
-import Header from "@/components/header";
-import Footer from "@/components/footer";
-import SellwellForm from "@/components/form"
-import Image from 'next/image';
+"use client"
 
-export default function KontaktPage() {
-    return (
-        <div className="flex min-h-screen flex-col w-full">
-        <Header />
-        <main className="flex-grow p-4 md:p-8">
-        <div className="flex justify-center mb-3">
-  <div className="inline-flex items-center bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-[25px] px-4 py-2 border border-[#C8C7C6] shadow-[2px_2px_19px_0px_rgba(0,0,0,0.09)]">
-    <Image 
-      src="/Green Star.svg" 
-      alt="Green Star" 
-      width={22}
-      height={22}
-      className="mr-2"
-    />
-    <p className="text-center font-medium text-primary">
-      Jetzt Kontakt mit uns aufnehmen
-    </p>
-  </div>
-</div>
-          <h1 className="text-[55px] leading-17 font-bold mb-6 text-center">Wir freuen uns auf<br /><span className="text-center bg-gradient-to-r from-[#0C462B] to-[#057741] bg-clip-text text-transparent">deine Nachricht</span></h1>
-          <SellwellForm />
-        </main>
-        <Footer />
-      </div>
-    );
+import Header from "@/components/features/Header";
+import Footer from "@/components/features/Footer";
+import { Mail, Phone, MapPin } from "lucide-react";
+
+export default function Kontakt() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-white">
+      <Header />
+      
+      {/* Main Contact Section */}
+      <main className="px-6 py-16 md:px-12 lg:px-16">
+        <div className="max-w-4xl mx-auto">
+          
+          {/* Hero Section */}
+          <div className="text-center mb-16">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-gray-900 mb-6">
+              Kontakt 
+            </h1>
+          </div>
+
+          {/* Contact Information */}
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            
+            {/* Email Card */}
+            <div className="bg-white rounded-3xl shadow-lg border border-gray-100 text-center p-8">
+              <div className="flex justify-center mb-6">
+                <div className="p-4 rounded-[15px] shadow-lg" style={{ 
+                  background: 'linear-gradient(132deg, rgba(235, 255, 225, 0.8) 0%, rgba(124, 242, 165, 0.8) 100%)' 
+                }}>
+                  <Mail className="h-8 w-8 text-white" />
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">E-Mail</h3>
+              <a 
+                href="mailto:info@sell-well-consulting.de" 
+                className="text-2xl md:text-3xl font-semibold text-gray-800 hover:text-gray-600 transition-colors"
+              >
+                info@sell-well-consulting.de
+              </a>
+            </div>
+
+            {/* Phone Card */}
+            <div className="bg-white rounded-3xl shadow-lg border border-gray-100 text-center p-8">
+              <div className="flex justify-center mb-6">
+                <div className="p-4 rounded-[15px] shadow-lg" style={{ 
+                  background: 'linear-gradient(132deg, rgba(235, 255, 225, 0.8) 0%, rgba(124, 242, 165, 0.8) 100%)' 
+                }}>
+                  <Phone className="h-8 w-8 text-white" />
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Telefon</h3>
+              <a 
+                href="tel:+4991158084499" 
+                className="text-2xl md:text-3xl font-semibold text-gray-800 hover:text-gray-600 transition-colors"
+              >
+                +49 911 58084499
+              </a>
+            </div>
+          </div>
+
+          {/* Address Section */}
+          <div className="text-center mb-16">
+            <div className="flex justify-center mb-6">
+              <div className="p-4 bg-white rounded-[15px] shadow-lg">
+                <MapPin className="h-8 w-8 text-gray-700" />
+              </div>
+            </div>
+            <div className="text-lg text-gray-600 space-y-1">
+              <p>Sellwell Consulting GmbH</p>
+              <p>Leiblstraße 26, 85579</p>
+              <p>Neubiberg bei München</p>
+            </div>
+          </div>
+
+          {/* CTA Section */}
+          <div className="text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+              Bereit für Vertriebserfolg?
+            </h2>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="mailto:info@sell-well-consulting.de">
+                <button className="sellwell-btn-primary">
+                  E-Mail senden
+                </button>
+              </a>
+              <a href="tel:+4991158084499">
+                <button className="sellwell-btn-secondary flex items-center justify-center space-x-2">
+                  <span>Anrufen</span>
+                  <Phone className="w-4 h-4" />
+                </button>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
 }
