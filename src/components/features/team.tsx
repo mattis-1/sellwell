@@ -57,7 +57,7 @@ return (
     
     {/* Heading */}
     <div className="richtext prose-h2:text-white mb-2 sm:mb-3">
-      <h2 className="mt-20 text-[43px] font-bold text-center  leading-[62.4px] text-2xl sm:text-4xl md:text-5xl lg:text-[55px] text-[#000000] mb-8 sm:mb-10 md:mb-16">
+      <h2 className="mt-20 text-[37px] font-bold text-center  leading-[1.2] text-2xl sm:text-4xl md:text-5xl lg:text-[55px] text-[#000000] mb-8 sm:mb-10 md:mb-16">
 
         Echter Vertrieb.<br />
           Echte Ergebnisse.
